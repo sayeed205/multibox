@@ -13,7 +13,7 @@ Phase 1A focuses the app on Telegram plus local storage and enforces one-time Te
 1. Remove Navidrome and Jellyfin modules, and carve out core Gradle module seams (`:core:model`, `:core:dsp`, `:core:telegram`).
 2. Keep local device audio scanning, 64-bit DSP (`EqualizerAudioSink`), and `DirectUsbAudioSink`.
 3. Read `TG_API_ID` and `TG_API_HASH` from `local.properties` into `BuildConfig`, with optional `SetupScreen` fallback input.
-4. Integrate TDLib client lifecycle and mandatory Telegram authentication in `SetupScreen` and `SetupViewModel`.
+4. Integrate TDLib auth as a required `SetupScreen` page that blocks finish until login succeeds.
 5. Support Offline Mode restarts and logout recovery according to the session rules below.
 
 ### Session Transitions
