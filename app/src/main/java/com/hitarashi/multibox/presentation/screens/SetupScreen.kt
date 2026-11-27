@@ -162,6 +162,7 @@ import com.hitarashi.multibox.data.preferences.AppLanguage
 import com.hitarashi.multibox.data.preferences.AppThemeMode
 import com.hitarashi.multibox.presentation.components.PermissionIconCollage
 import com.hitarashi.multibox.presentation.components.BackupModuleSelectionDialog
+import com.hitarashi.multibox.presentation.components.SetupTelegramAuthPage
 import com.hitarashi.multibox.presentation.components.subcomps.MaterialYouVectorDrawable
 import com.hitarashi.multibox.presentation.components.subcomps.SineWaveLine
 import com.hitarashi.multibox.presentation.components.FileExplorerDialog
@@ -290,7 +291,12 @@ fun SetupScreen(
                 setupViewModel.checkPermissions(context)
                 pagerState.scrollToPage(blockedPageIndex)
                 previousPageIndex = blockedPageIndex
-                Toast.makeText(context, context.getString(R.string.toast_grant_permission_first), Toast.LENGTH_SHORT).show()
+                val messageRes = if (pages[blockedPageIndex] == SetupPage.TelegramAuth) {
+                    R.string.toast_connect_telegram_first
+                } else {
+                    R.string.toast_grant_permission_first
+                }
+                Toast.makeText(context, context.getString(messageRes), Toast.LENGTH_SHORT).show()
                 return@LaunchedEffect
             }
         }
@@ -311,23 +317,34 @@ fun SetupScreen(
                 pagerState = pagerState,
                 animated = (pagerState.currentPage != 0),
                 isNextButtonEnabled = isNextButtonEnabled,
-                isFinishButtonEnabled = uiState.allPermissionsGranted,
+                isFinishButtonEnabled = uiState.allSetupGatesSatisfied,
                 onNextClicked = {
                     val page = pages[pagerState.currentPage]
                     if (isPermissionGateSatisfied(context, page, uiState)) {
                         navigateToPage(pagerState.currentPage + 1)
                     } else {
                         setupViewModel.checkPermissions(context)
-                        Toast.makeText(context, context.getString(R.string.toast_grant_permission_first), Toast.LENGTH_SHORT).show()
+                        val messageRes = if (page == SetupPage.TelegramAuth) {
+                            R.string.toast_connect_telegram_first
+                        } else {
+                            R.string.toast_grant_permission_first
+                        }
+                        Toast.makeText(context, context.getString(messageRes), Toast.LENGTH_SHORT).show()
                     }
                 },
                 onFinishClicked = {
-                    if (allRequiredPermissionsGrantedNow(context)) {
-                        setupViewModel.setSetupComplete()
-                        onSetupComplete()
-                    } else {
-                        setupViewModel.checkPermissions(context)
-                        Toast.makeText(context, context.getString(R.string.toast_grant_all_permissions), Toast.LENGTH_SHORT).show()
+                    when {
+                        !allRequiredPermissionsGrantedNow(context) -> {
+                            setupViewModel.checkPermissions(context)
+                            Toast.makeText(context, context.getString(R.string.toast_grant_all_permissions), Toast.LENGTH_SHORT).show()
+                        }
+                        !uiState.telegramAuthenticated -> {
+                            Toast.makeText(context, context.getString(R.string.toast_connect_telegram_first), Toast.LENGTH_SHORT).show()
+                        }
+                        else -> {
+                            setupViewModel.setSetupComplete()
+                            onSetupComplete()
+                        }
                     }
                 }
             )
@@ -400,6 +417,22 @@ fun SetupScreen(
                     SetupPage.NotificationsPermission -> NotificationsPermissionPage(
                         uiState = uiState,
                         onPermissionStateUpdated = { setupViewModel.checkPermissions(context) }
+                    )
+                    SetupPage.TelegramAuth -> SetupTelegramAuthPage(
+                        uiState = uiState,
+                        onApiIdChanged = setupViewModel::onTelegramApiIdChanged,
+                        onApiHashChanged = setupViewModel::onTelegramApiHashChanged,
+                        onSubmitApiCredentials = setupViewModel::submitTelegramApiCredentials,
+                        onPhoneChanged = setupViewModel::onTelegramPhoneChanged,
+                        onSubmitPhone = setupViewModel::submitTelegramPhoneNumber,
+                        onCodeChanged = setupViewModel::onTelegramCodeChanged,
+                        onSubmitCode = setupViewModel::submitTelegramCode,
+                        onPasswordChanged = setupViewModel::onTelegramPasswordChanged,
+                        onSubmitPassword = setupViewModel::submitTelegramPassword,
+                        onEditPhone = setupViewModel::enableTelegramPhoneEditMode,
+                        onLogout = setupViewModel::logoutTelegram,
+                        onRetryInit = setupViewModel::retryTelegramInitialization,
+                        onDismissError = setupViewModel::clearTelegramError
                     )
                     SetupPage.AlarmsPermission -> AlarmsPermissionPage(
                         uiState = uiState,
@@ -581,6 +614,7 @@ sealed class SetupPage {
     object ExternalServices : SetupPage()
     object ThemeSelection : SetupPage()
     object NotificationsPermission : SetupPage()
+    object TelegramAuth : SetupPage()
     object AlarmsPermission : SetupPage()
     object LibraryLayout : SetupPage()
     object NavBarLayout : SetupPage()
@@ -598,6 +632,7 @@ private fun buildSetupPages(sdkInt: Int): List<SetupPage> {
         pages += SetupPage.NotificationsPermission
     }
 
+    pages += SetupPage.TelegramAuth
     pages += SetupPage.BackupRestore
     pages += SetupPage.DirectorySelection
     pages += SetupPage.ExternalServices
@@ -644,6 +679,7 @@ private fun isPermissionGateSatisfied(
                     Manifest.permission.POST_NOTIFICATIONS
                 ) == PackageManager.PERMISSION_GRANTED
         }
+        SetupPage.TelegramAuth -> uiState.telegramAuthenticated
         else -> true
     }
 }

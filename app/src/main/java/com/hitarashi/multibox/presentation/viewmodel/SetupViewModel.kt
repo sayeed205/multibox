@@ -9,6 +9,10 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hitarashi.multibox.R
+import com.hitarashi.multibox.core.model.telegram.TelegramApiCredentials
+import com.hitarashi.multibox.core.model.telegram.TelegramAuthGateway
+import com.hitarashi.multibox.core.model.telegram.TelegramAuthState
+import com.hitarashi.multibox.core.model.telegram.TelegramSessionUser
 import com.hitarashi.multibox.data.backup.BackupManager
 import com.hitarashi.multibox.data.backup.model.BackupTransferProgressUpdate
 import com.hitarashi.multibox.data.backup.model.BackupOperationType
@@ -49,7 +53,17 @@ data class SetupUiState(
     val isInspectingBackup: Boolean = false,
     val isRestoringBackup: Boolean = false,
     val restorePlan: RestorePlan? = null,
-    val backupTransferProgress: BackupTransferProgressUpdate? = null
+    val backupTransferProgress: BackupTransferProgressUpdate? = null,
+    val telegramAuthState: TelegramAuthState = TelegramAuthState.Initializing,
+    val telegramUser: TelegramSessionUser? = null,
+    val telegramApiIdInput: String = "",
+    val telegramApiHashInput: String = "",
+    val telegramPhoneInput: String = "",
+    val telegramCodeInput: String = "",
+    val telegramPasswordInput: String = "",
+    val telegramEditingPhone: Boolean = false,
+    val telegramIsBusy: Boolean = false,
+    val telegramInlineError: String? = null
 ) {
     val allPermissionsGranted: Boolean
         get() {
@@ -57,6 +71,12 @@ data class SetupUiState(
             val notificationsOk = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) notificationsPermissionGranted else true
             return mediaOk && notificationsOk
         }
+
+    val telegramAuthenticated: Boolean
+        get() = telegramAuthState is TelegramAuthState.Ready
+
+    val allSetupGatesSatisfied: Boolean
+        get() = allPermissionsGranted && telegramAuthenticated
 }
 
 sealed interface SetupEvent {
@@ -71,6 +91,7 @@ class SetupViewModel @Inject constructor(
     private val syncManager: SyncManager,
     private val backupManager: BackupManager,
     private val musicRepository: MusicRepository,
+    private val telegramAuthGateway: TelegramAuthGateway,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
 
@@ -147,6 +168,64 @@ class SetupViewModel @Inject constructor(
         viewModelScope.launch {
             fileExplorerStateHolder.isLoading.collect { loading ->
                 _uiState.update { it.copy(isLoadingDirectories = loading) }
+            }
+        }
+
+        viewModelScope.launch {
+            telegramAuthGateway.ensureInitialized()
+        }
+
+        viewModelScope.launch {
+            telegramAuthGateway.authState.collect { authState ->
+                _uiState.update { state ->
+                    state.copy(
+                        telegramAuthState = authState,
+                        telegramIsBusy = authState is TelegramAuthState.LoggingOut,
+                        telegramEditingPhone = if (authState is TelegramAuthState.WaitingForPhoneNumber ||
+                            authState is TelegramAuthState.Ready
+                        ) {
+                            false
+                        } else {
+                            state.telegramEditingPhone
+                        },
+                        telegramCodeInput = if (authState is TelegramAuthState.Ready ||
+                            authState is TelegramAuthState.WaitingForPhoneNumber
+                        ) {
+                            ""
+                        } else {
+                            state.telegramCodeInput
+                        },
+                        telegramPasswordInput = if (authState is TelegramAuthState.Ready ||
+                            authState is TelegramAuthState.WaitingForPhoneNumber
+                        ) {
+                            ""
+                        } else {
+                            state.telegramPasswordInput
+                        },
+                        telegramInlineError = if (authState is TelegramAuthState.Ready) {
+                            null
+                        } else {
+                            state.telegramInlineError
+                        }
+                    )
+                }
+            }
+        }
+
+        viewModelScope.launch {
+            telegramAuthGateway.currentUser.collect { user ->
+                _uiState.update { it.copy(telegramUser = user) }
+            }
+        }
+
+        viewModelScope.launch {
+            telegramAuthGateway.authErrors.collect { errorMessage ->
+                _uiState.update {
+                    it.copy(
+                        telegramIsBusy = false,
+                        telegramInlineError = errorMessage
+                    )
+                }
             }
         }
     }
@@ -420,6 +499,141 @@ class SetupViewModel @Inject constructor(
         userPreferencesRepository.setInitialSetupDone(true)
         if (syncAfter) {
             syncManager.fullSync(deepScan = false)
+        }
+    }
+
+    fun onTelegramApiIdChanged(value: String) {
+        _uiState.update {
+            it.copy(
+                telegramApiIdInput = value.filter(Char::isDigit).take(12),
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun onTelegramApiHashChanged(value: String) {
+        _uiState.update {
+            it.copy(
+                telegramApiHashInput = value.trim(),
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun onTelegramPhoneChanged(value: String) {
+        val trimmed = value.trim()
+        val hasPlus = trimmed.startsWith("+")
+        val digits = trimmed.filter(Char::isDigit)
+        val normalized = if (hasPlus) "+$digits" else digits
+        _uiState.update {
+            it.copy(
+                telegramPhoneInput = normalized,
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun onTelegramCodeChanged(value: String) {
+        _uiState.update {
+            it.copy(
+                telegramCodeInput = value.filter(Char::isDigit).take(8),
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun onTelegramPasswordChanged(value: String) {
+        _uiState.update {
+            it.copy(
+                telegramPasswordInput = value,
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun enableTelegramPhoneEditMode() {
+        _uiState.update {
+            it.copy(
+                telegramEditingPhone = true,
+                telegramCodeInput = "",
+                telegramPasswordInput = "",
+                telegramInlineError = null
+            )
+        }
+    }
+
+    fun clearTelegramError() {
+        _uiState.update { it.copy(telegramInlineError = null) }
+    }
+
+    fun retryTelegramInitialization() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(telegramIsBusy = true, telegramInlineError = null) }
+            telegramAuthGateway.ensureInitialized()
+            _uiState.update { it.copy(telegramIsBusy = false) }
+        }
+    }
+
+    fun submitTelegramApiCredentials() {
+        val state = _uiState.value
+        val apiId = state.telegramApiIdInput.toIntOrNull() ?: 0
+        val creds = TelegramApiCredentials(apiId = apiId, apiHash = state.telegramApiHashInput)
+        runTelegramAction {
+            telegramAuthGateway.saveRuntimeCredentials(creds)
+        }
+    }
+
+    fun submitTelegramPhoneNumber() {
+        val phone = _uiState.value.telegramPhoneInput
+        runTelegramAction {
+            telegramAuthGateway.sendPhoneNumber(phone)
+        }
+    }
+
+    fun submitTelegramCode() {
+        val code = _uiState.value.telegramCodeInput
+        runTelegramAction {
+            telegramAuthGateway.checkAuthenticationCode(code)
+        }
+    }
+
+    fun submitTelegramPassword() {
+        val password = _uiState.value.telegramPasswordInput
+        runTelegramAction {
+            telegramAuthGateway.checkAuthenticationPassword(password)
+        }
+    }
+
+    fun logoutTelegram() {
+        runTelegramAction {
+            telegramAuthGateway.logout()
+        }
+    }
+
+    private fun runTelegramAction(action: suspend () -> Result<Unit>) {
+        if (_uiState.value.telegramIsBusy) return
+        viewModelScope.launch {
+            _uiState.update { it.copy(telegramIsBusy = true, telegramInlineError = null) }
+            val result = action()
+            result.fold(
+                onSuccess = {
+                    _uiState.update {
+                        it.copy(
+                            telegramIsBusy = false,
+                            telegramEditingPhone = false,
+                            telegramInlineError = null
+                        )
+                    }
+                },
+                onFailure = { error ->
+                    _uiState.update {
+                        it.copy(
+                            telegramIsBusy = false,
+                            telegramInlineError = error.message ?: "Telegram login failed."
+                        )
+                    }
+                }
+            )
         }
     }
 }

@@ -2,6 +2,8 @@ package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hitarashi.multibox.core.model.telegram.TelegramAuthGateway
+import com.hitarashi.multibox.core.model.telegram.TelegramAuthState
 import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import com.hitarashi.multibox.data.repository.MusicRepository
 import com.hitarashi.multibox.data.worker.SyncManager
@@ -11,6 +13,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -20,7 +24,8 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val syncManager: SyncManager,
     musicRepository: MusicRepository,
-    userPreferencesRepository: UserPreferencesRepository
+    private val userPreferencesRepository: UserPreferencesRepository,
+    private val telegramAuthGateway: TelegramAuthGateway
 ) : ViewModel() {
 
     val isSetupComplete: StateFlow<Boolean?> = userPreferencesRepository.initialSetupDoneFlow
@@ -30,6 +35,28 @@ class MainViewModel @Inject constructor(
             started = SharingStarted.Eagerly,
             initialValue = null
         )
+
+    init {
+        viewModelScope.launch {
+            telegramAuthGateway.ensureInitialized()
+        }
+        viewModelScope.launch {
+            combine(
+                isSetupComplete.filterNotNull(),
+                telegramAuthGateway.authState
+            ) { setupDone, authState ->
+                setupDone to authState
+            }.collect { (setupDone, authState) ->
+                if (setupDone &&
+                    (authState is TelegramAuthState.WaitingForPhoneNumber ||
+                        authState is TelegramAuthState.WaitingForApiCredentials)
+                ) {
+                    LogUtils.w(this@MainViewModel, "Telegram session unauthenticated; returning to Setup gate.")
+                    userPreferencesRepository.setInitialSetupDone(false)
+                }
+            }
+        }
+    }
 
     val hasCompletedInitialSync: StateFlow<Boolean> = userPreferencesRepository.lastSyncTimestampFlow
         .map { it > 0L }
