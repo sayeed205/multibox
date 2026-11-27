@@ -46,12 +46,6 @@ android {
         }
     }
 
-    sourceSets {
-        getByName("androidTest") {
-            assets.directories.add(file("$projectDir/schemas").path)
-        }
-    }
-
     androidResources {
         // Keep only the languages we actually ship. Without this the app picks up
         // every locale our AndroidX dependencies carry, which bloats the APK and
@@ -173,12 +167,6 @@ baselineProfile {
     dexLayoutOptimization = true
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-    arg("room.incremental", "true")
-    arg("room.generateKotlin", "true")
-}
-
 kotlin {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
@@ -200,6 +188,7 @@ kotlin {
 
 dependencies {
     implementation(project(":core:model"))
+    implementation(project(":core:database"))
     implementation(project(":core:dsp"))
     implementation(project(":core:telegram"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)

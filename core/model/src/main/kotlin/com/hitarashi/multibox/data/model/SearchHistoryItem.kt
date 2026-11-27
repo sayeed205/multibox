@@ -1,8 +1,5 @@
 package com.hitarashi.multibox.data.model
 
-import androidx.compose.runtime.Immutable
-
-@Immutable
 data class SearchHistoryItem(
     val id: Long? = null,
     val query: String,

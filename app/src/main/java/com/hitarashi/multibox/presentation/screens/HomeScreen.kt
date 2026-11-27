@@ -210,7 +210,7 @@ fun HomeScreen(
             maxItems = 64
         )
     }
-    var recentlyPlayedSongs by rememberSaveable { mutableStateOf(latestRecentlyPlayedSongs) }
+    var recentlyPlayedSongs by remember { mutableStateOf(latestRecentlyPlayedSongs) }
     val latestRecentlyPlayedSongsState = rememberUpdatedState(latestRecentlyPlayedSongs)
 
     LaunchedEffect(latestRecentlyPlayedSongs, lifecycleOwner) {

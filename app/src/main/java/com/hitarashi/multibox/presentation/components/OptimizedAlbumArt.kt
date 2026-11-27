@@ -56,11 +56,11 @@ fun OptimizedAlbumArt(
     val isStableLocalArtwork = remember(artworkModel) {
         when (artworkModel) {
             is String -> LocalArtworkUri.isLocalArtworkUri(artworkModel)
-            is Uri -> LocalArtworkUri.isLocalArtworkUri(artworkModel)
+            is Uri -> LocalArtworkUri.isLocalArtworkUri(artworkModel.toString())
             is ImageRequest -> {
                 val data = artworkModel.data
                 (data as? String)?.let(LocalArtworkUri::isLocalArtworkUri) == true ||
-                    LocalArtworkUri.isLocalArtworkUri(data as? Uri)
+                    LocalArtworkUri.isLocalArtworkUri((data as? Uri)?.toString())
             }
             else -> false
         }

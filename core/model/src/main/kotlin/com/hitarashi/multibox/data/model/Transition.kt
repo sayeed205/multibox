@@ -1,7 +1,5 @@
 package com.hitarashi.multibox.data.model
 
-import androidx.room.Embedded
-
 /**
  * Defines the available transition modes between songs.
  */

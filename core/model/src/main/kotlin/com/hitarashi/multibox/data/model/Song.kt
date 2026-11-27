@@ -1,11 +1,5 @@
 package com.hitarashi.multibox.data.model
 
-import android.os.Parcelable
-import androidx.compose.runtime.Immutable
-import kotlinx.parcelize.Parcelize
-
-@Immutable
-@Parcelize
 data class Song(
     val id: String,
     val title: String,
@@ -35,7 +29,7 @@ data class Song(
     val mimeType: String?,
     val bitrate: Int?,
     val sampleRate: Int?,
-) : Parcelable {
+) {
     /**
      * Returns the display string for artists.
      * If multiple artists exist (populated during sync), joins them with ", ".

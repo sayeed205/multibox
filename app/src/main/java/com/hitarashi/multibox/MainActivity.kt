@@ -74,6 +74,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.firstOrNull
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -517,15 +518,15 @@ class MainActivity : ComponentActivity() {
             }
             
             intent.action == "com.hitarashi.multibox.ACTION_PLAY_SONG" -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                     intent.getParcelableExtra("song", com.hitarashi.multibox.data.model.Song::class.java)?.let { song ->
-                         playerViewModel.playSong(song)
-                     }
-                } else {
-                     @Suppress("DEPRECATION")
-                     intent.getParcelableExtra<com.hitarashi.multibox.data.model.Song>("song")?.let { song ->
-                         playerViewModel.playSong(song)
-                     }
+                intent.getStringExtra("song_id")?.let { songId ->
+                    lifecycleScope.launch {
+                        val song = playerViewModel.observeSongs(listOf(songId))
+                            .firstOrNull()
+                            ?.firstOrNull()
+                        if (song != null) {
+                            playerViewModel.playSong(song)
+                        }
+                    }
                 }
                 intent.action = null
             }

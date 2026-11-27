@@ -8,26 +8,16 @@ import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.WorkManager
 import coil.ImageLoader
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
-import com.hitarashi.multibox.BuildConfig
 import com.hitarashi.multibox.MultiboxApplication
 import com.hitarashi.multibox.data.database.AlbumArtThemeDao
-import com.hitarashi.multibox.data.database.EngagementDao
 import com.hitarashi.multibox.data.database.FavoritesDao
 import com.hitarashi.multibox.data.database.LyricsDao
-import com.hitarashi.multibox.data.database.LocalPlaylistDao
-import com.hitarashi.multibox.data.database.ListenBrainzDao
-import com.hitarashi.multibox.data.database.AudioBookmarkDao
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SearchHistoryDao
-import com.hitarashi.multibox.data.database.TransitionDao
 import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
 import com.hitarashi.multibox.data.preferences.dataStore
@@ -116,84 +106,6 @@ object AppModule {
     @Provides
     fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
         return WorkManager.getInstance(context)
-    }
-
-    @Singleton
-    @Provides
-    fun provideMultiboxDatabase(@ApplicationContext context: Context): MultiboxDatabase {
-        val builder = Room.databaseBuilder(
-            context.applicationContext,
-            MultiboxDatabase::class.java,
-            "multibox_database"
-        )
-            .addCallback(MultiboxDatabase.createRuntimeArtifactsCallback())
-            .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
-
-        if (BuildConfig.DEBUG) {
-            builder.fallbackToDestructiveMigration(dropAllTables = true)
-        }
-
-        return builder.build()
-    }
-
-    @Singleton
-    @Provides
-    fun provideAlbumArtThemeDao(database: MultiboxDatabase): AlbumArtThemeDao {
-        return database.albumArtThemeDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideSearchHistoryDao(database: MultiboxDatabase): SearchHistoryDao {
-        return database.searchHistoryDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideMusicDao(database: MultiboxDatabase): MusicDao {
-        return database.musicDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideTransitionDao(database: MultiboxDatabase): TransitionDao {
-        return database.transitionDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideEngagementDao(database: MultiboxDatabase): EngagementDao {
-        return database.engagementDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideFavoritesDao(database: MultiboxDatabase): FavoritesDao {
-        return database.favoritesDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideLyricsDao(database: MultiboxDatabase): LyricsDao {
-        return database.lyricsDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideLocalPlaylistDao(database: MultiboxDatabase): LocalPlaylistDao {
-        return database.localPlaylistDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideListenBrainzDao(database: MultiboxDatabase): ListenBrainzDao {
-        return database.listenBrainzDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideAudioBookmarkDao(database: MultiboxDatabase): AudioBookmarkDao {
-        return database.audioBookmarkDao()
     }
 
     @Provides

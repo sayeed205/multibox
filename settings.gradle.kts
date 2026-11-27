@@ -33,5 +33,6 @@ rootProject.name = "Multibox"
 include(":app")
 include(":baselineprofile")
 include(":core:model")
+include(":core:database")
 include(":core:dsp")
 include(":core:telegram")

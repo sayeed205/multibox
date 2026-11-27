@@ -1,7 +1,5 @@
 package com.hitarashi.multibox.utils
 
-import android.net.Uri
-
 object LocalArtworkUri {
     const val SCHEME = "multibox_local_art"
     private val LEGACY_SCHEME = charArrayOf(
@@ -16,10 +14,6 @@ object LocalArtworkUri {
 
     fun isLocalArtworkUri(uriString: String?): Boolean {
         return uriString?.let { it.startsWith("$SCHEME://") || it.startsWith("$LEGACY_SCHEME://") } == true
-    }
-
-    fun isLocalArtworkUri(uri: Uri?): Boolean {
-        return uri?.toString()?.let(::isLocalArtworkUri) == true
     }
 
     fun parseSongId(uriString: String): Long? {
