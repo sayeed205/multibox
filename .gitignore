@@ -36,6 +36,8 @@ wear/build/
 wear/release/
 shared/build/
 baselineprofile/build/
+core/*/build/
+feature/*/build/
 
 misc.xml
 CLAUDE.md
