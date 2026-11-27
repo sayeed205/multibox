@@ -79,5 +79,5 @@ data class TransitionRule(
     val playlistId: String,
     val fromTrackId: String? = null,
     val toTrackId: String? = null,
-    @Embedded val settings: TransitionSettings,
+    val settings: TransitionSettings,
 )
