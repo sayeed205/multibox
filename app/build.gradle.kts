@@ -270,6 +270,7 @@ dependencies {
     implementation(libs.ktor.server.cio)
 
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.documentfile)
     implementation(libs.androidx.security.crypto)
 
     implementation(libs.timber)
