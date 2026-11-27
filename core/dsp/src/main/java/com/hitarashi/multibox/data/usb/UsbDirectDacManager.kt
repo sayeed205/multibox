@@ -14,9 +14,9 @@ import android.hardware.usb.UsbInterface
 import android.hardware.usb.UsbManager
 import android.os.Build
 import android.os.SystemClock
-import com.hitarashi.multibox.data.logging.PlayerLogBuffer
-import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
-import com.hitarashi.multibox.di.AppScope
+import com.hitarashi.multibox.core.model.di.ApplicationScope
+import com.hitarashi.multibox.core.model.dsp.DspLogger
+import com.hitarashi.multibox.core.model.dsp.UsbDacPreferences
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -57,9 +57,9 @@ sealed interface UsbDacState {
 @Singleton
 class UsbDirectDacManager @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val preferences: UserPreferencesRepository,
-    @AppScope private val scope: CoroutineScope,
-    private val logBuffer: PlayerLogBuffer
+    private val preferences: UsbDacPreferences,
+    @ApplicationScope private val scope: CoroutineScope,
+    private val logBuffer: DspLogger
 ) {
     private val usbManager: UsbManager =
         context.getSystemService(Context.USB_SERVICE) as UsbManager

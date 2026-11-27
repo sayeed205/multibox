@@ -23,6 +23,7 @@ dependencyResolutionManagement {
             content {
                 includeGroup("com.github.philburk")
                 includeGroup("com.github.racra")
+                includeGroup("com.github.tdlibx")
             }
         }
     }
@@ -31,3 +32,6 @@ dependencyResolutionManagement {
 rootProject.name = "Multibox"
 include(":app")
 include(":baselineprofile")
+include(":core:model")
+include(":core:dsp")
+include(":core:telegram")

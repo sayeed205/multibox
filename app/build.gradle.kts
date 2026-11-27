@@ -85,20 +85,6 @@ android {
         versionName = (project.findProperty("APP_VERSION_NAME") as? String) ?: "0.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        externalNativeBuild {
-            cmake {
-                cppFlags += "-std=c++17"
-                abiFilters += setOf("arm64-v8a", "armeabi-v7a")
-            }
-        }
-    }
-
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.22.1"
-        }
     }
 
     signingConfigs {
@@ -209,6 +195,9 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":core:model"))
+    implementation(project(":core:dsp"))
+    implementation(project(":core:telegram"))
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     implementation(libs.androidx.profileinstaller)
     "baselineProfile"(project(":baselineprofile"))

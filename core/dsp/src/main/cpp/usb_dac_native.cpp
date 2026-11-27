@@ -1308,3 +1308,4 @@ Java_##pkg##_UsbDirectDacManager_nativeWriteByteArrayFormat(JNIEnv* e, jobject t
 
 EXPORT_PAIR(com_yoopen_player_data_usb)
 EXPORT_PAIR(open_yo_player_data_usb)
+EXPORT_PAIR(com_hitarashi_multibox_data_usb)
