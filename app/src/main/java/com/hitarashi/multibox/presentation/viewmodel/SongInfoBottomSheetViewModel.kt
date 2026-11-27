@@ -206,12 +206,6 @@ class SongInfoBottomSheetViewModel @Inject constructor(
     }
 
     private suspend fun setSongAsToneInternal(song: Song, target: ToneTarget): ToneActionResult {
-        if (getCloudProviderLabel(song.contentUriString) != null) {
-            return ToneActionResult.Error(
-                appContext.getString(R.string.song_info_ringtone_local_only)
-            )
-        }
-
         val ringtoneUri = runCatching { resolveMediaStoreAudioUri(song) }.getOrNull()
             ?: return ToneActionResult.Error(
                 appContext.getString(R.string.song_info_ringtone_missing_file)

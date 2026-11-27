@@ -271,17 +271,6 @@ object MediaItemBuilder {
             )
         }
 
-        val internalArtworkUri = normalizeArtworkUri(
-            rawArtworkUri,
-            CLOUD_ARTWORK_SCHEMES
-        )
-        if (internalArtworkUri != null) {
-            return SharedArtworkContentProvider.buildCloudUri(
-                context = context.applicationContext,
-                rawArtworkUri = internalArtworkUri.toString()
-            )
-        }
-
         val normalizedUri = normalizeArtworkUri(rawArtworkUri, SUPPORTED_EXTERNAL_ARTWORK_SCHEMES)
             ?: return null
         return when (normalizedUri.scheme?.lowercase()) {

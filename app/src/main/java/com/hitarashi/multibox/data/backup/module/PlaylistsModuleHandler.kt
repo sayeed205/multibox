@@ -465,7 +465,7 @@ class PlaylistsModuleHandler @Inject constructor(
             get() = resolvedSongIds.filterValues { it == null }.keys
     }
 
-    private fun restoreLegacyPreferenceEntries(payload: String) {
+    private suspend fun restoreLegacyPreferenceEntries(payload: String) {
         val type = TypeToken.getParameterized(List::class.java, PreferenceBackupEntry::class.java).type
         val entries: List<PreferenceBackupEntry> = gson.fromJson(payload, type)
 
