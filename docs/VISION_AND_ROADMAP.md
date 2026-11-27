@@ -32,6 +32,7 @@ These rules come from the architecture grill and guide all implementation phases
 | Q12 Logout policy | Return to Telegram login gate on logout, clear remote cache, and keep public downloads. | [Phase 1A](PHASE_1_TELEGRAM_AUDIO.md#phase-1a-source-cleanup-and-tdlib-auth-core) |
 | Q13 Metadata fetcher | Skip Telegram metadata for thumbnails, and finalize metadata fetchers when building each media type. | [Architecture](TELEGRAM_MEDIA_ARCHITECTURE.md#metadata-and-external-id-grouping) |
 | Q14 Build order | Remove unused sources first, split core Gradle modules, then build TDLib auth in `:core:telegram`. | [Phase 1A](PHASE_1_TELEGRAM_AUDIO.md#phase-1a-source-cleanup-and-tdlib-auth-core) |
+| Q15 Music integrations | Keep ListenBrainz, LrcLib, Deezer, and MusicBrainz for now, and review later. | [Phase 1C](PHASE_1_TELEGRAM_AUDIO.md#phase-1c-scoped-audio-indexing-and-streaming) |
 
 ## Delivery Phases
 
