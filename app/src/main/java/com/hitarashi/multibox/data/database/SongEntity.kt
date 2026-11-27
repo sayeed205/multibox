@@ -7,7 +7,6 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.hitarashi.multibox.data.model.ArtistRef
 import com.hitarashi.multibox.data.model.Song
-import com.hitarashi.multibox.data.navidrome.NavidromeSongUri
 import com.hitarashi.multibox.utils.GenreParser
 import com.hitarashi.multibox.utils.LocalArtworkUri
 import com.hitarashi.multibox.utils.normalizeMetadataText
@@ -19,15 +18,9 @@ import java.util.concurrent.TimeUnit
 /** Integer constants for the `source_type` column — faster than LIKE checks on URI scheme. */
 object SourceType {
     const val LOCAL = 0
-    const val NAVIDROME = 5
-    const val JELLYFIN = 6
 
-    /** Derive source type from a content URI string (fallback for migration / conversion). */
-    fun fromContentUri(uri: String): Int = when {
-        uri.startsWith("navidrome://") -> NAVIDROME
-        uri.startsWith("jellyfin://") -> JELLYFIN
-        else -> LOCAL
-    }
+    /** Derive source type from a content URI string. */
+    fun fromContentUri(uri: String): Int = LOCAL
 }
 
 @Entity(
@@ -133,10 +126,6 @@ private fun SongEntity.toSongInternal(artists: List<ArtistRef>): Song {
             this.dateAdded
         },
         year = this.year,
-        navidromeId = NavidromeSongUri.parseId(this.contentUriString),
-        jellyfinId = if (this.contentUriString.startsWith("jellyfin://")) {
-            this.contentUriString.removePrefix("jellyfin://")
-        } else null,
         mimeType = this.mimeType,
         bitrate = this.bitrate,
         sampleRate = this.sampleRate

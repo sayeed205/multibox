@@ -306,14 +306,7 @@ fun SongPickerSelectionPane(
         playerViewModel.searchSongs(searchQuery)
             .map { songs ->
                 when (storageFilter) {
-                    StorageFilter.OFFLINE -> songs.filter { s ->
-                        s.navidromeId == null && s.jellyfinId == null
-                    }
-
-                    StorageFilter.ONLINE -> songs.filter { s ->
-                        s.navidromeId != null || s.jellyfinId != null
-                    }
-
+                    StorageFilter.ONLINE -> emptyList()
                     else -> songs
                 }
             }

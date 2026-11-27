@@ -39,7 +39,6 @@ import com.hitarashi.multibox.data.equalizer.EqualizerAudioSink
 import com.hitarashi.multibox.data.equalizer.EqualizerManager
 import com.hitarashi.multibox.data.model.AudioOutputMode
 import com.hitarashi.multibox.data.model.TransitionSettings
-import com.hitarashi.multibox.data.offline.CloudOfflineRepository
 import com.hitarashi.multibox.utils.MediaItemBuilder
 import com.hitarashi.multibox.utils.envelope
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -55,16 +54,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import java.io.IOException
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.coroutines.resume
-
-import com.hitarashi.multibox.data.navidrome.NavidromeStreamProxy
 
 data class ActiveDecoderInfo(
     val name: String,
@@ -257,9 +252,6 @@ internal fun shouldDisableAudioOffloadOnEarlyBuffering(
 @Singleton
 class DualPlayerEngine @Inject constructor(
     @param:ApplicationContext private val context: Context,
-    private val navidromeStreamProxy: NavidromeStreamProxy,
-    private val jellyfinStreamProxy: com.hitarashi.multibox.data.jellyfin.JellyfinStreamProxy,
-    private val cloudOfflineRepository: CloudOfflineRepository,
     private val equalizerManager: EqualizerManager,
     private val usbDirectDacManager: com.hitarashi.multibox.data.usb.UsbDirectDacManager
 ) {
@@ -273,8 +265,7 @@ class DualPlayerEngine @Inject constructor(
         private const val POST_TRANSITION_OFFLOAD_GUARD_MS = 2_000L
         private const val MAX_AUXILIARY_TIMELINE_ITEMS = QueueWindowPolicy.MAX_AUXILIARY_TIMELINE_ITEMS
         private val LOCAL_MEDIA_SCHEMES = setOf("content", "file", "android.resource")
-        private val REMOTE_MEDIA_SCHEMES = setOf("http", "https", "navidrome", "jellyfin")
-        private val CLOUD_PROXY_SCHEMES = setOf("navidrome", "jellyfin")
+        private val REMOTE_MEDIA_SCHEMES = setOf("http", "https")
     }
 
     data class TransitionTarget(
@@ -532,28 +523,6 @@ class DualPlayerEngine @Inject constructor(
             }
 
             applyWakeModeForCurrentItem()
-
-            preResolutionJob?.cancel()
-            preResolutionJob = scope.launch {
-                delay(600)
-                try {
-                    val currentIndex = playerA.currentMediaItemIndex
-                    if (currentIndex != C.INDEX_UNSET) {
-                        if (currentIndex + 1 < playerA.mediaItemCount) {
-                            playerA.getMediaItemAt(currentIndex + 1).localConfiguration?.uri
-                                ?.takeIf { it.scheme in CLOUD_PROXY_SCHEMES }
-                                ?.let { resolveCloudUri(it) }
-                        }
-                        if (currentIndex - 1 >= 0) {
-                            playerA.getMediaItemAt(currentIndex - 1).localConfiguration?.uri
-                                ?.takeIf { it.scheme in CLOUD_PROXY_SCHEMES }
-                                ?.let { resolveCloudUri(it) }
-                        }
-                    }
-                } catch (e: Exception) {
-                    Timber.tag("DualPlayerEngine").w(e, "Pre-resolution error")
-                }
-            }
         }
 
         override fun onTimelineChanged(timeline: Timeline, reason: Int) {
@@ -695,41 +664,12 @@ class DualPlayerEngine @Inject constructor(
     }
 
     fun triggerAdjacentPreResolution() {
-        if (!::playerA.isInitialized) return
         preResolutionJob?.cancel()
-        val currentIndex = playerA.currentMediaItemIndex
-        if (currentIndex != C.INDEX_UNSET) {
-            val adjacentCloudUris = mutableListOf<Uri>()
-            if (currentIndex + 1 < playerA.mediaItemCount) {
-                playerA.getMediaItemAt(currentIndex + 1).localConfiguration?.uri?.let { uri ->
-                    if (uri.scheme in CLOUD_PROXY_SCHEMES) adjacentCloudUris.add(uri)
-                }
-            }
-            if (currentIndex - 1 >= 0) {
-                playerA.getMediaItemAt(currentIndex - 1).localConfiguration?.uri?.let { uri ->
-                    if (uri.scheme in CLOUD_PROXY_SCHEMES) adjacentCloudUris.add(uri)
-                }
-            }
-
-            if (adjacentCloudUris.isNotEmpty()) {
-                preResolutionJob = scope.launch {
-                    delay(600)
-                    try {
-                        for (uriToResolve in adjacentCloudUris) {
-                            resolveCloudUri(uriToResolve)
-                        }
-                    } catch (e: Exception) {
-                        Timber.tag("DualPlayerEngine").w(e, "Error during pre-resolution triggered manually")
-                    }
-                }
-            }
-        }
     }
 
     fun getAudioSessionId(): Int = if (::playerA.isInitialized) playerA.audioSessionId else 0
 
     private var isReleased = false
-    private val resolvedUriCache = LruCache<String, Uri>(100)
 
     fun initialize() {
         if (!isReleased && ::playerA.isInitialized && playerA.applicationLooper.thread.isAlive) return
@@ -1204,57 +1144,8 @@ class DualPlayerEngine @Inject constructor(
             .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
             .setUsage(C.USAGE_MEDIA)
             .build()
-            
-        val resolver = object : ResolvingDataSource.Resolver {
-            override fun resolveDataSpec(dataSpec: DataSpec): DataSpec {
-                val uri = dataSpec.uri
-                val scheme = uri.scheme
-                if (scheme in CLOUD_PROXY_SCHEMES) {
-                    val originalUri = uri.toString()
-                    val offlineUri = try {
-                        runBlocking { cloudOfflineRepository.resolveLocalUri(originalUri) }
-                    } catch (e: Exception) {
-                        Timber.tag("DualPlayerEngine").w(e, "Offline copy lookup failed")
-                        null
-                    }
-                    if (offlineUri != null) {
-                        return dataSpec.buildUpon().setUri(offlineUri).build()
-                    }
-                    val resolved = resolvedUriCache.get(originalUri)
-                        ?: resolveReadyCloudProxyUri(uri)?.also { proxyUri ->
-                            resolvedUriCache.put(originalUri, proxyUri)
-                        }
-                    if (resolved != null) {
-                        return dataSpec.buildUpon().setUri(resolved).build()
-                    }
-                    // Cache miss: resolve inline. resolveDataSpec runs on ExoPlayer's
-                    // loading thread, where blocking I/O is allowed. This makes cloud
-                    // playback independent of whether the dispatch path pre-resolved
-                    // the URI — seeks into unresolved queue items, add-to-queue,
-                    // controller-driven playback and restored queues would otherwise
-                    // hand a raw cloud scheme to DefaultDataSource and surface a
-                    // "Source error" toast.
-                    Timber.tag("DualPlayerEngine").d("resolveDataSpec: cache miss for %s — resolving inline", scheme)
-                    val inlineResolved = try {
-                        runBlocking { resolveCloudUri(uri) }
-                    } catch (e: Exception) {
-                        // Keep loader failures on the IOException path: ExoPlayer treats
-                        // unexpected RuntimeExceptions from a DataSource as fatal.
-                        throw IOException("Failed to resolve $scheme stream", e)
-                    }
-                    if (inlineResolved != uri) {
-                        return dataSpec.buildUpon().setUri(inlineResolved).build()
-                    }
-                    // No proxy can serve a raw cloud scheme; fail with a clear cause
-                    // instead of letting DefaultDataSource report an opaque scheme error.
-                    throw IOException("Could not resolve $scheme stream (offline or provider unavailable)")
-                }
-                return dataSpec
-            }
-        }
-        
+
         val dataSourceFactory = DefaultDataSource.Factory(context)
-        val resolvingFactory = ResolvingDataSource.Factory(dataSourceFactory, resolver)
         val extractorsFactory = DefaultExtractorsFactory()
             .setMp3ExtractorFlags(Mp3Extractor.FLAG_ENABLE_CONSTANT_BITRATE_SEEKING)
             .setFlacExtractorFlags(FlacExtractor.FLAG_DISABLE_ID3_METADATA)
@@ -1262,7 +1153,7 @@ class DualPlayerEngine @Inject constructor(
         val loadControl = buildAdaptiveLoadControl()
 
         return ExoPlayer.Builder(context, renderersFactory)
-            .setMediaSourceFactory(DefaultMediaSourceFactory(resolvingFactory, extractorsFactory))
+            .setMediaSourceFactory(DefaultMediaSourceFactory(dataSourceFactory, extractorsFactory))
             .setLoadControl(loadControl)
             .build().apply {
             if (!outputMode.usesUnmodifiedMedia3AudioSink) {
@@ -1298,20 +1189,6 @@ class DualPlayerEngine @Inject constructor(
         player.trackSelectionParameters = player.trackSelectionParameters.buildUpon()
             .setAudioOffloadPreferences(offloadPreferences)
             .build()
-    }
-
-    private fun resolveReadyCloudProxyUri(uri: Uri): Uri? {
-        val uriString = uri.toString()
-        val proxyUrl = when (uri.scheme) {
-            "navidrome" -> navidromeStreamProxy
-                .takeIf { it.isReady() }
-                ?.resolveNavidromeUri(uriString)
-            "jellyfin" -> jellyfinStreamProxy
-                .takeIf { it.isReady() }
-                ?.resolveJellyfinUri(uriString)
-            else -> null
-        }
-        return proxyUrl?.let(Uri::parse)
     }
 
     private fun getOrCreateAuxiliaryPlayer(): ExoPlayer {
@@ -1490,63 +1367,7 @@ class DualPlayerEngine @Inject constructor(
         rebuildPlayersPreservingMasterState("Audio output mode set to ${resolvedMode.storageKey}")
     }
 
-    suspend fun resolveCloudUri(uri: Uri): Uri = withContext(Dispatchers.IO) {
-        val uriString = uri.toString()
-        resolvePreferredCloudPlaybackValue(
-            original = uri,
-            resolveOffline = {
-                try {
-                    cloudOfflineRepository.resolveLocalUri(uriString)
-                } catch (error: Exception) {
-                    Timber.tag("DualPlayerEngine").w(error, "Offline copy lookup failed")
-                    null
-                }
-            },
-            resolveCachedRemote = { resolvedUriCache.get(uriString) },
-            resolveRemote = {
-                when (uri.scheme) {
-                    "navidrome" -> resolveNavidromeUriAsync(uriString)
-                    "jellyfin" -> resolveJellyfinUriAsync(uriString)
-                    else -> null
-                }
-            },
-            onRemoteResolved = { resolved -> resolvedUriCache.put(uriString, resolved) }
-        )
-    }
-
-    private suspend fun resolveNavidromeUriAsync(uriString: String): Uri? = withContext(Dispatchers.IO) {
-        if (!navidromeStreamProxy.ensureReady(5_000L)) return@withContext null
-        navidromeStreamProxy.warmUpStreamUrl(uriString)
-        navidromeStreamProxy.resolveNavidromeUri(uriString)?.let { Uri.parse(it) }
-    }
-
-    private suspend fun resolveJellyfinUriAsync(uriString: String): Uri? = withContext(Dispatchers.IO) {
-        if (!jellyfinStreamProxy.ensureReady(5_000L)) return@withContext null
-        jellyfinStreamProxy.warmUpStreamUrl(uriString)
-        jellyfinStreamProxy.resolveJellyfinUri(uriString)?.let { Uri.parse(it) }
-    }
-
-    suspend fun resolveMediaItem(mediaItem: MediaItem): MediaItem {
-        val playerUri = mediaItem.localConfiguration?.uri ?: return mediaItem
-        val originalContentUri = mediaItem.mediaMetadata.extras
-            ?.getString(MediaItemBuilder.EXTERNAL_EXTRA_CONTENT_URI)
-        val canonicalUriString = selectCanonicalCloudPlaybackUri(
-            playerUri = playerUri.toString(),
-            originalContentUri = originalContentUri,
-        )
-        if (!isCanonicalCloudPlaybackUri(canonicalUriString)) return mediaItem
-
-        val canonicalUri = Uri.parse(canonicalUriString)
-        // Warm the offline/proxy path, but keep the durable URI in the player's timeline. The
-        // ResolvingDataSource selects the current offline copy or proxy again for every load, so
-        // removing a download cannot strand a queued item on a stale file:// URI.
-        resolveCloudUri(canonicalUri)
-        return if (playerUri == canonicalUri) {
-            mediaItem
-        } else {
-            mediaItem.buildUpon().setUri(canonicalUri).build()
-        }
-    }
+    suspend fun resolveMediaItem(mediaItem: MediaItem): MediaItem = mediaItem
 
     suspend fun prepareNext(target: TransitionTarget, startPositionMs: Long = 0L) {
         prepareNext(target.mediaItem, target.absoluteIndex, startPositionMs)

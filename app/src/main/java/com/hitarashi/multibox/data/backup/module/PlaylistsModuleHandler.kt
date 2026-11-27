@@ -74,21 +74,16 @@ class PlaylistsModuleHandler @Inject constructor(
 
         val playlists = allPlaylists.filter { isBackedUpPlaylistSource(it.source) }
 
-        val cloudSongIds = buildCloudSongIdSet()
-
-        val filteredPlaylists = playlists.map { playlist ->
-            playlist.copy(songIds = playlist.songIds.filter { id -> id !in cloudSongIds })
-        }
-        val songMetadata = songResolver.metadataFor(filteredPlaylists.flatMap { it.songIds })
+        val songMetadata = songResolver.metadataFor(playlists.flatMap { it.songIds })
 
         val coverImages = mutableMapOf<String, String>()
-        filteredPlaylists.forEach { playlist ->
+        playlists.forEach { playlist ->
             val uri = playlist.coverImageUri ?: return@forEach
             readFileAsBase64(uri)?.let { coverImages[playlist.id] = it }
         }
 
         val payload = PlaylistsBackupPayload(
-            playlists = filteredPlaylists,
+            playlists = playlists,
             playlistSongOrderModes = playlistPreferencesRepository.playlistSongOrderModesFlow.first(),
             playlistsSortOption = playlistPreferencesRepository.playlistsSortOptionFlow.first(),
             songMetadata = songMetadata.ifEmpty { null },
@@ -470,14 +465,7 @@ class PlaylistsModuleHandler @Inject constructor(
             get() = resolvedSongIds.filterValues { it == null }.keys
     }
 
-    private suspend fun buildCloudSongIdSet(): Set<String> {
-        val cloudIds = mutableSetOf<String>()
-        musicDao.getAllNavidromeSongIds().mapTo(cloudIds) { it.toString() }
-        musicDao.getAllJellyfinSongIds().mapTo(cloudIds) { it.toString() }
-        return cloudIds
-    }
-
-    private suspend fun restoreLegacyPreferenceEntries(payload: String) {
+    private fun restoreLegacyPreferenceEntries(payload: String) {
         val type = TypeToken.getParameterized(List::class.java, PreferenceBackupEntry::class.java).type
         val entries: List<PreferenceBackupEntry> = gson.fromJson(payload, type)
 

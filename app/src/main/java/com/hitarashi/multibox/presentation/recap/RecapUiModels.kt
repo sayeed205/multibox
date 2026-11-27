@@ -196,7 +196,6 @@ internal fun buildRecapSlides(
                 playCount = it.playCount
             )
         }
-    // Jellyfin and Navidrome songs without a genre are stored under the source's name.
     val genres = summary.topGenres
         .filter {
             it.genre != PlaybackStatsRepository.UNKNOWN_GENRE &&

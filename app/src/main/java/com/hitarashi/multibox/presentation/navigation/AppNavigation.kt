@@ -36,7 +36,6 @@ import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import com.hitarashi.multibox.presentation.screens.AlbumDetailScreen
 import com.hitarashi.multibox.presentation.screens.AudioBookmarkFolderScreen
 import com.hitarashi.multibox.presentation.screens.AudioBookmarksScreen
-import com.hitarashi.multibox.presentation.screens.CloudDownloadsScreen
 import com.hitarashi.multibox.presentation.screens.UpdatesScreen
 import com.hitarashi.multibox.presentation.model.SettingsCategory
 import com.hitarashi.multibox.presentation.screens.AccountsScreen
@@ -242,13 +241,7 @@ fun AppNavigation(
             ) {
                 ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
                     AccountsScreen(
-                        onBackClick = { navController.popBackStack() },
-                        onOpenNavidromeDashboard = {
-                            navController.navigateSafely(Screen.NavidromeDashboard.route)
-                        },
-                        onOpenJellyfinDashboard = {
-                            navController.navigateSafely(Screen.JellyfinDashboard.route)
-                        }
+                        onBackClick = { navController.popBackStack() }
                     )
                 }
             }
@@ -656,43 +649,6 @@ fun AppNavigation(
                         navController = navController,
                         playerViewModel = playerViewModel
                     )
-                }
-            }
-            composable(
-                Screen.NavidromeDashboard.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.hitarashi.multibox.presentation.navidrome.dashboard.NavidromeDashboardScreen(
-                        onBack = { navController.popBackStack() }
-                    )
-                }
-            }
-            composable(
-                Screen.JellyfinDashboard.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.hitarashi.multibox.presentation.jellyfin.dashboard.JellyfinDashboardScreen(
-                        onBack = { navController.popBackStack() }
-                    )
-                }
-            }
-            composable(
-                Screen.CloudDownloads.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    CloudDownloadsScreen(onBack = { navController.popBackStack() })
                 }
             }
             composable(

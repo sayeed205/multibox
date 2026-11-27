@@ -19,11 +19,6 @@ import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.hitarashi.multibox.data.database.AlbumEntity
 import com.hitarashi.multibox.data.database.ArtistEntity
-import com.hitarashi.multibox.data.database.MIGRATION_1_2
-import com.hitarashi.multibox.data.database.MIGRATION_2_3
-import com.hitarashi.multibox.data.database.MIGRATION_3_4
-import com.hitarashi.multibox.data.database.MIGRATION_4_5
-import com.hitarashi.multibox.data.database.MIGRATION_5_6
 import com.hitarashi.multibox.data.database.MusicDao
 import com.hitarashi.multibox.data.database.PixelPlayerDatabase
 import com.hitarashi.multibox.data.database.SongEntity
@@ -75,13 +70,6 @@ class MusicServiceWorkflowTest {
             DATABASE_NAME,
         )
             .addCallback(PixelPlayerDatabase.createRuntimeArtifactsCallback())
-            .addMigrations(
-                MIGRATION_1_2,
-                MIGRATION_2_3,
-                MIGRATION_3_4,
-                MIGRATION_4_5,
-                MIGRATION_5_6,
-            )
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
             .fallbackToDestructiveMigration(dropAllTables = true)
             .build()

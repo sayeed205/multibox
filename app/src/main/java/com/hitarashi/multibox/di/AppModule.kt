@@ -24,13 +24,7 @@ import com.hitarashi.multibox.data.database.LyricsDao
 import com.hitarashi.multibox.data.database.LocalPlaylistDao
 import com.hitarashi.multibox.data.database.ListenBrainzDao
 import com.hitarashi.multibox.data.database.AudioBookmarkDao
-import com.hitarashi.multibox.data.database.MIGRATION_1_2
-import com.hitarashi.multibox.data.database.MIGRATION_2_3
-import com.hitarashi.multibox.data.database.MIGRATION_3_4
-import com.hitarashi.multibox.data.database.MIGRATION_4_5
-import com.hitarashi.multibox.data.database.MIGRATION_5_6
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.OfflineTrackDao
 import com.hitarashi.multibox.data.database.PixelPlayerDatabase
 import com.hitarashi.multibox.data.database.SearchHistoryDao
 import com.hitarashi.multibox.data.database.TransitionDao
@@ -133,13 +127,6 @@ object AppModule {
             "pixelplayer_database"
         )
             .addCallback(PixelPlayerDatabase.createRuntimeArtifactsCallback())
-            .addMigrations(
-                MIGRATION_1_2,
-                MIGRATION_2_3,
-                MIGRATION_3_4,
-                MIGRATION_4_5,
-                MIGRATION_5_6,
-            )
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
 
         if (BuildConfig.DEBUG) {
@@ -199,18 +186,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNavidromeDao(database: PixelPlayerDatabase): com.hitarashi.multibox.data.database.NavidromeDao {
-        return database.navidromeDao()
-    }
-    
-    @Singleton
-    @Provides
-    fun provideJellyfinDao(database: PixelPlayerDatabase): com.hitarashi.multibox.data.database.JellyfinDao {
-        return database.jellyfinDao()
-    }
-
-    @Singleton
-    @Provides
     fun provideListenBrainzDao(database: PixelPlayerDatabase): ListenBrainzDao {
         return database.listenBrainzDao()
     }
@@ -219,12 +194,6 @@ object AppModule {
     @Provides
     fun provideAudioBookmarkDao(database: PixelPlayerDatabase): AudioBookmarkDao {
         return database.audioBookmarkDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideOfflineTrackDao(database: PixelPlayerDatabase): OfflineTrackDao {
-        return database.offlineTrackDao()
     }
 
     @Provides
@@ -307,8 +276,7 @@ object AppModule {
         songRepository: SongRepository,
         favoritesDao: FavoritesDao,
         artistImageRepository: ArtistImageRepository,
-        folderTreeBuilder: FolderTreeBuilder,
-        jellyfinRepository: com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+        folderTreeBuilder: FolderTreeBuilder
     ): MusicRepository {
         return MusicRepositoryImpl(
             context = context,
@@ -321,8 +289,7 @@ object AppModule {
             songRepository = songRepository,
             favoritesDao = favoritesDao,
             artistImageRepository = artistImageRepository,
-            folderTreeBuilder = folderTreeBuilder,
-            jellyfinRepository = jellyfinRepository
+            folderTreeBuilder = folderTreeBuilder
         )
 
     }

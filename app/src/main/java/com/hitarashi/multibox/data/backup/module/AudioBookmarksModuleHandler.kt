@@ -137,11 +137,7 @@ class AudioBookmarksModuleHandler @Inject constructor(
         const val TAG = "AudioBookmarksBackup"
         const val SONG = "song"
 
-        /**
-         * Local songs are keyed by MediaStore id, a positive number. Synced cloud songs have
-         * negative ids derived from the server's, and songs played straight off a server have
-         * ids like "navidrome_…": both are the same on every device.
-         */
+        /** Local songs are keyed by MediaStore id, a positive number. */
         fun isMediaStoreId(songId: String): Boolean = (songId.toLongOrNull() ?: 0L) > 0L
     }
 }

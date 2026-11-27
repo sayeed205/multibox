@@ -62,10 +62,10 @@ class ArtistFolderDirectoriesDaoTest {
             song(4L, "/music/Album C"),
             song(5L, "/aaa-unrelated"),
             song(6L, "", artistId = ARTIST_ID, albumArtistId = ARTIST_ID),
-            // Plausible cached paths on cloud tracks must be excluded in each UNION branch.
-            song(-1L, "/aaa-cloud-primary", artistId = ARTIST_ID, sourceType = SourceType.NAVIDROME),
-            song(-2L, "/aaa-cloud-album", albumArtistId = ARTIST_ID, sourceType = SourceType.JELLYFIN),
-            song(-3L, "/aaa-cloud-guest", sourceType = SourceType.NAVIDROME)
+            // Non-local tracks must be excluded in each UNION branch.
+            song(-1L, "/aaa-remote-primary", artistId = ARTIST_ID, sourceType = 5),
+            song(-2L, "/aaa-remote-album", albumArtistId = ARTIST_ID, sourceType = 6),
+            song(-3L, "/aaa-remote-guest", sourceType = 5)
         )
         musicDao.insertMusicData(
             songs = songs,
@@ -112,9 +112,8 @@ class ArtistFolderDirectoriesDaoTest {
         albumName = "Fixture Album",
         albumId = ALBUM_ID,
         contentUriString = when (sourceType) {
-            SourceType.NAVIDROME -> "navidrome://track-$id"
-            SourceType.JELLYFIN -> "jellyfin://track-$id"
-            else -> "content://media/external/audio/media/$id"
+            SourceType.LOCAL -> "content://media/external/audio/media/$id"
+            else -> "remote://track-$id"
         },
         albumArtUriString = null,
         duration = 180_000L,

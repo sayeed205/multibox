@@ -41,17 +41,6 @@ class LocalArtworkUriTest {
     }
 
     @Test
-    fun resolveSongArtworkUri_keepsCloudSourceArtworkUntouched() {
-        val resolved = LocalArtworkUri.resolveSongArtworkUri(
-            storedUri = "navidrome_cover://cover-123",
-            songId = 42L,
-            contentUriString = "navidrome://song-123"
-        )
-
-        assertThat(resolved).isEqualTo("navidrome_cover://cover-123")
-    }
-
-    @Test
     fun parseSongId_readsStableSongUri() {
         val songId = LocalArtworkUri.parseSongId(LocalArtworkUri.buildSongUri(99L))
 

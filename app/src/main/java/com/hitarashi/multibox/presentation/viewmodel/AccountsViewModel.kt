@@ -2,11 +2,9 @@ package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
 import com.hitarashi.multibox.data.listenbrainz.InvalidServerUrlException
 import com.hitarashi.multibox.data.listenbrainz.ListenBrainzProfileStats
 import com.hitarashi.multibox.data.listenbrainz.ListenBrainzRepository
-import com.hitarashi.multibox.data.navidrome.NavidromeRepository
 import com.hitarashi.multibox.data.preferences.ListenBrainzPreferencesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -32,8 +30,6 @@ import kotlinx.collections.immutable.toImmutableList
 private const val PROFILE_STATS_POLL_MS = 20_000L
 
 enum class ExternalServiceAccount {
-    NAVIDROME,
-    JELLYFIN,
     LISTENBRAINZ
 }
 
@@ -51,9 +47,7 @@ data class ListenBrainzUiModel(
     val needsReauth: Boolean,
     val serverUrl: String?,
     val statsState: ListenBrainzStatsUiState,
-    val scrobbleLocal: Boolean,
-    val scrobbleNavidrome: Boolean,
-    val scrobbleJellyfin: Boolean
+    val scrobbleLocal: Boolean
 )
 
 sealed interface ListenBrainzStatsUiState {
@@ -81,27 +75,11 @@ data class AccountsUiState(
 
 @HiltViewModel
 class AccountsViewModel @Inject constructor(
-    private val navidromeRepository: NavidromeRepository,
-    private val jellyfinRepository: JellyfinRepository,
     private val listenBrainzRepository: ListenBrainzRepository,
     private val listenBrainzPreferences: ListenBrainzPreferencesRepository
 ) : ViewModel() {
 
     private val loggingOutServices = MutableStateFlow<Set<ExternalServiceAccount>>(emptySet())
-
-    private val navidromeStateFlow = combine(
-        navidromeRepository.isLoggedInFlow,
-        navidromeRepository.getPlaylists().map { it.size }
-    ) { connected, playlistCount ->
-        connected to playlistCount
-    }
-
-    private val jellyfinStateFlow = combine(
-        jellyfinRepository.isLoggedInFlow,
-        jellyfinRepository.getPlaylists().map { it.size }
-    ) { connected, playlistCount ->
-        connected to playlistCount
-    }
 
     /**
      * Re-fetched on a fixed cadence, but only while something downstream collects [uiState],
@@ -138,12 +116,8 @@ class AccountsViewModel @Inject constructor(
         listenBrainzRepository.accountState,
         listenBrainzRepository.pendingListenCount,
         listenBrainzStatsFlow,
-        listenBrainzPreferences.scrobbleLocalFlow,
-        combine(
-            listenBrainzPreferences.scrobbleNavidromeFlow,
-            listenBrainzPreferences.scrobbleJellyfinFlow
-        ) { navidrome, jellyfin -> navidrome to jellyfin }
-    ) { account, pendingCount, statsState, local, remoteToggles ->
+        listenBrainzPreferences.scrobbleLocalFlow
+    ) { account, pendingCount, statsState, local ->
         if (account.isConnected) {
             ListenBrainzUiModel(
                 userName = account.userName,
@@ -151,9 +125,7 @@ class AccountsViewModel @Inject constructor(
                 needsReauth = account.needsReauth,
                 serverUrl = account.serverUrl,
                 statsState = statsState,
-                scrobbleLocal = local,
-                scrobbleNavidrome = remoteToggles.first,
-                scrobbleJellyfin = remoteToggles.second
+                scrobbleLocal = local
             )
         } else {
             null
@@ -166,53 +138,10 @@ class AccountsViewModel @Inject constructor(
         _listenBrainzConnectState.asStateFlow()
 
     val uiState: StateFlow<AccountsUiState> = combine(
-        combine(
-            listOf(
-                navidromeStateFlow,
-                jellyfinStateFlow
-            )
-        ) { it.toList() },
         listenBrainzStateFlow,
         loggingOutServices
-    ) { states, listenBrainz, activeLogouts ->
-        val (navidromeConnected, navidromePlaylistCount) = states[0]
-        val (jellyfinConnected, jellyfinPlaylistCount) = states[1]
-
+    ) { listenBrainz, activeLogouts ->
         val connectedAccounts = buildList {
-            if (navidromeConnected) {
-                add(
-                    ExternalAccountUiModel(
-                        service = ExternalServiceAccount.NAVIDROME,
-                        title = "Subsonic",
-                        accountLabel = navidromeRepository.username
-                            ?.takeIf { it.isNotBlank() }
-                            ?: "Subsonic account connected",
-                        syncedContentLabel = formatCount(
-                            count = navidromePlaylistCount,
-                            singular = "synced playlist",
-                            plural = "synced playlists"
-                        ),
-                        isLoggingOut = ExternalServiceAccount.NAVIDROME in activeLogouts
-                    )
-                )
-            }
-            if (jellyfinConnected) {
-                add(
-                    ExternalAccountUiModel(
-                        service = ExternalServiceAccount.JELLYFIN,
-                        title = "Jellyfin",
-                        accountLabel = jellyfinRepository.username
-                            ?.takeIf { it.isNotBlank() }
-                            ?: "Jellyfin account connected",
-                        syncedContentLabel = formatCount(
-                            count = jellyfinPlaylistCount,
-                            singular = "synced playlist",
-                            plural = "synced playlists"
-                        ),
-                        isLoggingOut = ExternalServiceAccount.JELLYFIN in activeLogouts
-                    )
-                )
-            }
             if (listenBrainz != null) {
                 add(
                     ExternalAccountUiModel(
@@ -237,8 +166,6 @@ class AccountsViewModel @Inject constructor(
         }
 
         val disconnectedServices = buildList {
-            if (!navidromeConnected) add(ExternalServiceAccount.NAVIDROME)
-            if (!jellyfinConnected) add(ExternalServiceAccount.JELLYFIN)
             if (listenBrainz == null) add(ExternalServiceAccount.LISTENBRAINZ)
         }
 
@@ -257,8 +184,6 @@ class AccountsViewModel @Inject constructor(
             try {
                 runCatching {
                     when (service) {
-                        ExternalServiceAccount.NAVIDROME -> navidromeRepository.logout()
-                        ExternalServiceAccount.JELLYFIN -> jellyfinRepository.logout()
                         ExternalServiceAccount.LISTENBRAINZ -> listenBrainzRepository.disconnect()
                     }
                 }
@@ -289,14 +214,6 @@ class AccountsViewModel @Inject constructor(
 
     fun setListenBrainzScrobbleLocal(enabled: Boolean) {
         viewModelScope.launch { listenBrainzPreferences.setScrobbleLocal(enabled) }
-    }
-
-    fun setListenBrainzScrobbleNavidrome(enabled: Boolean) {
-        viewModelScope.launch { listenBrainzPreferences.setScrobbleNavidrome(enabled) }
-    }
-
-    fun setListenBrainzScrobbleJellyfin(enabled: Boolean) {
-        viewModelScope.launch { listenBrainzPreferences.setScrobbleJellyfin(enabled) }
     }
 
     private fun formatCount(count: Int, singular: String, plural: String): String {

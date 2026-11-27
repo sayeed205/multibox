@@ -148,7 +148,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.zIndex
 import com.hitarashi.multibox.data.model.Genre
-import com.hitarashi.multibox.data.offline.CloudOfflineRepository
 import com.hitarashi.multibox.presentation.components.AlbumMultiSelectionOptionSheet
 import com.hitarashi.multibox.presentation.components.EditMultipleSongsSheet
 import com.hitarashi.multibox.presentation.components.GenreMultiSelectionOptionSheet
@@ -158,7 +157,6 @@ import com.hitarashi.multibox.presentation.components.PlaylistMultiSelectionBott
 import com.hitarashi.multibox.presentation.components.DeletePlaylistsConfirmationDialog
 import com.hitarashi.multibox.presentation.components.subcomps.SelectionActionRow
 import com.hitarashi.multibox.presentation.components.subcomps.SelectionCountPill
-import com.hitarashi.multibox.presentation.viewmodel.CloudDownloadsViewModel
 import androidx.compose.runtime.State
 import androidx.compose.ui.unit.Dp
 
@@ -177,8 +175,7 @@ fun SearchScreen(
     playerViewModel: PlayerViewModel = sharedPlayerViewModel(),
     playlistViewModel: PlaylistViewModel = hiltViewModel(),
     navController: NavHostController,
-    onSearchBarActiveChange: (Boolean) -> Unit = {},
-    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
+    onSearchBarActiveChange: (Boolean) -> Unit = {}
 ) {
     val searchScreenEnteredAt = remember { android.os.SystemClock.elapsedRealtime() }
     var searchQuery by rememberSaveable { mutableStateOf(playerViewModel.searchQuery) }
@@ -820,19 +817,6 @@ fun SearchScreen(
             },
             onShareAll = {
                 playerViewModel.shareSelectedAsZip(selectedSongs)
-                showMultiSelectionSheet = false
-            },
-            onDownloadAll = {
-                val cloudSongCount = CloudOfflineRepository.downloadCandidates(selectedSongs).size
-                cloudDownloadsViewModel.downloadSelected(selectedSongs)
-                multiSelectionState.clearSelection()
-                playerViewModel.sendToast(
-                    context.resources.getQuantityString(
-                        R.plurals.cloud_download_selected_started,
-                        cloudSongCount,
-                        cloudSongCount
-                    )
-                )
                 showMultiSelectionSheet = false
             },
             onDeleteAll = { deleteActivity, onComplete ->

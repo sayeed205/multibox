@@ -36,8 +36,6 @@ import androidx.compose.material.icons.filled.QueueMusic
 import androidx.compose.material.icons.rounded.Album
 import androidx.compose.material.icons.rounded.AudioFile
 import androidx.compose.material.icons.rounded.Cloud
-import androidx.compose.material.icons.rounded.CloudDownload
-import androidx.compose.material.icons.rounded.CloudDone
 import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.material.icons.rounded.Link
@@ -79,8 +77,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import com.hitarashi.multibox.R
 import com.hitarashi.multibox.data.model.Song
-import com.hitarashi.multibox.data.offline.CloudOfflineRepository
-import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
 import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
 import com.hitarashi.multibox.utils.formatDuration
 import com.hitarashi.multibox.utils.shapes.RoundedStarShape
@@ -143,17 +139,12 @@ fun SongInfoBottomSheet(
     var pendingTonePermissionTarget by remember { mutableStateOf<ToneTarget?>(null) }
     val audioMeta by songInfoViewModel.audioMeta.collectAsStateWithLifecycle()
     val resolvedArtists by songInfoViewModel.resolvedArtists.collectAsStateWithLifecycle()
-    val offlineDownload by songInfoViewModel.offlineDownload.collectAsStateWithLifecycle()
     val musicBrainzState by songInfoViewModel.musicBrainzState.collectAsStateWithLifecycle()
-    val isCloudSong = remember(song.contentUriString) { CloudOfflineRepository.isCloudSong(song) }
-    val offlineFilePath = offlineDownload?.takeIf {
-        it.sourceUri == song.contentUriString && it.status == OfflineDownloadStatus.COMPLETE
-    }?.localPath
-    var sourceUrl by remember(song.id, song.path, song.contentUriString, offlineFilePath) {
+    var sourceUrl by remember(song.id, song.path, song.contentUriString) {
         mutableStateOf<String?>(null)
     }
-    LaunchedEffect(song.id, song.path, song.contentUriString, offlineFilePath) {
-        sourceUrl = songInfoViewModel.readSourceUrl(song, offlineFilePath)
+    LaunchedEffect(song.id, song.path, song.contentUriString) {
+        sourceUrl = songInfoViewModel.readSourceUrl(song)
     }
     val ringtonePermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
@@ -604,61 +595,29 @@ fun SongInfoBottomSheet(
                                                     modifier = Modifier
                                                         .weight(0.5f)
                                                         .heightIn(min = 66.dp),
-                                                    colors = if (isCloudSong) {
-                                                        ButtonDefaults.filledTonalButtonColors(
-                                                            containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                                                        )
-                                                    } else {
-                                                        ButtonDefaults.filledTonalButtonColors(
-                                                            containerColor = MaterialTheme.colorScheme.errorContainer,
-                                                            contentColor = MaterialTheme.colorScheme.onErrorContainer
-                                                        )
-                                                    },
+                                                    colors = ButtonDefaults.filledTonalButtonColors(
+                                                        containerColor = MaterialTheme.colorScheme.errorContainer,
+                                                        contentColor = MaterialTheme.colorScheme.onErrorContainer
+                                                    ),
                                                     shape = CircleShape,
                                                     onClick = {
-                                                        if (isCloudSong) {
-                                                            when (offlineDownload?.status) {
-                                                                OfflineDownloadStatus.FAILED ->
-                                                                    songInfoViewModel.retryOfflineDownload(song)
-                                                                else -> songInfoViewModel.toggleOfflineDownload(song)
-                                                            }
-                                                        } else {
-                                                            (context as? Activity)?.let { activity ->
-                                                                onDeleteFromDevice(activity, song) { result ->
-                                                                    if (result) {
-                                                                        removeFromListTrigger()
-                                                                        onDismiss()
-                                                                    }
+                                                        (context as? Activity)?.let { activity ->
+                                                            onDeleteFromDevice(activity, song) { result ->
+                                                                if (result) {
+                                                                    removeFromListTrigger()
+                                                                    onDismiss()
                                                                 }
                                                             }
                                                         }
                                                     }
                                                 ) {
                                                     Icon(
-                                                        when (offlineDownload?.status) {
-                                                            OfflineDownloadStatus.COMPLETE -> Icons.Rounded.CloudDone
-                                                            else -> if (isCloudSong) Icons.Rounded.CloudDownload else Icons.Default.DeleteForever
-                                                        },
-                                                        contentDescription = stringResource(
-                                                            if (isCloudSong) R.string.cloud_download_action else R.string.delete_action
-                                                        )
+                                                        Icons.Default.DeleteForever,
+                                                        contentDescription = stringResource(R.string.delete_action)
                                                     )
                                                     Spacer(Modifier.width(8.dp))
                                                     Text(
-                                                        when (offlineDownload?.status) {
-                                                            OfflineDownloadStatus.QUEUED -> stringResource(R.string.cloud_download_queued)
-                                                            OfflineDownloadStatus.DOWNLOADING -> offlineDownload?.progress
-                                                                ?.let { stringResource(R.string.cloud_download_progress, (it * 100).toInt()) }
-                                                                ?: stringResource(R.string.cloud_downloading)
-                                                            OfflineDownloadStatus.COMPLETE -> stringResource(R.string.cloud_remove_download)
-                                                            OfflineDownloadStatus.FAILED -> stringResource(R.string.cloud_download_retry)
-                                                            null -> if (isCloudSong) {
-                                                                stringResource(R.string.cloud_download_action)
-                                                            } else {
-                                                                stringResource(R.string.delete_action)
-                                                            }
-                                                        },
+                                                        stringResource(R.string.delete_action),
                                                         maxLines = 1,
                                                         overflow = TextOverflow.Ellipsis
                                                     )
@@ -682,16 +641,14 @@ fun SongInfoBottomSheet(
                                             }
                                         }
 
-                                        if (!isCloudSong) {
-                                            item {
-                                                RingtoneActionButton(
-                                                    modifier = Modifier
-                                                        .fillMaxWidth()
-                                                        .heightIn(min = 66.dp),
-                                                    showText = true,
-                                                    onClick = { showTonePickerDialog = true },
-                                                )
-                                            }
+                                        item {
+                                            RingtoneActionButton(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .heightIn(min = 66.dp),
+                                                showText = true,
+                                                onClick = { showTonePickerDialog = true },
+                                            )
                                         }
 
                                         item {

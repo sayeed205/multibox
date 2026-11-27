@@ -19,7 +19,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import coil.size.Size
-import com.hitarashi.multibox.data.image.withNavidromeCoverSize
 import com.hitarashi.multibox.data.model.Song
 import com.hitarashi.multibox.data.preferences.CarouselStyle
 import com.hitarashi.multibox.presentation.components.scoped.PrefetchAlbumNeighbors
@@ -83,8 +82,7 @@ fun AlbumCarouselSection(
         queue = queue,
         radius = 1,
         targetSize = targetSize,
-        anchorIndex = effectiveTargetIndex,
-        navidromeCoverSizePx = albumArtQuality.maxSize
+        anchorIndex = effectiveTargetIndex
     )
     // Scrolls this section runs itself: skips, and the snap when the queue shifts around the
     // playing song. A counter rather than a flag, because a cancelled scroll's cleanup can run
@@ -180,9 +178,7 @@ fun AlbumCarouselSection(
             itemKey = { index -> carouselItemKeys.getOrNull(index) ?: "queue_item_$index" },
             content = { index ->
                 val song = queue[index]
-                val coverUri = remember(song.albumArtUriString, albumArtQuality) {
-                    song.albumArtUriString?.withNavidromeCoverSize(albumArtQuality.maxSize)
-                }
+                val coverUri = song.albumArtUriString
                 val isFocusedItem = pagerState.currentPage == index
                 Box(
                     modifier = Modifier.fillMaxSize(),

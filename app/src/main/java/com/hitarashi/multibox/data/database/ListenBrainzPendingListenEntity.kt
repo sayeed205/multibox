@@ -30,12 +30,6 @@ data class ListenBrainzPendingListenEntity(
 /** Playback source labels stored in [ListenBrainzPendingListenEntity.source]. */
 object ListenBrainzSource {
     const val LOCAL = "LOCAL"
-    const val NAVIDROME = "NAVIDROME"
-    const val JELLYFIN = "JELLYFIN"
 
-    fun fromSourceType(sourceType: Int): String = when (sourceType) {
-        SourceType.NAVIDROME -> NAVIDROME
-        SourceType.JELLYFIN -> JELLYFIN
-        else -> LOCAL
-    }
+    fun fromSourceType(sourceType: Int): String = LOCAL
 }

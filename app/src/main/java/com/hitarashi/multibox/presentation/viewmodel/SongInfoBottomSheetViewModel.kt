@@ -21,8 +21,6 @@ import com.hitarashi.multibox.data.model.Artist
 import com.hitarashi.multibox.data.model.Song
 import com.hitarashi.multibox.data.musicbrainz.MusicBrainzMatch
 import com.hitarashi.multibox.data.musicbrainz.MusicBrainzRepository
-import com.hitarashi.multibox.data.offline.CloudOfflineRepository
-import com.hitarashi.multibox.data.offline.OfflineDownload
 import com.hitarashi.multibox.utils.AudioMeta
 import com.hitarashi.multibox.utils.AudioMetaUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -45,7 +43,6 @@ import kotlinx.collections.immutable.toImmutableList
 @HiltViewModel
 class SongInfoBottomSheetViewModel @Inject constructor(
     private val musicDao: MusicDao,
-    private val cloudOfflineRepository: CloudOfflineRepository,
     private val musicBrainzRepository: MusicBrainzRepository,
     @ApplicationContext private val appContext: Context,
 ) : ViewModel() {
@@ -78,40 +75,14 @@ class SongInfoBottomSheetViewModel @Inject constructor(
 
     private val _audioMeta = MutableStateFlow<AudioMeta?>(null)
     private val _resolvedArtists = MutableStateFlow<ImmutableList<Artist>>(persistentListOf())
-    private val _offlineDownload = MutableStateFlow<OfflineDownload?>(null)
     private val _musicBrainzState = MutableStateFlow<MusicBrainzUiState>(MusicBrainzUiState.Idle)
-    private var offlineObservationJob: Job? = null
     val resolvedArtists: StateFlow<ImmutableList<Artist>> = _resolvedArtists.asStateFlow()
 
     val audioMeta: StateFlow<AudioMeta?> = _audioMeta.asStateFlow()
-    val offlineDownload: StateFlow<OfflineDownload?> = _offlineDownload.asStateFlow()
     val musicBrainzState: StateFlow<MusicBrainzUiState> = _musicBrainzState.asStateFlow()
 
     fun bindSong(song: Song) {
-        offlineObservationJob?.cancel()
-        _offlineDownload.value = null
         _musicBrainzState.value = MusicBrainzUiState.Idle
-        if (!CloudOfflineRepository.isCloudSong(song)) return
-        offlineObservationJob = viewModelScope.launch {
-            cloudOfflineRepository.observe(song).collect { download ->
-                _offlineDownload.value = download
-            }
-        }
-    }
-
-    fun toggleOfflineDownload(song: Song) {
-        if (!CloudOfflineRepository.isCloudSong(song)) return
-        viewModelScope.launch {
-            if (_offlineDownload.value != null) {
-                cloudOfflineRepository.remove(song)
-            } else {
-                cloudOfflineRepository.enqueue(song)
-            }
-        }
-    }
-
-    fun retryOfflineDownload(song: Song) {
-        viewModelScope.launch { cloudOfflineRepository.enqueue(song) }
     }
 
     fun searchMusicBrainz(song: Song) {
@@ -173,13 +144,10 @@ class SongInfoBottomSheetViewModel @Inject constructor(
         }
     }
 
-    suspend fun readSourceUrl(song: Song, offlineFilePath: String?): String? = withContext(Dispatchers.IO) {
-        val isCloudSong = CloudOfflineRepository.isCloudSong(song)
-        val path = if (isCloudSong) offlineFilePath else song.path
-        path?.takeIf { it.isNotBlank() }?.let(::File)?.takeIf(File::isFile)?.let { file ->
+    suspend fun readSourceUrl(song: Song): String? = withContext(Dispatchers.IO) {
+        song.path.takeIf { it.isNotBlank() }?.let(::File)?.takeIf(File::isFile)?.let { file ->
             return@withContext AudioMetadataReader.readSourceUrl(appContext, Uri.fromFile(file))
         }
-        if (isCloudSong) return@withContext null
         val uri = song.contentUriString.toUri()
         if (uri.scheme == "content" || uri.scheme == "file") {
             AudioMetadataReader.readSourceUrl(appContext, uri)
@@ -201,20 +169,11 @@ class SongInfoBottomSheetViewModel @Inject constructor(
     }
 
     fun getSongLocationInfo(song: Song): SongLocationInfo {
-        val provider = getCloudProviderLabel(song.contentUriString)
-        return if (provider != null) {
-            SongLocationInfo(
-                labelRes = R.string.song_info_label_provider,
-                value = provider,
-                isCloud = true,
-            )
-        } else {
-            SongLocationInfo(
-                labelRes = R.string.song_info_label_path,
-                value = song.path,
-                isCloud = false,
-            )
-        }
+        return SongLocationInfo(
+            labelRes = R.string.song_info_label_path,
+            value = song.path,
+            isCloud = false,
+        )
     }
 
     fun hasSystemWritePermission(): Boolean {
@@ -237,8 +196,6 @@ class SongInfoBottomSheetViewModel @Inject constructor(
     }
 
     fun isSongEditable(song: Song): Boolean {
-        if (getCloudProviderLabel(song.contentUriString) != null) return false
-
         if (song.path.isNotBlank()) {
             val file = File(song.path)
             return file.exists() && file.isFile
@@ -246,15 +203,6 @@ class SongInfoBottomSheetViewModel @Inject constructor(
 
         val uri = song.contentUriString
         return uri.startsWith("content://") || uri.startsWith("file://")
-    }
-
-    private fun getCloudProviderLabel(contentUriString: String): String? {
-        val normalized = contentUriString.lowercase().trim()
-        return when {
-            normalized.startsWith("navidrome://") || normalized.startsWith("navidrome:") -> "Navidrome"
-            normalized.startsWith("jellyfin://") || normalized.startsWith("jellyfin:") -> "Jellyfin"
-            else -> null
-        }
     }
 
     private suspend fun setSongAsToneInternal(song: Song, target: ToneTarget): ToneActionResult {

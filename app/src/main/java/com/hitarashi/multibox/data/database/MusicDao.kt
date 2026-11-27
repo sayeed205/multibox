@@ -362,21 +362,6 @@ interface MusicDao {
     """)
     suspend fun refreshAlbumSongCounts()
 
-    @Query("SELECT id FROM songs WHERE source_type = 5")
-    suspend fun getAllNavidromeSongIds(): List<Long>
-
-    @Query("SELECT id FROM songs WHERE source_type = 6")
-    suspend fun getAllJellyfinSongIds(): List<Long>
-
-    @Query("SELECT id, content_uri_string AS contentUriString FROM songs WHERE source_type = 6")
-    suspend fun getAllJellyfinSongUriMappings(): List<SongIdUriMapping>
-
-    @Query("SELECT content_uri_string FROM songs WHERE id = :songId AND source_type = 6 LIMIT 1")
-    suspend fun getJellyfinContentUriBySongId(songId: Long): String?
-
-    @Query("SELECT COUNT(*) FROM songs WHERE source_type = 6")
-    suspend fun getJellyfinSongCount(): Int
-
     @Transaction
     suspend fun deleteSongsAndRelatedData(songIds: List<Long>) {
         if (songIds.isEmpty()) return
@@ -390,20 +375,6 @@ interface MusicDao {
         deleteOrphanedArtists()
         refreshAlbumSongCounts()
         refreshArtistTrackCounts()
-    }
-
-    @Transaction
-    suspend fun clearAllNavidromeSongs() {
-        val navidromeSongIds = getAllNavidromeSongIds()
-        if (navidromeSongIds.isEmpty()) return
-        deleteSongsAndRelatedData(navidromeSongIds)
-    }
-
-    @Transaction
-    suspend fun clearAllJellyfinSongs() {
-        val jellyfinSongIds = getAllJellyfinSongIds()
-        if (jellyfinSongIds.isEmpty()) return
-        deleteSongsAndRelatedData(jellyfinSongIds)
     }
 
     /**

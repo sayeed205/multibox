@@ -20,18 +20,11 @@ object GenreParser {
     private val SEPARATOR_REGEX = Regex("""\s*[;,|\\\u0000]\s*""")
     private val WHITESPACE_REGEX = Regex("""\s+""")
 
-    /**
-     * Genres the Jellyfin and Navidrome sync store for songs the server sent without one. They stay
-     * browsable as tiles, but name the source rather than the music, so [dominantGenre] skips them.
-     */
-    const val JELLYFIN_PLACEHOLDER = "Jellyfin"
-    const val NAVIDROME_PLACEHOLDER = "Navidrome"
-
     /** Placeholders tag editors and MediaStore write for a missing genre. */
     private val UNKNOWN_VALUES = setOf("unknown", "<unknown>", "unknown genre")
 
-    /** Every cloud source placeholder, see [JELLYFIN_PLACEHOLDER]. */
-    val SOURCE_PLACEHOLDERS: List<String> = listOf(JELLYFIN_PLACEHOLDER, NAVIDROME_PLACEHOLDER)
+    /** Reserved source placeholder list for non-genre source labels. */
+    val SOURCE_PLACEHOLDERS: List<String> = emptyList()
 
     private val SOURCE_PLACEHOLDER_KEYS = SOURCE_PLACEHOLDERS.mapTo(HashSet(), ::key)
 

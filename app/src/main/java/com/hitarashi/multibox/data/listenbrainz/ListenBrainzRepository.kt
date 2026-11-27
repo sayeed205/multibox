@@ -26,7 +26,7 @@ class InvalidServerUrlException : IllegalArgumentException("Invalid ListenBrainz
 
 /**
  * Owns the ListenBrainz account (user token in EncryptedSharedPreferences, mirroring the
- * Navidrome credential pattern) and all API submission paths.
+ * Shared credential pattern and all API submission paths.
  *
  * Scrobbling is opt-in: with no stored token, every path here is a no-op.
  */

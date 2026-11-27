@@ -97,8 +97,6 @@ import com.hitarashi.multibox.R
 import com.hitarashi.multibox.data.listenbrainz.ListenBrainzProfileStats
 import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
 import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
-import com.hitarashi.multibox.presentation.jellyfin.auth.JellyfinLoginActivity
-import com.hitarashi.multibox.presentation.navidrome.auth.NavidromeLoginActivity
 import com.hitarashi.multibox.presentation.viewmodel.AccountsViewModel
 import com.hitarashi.multibox.presentation.viewmodel.ExternalAccountUiModel
 import com.hitarashi.multibox.presentation.viewmodel.ExternalServiceAccount
@@ -114,8 +112,6 @@ import kotlinx.collections.immutable.ImmutableList
 @Composable
 fun AccountsScreen(
     onBackClick: () -> Unit,
-    onOpenNavidromeDashboard: () -> Unit = {},
-    onOpenJellyfinDashboard: () -> Unit = {},
     viewModel: AccountsViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -197,14 +193,6 @@ fun AccountsScreen(
     val onConnectService: (ExternalServiceAccount) -> Unit = { service ->
         if (service == ExternalServiceAccount.LISTENBRAINZ) {
             showListenBrainzDialog = true
-        } else {
-            openService(
-                context = context,
-                service = service,
-                onOpenNavidromeDashboard = onOpenNavidromeDashboard,
-                onOpenJellyfinDashboard = onOpenJellyfinDashboard,
-                preferDashboard = false
-            )
         }
     }
 
@@ -242,26 +230,17 @@ fun AccountsScreen(
                         onManage = {
                             openService(
                                 context = context,
-                                service = account.service,
-                                onOpenNavidromeDashboard = onOpenNavidromeDashboard,
-                                onOpenJellyfinDashboard = onOpenJellyfinDashboard,
-                                preferDashboard = true
+                                service = account.service
                             )
                         },
                         onLogout = { viewModel.logout(account.service) },
-                        painter = if (account.service == ExternalServiceAccount.JELLYFIN) {
-                            painterResource(R.drawable.ic_jellyfin)
-                        } else if (account.service == ExternalServiceAccount.NAVIDROME) {
-                            painterResource(R.drawable.ic_navidrome_md3)
-                        } else null,
+                        painter = null,
                         extraContent = if (account.service == ExternalServiceAccount.LISTENBRAINZ) {
                             {
                                 uiState.listenBrainz?.let { listenBrainz ->
                                     ListenBrainzCardExtras(
                                         model = listenBrainz,
                                         onToggleLocal = viewModel::setListenBrainzScrobbleLocal,
-                                        onToggleNavidrome = viewModel::setListenBrainzScrobbleNavidrome,
-                                        onToggleJellyfin = viewModel::setListenBrainzScrobbleJellyfin,
                                         onReconnect = { showListenBrainzDialog = true }
                                     )
                                 }
@@ -379,37 +358,27 @@ private fun ConnectedAccountCard(
     modifier = Modifier.fillMaxWidth(),
     verticalAlignment = Alignment.CenterVertically
 ) {
-    if (account.service == ExternalServiceAccount.NAVIDROME) {
-        ServiceIcon(
-            service = account.service,
-            tint = palette.iconTint,
-            modifier = Modifier
-                .width(48.dp)
-                .height(40.dp)
-        )
-    } else {
-        Surface(
-            shape = AbsoluteSmoothCornerShape(16.dp, 60),
-            color = palette.iconContainer
-        ) {
-            if (painter != null) {
-                Icon(
-                    painter = painter,
-                    contentDescription = null,
-                    tint = palette.iconTint,
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .size(20.dp)
-                )
-            } else {
-                ServiceIcon(
-                    service = account.service,
-                    tint = palette.iconTint,
-                    modifier = Modifier
-                        .padding(10.dp)
-                        .size(20.dp)
-                )
-            }
+    Surface(
+        shape = AbsoluteSmoothCornerShape(16.dp, 60),
+        color = palette.iconContainer
+    ) {
+        if (painter != null) {
+            Icon(
+                painter = painter,
+                contentDescription = null,
+                tint = palette.iconTint,
+                modifier = Modifier
+                    .padding(10.dp)
+                    .size(20.dp)
+            )
+        } else {
+            ServiceIcon(
+                service = account.service,
+                tint = palette.iconTint,
+                modifier = Modifier
+                    .padding(10.dp)
+                    .size(20.dp)
+            )
         }
     }
 
@@ -571,22 +540,6 @@ private data class ServicePalette(
 @Composable
 private fun servicePalette(service: ExternalServiceAccount): ServicePalette {
     return when (service) {
-        ExternalServiceAccount.NAVIDROME -> ServicePalette(
-            iconContainer = Color.White,
-            iconTint = Color.Unspecified,
-            statusContainer = Color(0xFFE1F5FE),
-            statusTint = Color(0xFF0277BD),
-            primaryActionContainer = Color(0xFFE3F2FD),
-            primaryActionTint = Color(0xFF1565C0)
-        )
-        ExternalServiceAccount.JELLYFIN -> ServicePalette(
-            iconContainer = Color(0xFF00A4DC),
-            iconTint = Color.White,
-            statusContainer = Color(0xFFE1F5FE),
-            statusTint = Color(0xFF0277BD),
-            primaryActionContainer = Color(0xFFE3F2FD),
-            primaryActionTint = Color(0xFF1565C0)
-        )
         ExternalServiceAccount.LISTENBRAINZ -> ServicePalette(
             iconContainer = Color(0xFFEB743B),
             iconTint = Color.White,
@@ -600,90 +553,32 @@ private fun servicePalette(service: ExternalServiceAccount): ServicePalette {
 
 private fun accountIcon(service: ExternalServiceAccount): ImageVector {
     return when (service) {
-        ExternalServiceAccount.NAVIDROME -> Icons.Rounded.CloudQueue
-        ExternalServiceAccount.JELLYFIN -> Icons.Rounded.CloudQueue
         ExternalServiceAccount.LISTENBRAINZ -> Icons.Rounded.GraphicEq
     }
 }
 
 @Composable
 private fun ServiceIcon(service: ExternalServiceAccount, tint: Color, modifier: Modifier = Modifier) {
-    if (service == ExternalServiceAccount.NAVIDROME) {
-        Box(
-            modifier = modifier,
-            contentAlignment = Alignment.CenterStart
-        ) {
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_subsonic),
-                contentDescription = null,
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(32.dp)
-            )
-            
-            Icon(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_navidrome),
-                contentDescription = null,
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(32.dp)
-                    .offset(x = 16.dp)
-            )
-        }
-    } else if (service == ExternalServiceAccount.JELLYFIN) {
-        Icon(
-            painter = painterResource(R.drawable.ic_jellyfin),
-            contentDescription = null,
-            tint = tint,
-            modifier = modifier
-        )
-    } else {
-        Icon(
-            imageVector = accountIcon(service),
-            contentDescription = null,
-            tint = tint,
-            modifier = modifier
-        )
-    }
+    Icon(
+        imageVector = accountIcon(service),
+        contentDescription = null,
+        tint = tint,
+        modifier = modifier
+    )
 }
 
 @Composable
 private fun serviceDisplayName(service: ExternalServiceAccount): String {
     return when (service) {
-        ExternalServiceAccount.NAVIDROME -> stringResource(R.string.cd_subsonic_logo)
-        ExternalServiceAccount.JELLYFIN -> stringResource(R.string.auth_jellyfin_title)
         ExternalServiceAccount.LISTENBRAINZ -> stringResource(R.string.accounts_listenbrainz_title)
     }
 }
 
 private fun openService(
     context: Context,
-    service: ExternalServiceAccount,
-    onOpenNavidromeDashboard: () -> Unit,
-    onOpenJellyfinDashboard: () -> Unit,
-    preferDashboard: Boolean
+    service: ExternalServiceAccount
 ) {
     when (service) {
-        ExternalServiceAccount.NAVIDROME -> {
-            if (preferDashboard) {
-                onOpenNavidromeDashboard()
-            } else {
-                safeStartActivity(
-                    context = context,
-                    intent = Intent(context, NavidromeLoginActivity::class.java)
-                )
-            }
-        }
-        ExternalServiceAccount.JELLYFIN -> {
-            if (preferDashboard) {
-                onOpenJellyfinDashboard()
-            } else {
-                safeStartActivity(
-                    context = context,
-                    intent = Intent(context, JellyfinLoginActivity::class.java)
-                )
-            }
-        }
         ExternalServiceAccount.LISTENBRAINZ -> {
             safeStartActivity(
                 context = context,
@@ -741,16 +636,6 @@ private fun ConnectServiceButton(
         modifier = Modifier.fillMaxWidth().height(48.dp)
     ) {
         when (service) {
-            ExternalServiceAccount.JELLYFIN -> Icon(
-                painter = painterResource(R.drawable.ic_jellyfin),
-                contentDescription = null,
-                modifier = Modifier.size(18.dp)
-            )
-            ExternalServiceAccount.NAVIDROME -> Icon(
-                painter = painterResource(R.drawable.ic_navidrome_md3),
-                contentDescription = null,
-                modifier = Modifier.size(18.dp)
-            )
             ExternalServiceAccount.LISTENBRAINZ -> Icon(
                 imageVector = Icons.Rounded.GraphicEq,
                 contentDescription = null,
@@ -768,8 +653,6 @@ private fun ConnectServiceButton(
 private fun ListenBrainzCardExtras(
     model: ListenBrainzUiModel,
     onToggleLocal: (Boolean) -> Unit,
-    onToggleNavidrome: (Boolean) -> Unit,
-    onToggleJellyfin: (Boolean) -> Unit,
     onReconnect: () -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -810,16 +693,6 @@ private fun ListenBrainzCardExtras(
             label = stringResource(R.string.accounts_listenbrainz_scrobble_local),
             checked = model.scrobbleLocal,
             onCheckedChange = onToggleLocal
-        )
-        ScrobbleSourceToggleRow(
-            label = stringResource(R.string.accounts_listenbrainz_scrobble_navidrome),
-            checked = model.scrobbleNavidrome,
-            onCheckedChange = onToggleNavidrome
-        )
-        ScrobbleSourceToggleRow(
-            label = stringResource(R.string.accounts_listenbrainz_scrobble_jellyfin),
-            checked = model.scrobbleJellyfin,
-            onCheckedChange = onToggleJellyfin
         )
         Text(
             text = stringResource(R.string.accounts_listenbrainz_toggle_hint),

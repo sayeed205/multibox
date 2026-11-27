@@ -88,11 +88,7 @@ object LocalArtworkUri {
             .firstOrNull()
     }
 
-    fun isLikelyLocalMedia(contentUriString: String): Boolean {
-        val normalized = contentUriString.lowercase()
-        return !normalized.startsWith("navidrome://") &&
-            !normalized.startsWith("jellyfin://")
-    }
+    fun isLikelyLocalMedia(contentUriString: String): Boolean = true
 
     fun resolveSongArtworkUri(
         storedUri: String?,
