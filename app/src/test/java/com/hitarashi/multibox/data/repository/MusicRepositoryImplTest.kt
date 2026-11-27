@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.InvalidationTracker
 import com.hitarashi.multibox.data.database.GenreSongCountRow
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SearchHistoryDao
 import com.hitarashi.multibox.data.database.SongEntity
 import com.hitarashi.multibox.data.database.SongLyricSearchRow
@@ -40,7 +40,7 @@ class MusicRepositoryImplTest {
 
     private lateinit var musicRepository: MusicRepositoryImpl
     private val mockMusicDao: MusicDao = mockk()
-    private val mockDatabase: PixelPlayerDatabase = mockk()
+    private val mockDatabase: MultiboxDatabase = mockk()
     private val mockSearchHistoryDao: SearchHistoryDao = mockk(relaxed = true)
     private val mockContext: Context = mockk(relaxed = true)
     private val mockUserPreferencesRepository: UserPreferencesRepository = mockk()

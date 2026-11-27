@@ -21,7 +21,7 @@ import androidx.core.net.toUri
 import com.hitarashi.multibox.data.database.FavoritesDao
 import com.hitarashi.multibox.data.database.GenreSongCountRow
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SearchHistoryDao
 import com.hitarashi.multibox.data.database.SearchHistoryEntity
 import com.hitarashi.multibox.data.database.toAlbum
@@ -93,7 +93,7 @@ class MusicRepositoryImpl @Inject constructor(
     private val playlistPreferencesRepository: PlaylistPreferencesRepository,
     private val searchHistoryDao: SearchHistoryDao,
     private val musicDao: MusicDao,
-    private val database: PixelPlayerDatabase,
+    private val database: MultiboxDatabase,
     private val lyricsRepository: LyricsRepository,
     private val songRepository: SongRepository,
     private val favoritesDao: FavoritesDao,

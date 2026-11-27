@@ -146,8 +146,8 @@ import com.hitarashi.multibox.presentation.navigation.Screen
 import com.hitarashi.multibox.presentation.screens.SetupScreen
 import com.hitarashi.multibox.presentation.viewmodel.MainViewModel
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
-import com.hitarashi.multibox.presentation.splash.PixelPlayerSplash
-import com.hitarashi.multibox.ui.theme.PixelPlayerTheme
+import com.hitarashi.multibox.presentation.splash.MultiboxSplash
+import com.hitarashi.multibox.ui.theme.MultiboxTheme
 import com.hitarashi.multibox.ui.theme.resolveAppWideNowPlayingColorSchemePair
 import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
 import com.hitarashi.multibox.utils.AppLocaleManager
@@ -215,7 +215,7 @@ class MainActivity : ComponentActivity() {
     private val _pendingShuffleAll = kotlinx.coroutines.flow.MutableStateFlow(false)
     private val _pendingUpdatesNavigation = kotlinx.coroutines.flow.MutableStateFlow(false)
 
-    /** Flips when the system splash view is removed; PixelPlayerSplash starts animating then. */
+    /** Flips when the system splash view is removed; MultiboxSplash starts animating then. */
     private val systemSplashGone = mutableStateOf(false)
 
     private val requestAllFilesAccessLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _ ->
@@ -277,7 +277,7 @@ class MainActivity : ComponentActivity() {
             !isBenchmarkMode &&
             Settings.Global.getFloat(contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
         if (playAnimatedSplash) {
-            // PixelPlayerSplash's first frame is the system splash's last one, so the system view
+            // MultiboxSplash's first frame is the system splash's last one, so the system view
             // only needs a short fade to cover device-specific icon rendering differences.
             splashScreen.setOnExitAnimationListener { provider ->
                 provider.view.animate()
@@ -292,13 +292,13 @@ class MainActivity : ComponentActivity() {
         }
         val shouldBenchmarkRebuildDatabase =
             isBenchmarkMode && intent.getBooleanExtra("benchmark_rebuild_database", false)
-        Timber.tag("PixelPlayerBenchmark").i(
+        Timber.tag("MultiboxBenchmark").i(
             "onCreate benchmark=$isBenchmarkMode rebuildDatabase=$shouldBenchmarkRebuildDatabase"
         )
         if (shouldBenchmarkRebuildDatabase) {
             lifecycleScope.launch {
                 userPreferencesRepository.setInitialSetupDone(true)
-                Timber.tag("PixelPlayerBenchmark").i("Enqueueing benchmark database rebuild")
+                Timber.tag("MultiboxBenchmark").i("Enqueueing benchmark database rebuild")
                 syncManager.rebuildDatabase()
                 delay(1_500L)
                 playerViewModel.prepareBenchmarkPlayerFromLibrary()
@@ -391,7 +391,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            PixelPlayerTheme(
+            MultiboxTheme(
                 darkTheme = useDarkTheme,
                 colorSchemePairOverride = appWideNowPlayingScheme,
                 themePreset = themePreset,
@@ -453,7 +453,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     if (showAnimatedSplash) {
-                        PixelPlayerSplash(
+                        MultiboxSplash(
                             systemSplashGone = systemSplashGone.value,
                             onFinished = { showAnimatedSplash = false }
                         )

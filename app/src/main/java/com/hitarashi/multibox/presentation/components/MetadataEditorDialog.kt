@@ -23,7 +23,7 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 
 @Composable
 internal fun MetadataEditorDialog(
@@ -35,7 +35,7 @@ internal fun MetadataEditorDialog(
     transitionState.targetState = visible
     if (!transitionState.currentState && !transitionState.targetState) return
 
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
 
     Dialog(
         onDismissRequest = onDismiss,

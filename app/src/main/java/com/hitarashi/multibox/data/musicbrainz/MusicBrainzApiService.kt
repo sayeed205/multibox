@@ -37,8 +37,8 @@ class MusicBrainzApiService @Inject constructor(
                 chain.request().newBuilder()
                     .header(
                         "User-Agent",
-                        "PixelPlayerOSS/${BuildConfig.VERSION_NAME} " +
-                            "(https://github.com/PixelPlayerHQ/PixelPlayerOSS)"
+                        "Multibox/${BuildConfig.VERSION_NAME} " +
+                            "(https://github.com/sayeed205/multibox)"
                     )
                     .header("Accept", "application/json")
                     .build()

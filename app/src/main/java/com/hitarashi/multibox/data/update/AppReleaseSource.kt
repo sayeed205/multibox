@@ -82,7 +82,7 @@ class AppReleaseSource @Inject constructor(
 
         /**
          * Newest alpha prerelease with an APK for one of [supportedAbis] (in device preference
-         * order). Alpha workflow assets are named `PixelPlayerOSS-<version>-<abi>.apk`.
+         * order). Alpha workflow assets are named `Multibox-<version>-<abi>.apk`.
          */
         internal fun parseLatestAlpha(releases: JSONArray, supportedAbis: List<String>): AppRelease? {
             return (0 until releases.length())

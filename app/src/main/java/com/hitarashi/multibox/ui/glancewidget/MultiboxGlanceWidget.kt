@@ -53,7 +53,7 @@ import com.hitarashi.multibox.utils.createScalableBackgroundBitmap
 import java.util.Locale
 import timber.log.Timber
 
-class PixelPlayerGlanceWidget : GlanceAppWidget() {
+class MultiboxGlanceWidget : GlanceAppWidget() {
 
     companion object {
         private val VERY_THIN_LAYOUT_SIZE = DpSize(width = 200.dp, height = 60.dp)
@@ -78,7 +78,7 @@ class PixelPlayerGlanceWidget : GlanceAppWidget() {
             val playerInfo = currentState<PlayerInfo>()
             val currentSize = LocalSize.current
 
-            Timber.tag("PixelPlayerGlanceWidget")
+            Timber.tag("MultiboxGlanceWidget")
                 .d("Providing Glance. PlayerInfo: title='${playerInfo.songTitle}', artist='${playerInfo.artistName}', isPlaying=${playerInfo.isPlaying}, hasBitmap=${playerInfo.albumArtBitmapData != null}, progress=${playerInfo.currentPositionMs}/${playerInfo.totalDurationMs}")
 
             // themeColors is null when there is no palette (nothing playing, or no
@@ -111,7 +111,7 @@ class PixelPlayerGlanceWidget : GlanceAppWidget() {
         val albumArtBitmapData = playerInfo.albumArtBitmapData
         val albumArtUri = playerInfo.albumArtUri
 
-        Timber.tag("PixelPlayerGlanceWidget")
+        Timber.tag("MultiboxGlanceWidget")
             .d("WidgetUi: PlayerInfo received. Title: $title, Artist: $artist, HasBitmapData: ${albumArtBitmapData != null}, BitmapDataSize: ${albumArtBitmapData?.size ?: "N/A"}")
 
         val actualBackgroundColor = GlanceTheme.colors.surface

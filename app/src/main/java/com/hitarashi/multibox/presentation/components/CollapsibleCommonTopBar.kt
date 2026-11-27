@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.MultiboxStatusBarStyle
 import androidx.compose.ui.res.stringResource
 import com.hitarashi.multibox.R
 
@@ -66,7 +66,7 @@ fun CollapsibleCommonTopBar(
     val statusBarFallbackColor = backgroundColor.compositeOver(MaterialTheme.colorScheme.surface)
 
     if (syncStatusBarWithContainer) {
-        PixelPlayerStatusBarStyle(color = statusBarFallbackColor)
+        MultiboxStatusBarStyle(color = statusBarFallbackColor)
     }
     
     Box(

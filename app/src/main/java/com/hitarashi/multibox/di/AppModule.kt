@@ -16,7 +16,7 @@ import coil.ImageLoader
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import com.hitarashi.multibox.BuildConfig
-import com.hitarashi.multibox.PixelPlayerApplication
+import com.hitarashi.multibox.MultiboxApplication
 import com.hitarashi.multibox.data.database.AlbumArtThemeDao
 import com.hitarashi.multibox.data.database.EngagementDao
 import com.hitarashi.multibox.data.database.FavoritesDao
@@ -25,7 +25,7 @@ import com.hitarashi.multibox.data.database.LocalPlaylistDao
 import com.hitarashi.multibox.data.database.ListenBrainzDao
 import com.hitarashi.multibox.data.database.AudioBookmarkDao
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SearchHistoryDao
 import com.hitarashi.multibox.data.database.TransitionDao
 import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
@@ -69,8 +69,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApplication(@ApplicationContext app: Context): PixelPlayerApplication {
-        return app as PixelPlayerApplication
+    fun provideApplication(@ApplicationContext app: Context): MultiboxApplication {
+        return app as MultiboxApplication
     }
 
     @Singleton
@@ -120,13 +120,13 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providePixelPlayerDatabase(@ApplicationContext context: Context): PixelPlayerDatabase {
+    fun provideMultiboxDatabase(@ApplicationContext context: Context): MultiboxDatabase {
         val builder = Room.databaseBuilder(
             context.applicationContext,
-            PixelPlayerDatabase::class.java,
-            "pixelplayer_database"
+            MultiboxDatabase::class.java,
+            "multibox_database"
         )
-            .addCallback(PixelPlayerDatabase.createRuntimeArtifactsCallback())
+            .addCallback(MultiboxDatabase.createRuntimeArtifactsCallback())
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
 
         if (BuildConfig.DEBUG) {
@@ -138,61 +138,61 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideAlbumArtThemeDao(database: PixelPlayerDatabase): AlbumArtThemeDao {
+    fun provideAlbumArtThemeDao(database: MultiboxDatabase): AlbumArtThemeDao {
         return database.albumArtThemeDao()
     }
 
     @Singleton
     @Provides
-    fun provideSearchHistoryDao(database: PixelPlayerDatabase): SearchHistoryDao {
+    fun provideSearchHistoryDao(database: MultiboxDatabase): SearchHistoryDao {
         return database.searchHistoryDao()
     }
 
     @Singleton
     @Provides
-    fun provideMusicDao(database: PixelPlayerDatabase): MusicDao {
+    fun provideMusicDao(database: MultiboxDatabase): MusicDao {
         return database.musicDao()
     }
 
     @Singleton
     @Provides
-    fun provideTransitionDao(database: PixelPlayerDatabase): TransitionDao {
+    fun provideTransitionDao(database: MultiboxDatabase): TransitionDao {
         return database.transitionDao()
     }
 
     @Singleton
     @Provides
-    fun provideEngagementDao(database: PixelPlayerDatabase): EngagementDao {
+    fun provideEngagementDao(database: MultiboxDatabase): EngagementDao {
         return database.engagementDao()
     }
 
     @Singleton
     @Provides
-    fun provideFavoritesDao(database: PixelPlayerDatabase): FavoritesDao {
+    fun provideFavoritesDao(database: MultiboxDatabase): FavoritesDao {
         return database.favoritesDao()
     }
 
     @Singleton
     @Provides
-    fun provideLyricsDao(database: PixelPlayerDatabase): LyricsDao {
+    fun provideLyricsDao(database: MultiboxDatabase): LyricsDao {
         return database.lyricsDao()
     }
 
     @Singleton
     @Provides
-    fun provideLocalPlaylistDao(database: PixelPlayerDatabase): LocalPlaylistDao {
+    fun provideLocalPlaylistDao(database: MultiboxDatabase): LocalPlaylistDao {
         return database.localPlaylistDao()
     }
 
     @Singleton
     @Provides
-    fun provideListenBrainzDao(database: PixelPlayerDatabase): ListenBrainzDao {
+    fun provideListenBrainzDao(database: MultiboxDatabase): ListenBrainzDao {
         return database.listenBrainzDao()
     }
 
     @Singleton
     @Provides
-    fun provideAudioBookmarkDao(database: PixelPlayerDatabase): AudioBookmarkDao {
+    fun provideAudioBookmarkDao(database: MultiboxDatabase): AudioBookmarkDao {
         return database.audioBookmarkDao()
     }
 
@@ -271,7 +271,7 @@ object AppModule {
         playlistPreferencesRepository: PlaylistPreferencesRepository,
         searchHistoryDao: SearchHistoryDao,
         musicDao: MusicDao,
-        database: PixelPlayerDatabase,
+        database: MultiboxDatabase,
         lyricsRepository: LyricsRepository,
         songRepository: SongRepository,
         favoritesDao: FavoritesDao,
@@ -357,7 +357,7 @@ object AppModule {
             .addInterceptor { chain ->
                 val originalRequest = chain.request()
                 val requestWithUserAgent = originalRequest.newBuilder()
-                    .header("User-Agent", "PixelPlayerOSS/1.0 (Android; Music Player)")
+                    .header("User-Agent", "Multibox/1.0 (Android; Music Player)")
                     .build()
                 chain.proceed(requestWithUserAgent)
             }
@@ -417,7 +417,7 @@ object AppModule {
             .addInterceptor { chain ->
                 val originalRequest = chain.request()
                 val requestWithHeaders = originalRequest.newBuilder()
-                    .header("User-Agent", "PixelPlayerOSS/1.0 (Android; Music Player)")
+                    .header("User-Agent", "Multibox/1.0 (Android; Music Player)")
                     .header("Accept", "application/json")
                     .build()
                 chain.proceed(requestWithHeaders)

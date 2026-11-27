@@ -126,7 +126,7 @@
     <string name="playlist_share_failed">Share failed: %1$s</string>
     <string name="playlist_none_to_export">No playlists to export</string>
     <string name="playlist_export_failed">Export failed: %1$s</string>
-    <string name="playlist_export_folder_display" translatable="false">Music/PixelPlayerOSS Exports</string>
+    <string name="playlist_export_folder_display" translatable="false">Music/Multibox Exports</string>
     <string name="error_unknown">Unknown error</string>
 
 
@@ -287,7 +287,7 @@
     <string name="cloud_download_batch_queued">Queued downloads: %1$d</string>
     <string name="cloud_download_batch_failed">Could not queue all cloud downloads. Check Downloads for any tracks already queued.</string>
     <string name="cloud_download_export_folder_title">Export folder</string>
-    <string name="cloud_download_export_folder_description">Offline copies always stay private to PixelPlayer. Choose a folder, such as Music, to also save a separate copy of new downloads.</string>
+    <string name="cloud_download_export_folder_description">Offline copies always stay private to Multibox. Choose a folder, such as Music, to also save a separate copy of new downloads.</string>
     <string name="cloud_download_export_folder_selected">Saving copies to: %1$s</string>
     <string name="cloud_download_export_choose_folder">Choose folder</string>
     <string name="cloud_download_export_change_folder">Change folder</string>

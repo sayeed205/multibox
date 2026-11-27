@@ -86,10 +86,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.ui.theme.RoundedSans
 import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
-import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.MultiboxStatusBarStyle
 import androidx.compose.ui.unit.lerp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
@@ -153,7 +153,7 @@ fun AlbumDetailScreen(
         .isWidthAtLeastBreakpoint(WindowSizeClass.WIDTH_DP_MEDIUM_LOWER_BOUND)
     val bottomBarHeightDp = resolveNavBarOccupiedHeight(systemNavBarInset, navBarCompactMode, useNavigationRail)
     var showPlaylistBottomSheet by remember { mutableStateOf(false) }
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
     val baseColorScheme = MaterialTheme.colorScheme
     val albumArtUri = uiState.album?.albumArtUriString?.takeIf { it.isNotBlank() }
     val albumColorSchemeFlow = remember(albumArtUri) {
@@ -761,7 +761,7 @@ private fun SharedAlbumTopBarProbe(
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val statusBarColor =
-        if (LocalPixelPlayerDarkTheme.current) Color.Black.copy(alpha = 0.6f)
+        if (LocalMultiboxDarkTheme.current) Color.Black.copy(alpha = 0.6f)
         else Color.White.copy(alpha = 0.4f)
     val solidAlpha = (collapseFraction * 2f).coerceIn(0f, 1f)
     val statusBarBrush = remember(statusBarColor) {
@@ -773,7 +773,7 @@ private fun SharedAlbumTopBarProbe(
     val fallbackStatusBarColor = remember(expandedStatusBarFallback, surfaceColor, solidAlpha) {
         lerpColor(expandedStatusBarFallback, surfaceColor, solidAlpha)
     }
-    PixelPlayerStatusBarStyle(color = fallbackStatusBarColor)
+    MultiboxStatusBarStyle(color = fallbackStatusBarColor)
 
     Box(
         modifier = Modifier
@@ -839,7 +839,7 @@ private fun CollapsingAlbumTopBar(
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val statusBarColor =
-        if (LocalPixelPlayerDarkTheme.current) Color.Black.copy(alpha = 0.6f) else Color.White.copy(
+        if (LocalMultiboxDarkTheme.current) Color.Black.copy(alpha = 0.6f) else Color.White.copy(
             alpha = 0.4f
         )
 
@@ -888,7 +888,7 @@ private fun CollapsingAlbumTopBar(
             .height(headerHeight)
             .clipToBounds()
     ) {
-        PixelPlayerStatusBarStyle(color = fallbackStatusBarColor)
+        MultiboxStatusBarStyle(color = fallbackStatusBarColor)
 
         Box(
             modifier = Modifier

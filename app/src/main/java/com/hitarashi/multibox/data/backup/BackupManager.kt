@@ -111,7 +111,7 @@ class BackupManager @Inject constructor(
             backupWriter.write(uri, manifest, modulePayloads, passphrase = passphrase).getOrThrow()
 
             reportProgress(onProgress, BackupOperationType.EXPORT, ++step, totalSteps,
-                "Backup complete", "Your PixelPlayerOSS backup was created successfully.")
+                "Backup complete", "Your Multibox backup was created successfully.")
         }
     }
 

@@ -85,7 +85,7 @@ import com.hitarashi.multibox.presentation.viewmodel.AlbumData
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 import com.hitarashi.multibox.presentation.viewmodel.UNKNOWN_GENRE_ID
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
 import com.hitarashi.multibox.utils.GenreParser
 import com.hitarashi.multibox.utils.formatDuration
@@ -178,7 +178,7 @@ fun GenreDetailScreen(
     }
 
     val density = LocalDensity.current
-    val darkMode = LocalPixelPlayerDarkTheme.current
+    val darkMode = LocalMultiboxDarkTheme.current
 
     val coroutineScope = rememberCoroutineScope()
     val lazyListState = rememberLazyListState()

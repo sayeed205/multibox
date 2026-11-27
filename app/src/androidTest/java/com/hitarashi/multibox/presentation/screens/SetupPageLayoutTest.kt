@@ -81,7 +81,7 @@ class SetupPageLayoutTest {
             SmallScreenLargeFont {
                 PermissionPageLayout(
                     title = "Allow access to your music library",
-                    description = "PixelPlayer needs to read the audio files on this device to " +
+                    description = "Multibox needs to read the audio files on this device to " +
                         "build your library, show album art and play your songs.",
                     buttonText = GRANT_BUTTON,
                     icons = persistentListOf(

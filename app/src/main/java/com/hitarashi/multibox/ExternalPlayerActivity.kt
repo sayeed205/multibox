@@ -15,7 +15,7 @@ import androidx.compose.runtime.getValue
 import dagger.hilt.android.AndroidEntryPoint
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.presentation.components.external.ExternalPlayerOverlay
-import com.hitarashi.multibox.ui.theme.PixelPlayerTheme
+import com.hitarashi.multibox.ui.theme.MultiboxTheme
 import android.content.Intent.EXTRA_STREAM
 import androidx.media3.common.util.UnstableApi
 import com.hitarashi.multibox.data.preferences.AppThemeMode
@@ -59,7 +59,7 @@ class ExternalPlayerActivity : ComponentActivity() {
                 AppThemeMode.LIGHT -> false
                 else -> systemDarkTheme
             }
-            PixelPlayerTheme(
+            MultiboxTheme(
                 darkTheme = useDarkTheme,
                 themePreset = themePreset,
                 interfaceAppearance = interfaceAppearance

@@ -33,8 +33,8 @@ import com.hitarashi.multibox.data.preferences.ThemePreset
 import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 import androidx.core.graphics.ColorUtils
 
-val LocalPixelPlayerDarkTheme = staticCompositionLocalOf { false }
-val LocalPixelPlayerAmoledTheme = staticCompositionLocalOf { false }
+val LocalMultiboxDarkTheme = staticCompositionLocalOf { false }
+val LocalMultiboxAmoledTheme = staticCompositionLocalOf { false }
 val LocalShowScrollbar = staticCompositionLocalOf { true }
 internal val LocalUseSystemFont = staticCompositionLocalOf { false }
 
@@ -46,7 +46,7 @@ private tailrec fun Context.findActivity(): Activity? = when (this) {
 
 @Suppress("DEPRECATION")
 @Composable
-fun PixelPlayerStatusBarStyle(
+fun MultiboxStatusBarStyle(
     color: Color,
     useDarkIcons: Boolean = ColorUtils.calculateLuminance(color.toArgb()) > 0.55,
     navigationColor: Color? = null,
@@ -80,31 +80,31 @@ fun PixelPlayerStatusBarStyle(
 }
 
 val DarkColorScheme = darkColorScheme(
-    primary = PixelPlayerPurplePrimary,
-    secondary = PixelPlayerPink,
-    tertiary = PixelPlayerOrange,
-    background = PixelPlayerPurpleDark,
-    surface = PixelPlayerSurface,
-    onPrimary = PixelPlayerWhite,
-    onSecondary = PixelPlayerWhite,
-    onTertiary = PixelPlayerWhite,
-    onBackground = PixelPlayerWhite,
-    onSurface = PixelPlayerLightPurple,
+    primary = MultiboxPurplePrimary,
+    secondary = MultiboxPink,
+    tertiary = MultiboxOrange,
+    background = MultiboxPurpleDark,
+    surface = MultiboxSurface,
+    onPrimary = MultiboxWhite,
+    onSecondary = MultiboxWhite,
+    onTertiary = MultiboxWhite,
+    onBackground = MultiboxWhite,
+    onSurface = MultiboxLightPurple,
     error = Color(0xFFFF5252),
-    onError = PixelPlayerWhite
+    onError = MultiboxWhite
 )
 
 val LightColorScheme = lightColorScheme(
     primary = LightPrimary,
-    onPrimary = PixelPlayerWhite,
+    onPrimary = MultiboxWhite,
     primaryContainer = LightPrimaryContainer,
     onPrimaryContainer = LightOnPrimaryContainer,
-    secondary = PixelPlayerPink,
-    onSecondary = PixelPlayerWhite,
-    secondaryContainer = PixelPlayerPink.copy(alpha = 0.15f),
-    onSecondaryContainer = PixelPlayerPink.copy(alpha = 0.85f),
-    tertiary = PixelPlayerOrange,
-    onTertiary = PixelPlayerBlack,
+    secondary = MultiboxPink,
+    onSecondary = MultiboxWhite,
+    secondaryContainer = MultiboxPink.copy(alpha = 0.15f),
+    onSecondaryContainer = MultiboxPink.copy(alpha = 0.85f),
+    tertiary = MultiboxOrange,
+    onTertiary = MultiboxBlack,
     background = LightBackground,
     onBackground = LightOnSurface,
     surface = LightSurface,
@@ -115,7 +115,7 @@ val LightColorScheme = lightColorScheme(
     outlineVariant = LightOutline.copy(alpha = 0.6f),
     surfaceTint = LightPrimary,
     error = Color(0xFFD32F2F),
-    onError = PixelPlayerWhite
+    onError = MultiboxWhite
 )
 
 fun isAmoledThemePreset(preset: String): Boolean = preset == ThemePreset.AMOLED
@@ -161,7 +161,7 @@ fun getAmoledColorScheme(
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun PixelPlayerTheme(
+fun MultiboxTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     colorSchemePairOverride: ColorSchemePair? = null,
     themePreset: String = ThemePreset.DEFAULT,
@@ -188,7 +188,7 @@ fun PixelPlayerTheme(
         else -> LightColorScheme
     }
 
-    PixelPlayerStatusBarStyle(
+    MultiboxStatusBarStyle(
         color = finalColorScheme.background,
         navigationColor = finalColorScheme.background
     )
@@ -211,8 +211,8 @@ fun PixelPlayerTheme(
     CompositionLocalProvider(
         LocalDensity provides interfaceDensity,
         LocalUseSystemFont provides interfaceAppearance.useSystemFont,
-        LocalPixelPlayerDarkTheme provides (darkTheme || isAmoled),
-        LocalPixelPlayerAmoledTheme provides isAmoled
+        LocalMultiboxDarkTheme provides (darkTheme || isAmoled),
+        LocalMultiboxAmoledTheme provides isAmoled
     ) {
         MaterialTheme(
             colorScheme = finalColorScheme,

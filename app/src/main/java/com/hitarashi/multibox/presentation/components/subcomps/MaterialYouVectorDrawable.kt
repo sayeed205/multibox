@@ -13,7 +13,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.hitarashi.multibox.R
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 
 /**
  * Inflates an XML vector that depends on Android theme attrs using the app's
@@ -26,7 +26,7 @@ fun MaterialYouVectorDrawable(
     contentScale: ContentScale = ContentScale.Fit
 ) {
     val context = LocalContext.current
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
     val themedContext = remember(context, isDarkTheme) {
         context.createVectorThemedContext(isDarkTheme = isDarkTheme)
     }
@@ -50,5 +50,5 @@ private fun Context.createVectorThemedContext(isDarkTheme: Boolean): Context {
             if (isDarkTheme) Configuration.UI_MODE_NIGHT_YES else Configuration.UI_MODE_NIGHT_NO
     }
     val modeContext = createConfigurationContext(themedConfiguration)
-    return ContextThemeWrapper(modeContext, R.style.Theme_PixelPlayer)
+    return ContextThemeWrapper(modeContext, R.style.Theme_Multibox)
 }

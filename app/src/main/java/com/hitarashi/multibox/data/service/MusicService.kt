@@ -40,7 +40,7 @@ import androidx.media3.session.SessionResult
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.SettableFuture
-import com.hitarashi.multibox.PixelPlayerApplication
+import com.hitarashi.multibox.MultiboxApplication
 import com.hitarashi.multibox.MainActivity
 import com.hitarashi.multibox.R
 import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
@@ -59,7 +59,7 @@ import com.hitarashi.multibox.data.service.player.MappingPlayer
 import com.hitarashi.multibox.data.service.player.PreviousButtonPlayer
 import com.hitarashi.multibox.data.service.player.TransitionController
 import com.hitarashi.multibox.ui.glancewidget.ControlWidget4x2
-import com.hitarashi.multibox.ui.glancewidget.PixelPlayerGlanceWidget
+import com.hitarashi.multibox.ui.glancewidget.MultiboxGlanceWidget
 import com.hitarashi.multibox.ui.glancewidget.PlayerActions
 import com.hitarashi.multibox.ui.glancewidget.PlayerInfoStateDefinition
 import com.hitarashi.multibox.utils.AlbumArtUtils
@@ -168,7 +168,7 @@ suspend fun loadArtworkBytesViaCoil(context: Context, uri: Uri): ByteArray? {
             config = ArtworkTransportSanitizer.WIDGET_CONFIG,
         )
     }.getOrElse { error ->
-        Timber.tag("MusicService_PixelPlayer").w(error, "Artwork read failed via Coil for uri=%s", uri)
+        Timber.tag("MusicService_Multibox").w(error, "Artwork read failed via Coil for uri=%s", uri)
         null
     }
 }
@@ -252,7 +252,7 @@ class MusicService : MediaSessionService() {
     private var temporaryForegroundNotificationVisible = false
 
     companion object {
-        private const val TAG = "MusicService_PixelPlayer"
+        private const val TAG = "MusicService_Multibox"
         const val NOTIFICATION_ID = 101
         const val ACTION_SLEEP_TIMER_EXPIRED = "com.hitarashi.multibox.ACTION_SLEEP_TIMER_EXPIRED"
         const val EXTRA_FORCE_FOREGROUND_ON_START =
@@ -779,7 +779,7 @@ class MusicService : MediaSessionService() {
     private fun startTemporaryForegroundForCommand() {
         val notification = NotificationCompat.Builder(
             this,
-            PixelPlayerApplication.NOTIFICATION_CHANNEL_ID
+            MultiboxApplication.NOTIFICATION_CHANNEL_ID
         )
             .setSmallIcon(R.drawable.monochrome_player)
             .setContentTitle(getString(R.string.app_name))
@@ -2020,10 +2020,10 @@ class MusicService : MediaSessionService() {
             val glanceManager = GlanceAppWidgetManager(applicationContext)
             val widgetPlayerInfo = playerInfo.toWidgetTransportState()
 
-            val glanceIds = glanceManager.getGlanceIds(PixelPlayerGlanceWidget::class.java)
+            val glanceIds = glanceManager.getGlanceIds(MultiboxGlanceWidget::class.java)
             glanceIds.forEach { id ->
                 updateAppWidgetState(applicationContext, PlayerInfoStateDefinition, id) { widgetPlayerInfo }
-                PixelPlayerGlanceWidget().update(applicationContext, id)
+                MultiboxGlanceWidget().update(applicationContext, id)
             }
 
             val barGlanceIds = glanceManager.getGlanceIds(BarWidget4x1::class.java)

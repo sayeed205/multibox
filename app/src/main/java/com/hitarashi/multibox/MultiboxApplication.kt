@@ -36,7 +36,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltAndroidApp
-class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.Provider {
+class MultiboxApplication : Application(), ImageLoaderFactory, Configuration.Provider {
 
     @Inject
     lateinit var workerFactory: HiltWorkerFactory
@@ -80,7 +80,7 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
     private val startupScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     companion object {
-        const val NOTIFICATION_CHANNEL_ID = "pixelplayer_music_channel"
+        const val NOTIFICATION_CHANNEL_ID = "multibox_music_channel"
     }
 
     private val appLifecycleObserver = object : DefaultLifecycleObserver {
@@ -124,7 +124,7 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 NOTIFICATION_CHANNEL_ID,
-                "PixelPlayerOSS Music Playback",
+                "Multibox Music Playback",
                 NotificationManager.IMPORTANCE_LOW
             )
             val notificationManager = getSystemService(NotificationManager::class.java)

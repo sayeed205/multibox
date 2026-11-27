@@ -161,8 +161,8 @@ import com.hitarashi.multibox.presentation.navigation.navigateSafely
 import com.hitarashi.multibox.presentation.viewmodel.AudioBookmarksViewModel
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.ui.theme.GenreThemeUtils
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
-import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
+import com.hitarashi.multibox.ui.theme.MultiboxStatusBarStyle
 import com.hitarashi.multibox.ui.theme.RoundedSans
 import coil.size.Size
 import kotlinx.coroutines.delay
@@ -655,7 +655,7 @@ private fun BookmarkFolderTopBar(
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val statusBarColor =
-        if (LocalPixelPlayerDarkTheme.current) Color.Black.copy(alpha = 0.58f)
+        if (LocalMultiboxDarkTheme.current) Color.Black.copy(alpha = 0.58f)
         else Color.White.copy(alpha = 0.42f)
     val solidAlpha = (collapseFraction * 2f).coerceIn(0f, 1f)
     val expandedContentAlpha = 1f - solidAlpha
@@ -685,7 +685,7 @@ private fun BookmarkFolderTopBar(
         lerpColor(expandedStatusBarFallback, surfaceColor, solidAlpha)
     }
 
-    PixelPlayerStatusBarStyle(color = fallbackStatusBarColor)
+    MultiboxStatusBarStyle(color = fallbackStatusBarColor)
 
     Box(
         modifier = Modifier
@@ -2387,7 +2387,7 @@ private fun BookmarksEmptyState(
 
 @Composable
 private fun rememberSongColorScheme(song: Song): ColorScheme {
-    val isDark = LocalPixelPlayerDarkTheme.current
+    val isDark = LocalMultiboxDarkTheme.current
     val paletteKey = song.genre ?: song.album.ifBlank { song.id }
     return remember(paletteKey, isDark) {
         GenreThemeUtils.getGenreColorScheme(
@@ -2408,7 +2408,7 @@ private fun rememberBookmarkCardColorScheme(
         playerViewModel.themeStateHolder.getAlbumColorSchemeFlow(albumArtUri)
     }
     val albumColorSchemePair by albumColorSchemeFlow.collectAsStateWithLifecycle()
-    val isDark = LocalPixelPlayerDarkTheme.current
+    val isDark = LocalMultiboxDarkTheme.current
 
     return remember(albumColorSchemePair, isDark, fallbackScheme) {
         albumColorSchemePair?.let { pair ->

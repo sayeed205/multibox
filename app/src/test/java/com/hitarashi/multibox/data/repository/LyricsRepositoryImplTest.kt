@@ -416,7 +416,7 @@ class LyricsRepositoryImplTest {
 
     @Test
     fun getLyrics_replacesDamagedStoredLyricsWithACleanLrcFileNextToTheSong() = runTest {
-        val musicDir = Files.createTempDirectory("pixelplayer-music").toFile()
+        val musicDir = Files.createTempDirectory("multibox-music").toFile()
         File(musicDir, "Mua Thu.lrc").writeText("[00:01.00]Anh vẫn nhớ thân em")
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
@@ -509,7 +509,7 @@ class LyricsRepositoryImplTest {
 
     @Test
     fun getLyrics_doesNotTakeALrcFileWithDamagedBackingVocalsAsTheCleanCopy() = runTest {
-        val musicDir = Files.createTempDirectory("pixelplayer-music").toFile()
+        val musicDir = Files.createTempDirectory("multibox-music").toFile()
         File(musicDir, "Mua Thu.lrc").writeText("[00:01.00]Anh vẫn nhớ thân em\n[bg:(th�n em)]")
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(134L) } returns null
@@ -535,7 +535,7 @@ class LyricsRepositoryImplTest {
 
     @Test
     fun fetchFromRemote_diskCacheKeepsSingersAndBackgroundVocals() = runTest {
-        val filesDir = Files.createTempDirectory("pixelplayer-lyrics-test").toFile()
+        val filesDir = Files.createTempDirectory("multibox-lyrics-test").toFile()
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(107L) } returns null
@@ -576,7 +576,7 @@ class LyricsRepositoryImplTest {
 
     @Test
     fun fetchFromRemote_diskCacheKeepsABackingOnlyLinesTranslationApartFromALineSungWithIt() = runTest {
-        val filesDir = Files.createTempDirectory("pixelplayer-lyrics-test").toFile()
+        val filesDir = Files.createTempDirectory("multibox-lyrics-test").toFile()
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(108L) } returns null
@@ -617,7 +617,7 @@ class LyricsRepositoryImplTest {
         assertThat(lines.map { it.background?.text }).containsExactly("(Ooh ooh)", null, "(Aah)", null).inOrder()
     }
 
-    private fun testContext(filesDir: File = Files.createTempDirectory("pixelplayer-lyrics-test").toFile()): Context {
+    private fun testContext(filesDir: File = Files.createTempDirectory("multibox-lyrics-test").toFile()): Context {
         return mockk<Context>(relaxed = true) {
             every { this@mockk.filesDir } returns filesDir
         }

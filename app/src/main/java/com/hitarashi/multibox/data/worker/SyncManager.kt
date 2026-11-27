@@ -123,7 +123,7 @@ class SyncManager @Inject constructor(
 
     /**
      * Starts background observation (storage-change auto-sync, app-foreground catch-up)
-     * and schedules periodic maintenance. Called once from PixelPlayerApplication.onCreate
+     * and schedules periodic maintenance. Called once from MultiboxApplication.onCreate
      * so the launch site is explicit and greppable instead of hidden in DI construction.
      * Idempotent — extra calls are no-ops.
      */

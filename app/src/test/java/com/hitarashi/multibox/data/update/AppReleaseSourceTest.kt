@@ -38,7 +38,7 @@ class AppReleaseSourceTest {
         val latest = AppReleaseSource.parseLatestAlpha(releases, listOf("arm64-v8a"))!!
 
         assertThat(latest.versionName).isEqualTo("0.3.0-alpha.16")
-        assertThat(latest.apkUrl).endsWith("/PixelPlayerOSS-0.3.0-alpha.16-arm64-v8a.apk")
+        assertThat(latest.apkUrl).endsWith("/Multibox-0.3.0-alpha.16-arm64-v8a.apk")
     }
 
     @Test
@@ -105,10 +105,10 @@ class AppReleaseSourceTest {
     ): String {
         val name = tag.removePrefix("v")
         val assets = abis.joinToString(prefix = "[", postfix = "]") { abi ->
-            """{"name":"PixelPlayerOSS-$name-$abi.apk","size":37082259,
-               "browser_download_url":"https://github.com/PixelPlayerHQ/PixelPlayerOSS/releases/download/$tag/PixelPlayerOSS-$name-$abi.apk"}"""
+            """{"name":"Multibox-$name-$abi.apk","size":37082259,
+               "browser_download_url":"https://github.com/sayeed205/multibox/releases/download/$tag/Multibox-$name-$abi.apk"}"""
         }
         return """{"tag_name":"$tag","prerelease":$prerelease,"draft":$draft,
-                   "html_url":"https://github.com/PixelPlayerHQ/PixelPlayerOSS/releases/tag/$tag","assets":$assets}"""
+                   "html_url":"https://github.com/sayeed205/multibox/releases/tag/$tag","assets":$assets}"""
     }
 }

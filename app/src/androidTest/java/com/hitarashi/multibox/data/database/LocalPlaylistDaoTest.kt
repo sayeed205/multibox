@@ -15,13 +15,13 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class LocalPlaylistDaoTest {
 
-    private lateinit var database: PixelPlayerDatabase
+    private lateinit var database: MultiboxDatabase
     private lateinit var playlistDao: LocalPlaylistDao
 
     @Before
     fun createDatabase() {
         val context = ApplicationProvider.getApplicationContext<Context>()
-        database = Room.inMemoryDatabaseBuilder(context, PixelPlayerDatabase::class.java)
+        database = Room.inMemoryDatabaseBuilder(context, MultiboxDatabase::class.java)
             .allowMainThreadQueries()
             .build()
         playlistDao = database.localPlaylistDao()

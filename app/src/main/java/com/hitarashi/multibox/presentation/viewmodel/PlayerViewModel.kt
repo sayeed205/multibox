@@ -5109,19 +5109,19 @@ class PlayerViewModel @Inject constructor(
                 val songs = withContext(dispatchers.io) {
                     musicRepository.getAllSongsOnce()
                 }
-                Timber.tag("PixelPlayerBenchmark").i(
+                Timber.tag("MultiboxBenchmark").i(
                     "prepare player attempt=$attempt controllerReady=$controllerReady songs=${songs.size}"
                 )
                 if (controllerReady && songs.isNotEmpty()) {
                     playSongs(songs, songs.first(), "Benchmark Player")
                     delay(700L)
                     collapsePlayerSheet()
-                    Timber.tag("PixelPlayerBenchmark").i("Benchmark player prepared with ${songs.first().title}")
+                    Timber.tag("MultiboxBenchmark").i("Benchmark player prepared with ${songs.first().title}")
                     return@launch
                 }
                 delay(500L)
             }
-            Timber.tag("PixelPlayerBenchmark").w("Unable to prepare benchmark player from library")
+            Timber.tag("MultiboxBenchmark").w("Unable to prepare benchmark player from library")
         }
     }
 

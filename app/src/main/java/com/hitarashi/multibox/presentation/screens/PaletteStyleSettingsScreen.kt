@@ -69,7 +69,7 @@ import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
 import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.ui.theme.generateColorSchemeFromSeed
 import kotlin.math.roundToInt
 
@@ -83,7 +83,7 @@ fun PaletteStyleSettingsScreen(
 ) {
     val uiState by settingsViewModel.uiState.collectAsStateWithLifecycle()
     val stablePlayerState by playerViewModel.stablePlayerState.collectAsStateWithLifecycle()
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
     val albumSchemePair by playerViewModel.currentAlbumArtColorSchemePair.collectAsStateWithLifecycle()
 
     val baseScheme = MaterialTheme.colorScheme

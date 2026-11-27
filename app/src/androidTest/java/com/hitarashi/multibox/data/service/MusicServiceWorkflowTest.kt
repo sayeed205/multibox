@@ -20,7 +20,7 @@ import com.google.common.truth.Truth.assertWithMessage
 import com.hitarashi.multibox.data.database.AlbumEntity
 import com.hitarashi.multibox.data.database.ArtistEntity
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SongEntity
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit
 class MusicServiceWorkflowTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
     private val context: Context = ApplicationProvider.getApplicationContext()
-    private lateinit var database: PixelPlayerDatabase
+    private lateinit var database: MultiboxDatabase
     private lateinit var musicDao: MusicDao
     private lateinit var controller: MediaController
     private lateinit var wavFile: File
@@ -66,10 +66,10 @@ class MusicServiceWorkflowTest {
         // MusicService will still exercise its real production Hilt graph and DAO.
         database = Room.databaseBuilder(
             context.applicationContext,
-            PixelPlayerDatabase::class.java,
+            MultiboxDatabase::class.java,
             DATABASE_NAME,
         )
-            .addCallback(PixelPlayerDatabase.createRuntimeArtifactsCallback())
+            .addCallback(MultiboxDatabase.createRuntimeArtifactsCallback())
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
             .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
@@ -348,7 +348,7 @@ class MusicServiceWorkflowTest {
     }
 
     private companion object {
-        const val DATABASE_NAME = "pixelplayer_database"
+        const val DATABASE_NAME = "multibox_database"
         const val CONNECT_TIMEOUT_SECONDS = 15L
         const val COMMAND_TIMEOUT_SECONDS = 10L
         const val TEST_ARTIST_ID = -9_000_000_000_000_001L

@@ -86,7 +86,7 @@ import com.hitarashi.multibox.presentation.components.SongInfoBottomSheet
 import com.hitarashi.multibox.presentation.components.albumTitleMarquee
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import androidx.compose.material.icons.rounded.DeleteForever
 import androidx.compose.material.icons.rounded.PlaylistPlay
 import androidx.compose.material.icons.rounded.History
@@ -310,7 +310,7 @@ fun SearchScreen(
 
     val searchbarCornerRadius = 28.dp
 
-    val dm = LocalPixelPlayerDarkTheme.current
+    val dm = LocalMultiboxDarkTheme.current
 
     val primaryContainer = MaterialTheme.colorScheme.primaryContainer
     val onPrimaryContainer = MaterialTheme.colorScheme.onPrimaryContainer

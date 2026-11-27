@@ -78,10 +78,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.ui.theme.RoundedSans
 import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
-import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.MultiboxStatusBarStyle
 import androidx.compose.ui.unit.lerp
 import androidx.compose.ui.util.lerp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -188,7 +188,7 @@ fun ArtistDetailScreen(
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current
     val coroutineScope = rememberCoroutineScope()
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
     val baseColorScheme = MaterialTheme.colorScheme
 
     val artistColorSchemePair by viewModel.artistColorScheme.collectAsStateWithLifecycle()
@@ -1117,7 +1117,7 @@ private fun SharedArtistTopBarProbe(
     var showImageMenu by remember { mutableStateOf(false) }
     val surfaceColor = MaterialTheme.colorScheme.surface
     val statusBarColor =
-        if (LocalPixelPlayerDarkTheme.current) Color.Black.copy(alpha = 0.6f)
+        if (LocalMultiboxDarkTheme.current) Color.Black.copy(alpha = 0.6f)
         else Color.White.copy(alpha = 0.4f)
     val solidAlpha = (collapseFraction * 2f).coerceIn(0f, 1f)
     val statusBarBrush = remember(statusBarColor) {
@@ -1130,7 +1130,7 @@ private fun SharedArtistTopBarProbe(
         lerpColor(expandedStatusBarFallback, surfaceColor, solidAlpha)
     }
 
-    PixelPlayerStatusBarStyle(color = fallbackStatusBarColor)
+    MultiboxStatusBarStyle(color = fallbackStatusBarColor)
 
     Box(
         modifier = Modifier
@@ -1222,7 +1222,7 @@ private fun CustomCollapsingTopBar(
     onClearCustomImage: () -> Unit
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
-    val statusBarColor = if (LocalPixelPlayerDarkTheme.current) Color.Black.copy(alpha = 0.6f) else Color.White.copy(alpha = 0.4f)
+    val statusBarColor = if (LocalMultiboxDarkTheme.current) Color.Black.copy(alpha = 0.6f) else Color.White.copy(alpha = 0.4f)
 
     val fabScale = 1f - collapseFraction
     val backgroundAlpha = collapseFraction
@@ -1269,7 +1269,7 @@ private fun CustomCollapsingTopBar(
             .height(headerHeight)
             .clipToBounds()
     ) {
-        PixelPlayerStatusBarStyle(color = fallbackStatusBarColor)
+        MultiboxStatusBarStyle(color = fallbackStatusBarColor)
 
         Box(
             modifier = Modifier

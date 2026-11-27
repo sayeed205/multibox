@@ -91,7 +91,7 @@ private val EmphasizedAccelerate = CubicBezierEasing(0.3f, 0f, 0.8f, 0.15f)
  */
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun PixelPlayerSplash(
+fun MultiboxSplash(
     systemSplashGone: Boolean,
     onFinished: () -> Unit,
     modifier: Modifier = Modifier,

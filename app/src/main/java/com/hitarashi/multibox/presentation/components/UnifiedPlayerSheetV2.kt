@@ -93,8 +93,8 @@ import com.hitarashi.multibox.presentation.components.scoped.sheetHorizontalPadd
 import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerAmoledTheme
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxAmoledTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -563,7 +563,7 @@ fun UnifiedPlayerSheetV2(
 
     val activePlayerSchemePair by playerViewModel.activePlayerColorSchemePair.collectAsStateWithLifecycle()
     val themedAlbumArtUri by playerViewModel.currentThemedAlbumArtUri.collectAsStateWithLifecycle()
-    val isDarkTheme = LocalPixelPlayerDarkTheme.current
+    val isDarkTheme = LocalMultiboxDarkTheme.current
     val currentSong = infrequentPlayerState.currentSong
     val sheetThemeState = rememberSheetThemeState(
         activePlayerSchemePair = activePlayerSchemePair,
@@ -573,7 +573,7 @@ fun UnifiedPlayerSheetV2(
         themedAlbumArtUri = themedAlbumArtUri,
         preparingSongId = preparingSongId,
         systemColorScheme = MaterialTheme.colorScheme,
-        isAmoledTheme = LocalPixelPlayerAmoledTheme.current
+        isAmoledTheme = LocalMultiboxAmoledTheme.current
     )
     val albumColorScheme = sheetThemeState.albumColorScheme
     val miniPlayerScheme = sheetThemeState.miniPlayerScheme

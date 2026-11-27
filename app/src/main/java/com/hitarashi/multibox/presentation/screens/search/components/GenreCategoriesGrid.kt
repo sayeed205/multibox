@@ -60,7 +60,7 @@ import com.hitarashi.multibox.presentation.components.getNavigationBarHeight
 import com.hitarashi.multibox.presentation.components.resolveNavBarOccupiedHeight
 import com.hitarashi.multibox.presentation.utils.GenreIconProvider
 import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.utils.formatSongCount
 import androidx.compose.ui.res.stringResource
 import com.hitarashi.multibox.R
@@ -207,7 +207,7 @@ private fun GenreCard(
     onSelectionToggle: () -> Unit,
     showSongCount: Boolean
 ) {
-    val isDark = LocalPixelPlayerDarkTheme.current
+    val isDark = LocalMultiboxDarkTheme.current
     val themeColor = remember(genre, isDark) {
         com.hitarashi.multibox.ui.theme.GenreThemeUtils.getGenreThemeColor(
             genre = genre,

@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.dp
 import com.hitarashi.multibox.BuildConfig
 import com.hitarashi.multibox.R
 import com.hitarashi.multibox.ui.theme.RoundedSans
-import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.MultiboxStatusBarStyle
 import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +58,7 @@ fun GenreGradientTopBar(
         Brush.verticalGradient(colors = listOf(startColor, endColor))
     }
 
-    PixelPlayerStatusBarStyle(color = startColor)
+    MultiboxStatusBarStyle(color = startColor)
 
     LargeTopAppBar(
         scrollBehavior = scrollBehavior,
@@ -108,7 +108,7 @@ fun HomeGradientTopBar(
 ) {
     val surfaceContainerHigh = MaterialTheme.colorScheme.surfaceContainerHighest
 
-    PixelPlayerStatusBarStyle(color = surfaceContainerHigh)
+    MultiboxStatusBarStyle(color = surfaceContainerHigh)
 
     val animatedAlpha by animateFloatAsState(
         targetValue = if (isScrolled) 1f else 0f,

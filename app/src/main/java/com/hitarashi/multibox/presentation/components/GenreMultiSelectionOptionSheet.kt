@@ -52,7 +52,7 @@ import com.hitarashi.multibox.data.model.Genre
 import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
 import com.hitarashi.multibox.presentation.components.subcomps.TightWrapText
 import com.hitarashi.multibox.ui.theme.GenreThemeUtils
-import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalMultiboxDarkTheme
 import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
@@ -264,7 +264,7 @@ private fun StackedGenrePreviews(
     val overlap = 30.dp
     val borderWidth = 3.dp
     val borderColor = MaterialTheme.colorScheme.surfaceContainerLow
-    val isDark = LocalPixelPlayerDarkTheme.current
+    val isDark = LocalMultiboxDarkTheme.current
 
     val numGenres = genres.size
     val totalWidth = if (numGenres == 0) 0.dp else imageSize + (imageSize - overlap) * (numGenres - 1)

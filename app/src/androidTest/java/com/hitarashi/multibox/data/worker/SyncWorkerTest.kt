@@ -20,7 +20,7 @@ import com.google.common.truth.Truth.assertThat
 import com.hitarashi.multibox.data.database.AlbumEntity
 import com.hitarashi.multibox.data.database.ArtistEntity
 import com.hitarashi.multibox.data.database.MusicDao
-import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.SourceType
 import com.hitarashi.multibox.data.preferences.LocalAlbumGroupingSettings
 import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
@@ -52,7 +52,7 @@ class SyncWorkerTest {
     )
 
     private lateinit var context: Context
-    private lateinit var database: PixelPlayerDatabase
+    private lateinit var database: MultiboxDatabase
     private lateinit var musicDao: MusicDao
     private lateinit var mockContentResolver: android.content.ContentResolver
 
@@ -87,8 +87,8 @@ class SyncWorkerTest {
     @Before
     fun setUp() {
         context = ApplicationProvider.getApplicationContext()
-        database = Room.inMemoryDatabaseBuilder(context, PixelPlayerDatabase::class.java)
-            .addCallback(PixelPlayerDatabase.createRuntimeArtifactsCallback())
+        database = Room.inMemoryDatabaseBuilder(context, MultiboxDatabase::class.java)
+            .addCallback(MultiboxDatabase.createRuntimeArtifactsCallback())
             .allowMainThreadQueries()
             .build()
         musicDao = database.musicDao()
