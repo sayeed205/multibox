@@ -29,11 +29,12 @@
 
 ## What It Is
 
-PixelPlayerOSS is an Android music player maintained by [@lostf1sh](https://github.com/lostf1sh). It focuses on local playback, self-hosted music libraries, expressive Material 3 UI, and user-controlled online lookups.
+**Multibox** (`com.hitarashi.multibox`) is a fork of [PixelPlayerOSS](https://github.com/PixelPlayerHQ/PixelPlayerOSS) with a hybrid 64-bit DSP and native `USBDEVFS` Direct USB DAC sound engine. It is evolving into a Telegram-backed streaming hub for music, movies, series, and comics.
 
-The app works offline by default. Optional online services are disabled until you enable them in setup or settings.
-
-Package name: `com.lostf1sh.pixelplayeross`
+1. [Vision and Roadmap](docs/VISION_AND_ROADMAP.md): product goal, design decisions, and Phase 1 to Phase 3 roadmap.
+2. [Phase 1 Sub-Phases](docs/PHASE_1_TELEGRAM_AUDIO.md): step-by-step split for TDLib auth, bot setup, audio streaming, and offline mode.
+3. [Telegram Media Architecture](docs/TELEGRAM_MEDIA_ARCHITECTURE.md): bot-channel isolation, external ID grouping, and multi-stream Media3 playback.
+4. [Codebase and UI Design](docs/CODEBASE_AND_UI_DESIGN.md): Material 3 Expressive mode switcher, local badges, and Gradle module seams.
 
 ## Why This Exists
 
