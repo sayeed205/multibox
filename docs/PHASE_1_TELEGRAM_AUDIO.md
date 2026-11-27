@@ -21,6 +21,12 @@ Phase 1A focuses the app on Telegram plus local storage and enforces one-time Te
 1. When an authenticated session starts without network access, open directly into Offline Mode.
 2. When a user logs out or loses auth, return to `SetupScreen`, clear remote cache, and keep public downloads.
 
+### Implementation Sequence
+
+1. Remove Navidrome and Jellyfin sources while preserving local DSP playback.
+2. Extract `:core:model`, `:core:dsp`, `:core:database`, `:core:ui`, `:core:telegram`, and `:feature:music` seams.
+3. Build TDLib auth lifecycle and `SetupScreen` onboarding inside `:core:telegram`.
+
 ### Reference Files
 
 1. `app/src/main/java/com/hitarashi/multibox/presentation/screens/SetupScreen.kt` (onboarding gate).

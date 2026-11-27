@@ -31,6 +31,7 @@ These rules come from the architecture grill and guide all implementation phases
 | Q11 Offline storage | Save downloaded Telegram media into user-chosen public folders via Storage Access Framework. | [Phase 1D](PHASE_1_TELEGRAM_AUDIO.md#phase-1d-offline-downloads-and-offline-mode) |
 | Q12 Logout policy | Return to Telegram login gate on logout, clear remote cache, and keep public downloads. | [Phase 1A](PHASE_1_TELEGRAM_AUDIO.md#phase-1a-source-cleanup-and-tdlib-auth-core) |
 | Q13 Metadata fetcher | Skip Telegram metadata for thumbnails, and finalize metadata fetchers when building each media type. | [Architecture](TELEGRAM_MEDIA_ARCHITECTURE.md#metadata-and-external-id-grouping) |
+| Q14 Build order | Remove unused sources first, split core Gradle modules, then build TDLib auth in `:core:telegram`. | [Phase 1A](PHASE_1_TELEGRAM_AUDIO.md#phase-1a-source-cleanup-and-tdlib-auth-core) |
 
 ## Delivery Phases
 
