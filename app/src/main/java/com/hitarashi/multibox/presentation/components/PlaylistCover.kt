@@ -91,28 +91,31 @@ fun PlaylistCover(
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
-        } else if (playlist.coverColorArgb != null) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(playlist.coverColorArgb)),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = getIconByName(playlist.coverIconName) ?: Icons.Filled.MusicNote,
-                    contentDescription = null,
-                    tint = resolvePlaylistCoverContentColor(
-                        playlist.coverColorArgb,
-                        MaterialTheme.colorScheme
-                    ),
-                    modifier = Modifier.size(size / 2).then(iconMod)
+        } else {
+            val coverColor = playlist.coverColorArgb
+            if (coverColor != null) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color(coverColor)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = getIconByName(playlist.coverIconName) ?: Icons.Filled.MusicNote,
+                        contentDescription = null,
+                        tint = resolvePlaylistCoverContentColor(
+                            coverColor,
+                            MaterialTheme.colorScheme
+                        ),
+                        modifier = Modifier.size(size / 2).then(iconMod)
+                    )
+                }
+            } else {
+                PlaylistArtCollage(
+                    songs = playlistSongs,
+                    modifier = Modifier.fillMaxSize()
                 )
             }
-        } else {
-            PlaylistArtCollage(
-                songs = playlistSongs,
-                modifier = Modifier.fillMaxSize()
-            )
         }
     }
 }

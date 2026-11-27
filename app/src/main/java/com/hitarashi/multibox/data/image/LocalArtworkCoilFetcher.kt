@@ -35,7 +35,7 @@ class LocalArtworkCoilFetcher(
 
     class Factory @Inject constructor() : Fetcher.Factory<Uri> {
         override fun create(data: Uri, options: Options, imageLoader: ImageLoader): Fetcher? {
-            return if (LocalArtworkUri.isLocalArtworkUri(data)) {
+            return if (LocalArtworkUri.isLocalArtworkUri(data.toString())) {
                 LocalArtworkCoilFetcher(data, options)
             } else {
                 null

@@ -348,47 +348,50 @@ private fun StackedPlaylistCovers(
                             contentScale = ContentScale.Crop,
                             modifier = Modifier.matchParentSize()
                         )
-                    } else if (playlist.coverColorArgb != null) {
-                        Box(
-                            modifier = Modifier
-                                .matchParentSize()
-                                .background(Color(playlist.coverColorArgb)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            val contentColor = resolvePlaylistCoverContentColor(
-                                playlist.coverColorArgb,
-                                MaterialTheme.colorScheme
-                            )
-                            
-                            if (playlist.coverIconName != null) {
-                                Icon(
-                                    imageVector = getPlaylistIconByName(playlist.coverIconName) ?: androidx.compose.material.icons.Icons.Filled.MusicNote,
-                                    contentDescription = null,
-                                    tint = contentColor,
-                                    modifier = Modifier.size(24.dp)
+                    } else {
+                        val coverColor = playlist.coverColorArgb
+                        if (coverColor != null) {
+                            Box(
+                                modifier = Modifier
+                                    .matchParentSize()
+                                    .background(Color(coverColor)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                val contentColor = resolvePlaylistCoverContentColor(
+                                    coverColor,
+                                    MaterialTheme.colorScheme
                                 )
-                            } else {
+
+                                if (playlist.coverIconName != null) {
+                                    Icon(
+                                        imageVector = getPlaylistIconByName(playlist.coverIconName) ?: androidx.compose.material.icons.Icons.Filled.MusicNote,
+                                        contentDescription = null,
+                                        tint = contentColor,
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                } else {
+                                    Text(
+                                        text = playlist.name.firstOrNull()?.toString()?.uppercase() ?: "P",
+                                        style = MaterialTheme.typography.headlineSmall,
+                                        fontWeight = FontWeight.Bold,
+                                        color = contentColor
+                                    )
+                                }
+                            }
+                        } else {
+                            Box(
+                                modifier = Modifier
+                                    .matchParentSize()
+                                    .background(MaterialTheme.colorScheme.secondaryContainer),
+                                contentAlignment = Alignment.Center
+                            ) {
                                 Text(
                                     text = playlist.name.firstOrNull()?.toString()?.uppercase() ?: "P",
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
-                                    color = contentColor
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                             }
-                        }
-                    } else {
-                        Box(
-                            modifier = Modifier
-                                .matchParentSize()
-                                .background(MaterialTheme.colorScheme.secondaryContainer),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                text = playlist.name.firstOrNull()?.toString()?.uppercase() ?: "P",
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer
-                            )
                         }
                     }
                 }

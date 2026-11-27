@@ -3,16 +3,13 @@ package com.hitarashi.multibox.presentation.model
 import com.hitarashi.multibox.data.model.Song
 import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
 import com.hitarashi.multibox.data.stats.StatsTimeRange
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
 import java.time.ZoneId
 import java.time.temporal.TemporalAdjusters
 
-@Parcelize
 data class RecentlyPlayedSongUiModel(
     val song: Song,
     val lastPlayedTimestamp: Long
-) : Parcelable
+)
 
 fun mapRecentlyPlayedSongs(
     playbackHistory: List<PlaybackStatsRepository.PlaybackHistoryEntry>,

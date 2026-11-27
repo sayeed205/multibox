@@ -695,10 +695,11 @@ fun SongInfoBottomSheet(
                                                     shape = infoSegmentItemShape,
                                                 )
 
-                                                if (!song.genre.isNullOrEmpty()) {
+                                                val songGenre = song.genre
+                                                if (!songGenre.isNullOrEmpty()) {
                                                     SongInfoSegmentedListItem(
                                                         headline = stringResource(R.string.song_field_genre),
-                                                        supporting = song.genre,
+                                                        supporting = songGenre,
                                                         icon = Icons.Rounded.MusicNote,
                                                         iconDescription = stringResource(R.string.cd_genre_icon),
                                                         shape = infoSegmentItemShape,

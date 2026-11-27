@@ -12,6 +12,7 @@ import androidx.work.WorkManager
 import coil.ImageLoader
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
+import com.hitarashi.multibox.BuildConfig
 import com.hitarashi.multibox.MultiboxApplication
 import com.hitarashi.multibox.data.database.AlbumArtThemeDao
 import com.hitarashi.multibox.data.database.FavoritesDao
