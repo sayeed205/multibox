@@ -32,7 +32,11 @@ val resolvedAppVersionName: String =
 
 android {
     namespace = "com.hitarashi.multibox.core.telegram"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 2
+        }
+    }
 
     defaultConfig {
         minSdk = 30

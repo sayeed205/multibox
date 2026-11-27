@@ -7,7 +7,11 @@ plugins {
 
 android {
     namespace = "com.hitarashi.multibox.core.dsp"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 2
+        }
+    }
 
     defaultConfig {
         minSdk = 30

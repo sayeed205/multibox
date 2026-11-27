@@ -40,7 +40,11 @@ val enableComposeCompilerReports = providers.gradleProperty("multibox.enableComp
 @Suppress("DEPRECATION")
 android {
     namespace = "com.hitarashi.multibox"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 2
+        }
+    }
 
     sourceSets {
         getByName("androidTest") {

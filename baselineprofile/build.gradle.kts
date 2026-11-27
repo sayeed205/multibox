@@ -5,7 +5,11 @@ plugins {
 
 android {
     namespace = "com.hitarashi.multibox.baselineprofile"
-    compileSdk = 37
+    compileSdk {
+        version = release(37) {
+            minorApiLevel = 2
+        }
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
