@@ -72,11 +72,8 @@ class DirectUsbAudioSink(
         return super.getFormatOffloadSupport(format)
     }
 
-    override fun configure(
-        inputFormat: Format,
-        specifiedBufferSize: Int,
-        outputChannels: IntArray?
-    ) {
+    override fun configure(audioSinkConfig: AudioSink.AudioSinkConfig) {
+        val inputFormat = audioSinkConfig.format
         currentSampleRate = if (inputFormat.sampleRate != Format.NO_VALUE && inputFormat.sampleRate > 0) inputFormat.sampleRate else 44100
         currentChannels = if (inputFormat.channelCount != Format.NO_VALUE && inputFormat.channelCount > 0) inputFormat.channelCount else 2
         currentEncoding = if (inputFormat.pcmEncoding != Format.NO_VALUE && inputFormat.pcmEncoding != C.ENCODING_INVALID) {
@@ -114,9 +111,9 @@ class DirectUsbAudioSink(
                 // only set software stream format so the master's hardware clock is untouched.
                 usbDacManager.setStreamFormatOnly(sid, currentSampleRate, currentChannels)
             }
-            runCatching { super.configure(inputFormat, specifiedBufferSize, outputChannels) }
+            runCatching { super.configure(audioSinkConfig) }
         } else {
-            super.configure(inputFormat, specifiedBufferSize, outputChannels)
+            super.configure(audioSinkConfig)
         }
     }
 

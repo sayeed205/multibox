@@ -38,14 +38,15 @@ class EqualizerAudioSink(
     private var pendingInput: ByteBuffer? = null
     private var pendingForwarded: ByteBuffer? = null
 
-    override fun configure(inputFormat: Format, specifiedBufferSize: Int, outputChannels: IntArray?) {
+    override fun configure(audioSinkConfig: AudioSink.AudioSinkConfig) {
+        val inputFormat = audioSinkConfig.format
         val isPcm = inputFormat.sampleMimeType == MimeTypes.AUDIO_RAW &&
             bytesPerSample(inputFormat.pcmEncoding) > 0 &&
             inputFormat.channelCount > 0
         encoding = if (isPcm) inputFormat.pcmEncoding else C.ENCODING_INVALID
         channelCount = inputFormat.channelCount
         if (isPcm) dsp.configure(inputFormat.sampleRate, channelCount)
-        super.configure(inputFormat, specifiedBufferSize, outputChannels)
+        super.configure(audioSinkConfig)
     }
 
     override fun handleBuffer(buffer: ByteBuffer, presentationTimeUs: Long, encodedAccessUnitCount: Int): Boolean {
