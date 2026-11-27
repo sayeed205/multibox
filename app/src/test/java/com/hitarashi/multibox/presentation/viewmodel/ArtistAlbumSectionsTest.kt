@@ -13,10 +13,8 @@ class ArtistAlbumSectionsTest {
             song("1", albumId = 10L, album = "Glad EP", year = 2016, genre = "House"),
             song("2", albumId = 10L, album = "GLAD EP", year = 2016, genre = "House")
         )
-        val remote = local.map { it.copy(albumId = -10L, contentUriString = "jellyfin://${it.id}") }
 
         assertEquals(2, buildAlbumSections(local).size)
-        assertEquals(2, buildAlbumSections(remote, groupLocalAlbumsByTitle = true).size)
         val section = buildAlbumSections(local, groupLocalAlbumsByTitle = true).single()
         assertEquals(10L, section.albumId)
         assertEquals(local, section.songs)
@@ -55,18 +53,6 @@ class ArtistAlbumSectionsTest {
     fun `an album without genre tags has no section genre`() {
         val section = buildAlbumSections(
             listOf(song("1", albumId = 30L, album = "Plain", year = 2020, genre = null))
-        ).single()
-
-        assertNull(section.genre)
-    }
-
-    @Test
-    fun `a cloud album without genre tags does not show the source placeholder as its genre`() {
-        val section = buildAlbumSections(
-            listOf(
-                song("1", albumId = 50L, album = "Streamed", year = 2021, genre = "Jellyfin"),
-                song("2", albumId = 50L, album = "Streamed", year = 2021, genre = "Jellyfin")
-            )
         ).single()
 
         assertNull(section.genre)

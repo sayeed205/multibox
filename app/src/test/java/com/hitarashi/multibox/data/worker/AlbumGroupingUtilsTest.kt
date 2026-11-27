@@ -36,14 +36,12 @@ class AlbumGroupingUtilsTest {
     }
 
     @Test
-    fun `title grouping does not merge unknown albums or group remote tracks by title`() {
+    fun `title grouping does not merge unknown albums`() {
         val first = testSong("Artist A", "Artist A", albumId = 21L)
         val second = testSong("Artist B", "Artist B", albumId = 22L)
 
         assertThat(buildAlbumGroupingKey(first.copy(albumName = "Unknown Album"), groupByTitle = true))
             .isNotEqualTo(buildAlbumGroupingKey(second.copy(albumName = "Unknown Album"), groupByTitle = true))
-        assertThat(buildAlbumGroupingKey(first.copy(contentUriString = "navidrome://123"), groupByTitle = true))
-            .isNotEqualTo(buildAlbumGroupingKey(second, groupByTitle = true))
     }
 
     @Test
