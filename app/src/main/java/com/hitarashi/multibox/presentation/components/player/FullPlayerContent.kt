@@ -260,6 +260,11 @@ fun FullPlayerContent(
     var showArtistPicker by rememberSaveable { mutableStateOf(false) }
     var showSaveBookmarkDialog by rememberSaveable { mutableStateOf(false) }
     var showAudioOutputSheet by rememberSaveable { mutableStateOf(false) }
+    var showAudioInspectorSheet by rememberSaveable { mutableStateOf(false) }
+    val usbDacState by playerViewModel.usbDirectDacManager.dacState.collectAsStateWithLifecycle()
+    val isUsbDacActive = usbDacState is com.hitarashi.multibox.data.usb.UsbDacState.Connected
+    val isDspEffectsActive by playerViewModel.isDspEffectsActive.collectAsStateWithLifecycle()
+    val bitPerfectUsbStatus by playerViewModel.bitPerfectUsbStatus.collectAsStateWithLifecycle()
     val bookmarksViewModel: AudioBookmarksViewModel = hiltViewModel()
     
     val lyricsSearchUiState by playerViewModel.lyricsSearchUiState.collectAsStateWithLifecycle()
@@ -585,6 +590,7 @@ fun FullPlayerContent(
             playbackMetadataMimeType = playbackAudioMetadata.mimeType,
             playbackMetadataBitrate = playbackAudioMetadata.bitrate,
             playbackMetadataSampleRate = playbackAudioMetadata.sampleRate,
+            onAudioMetaClick = { showAudioInspectorSheet = true },
             currentPositionProvider = currentPositionProvider,
             totalDurationValue = totalDurationValue,
             showPlayerFileInfo = showPlayerFileInfo,
@@ -986,6 +992,20 @@ fun FullPlayerContent(
             }
         }
     }
+    if (showAudioInspectorSheet) {
+        com.hitarashi.multibox.presentation.components.AudioInspectorSheet(
+            song = song,
+            audioMimeType = playbackAudioMetadata.mimeType,
+            audioBitrate = playbackAudioMetadata.bitrate,
+            audioSampleRate = playbackAudioMetadata.sampleRate,
+            audioBitDepth = playbackAudioMetadata.bitDepth,
+            isUsbDacActive = isUsbDacActive,
+            isDspEffectsActive = isDspEffectsActive,
+            bitPerfectUsbStatus = bitPerfectUsbStatus,
+            usbDacManager = playerViewModel.usbDirectDacManager,
+            onDismiss = { showAudioInspectorSheet = false }
+        )
+    }
     AnimatedVisibility(
         visible = showLyricsSheet,
         enter = slideInVertically(
@@ -1269,6 +1289,7 @@ private fun FullPlayerProgressSection(
     playbackMetadataMimeType: String?,
     playbackMetadataBitrate: Int?,
     playbackMetadataSampleRate: Int?,
+    onAudioMetaClick: (() -> Unit)? = null,
     currentPositionProvider: () -> Long,
     totalDurationValue: Long,
     showPlayerFileInfo: Boolean,
@@ -1308,6 +1329,7 @@ private fun FullPlayerProgressSection(
         audioBitrate = audioBitrate,
         audioSampleRate = audioSampleRate,
         showAudioFileInfo = showPlayerFileInfo,
+        onAudioMetaClick = onAudioMetaClick,
         onSeek = onSeek,
         expansionFractionProvider = expansionFractionProvider,
         isPlayingProvider = isPlayingProvider,
@@ -1843,6 +1865,7 @@ private fun PlayerProgressBarSection(
     audioBitrate: Int?,
     audioSampleRate: Int?,
     showAudioFileInfo: Boolean,
+    onAudioMetaClick: (() -> Unit)? = null,
     onSeek: (Long) -> Unit,
     expansionFractionProvider: () -> Float,
     isPlayingProvider: () -> Boolean,
@@ -2022,6 +2045,7 @@ private fun PlayerProgressBarSection(
                 isVisible = isVisible,
                 textColor = timeTextColor,
                 audioMetaLabel = displayAudioMetaLabel,
+                onAudioMetaClick = onAudioMetaClick,
                 horizontalTrackInset = progressSectionHorizontalInset
             )
         }
@@ -2081,6 +2105,7 @@ private fun EfficientTimeLabels(
     isVisible: Boolean,
     textColor: Color,
     audioMetaLabel: String?,
+    onAudioMetaClick: (() -> Unit)? = null,
     horizontalTrackInset: Dp
 ) {
     val coarsePositionMs by remember(isVisible, positionState) {
@@ -2129,7 +2154,9 @@ private fun EfficientTimeLabels(
             Surface(
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .padding(horizontal = 58.dp),
+                    .padding(horizontal = 58.dp)
+                    .clip(RoundedCornerShape(999.dp))
+                    .then(if (onAudioMetaClick != null) Modifier.clickable { onAudioMetaClick() } else Modifier),
                 shape = RoundedCornerShape(999.dp),
                 color = textColor.copy(alpha = 0.14f),
                 contentColor = textColor.copy(alpha = 0.96f)

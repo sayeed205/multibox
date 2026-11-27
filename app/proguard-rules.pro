@@ -6,6 +6,12 @@
 
 -keep class com.kyant.taglib.** { *; }
 
+# JNI Native C++ USB DAC Keep Rules
+-keepclasseswithmembernames,includedescriptorclasses class * {
+    native <methods>;
+}
+-keep class com.hitarashi.multibox.data.usb.** { *; }
+
 -keep class org.jaudiotagger.tag.** { *; }
 -dontwarn org.jaudiotagger.**
 

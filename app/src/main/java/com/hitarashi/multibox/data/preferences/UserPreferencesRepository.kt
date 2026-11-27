@@ -177,6 +177,7 @@ constructor(
                 booleanPreferencesKey("keep_screen_awake_while_playing")
         val IS_CROSSFADE_ENABLED = booleanPreferencesKey("is_crossfade_enabled")
         val AUDIO_OUTPUT_MODE = stringPreferencesKey("audio_output_mode_v1")
+        val EXCLUSIVE_USB_AUDIO_ENABLED = booleanPreferencesKey("exclusive_usb_audio_enabled")
         val SMART_CROSSFADE_ENABLED = booleanPreferencesKey("smart_crossfade_enabled")
         val HI_FI_MODE_ENABLED = booleanPreferencesKey("hi_fi_mode_enabled")
         val CROSSFADE_DURATION = intPreferencesKey("crossfade_duration")
@@ -380,6 +381,16 @@ constructor(
         dataStore.edit { preferences ->
             preferences[PreferencesKeys.AUDIO_OUTPUT_MODE] = mode.storageKey
             preferences.remove(PreferencesKeys.HI_FI_MODE_ENABLED)
+        }
+    }
+
+    val exclusiveUsbAudioEnabledFlow: Flow<Boolean> = dataStore.data.map { preferences ->
+        preferences[PreferencesKeys.EXCLUSIVE_USB_AUDIO_ENABLED] ?: false
+    }.distinctUntilChanged()
+
+    suspend fun setExclusiveUsbAudioEnabled(enabled: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[PreferencesKeys.EXCLUSIVE_USB_AUDIO_ENABLED] = enabled
         }
     }
 

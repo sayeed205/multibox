@@ -2,6 +2,8 @@ package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hitarashi.multibox.data.equalizer.AutoEqProfile
+import com.hitarashi.multibox.data.equalizer.AutoEqRepository
 import com.hitarashi.multibox.data.equalizer.EqualizerManager
 import com.hitarashi.multibox.data.equalizer.EqualizerPreset
 import com.hitarashi.multibox.data.preferences.EqualizerPreferencesRepository
@@ -47,6 +49,8 @@ data class EqualizerUiState(
     val isLoudnessDismissed: Boolean = false,
     val customPresets: ImmutableList<EqualizerPreset> = persistentListOf(),
     val pinnedPresetsNames: ImmutableList<String> = persistentListOf(),
+    val selectedAutoEqProfile: AutoEqProfile? = null,
+    val autoEqProfiles: ImmutableList<AutoEqProfile> = persistentListOf()
 ) {
     val accessiblePresets: ImmutableList<EqualizerPreset>
         get() {
@@ -64,6 +68,7 @@ data class EqualizerUiState(
 class EqualizerViewModel @Inject constructor(
     private val equalizerManager: EqualizerManager,
     private val equalizerPreferencesRepository: EqualizerPreferencesRepository,
+    private val autoEqRepository: AutoEqRepository,
     @param:AppScope private val appScope: CoroutineScope,
     @param:dagger.hilt.android.qualifiers.ApplicationContext private val context: android.content.Context
 ) : ViewModel() {
@@ -160,7 +165,13 @@ class EqualizerViewModel @Inject constructor(
                  val customPresets = (values[13] as? List<*>)?.filterIsInstance<EqualizerPreset>() ?: emptyList()
                  val pinnedPresets = (values[14] as? List<*>)?.filterIsInstance<String>() ?: emptyList()
 
-                val currentPreset = EqualizerPreset.resolve(presetName, customBands, customPresets)
+                val resolvedAutoEq = if (presetName.startsWith("autoeq_")) {
+                    autoEqRepository.findProfileById(presetName.removePrefix("autoeq_"))
+                } else {
+                    null
+                }
+                val currentPreset = resolvedAutoEq?.toEqualizerPreset()
+                    ?: EqualizerPreset.resolve(presetName, customBands, customPresets)
 
                 EqualizerUiState(
                     isEnabled = enabled,
@@ -181,7 +192,9 @@ class EqualizerViewModel @Inject constructor(
                     pinnedPresetsNames = pinnedPresets.toImmutableList(),
                     isBassBoostSupported = _uiState.value.isBassBoostSupported,
                     isVirtualizerSupported = _uiState.value.isVirtualizerSupported,
-                    isLoudnessEnhancerSupported = _uiState.value.isLoudnessEnhancerSupported
+                    isLoudnessEnhancerSupported = _uiState.value.isLoudnessEnhancerSupported,
+                    selectedAutoEqProfile = resolvedAutoEq,
+                    autoEqProfiles = autoEqRepository.popularProfiles.toImmutableList()
                 )
             }.collect { newState ->
                 hasLoadedPreferences = true
@@ -223,7 +236,8 @@ class EqualizerViewModel @Inject constructor(
             current.copy(
                 currentPreset = preset,
                 bandLevels = preset.bandLevels.toImmutableList(),
-                editingPresetName = null
+                editingPresetName = null,
+                selectedAutoEqProfile = null
             )
         }
         viewModelScope.launch {
@@ -231,6 +245,27 @@ class EqualizerViewModel @Inject constructor(
             if (!preset.isCustom) {
                 equalizerPreferencesRepository.setEqualizerCustomBands(preset.bandLevels)
             }
+        }
+    }
+
+    fun selectAutoEqProfile(profile: AutoEqProfile) {
+        persistBandLevelsJob?.cancel()
+        val preset = profile.toEqualizerPreset()
+        equalizerManager.setEnabled(true)
+        equalizerManager.applyPreset(preset)
+        _uiState.update { current ->
+            current.copy(
+                isEnabled = true,
+                currentPreset = preset,
+                bandLevels = preset.bandLevels.toImmutableList(),
+                editingPresetName = null,
+                selectedAutoEqProfile = profile
+            )
+        }
+        viewModelScope.launch {
+            equalizerPreferencesRepository.setEqualizerEnabled(true)
+            equalizerPreferencesRepository.setEqualizerPreset(preset.name)
+            equalizerPreferencesRepository.setEqualizerCustomBands(preset.bandLevels)
         }
     }
     

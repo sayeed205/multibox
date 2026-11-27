@@ -299,10 +299,24 @@ class PlayerViewModel @Inject constructor(
     val themeStateHolder: ThemeStateHolder,
     val multiSelectionStateHolder: MultiSelectionStateHolder,
     val playlistSelectionStateHolder: PlaylistSelectionStateHolder,
+    val usbDirectDacManager: com.hitarashi.multibox.data.usb.UsbDirectDacManager,
+    private val equalizerManager: com.hitarashi.multibox.data.equalizer.EqualizerManager,
     private val sessionToken: SessionToken,
     private val mediaControllerFactory: com.hitarashi.multibox.data.media.MediaControllerFactory,
     private val dispatchers: DispatcherProvider
 ) : ViewModel() {
+
+    val isDspEffectsActive: StateFlow<Boolean> = equalizerManager.settings
+        .map { it.anyEnabled }
+        .distinctUntilChanged()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
+    val bitPerfectUsbStatus: StateFlow<com.hitarashi.multibox.data.service.player.BitPerfectUsbStatus?> =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            com.hitarashi.multibox.data.service.player.BitPerfectUsbAudioOutputProvider.activeStatus
+        } else {
+            MutableStateFlow(null)
+        }
 
     private val _playerUiState = MutableStateFlow(PlayerUiState())
     val playerUiState: StateFlow<PlayerUiState> = _playerUiState.asStateFlow()

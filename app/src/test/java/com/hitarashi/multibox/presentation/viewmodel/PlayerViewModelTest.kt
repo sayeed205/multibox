@@ -101,6 +101,8 @@ class PlayerViewModelTest {
     private val mockThemeStateHolder: ThemeStateHolder = mockk(relaxed = true)
     private val mockMultiSelectionStateHolder: MultiSelectionStateHolder = mockk(relaxed = true)
     private val mockPlaylistSelectionStateHolder: PlaylistSelectionStateHolder = mockk(relaxed = true)
+    private val mockUsbDirectDacManager: com.hitarashi.multibox.data.usb.UsbDirectDacManager = mockk(relaxed = true)
+    private val mockEqualizerManager: com.hitarashi.multibox.data.equalizer.EqualizerManager = mockk(relaxed = true)
     private lateinit var mockMediaControllerFactory: com.hitarashi.multibox.data.media.MediaControllerFactory
 
     private val testDispatcher = StandardTestDispatcher()
@@ -210,6 +212,14 @@ class PlayerViewModelTest {
         coEvery { mockMusicRepository.getSongIdsSorted(any(), any()) } returns emptyList()
         coEvery { mockMusicRepository.getFavoriteSongIdsSorted(any(), any()) } returns emptyList()
         every { mockLyricsStateHolder.songUpdates } returns MutableSharedFlow()
+        every { mockEqualizerManager.settings } returns MutableStateFlow(
+            com.hitarashi.multibox.data.equalizer.AudioEffectsSettings()
+        )
+        every { mockUsbDirectDacManager.dacState } returns MutableStateFlow(
+            com.hitarashi.multibox.data.usb.UsbDacState.Idle
+        )
+        every { mockUsbDirectDacManager.dacVolumePercent } returns MutableStateFlow(100)
+        every { mockUsbDirectDacManager.dacVolumeHudVisible } returns MutableStateFlow(false)
 
         val sessionToken = mockk<SessionToken>(relaxed = true)
         mockMediaControllerFactory = mockk(relaxed = true)
@@ -256,6 +266,8 @@ class PlayerViewModelTest {
             mockThemeStateHolder,
             mockMultiSelectionStateHolder,
             mockPlaylistSelectionStateHolder,
+            mockUsbDirectDacManager,
+            mockEqualizerManager,
             sessionToken,
             mockMediaControllerFactory,
             testDispatchers

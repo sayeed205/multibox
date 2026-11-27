@@ -25,6 +25,8 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
@@ -39,7 +41,9 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.PowerSettingsNew
+import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -168,7 +172,19 @@ fun EqualizerScreen(
     var showCustomPresetsSheet by remember { mutableStateOf(false) }
     var showReorderSheet by remember { mutableStateOf(false) }
     var showSaveDialog by remember { mutableStateOf(false) }
+    var showAutoEqSheet by remember { mutableStateOf(false) }
     var renameTarget by remember { mutableStateOf<EqualizerPreset?>(null) }
+
+    if (showAutoEqSheet) {
+        AutoEqSheet(
+            profiles = uiState.autoEqProfiles,
+            selectedProfile = uiState.selectedAutoEqProfile,
+            onProfileSelected = { profile ->
+                equalizerViewModel.selectAutoEqProfile(profile)
+            },
+            onDismiss = { showAutoEqSheet = false }
+        )
+    }
     
     if (showSaveDialog) {
         SavePresetDialog(
@@ -332,6 +348,7 @@ fun EqualizerScreen(
                         uiState.editingPresetName?.let { equalizerViewModel.updateCustomPresetBands(it) }
                     },
                     onPresetsListClick = { showCustomPresetsSheet = true },
+                    onAutoEqClick = { showAutoEqSheet = true },
                     onUnpinClick = { }
                 )
             }
@@ -525,7 +542,8 @@ private fun BandSlidersSection(
     onSaveClick: () -> Unit,
     onUpdateClick: () -> Unit,
     onUnpinClick: () -> Unit,
-    onPresetsListClick: () -> Unit
+    onPresetsListClick: () -> Unit,
+    onAutoEqClick: () -> Unit
 ) {
     val frequencies = remember { EqualizerPreset.BAND_FREQUENCIES.toImmutableList() }
     
@@ -577,6 +595,24 @@ private fun BandSlidersSection(
                                 tint = MaterialTheme.colorScheme.onSecondaryContainer
                             )
                         }
+                    }
+                }
+
+                Surface(
+                    color = MaterialTheme.colorScheme.primaryContainer,
+                    shape = CircleShape,
+                    onClick = onAutoEqClick
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "AutoEQ",
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
                 
@@ -1824,4 +1860,115 @@ private fun HybridFrequencyResponseGraph(
             }
         }
      }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun AutoEqSheet(
+    profiles: List<com.hitarashi.multibox.data.equalizer.AutoEqProfile>,
+    selectedProfile: com.hitarashi.multibox.data.equalizer.AutoEqProfile?,
+    onProfileSelected: (com.hitarashi.multibox.data.equalizer.AutoEqProfile) -> Unit,
+    onDismiss: () -> Unit
+) {
+    var searchQuery by remember { mutableStateOf("") }
+    val filteredProfiles = remember(searchQuery, profiles) {
+        if (searchQuery.isBlank()) profiles
+        else {
+            val q = searchQuery.lowercase().trim()
+            profiles.filter {
+                it.manufacturer.lowercase().contains(q) ||
+                    it.model.lowercase().contains(q) ||
+                    it.formFactor.lowercase().contains(q)
+            }
+        }
+    }
+
+    androidx.compose.material3.ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = androidx.compose.material3.rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.autoeq_dialog_title),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 4.dp)
+            )
+            Text(
+                text = stringResource(R.string.autoeq_dialog_subtitle),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 12.dp)
+            )
+
+            androidx.compose.material3.OutlinedTextField(
+                value = searchQuery,
+                onValueChange = { searchQuery = it },
+                placeholder = { Text(stringResource(R.string.autoeq_search_placeholder)) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Rounded.Search,
+                        contentDescription = null
+                    )
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp),
+                shape = RoundedCornerShape(12.dp),
+                singleLine = true
+            )
+
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = 400.dp),
+                verticalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                items(filteredProfiles, key = { it.id }) { profile ->
+                    val isSelected = selectedProfile?.id == profile.id
+                    androidx.compose.material3.Surface(
+                        onClick = {
+                            onProfileSelected(profile)
+                            onDismiss()
+                        },
+                        shape = RoundedCornerShape(14.dp),
+                        color = if (isSelected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceContainerLow,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = profile.displayName,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurface
+                                )
+                                Text(
+                                    text = profile.formFactor,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f) else MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            if (isSelected) {
+                                Icon(
+                                    imageVector = Icons.Rounded.Check,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

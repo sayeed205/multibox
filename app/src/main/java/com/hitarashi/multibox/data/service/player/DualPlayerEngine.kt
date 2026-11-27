@@ -260,7 +260,8 @@ class DualPlayerEngine @Inject constructor(
     private val navidromeStreamProxy: NavidromeStreamProxy,
     private val jellyfinStreamProxy: com.hitarashi.multibox.data.jellyfin.JellyfinStreamProxy,
     private val cloudOfflineRepository: CloudOfflineRepository,
-    private val equalizerManager: EqualizerManager
+    private val equalizerManager: EqualizerManager,
+    private val usbDirectDacManager: com.hitarashi.multibox.data.usb.UsbDirectDacManager
 ) {
     private companion object {
         // A local file reaches READY in ~100ms with a working output path, so 1.5s of
@@ -295,7 +296,7 @@ class DualPlayerEngine @Inject constructor(
     private var bluetoothOffloadDeviceCallback: android.media.AudioDeviceCallback? = null
     private var bluetoothRouteCheckJob: Job? = null
     private val audioOffloadEnabledForCurrentMode: Boolean
-        get() = shouldEnableAudioOffloadForMode(
+        get() = !usbDirectDacManager.isExclusiveActive && shouldEnableAudioOffloadForMode(
             audioOffloadEnabled,
             audioOutputMode,
             equalizerManager.settings.value.anyEnabled,
@@ -747,6 +748,12 @@ class DualPlayerEngine @Inject constructor(
         playerA = buildPlayer()
 
         addMasterPlayerListeners(playerA)
+        usbDirectDacManager.setOnPausePlayerCallback {
+            if (::playerA.isInitialized) {
+                playerA.playWhenReady = false
+            }
+            playerB?.playWhenReady = false
+        }
 
         audioEffectsOffloadJob?.cancel()
         audioEffectsOffloadJob = scope.launch {
@@ -937,6 +944,12 @@ class DualPlayerEngine @Inject constructor(
         playerA = buildPlayer()
 
         addMasterPlayerListeners(playerA)
+        usbDirectDacManager.setOnPausePlayerCallback {
+            if (::playerA.isInitialized) {
+                playerA.playWhenReady = false
+            }
+            playerB?.playWhenReady = false
+        }
         playerA.volume = state.volume
         playerA.pauseAtEndOfMediaItems =
             state.pauseAtEndOfMediaItems || _sleepTimerHold.value.pauseAtEndOfCurrentItem
@@ -1148,8 +1161,11 @@ class DualPlayerEngine @Inject constructor(
                         )
                         .build()
                 }
-                // Effects pass PCM through untouched while off, so DIRECT stays unmodified then.
-                return EqualizerAudioSink(sink, equalizerManager.settings)
+                // DirectUsbAudioSink routes to native USBDEVFS when an exclusive USB DAC is active.
+                // EqualizerAudioSink wraps it so 64-bit software DSP works on all outputs (including
+                // exclusive USB DAC) and passes PCM through bit-exact when effects are neutral/off.
+                val usbAwareSink = DirectUsbAudioSink(sink, usbDirectDacManager)
+                return EqualizerAudioSink(usbAwareSink, equalizerManager.settings)
             }
 
             override fun buildVideoRenderers(

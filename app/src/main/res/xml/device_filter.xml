@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <usb-device class="1" /> <!-- USB_CLASS_AUDIO -->
+    <usb-device class="0" /> <!-- USB_CLASS_PER_INTERFACE -->
+</resources>

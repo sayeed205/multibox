@@ -136,7 +136,8 @@ data class SettingsUiState(
     val groupLocalAlbumsByTitle: Boolean = false,
     val minTracksPerArtist: Int = 1,
     val replayGainEnabled: Boolean = false,
-    val replayGainUseAlbumGain: Boolean = false
+    val replayGainUseAlbumGain: Boolean = false,
+    val usbDacExclusiveAccess: Boolean = false
 )
 
 data class FailedSongInfo(
@@ -420,6 +421,12 @@ class SettingsViewModel @Inject constructor(
         viewModelScope.launch {
             userPreferencesRepository.keepScreenAwakeWhilePlayingFlow.collect { enabled ->
                 _uiState.update { it.copy(keepScreenAwakeWhilePlaying = enabled) }
+            }
+        }
+
+        viewModelScope.launch {
+            userPreferencesRepository.exclusiveUsbAudioEnabledFlow.collect { enabled ->
+                _uiState.update { it.copy(usbDacExclusiveAccess = enabled) }
             }
         }
 
@@ -778,6 +785,12 @@ class SettingsViewModel @Inject constructor(
     fun setAudioOutputMode(mode: AudioOutputMode) {
         viewModelScope.launch {
             userPreferencesRepository.setAudioOutputMode(supportedOrDefault(mode))
+        }
+    }
+
+    fun setUsbDacExclusiveAccess(enabled: Boolean) {
+        viewModelScope.launch {
+            userPreferencesRepository.setExclusiveUsbAudioEnabled(enabled)
         }
     }
 

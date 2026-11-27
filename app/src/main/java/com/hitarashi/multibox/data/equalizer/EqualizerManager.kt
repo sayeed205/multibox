@@ -18,7 +18,8 @@ import javax.inject.Singleton
  */
 @Singleton
 class EqualizerManager @Inject constructor(
-    private val preferences: EqualizerPreferencesRepository
+    private val preferences: EqualizerPreferencesRepository,
+    private val autoEqRepository: AutoEqRepository
 ) {
 
     private val _settings = MutableStateFlow(AudioEffectsSettings())
@@ -34,8 +35,11 @@ class EqualizerManager @Inject constructor(
     suspend fun restoreFromPreferences() = restoreLock.withLock {
         if (restored) return@withLock
         val presetName = preferences.equalizerPresetFlow.first()
-        val bands = when (presetName) {
-            "custom" -> preferences.equalizerCustomBandsFlow.first()
+        val bands = when {
+            presetName == "custom" -> preferences.equalizerCustomBandsFlow.first()
+            presetName.startsWith("autoeq_") ->
+                autoEqRepository.findProfileById(presetName.removePrefix("autoeq_"))?.bandGains
+                    ?: preferences.equalizerCustomBandsFlow.first()
             else -> preferences.customPresetsFlow.first().find { it.name == presetName }?.bandLevels
                 ?: EqualizerPreset.fromName(presetName).bandLevels
         }

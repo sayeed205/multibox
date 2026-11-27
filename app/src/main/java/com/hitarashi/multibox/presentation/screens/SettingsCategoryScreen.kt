@@ -240,6 +240,7 @@ fun SettingsCategoryScreen(
     var exportSections by remember { mutableStateOf(BackupSection.defaultSelection) }
     var importFileUri by remember { mutableStateOf<Uri?>(null) }
     var showExportEncryptionDialog by remember { mutableStateOf(false) }
+    var showMasterOutputGainSheet by remember { mutableStateOf(false) }
     var exportPassphrase by remember { mutableStateOf<String?>(null) }
     var minSongDurationDraft by remember(uiState.minSongDuration) {
         mutableStateOf(uiState.minSongDuration.toFloat())
@@ -1129,6 +1130,35 @@ fun SettingsCategoryScreen(
                                     modifier = Modifier.settingHighlight("item_playback_audio_output_mode", highlightKey)
                                 )
                                 SwitchSettingItem(
+                                    title = stringResource(R.string.usb_dac_exclusive_title),
+                                    subtitle = stringResource(R.string.usb_dac_exclusive_subtitle),
+                                    checked = uiState.usbDacExclusiveAccess,
+                                    onCheckedChange = {
+                                        settingsViewModel.setUsbDacExclusiveAccess(it)
+                                    },
+                                    leadingIcon = {
+                                        Icon(
+                                            painterResource(R.drawable.outline_high_quality_24),
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.secondary
+                                        )
+                                    },
+                                    modifier = Modifier.settingHighlight("item_playback_usb_dac_exclusive", highlightKey)
+                                )
+                                ActionSettingsItem(
+                                    title = stringResource(R.string.dac_master_gain_title),
+                                    subtitle = stringResource(R.string.dac_master_gain_subtitle),
+                                    icon = {
+                                        Icon(
+                                            painterResource(R.drawable.rounded_instant_mix_24),
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.secondary
+                                        )
+                                    },
+                                    primaryActionLabel = stringResource(R.string.action_open),
+                                    onPrimaryAction = { showMasterOutputGainSheet = true }
+                                )
+                                SwitchSettingItem(
                                     title = stringResource(R.string.setcat_persistent_shuffle_title),
                                     subtitle = stringResource(R.string.setcat_persistent_shuffle_subtitle),
                                     checked = uiState.persistentShuffleEnabled,
@@ -1764,6 +1794,13 @@ fun SettingsCategoryScreen(
                 onRemoveHistoryEntry = { settingsViewModel.removeBackupHistoryEntry(it) }
             )
         }
+    }
+
+    if (showMasterOutputGainSheet) {
+        com.hitarashi.multibox.presentation.components.MasterOutputGainSheet(
+            usbDacManager = playerViewModel.usbDirectDacManager,
+            onDismiss = { showMasterOutputGainSheet = false }
+        )
     }
 }
 

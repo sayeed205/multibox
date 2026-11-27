@@ -310,4 +310,29 @@
     <string name="musicbrainz_match_score">Match confidence: %1$d%%</string>
     <string name="musicbrainz_applied">MusicBrainz identifiers saved. Missing year and placeholder names were enriched.</string>
 
+    <!-- Audio Inspector & AutoEQ -->
+    <string name="audio_inspector_title">Audio Inspector</string>
+    <string name="audio_inspector_subtitle">Source format &amp; signal path</string>
+    <string name="audio_inspector_source">TRACK SOURCE</string>
+    <string name="audio_inspector_format">FORMAT</string>
+    <string name="audio_inspector_sample_rate">SAMPLING</string>
+    <string name="audio_inspector_bit_depth">BIT DEPTH</string>
+    <string name="audio_inspector_bitrate">BITRATE</string>
+    <string name="audio_inspector_signal_path">SIGNAL PATH</string>
+    <string name="audio_inspector_step_source">Source</string>
+    <string name="audio_inspector_step_dsp">Software DSP</string>
+    <string name="audio_inspector_dsp_active">64-bit Double DSP (EQ / AutoEQ / Headroom)</string>
+    <string name="audio_inspector_dsp_bypass">Bit-Exact Bypass (Neutral)</string>
+    <string name="audio_inspector_step_engine">Audio Engine</string>
+    <string name="audio_inspector_engine_bitperfect">Direct USB DAC (USBDEVFS Isochronous)</string>
+    <string name="audio_inspector_engine_decimation">Studio FIR %1$d:1 → %2$s kHz (Direct USB)</string>
+    <string name="audio_inspector_engine_android_bitperfect">Android 14+ Bit-Perfect USB Mixer (%1$s kHz)</string>
+    <string name="audio_inspector_engine_system">Android AudioTrack / System Mixer</string>
+    <string name="audio_inspector_step_output">Output Device</string>
+    <string name="audio_inspector_output_system">Standard System Output</string>
+    <string name="audio_inspector_master_gain">DAC Hardware Volume</string>
+    <string name="autoeq_dialog_title">AutoEQ Headphone Profiles</string>
+    <string name="autoeq_dialog_subtitle">Frequency response compensation (Harman Target)</string>
+    <string name="autoeq_search_placeholder">Search (Sony, Sennheiser, KZ…)</string>
+
 </resources>

@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import com.hitarashi.multibox.utils.traceSection
 import android.provider.Settings
+import android.view.KeyEvent
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -127,6 +128,7 @@ import com.hitarashi.multibox.data.worker.SyncProgress
 import com.hitarashi.multibox.presentation.components.AllFilesAccessDialog
 import com.hitarashi.multibox.presentation.components.AppSidebarDrawer
 import com.hitarashi.multibox.presentation.components.CrashReportDialog
+import com.hitarashi.multibox.presentation.components.DacVolumeHud
 import com.hitarashi.multibox.presentation.components.DismissUndoBar
 import com.hitarashi.multibox.presentation.components.DrawerDestination
 import com.hitarashi.multibox.presentation.components.MiniPlayerBottomSpacer
@@ -456,6 +458,11 @@ class MainActivity : ComponentActivity() {
                             onFinished = { showAnimatedSplash = false }
                         )
                     }
+
+                    DacVolumeHud(
+                        usbDacManager = playerViewModel.usbDirectDacManager,
+                        playerViewModel = playerViewModel
+                    )
                 }
             }
         }
@@ -1300,6 +1307,25 @@ class MainActivity : ComponentActivity() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         PhoneOrientationPolicy.apply(this)
+    }
+
+    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        if (event.action == KeyEvent.ACTION_DOWN) {
+            val dacManager = playerViewModel.usbDirectDacManager
+            if (dacManager.isExclusiveActive) {
+                when (event.keyCode) {
+                    KeyEvent.KEYCODE_VOLUME_UP -> {
+                        dacManager.adjustVolume(2)
+                        return true
+                    }
+                    KeyEvent.KEYCODE_VOLUME_DOWN -> {
+                        dacManager.adjustVolume(-2)
+                        return true
+                    }
+                }
+            }
+        }
+        return super.dispatchKeyEvent(event)
     }
 
 
