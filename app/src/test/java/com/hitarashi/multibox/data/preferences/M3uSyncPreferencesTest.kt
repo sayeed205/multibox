@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.playlist.M3uSyncCheckpoint
+import com.hitarashi.multibox.data.playlist.M3uSyncCheckpoint
 import org.junit.jupiter.api.Test
 
 class M3uSyncPreferencesTest {

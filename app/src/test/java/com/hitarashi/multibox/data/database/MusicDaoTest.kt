@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import android.content.Context
 import androidx.room.Room

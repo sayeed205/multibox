@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.media.SongMetadataEditor
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.media.SongMetadataEditor
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -70,7 +70,7 @@ class LyricsStateHolderTest {
             holder.fetchLyricsForSong(
                 song = song,
                 forcePickResults = false,
-                sourcePreference = com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference.API_FIRST
+                sourcePreference = com.hitarashi.multibox.data.model.LyricsSourcePreference.API_FIRST
             ) { "Lyrics already available" }
 
             assertThat(awaitItem()).isEqualTo(LyricsSearchUiState.Loading)

@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import android.util.LruCache
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
 import kotlin.math.abs
 
 data class GenreThemeColor(

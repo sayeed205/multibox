@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataTextOrEmpty
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.utils.normalizeMetadataTextOrEmpty
 
 @Entity(
     tableName = "artists",

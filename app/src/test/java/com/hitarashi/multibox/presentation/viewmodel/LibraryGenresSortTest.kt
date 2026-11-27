@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.SortOption
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.SortOption
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

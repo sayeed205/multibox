@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import com.lostf1sh.pixelplayeross.presentation.navigation.PlayerSheetBackCoordinator
+import com.hitarashi.multibox.presentation.navigation.PlayerSheetBackCoordinator
 
 @Composable
 internal fun PlayerSheetAwareBackHandler(

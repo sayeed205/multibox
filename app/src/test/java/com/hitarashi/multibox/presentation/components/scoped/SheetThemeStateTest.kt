@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme

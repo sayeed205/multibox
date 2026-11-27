@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.di
+package com.hitarashi.multibox.di
 
 import android.content.Context
 import androidx.annotation.OptIn
@@ -15,43 +15,43 @@ import androidx.work.WorkManager
 import coil.ImageLoader
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
-import com.lostf1sh.pixelplayeross.BuildConfig
-import com.lostf1sh.pixelplayeross.PixelPlayerApplication
-import com.lostf1sh.pixelplayeross.data.database.AlbumArtThemeDao
-import com.lostf1sh.pixelplayeross.data.database.EngagementDao
-import com.lostf1sh.pixelplayeross.data.database.FavoritesDao
-import com.lostf1sh.pixelplayeross.data.database.LyricsDao
-import com.lostf1sh.pixelplayeross.data.database.LocalPlaylistDao
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzDao
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkDao
-import com.lostf1sh.pixelplayeross.data.database.MIGRATION_1_2
-import com.lostf1sh.pixelplayeross.data.database.MIGRATION_2_3
-import com.lostf1sh.pixelplayeross.data.database.MIGRATION_3_4
-import com.lostf1sh.pixelplayeross.data.database.MIGRATION_4_5
-import com.lostf1sh.pixelplayeross.data.database.MIGRATION_5_6
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.OfflineTrackDao
-import com.lostf1sh.pixelplayeross.data.database.PixelPlayerDatabase
-import com.lostf1sh.pixelplayeross.data.database.SearchHistoryDao
-import com.lostf1sh.pixelplayeross.data.database.TransitionDao
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.PlaylistPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.dataStore
-import com.lostf1sh.pixelplayeross.data.media.SongMetadataEditor
-import com.lostf1sh.pixelplayeross.data.network.deezer.DeezerApiService
-import com.lostf1sh.pixelplayeross.data.network.lyrics.LrcLibApiService
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.repository.AudioBookmarkRepository
-import com.lostf1sh.pixelplayeross.data.repository.AudioBookmarkRepositoryImpl
-import com.lostf1sh.pixelplayeross.data.repository.LyricsRepository
-import com.lostf1sh.pixelplayeross.data.repository.LyricsRepositoryImpl
-import com.lostf1sh.pixelplayeross.data.repository.MediaStoreSongRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepositoryImpl
-import com.lostf1sh.pixelplayeross.data.repository.SongRepository
-import com.lostf1sh.pixelplayeross.data.repository.TransitionRepository
-import com.lostf1sh.pixelplayeross.data.repository.TransitionRepositoryImpl
-import com.lostf1sh.pixelplayeross.data.repository.FolderTreeBuilder
+import com.hitarashi.multibox.BuildConfig
+import com.hitarashi.multibox.PixelPlayerApplication
+import com.hitarashi.multibox.data.database.AlbumArtThemeDao
+import com.hitarashi.multibox.data.database.EngagementDao
+import com.hitarashi.multibox.data.database.FavoritesDao
+import com.hitarashi.multibox.data.database.LyricsDao
+import com.hitarashi.multibox.data.database.LocalPlaylistDao
+import com.hitarashi.multibox.data.database.ListenBrainzDao
+import com.hitarashi.multibox.data.database.AudioBookmarkDao
+import com.hitarashi.multibox.data.database.MIGRATION_1_2
+import com.hitarashi.multibox.data.database.MIGRATION_2_3
+import com.hitarashi.multibox.data.database.MIGRATION_3_4
+import com.hitarashi.multibox.data.database.MIGRATION_4_5
+import com.hitarashi.multibox.data.database.MIGRATION_5_6
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.OfflineTrackDao
+import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.SearchHistoryDao
+import com.hitarashi.multibox.data.database.TransitionDao
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
+import com.hitarashi.multibox.data.preferences.dataStore
+import com.hitarashi.multibox.data.media.SongMetadataEditor
+import com.hitarashi.multibox.data.network.deezer.DeezerApiService
+import com.hitarashi.multibox.data.network.lyrics.LrcLibApiService
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.repository.AudioBookmarkRepository
+import com.hitarashi.multibox.data.repository.AudioBookmarkRepositoryImpl
+import com.hitarashi.multibox.data.repository.LyricsRepository
+import com.hitarashi.multibox.data.repository.LyricsRepositoryImpl
+import com.hitarashi.multibox.data.repository.MediaStoreSongRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.repository.MusicRepositoryImpl
+import com.hitarashi.multibox.data.repository.SongRepository
+import com.hitarashi.multibox.data.repository.TransitionRepository
+import com.hitarashi.multibox.data.repository.TransitionRepositoryImpl
+import com.hitarashi.multibox.data.repository.FolderTreeBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -91,7 +91,7 @@ object AppModule {
     fun provideSessionToken(@ApplicationContext context: Context): androidx.media3.session.SessionToken {
         return androidx.media3.session.SessionToken(
             context,
-            android.content.ComponentName(context, com.lostf1sh.pixelplayeross.data.service.MusicService::class.java)
+            android.content.ComponentName(context, com.hitarashi.multibox.data.service.MusicService::class.java)
         )
     }
 
@@ -199,13 +199,13 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNavidromeDao(database: PixelPlayerDatabase): com.lostf1sh.pixelplayeross.data.database.NavidromeDao {
+    fun provideNavidromeDao(database: PixelPlayerDatabase): com.hitarashi.multibox.data.database.NavidromeDao {
         return database.navidromeDao()
     }
     
     @Singleton
     @Provides
-    fun provideJellyfinDao(database: PixelPlayerDatabase): com.lostf1sh.pixelplayeross.data.database.JellyfinDao {
+    fun provideJellyfinDao(database: PixelPlayerDatabase): com.hitarashi.multibox.data.database.JellyfinDao {
         return database.jellyfinDao()
     }
 
@@ -274,7 +274,7 @@ object AppModule {
     @Singleton
     fun provideSongRepository(
         @ApplicationContext context: Context,
-        mediaStoreObserver: com.lostf1sh.pixelplayeross.data.observer.MediaStoreObserver,
+        mediaStoreObserver: com.hitarashi.multibox.data.observer.MediaStoreObserver,
         favoritesDao: FavoritesDao,
         userPreferencesRepository: UserPreferencesRepository,
         musicDao: MusicDao
@@ -308,7 +308,7 @@ object AppModule {
         favoritesDao: FavoritesDao,
         artistImageRepository: ArtistImageRepository,
         folderTreeBuilder: FolderTreeBuilder,
-        jellyfinRepository: com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
+        jellyfinRepository: com.hitarashi.multibox.data.jellyfin.JellyfinRepository
     ): MusicRepository {
         return MusicRepositoryImpl(
             context = context,

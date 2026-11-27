@@ -1,15 +1,15 @@
-package com.lostf1sh.pixelplayeross.data.jellyfin
+package com.hitarashi.multibox.data.jellyfin
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.FavoritesDao
-import com.lostf1sh.pixelplayeross.data.database.FavoritesEntity
-import com.lostf1sh.pixelplayeross.data.database.JellyfinDao
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongIdUriMapping
-import com.lostf1sh.pixelplayeross.data.network.jellyfin.JellyfinApiService
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.database.FavoritesDao
+import com.hitarashi.multibox.data.database.FavoritesEntity
+import com.hitarashi.multibox.data.database.JellyfinDao
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongIdUriMapping
+import com.hitarashi.multibox.data.network.jellyfin.JellyfinApiService
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

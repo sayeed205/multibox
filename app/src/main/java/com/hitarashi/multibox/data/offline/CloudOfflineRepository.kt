@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import android.content.Context
 import android.net.Uri
@@ -9,10 +9,10 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.await
 import androidx.work.workDataOf
-import com.lostf1sh.pixelplayeross.data.database.OfflineTrackDao
-import com.lostf1sh.pixelplayeross.data.database.OfflineTrackEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.worker.CloudTrackDownloadWorker
+import com.hitarashi.multibox.data.database.OfflineTrackDao
+import com.hitarashi.multibox.data.database.OfflineTrackEntity
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.worker.CloudTrackDownloadWorker
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import java.security.MessageDigest

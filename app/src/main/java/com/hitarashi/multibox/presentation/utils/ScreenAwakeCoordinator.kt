@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.utils
+package com.hitarashi.multibox.presentation.utils
 
 import android.view.View
 import androidx.annotation.MainThread
 
 /**
  * Coordinates screen-awake (keepScreenOn) requests across multiple composable views
- * (e.g., [com.lostf1sh.pixelplayeross.presentation.components.LyricsSheet] and
- * [com.lostf1sh.pixelplayeross.presentation.components.player.EmbeddedLyricsPane])
+ * (e.g., [com.hitarashi.multibox.presentation.components.LyricsSheet] and
+ * [com.hitarashi.multibox.presentation.components.player.EmbeddedLyricsPane])
  * so that one view closing does not inadvertently clear another active view's screen-awake flag.
  */
 @MainThread

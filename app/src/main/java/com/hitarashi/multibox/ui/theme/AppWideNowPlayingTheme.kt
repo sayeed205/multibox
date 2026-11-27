@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 
 /**
  * Selects the optional application-wide now-playing palette.

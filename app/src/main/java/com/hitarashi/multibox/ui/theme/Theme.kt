@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import android.app.Activity
 import android.content.Context
@@ -28,9 +28,9 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.core.view.WindowCompat
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 import androidx.core.graphics.ColorUtils
 
 val LocalPixelPlayerDarkTheme = staticCompositionLocalOf { false }

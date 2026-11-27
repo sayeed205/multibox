@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -38,10 +38,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.BuildConfig
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.BuildConfig
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
 import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)

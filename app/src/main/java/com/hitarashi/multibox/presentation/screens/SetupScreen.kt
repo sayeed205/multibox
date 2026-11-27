@@ -1,7 +1,7 @@
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.rememberDisplayFont
+import com.hitarashi.multibox.ui.theme.rememberDisplayFont
 
 import android.Manifest
 import android.app.Activity
@@ -154,27 +154,27 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupTransferProgressUpdate
-import com.lostf1sh.pixelplayeross.data.backup.model.RestorePlan
-import com.lostf1sh.pixelplayeross.data.preferences.AppLanguage
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.presentation.components.PermissionIconCollage
-import com.lostf1sh.pixelplayeross.presentation.components.BackupModuleSelectionDialog
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.MaterialYouVectorDrawable
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SineWaveLine
-import com.lostf1sh.pixelplayeross.presentation.components.FileExplorerDialog
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.DirectoryEntry
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SetupEvent
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SetupUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SetupViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.ExpTitleTypography
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.AppLocaleManager
-import com.lostf1sh.pixelplayeross.utils.StorageInfo
-import com.lostf1sh.pixelplayeross.utils.isIgnoringBatteryOptimizations
-import com.lostf1sh.pixelplayeross.utils.openBatteryOptimizationSettings
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupTransferProgressUpdate
+import com.hitarashi.multibox.data.backup.model.RestorePlan
+import com.hitarashi.multibox.data.preferences.AppLanguage
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.presentation.components.PermissionIconCollage
+import com.hitarashi.multibox.presentation.components.BackupModuleSelectionDialog
+import com.hitarashi.multibox.presentation.components.subcomps.MaterialYouVectorDrawable
+import com.hitarashi.multibox.presentation.components.subcomps.SineWaveLine
+import com.hitarashi.multibox.presentation.components.FileExplorerDialog
+import com.hitarashi.multibox.presentation.viewmodel.DirectoryEntry
+import com.hitarashi.multibox.presentation.viewmodel.SetupEvent
+import com.hitarashi.multibox.presentation.viewmodel.SetupUiState
+import com.hitarashi.multibox.presentation.viewmodel.SetupViewModel
+import com.hitarashi.multibox.ui.theme.ExpTitleTypography
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.AppLocaleManager
+import com.hitarashi.multibox.utils.StorageInfo
+import com.hitarashi.multibox.utils.isIgnoringBatteryOptimizations
+import com.hitarashi.multibox.utils.openBatteryOptimizationSettings
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.launch
@@ -2253,7 +2253,7 @@ private fun SetupRestoreDialog(
 @Composable
 private fun SetupRestoreSectionRow(
     section: BackupSection,
-    detail: com.lostf1sh.pixelplayeross.data.backup.model.ModuleRestoreDetail?,
+    detail: com.hitarashi.multibox.data.backup.model.ModuleRestoreDetail?,
     selected: Boolean,
     enabled: Boolean,
     onClick: () -> Unit

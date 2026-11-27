@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.util.LruCache
 import androidx.media3.common.MediaItem
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.utils.MediaItemBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

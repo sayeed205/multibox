@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 /**
  * Shared helper for computing allowed parent directories by applying blocked rules.

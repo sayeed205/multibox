@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -56,8 +56,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.PlaybackSpeedUtils
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.PlaybackSpeedUtils
 
 const val PLAYBACK_SPEED_SLIDER_TEST_TAG = "playback_speed_slider"
 

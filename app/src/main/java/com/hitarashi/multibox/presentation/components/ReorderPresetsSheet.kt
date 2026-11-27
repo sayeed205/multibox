@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
@@ -69,9 +69,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerPreset
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.equalizer.EqualizerPreset
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlinx.coroutines.launch
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import sh.calvin.reorderable.ReorderableItem

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.utils
+package com.hitarashi.multibox.presentation.utils
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.CompositingStrategy

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.navigation.Screen
 
 /**
  * The accent family a settings row is tinted with. Rows name a role of the active [ColorScheme]

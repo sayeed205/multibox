@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
-import com.lostf1sh.pixelplayeross.data.database.LocalPlaylistDao
-import com.lostf1sh.pixelplayeross.data.database.PlaylistEntity
-import com.lostf1sh.pixelplayeross.data.database.PlaylistSongEntity
-import com.lostf1sh.pixelplayeross.data.database.PlaylistWithSongsEntity
-import com.lostf1sh.pixelplayeross.data.database.TransitionDao
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.SMART_PLAYLIST_SOURCE_LEGACY
+import com.hitarashi.multibox.data.database.LocalPlaylistDao
+import com.hitarashi.multibox.data.database.PlaylistEntity
+import com.hitarashi.multibox.data.database.PlaylistSongEntity
+import com.hitarashi.multibox.data.database.PlaylistWithSongsEntity
+import com.hitarashi.multibox.data.database.TransitionDao
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.SMART_PLAYLIST_SOURCE_LEGACY
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

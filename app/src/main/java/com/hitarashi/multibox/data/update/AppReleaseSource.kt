@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 import android.os.Build
-import com.lostf1sh.pixelplayeross.BuildConfig
+import com.hitarashi.multibox.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -21,7 +21,7 @@ class AppReleaseSource @Inject constructor(
         .addInterceptor { chain ->
             chain.proceed(
                 chain.request().newBuilder()
-                    .header("User-Agent", "PixelPlayerOSS/${BuildConfig.VERSION_NAME} ($PROJECT_URL)")
+                    .header("User-Agent", "Multibox/${BuildConfig.VERSION_NAME} ($PROJECT_URL)")
                     .build()
             )
         }
@@ -49,14 +49,14 @@ class AppReleaseSource @Inject constructor(
     }
 
     companion object {
-        private const val PROJECT_URL = "https://github.com/PixelPlayerHQ/PixelPlayerOSS"
+        private const val PROJECT_URL = "https://github.com/sayeed205/multibox"
 
         /** Release applicationId; debug builds add a suffix but should still see real releases. */
-        internal const val PUBLISHED_PACKAGE = "com.lostf1sh.pixelplayeross"
+        internal const val PUBLISHED_PACKAGE = "com.hitarashi.multibox"
         private const val FDROID_API = "https://f-droid.org/api/v1/packages"
         private const val FDROID_REPO = "https://f-droid.org/repo"
         private const val GITHUB_RELEASES_API =
-            "https://api.github.com/repos/PixelPlayerHQ/PixelPlayerOSS/releases?per_page=30"
+            "https://api.github.com/repos/sayeed205/multibox/releases?per_page=30"
 
         fun fdroidPageUrl(packageName: String) = "https://f-droid.org/packages/$packageName/"
 

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.ComponentCallbacks
 import android.content.Context
@@ -8,7 +8,7 @@ import android.content.res.Resources
 import android.os.LocaleList
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.lostf1sh.pixelplayeross.data.preferences.AppLanguage
+import com.hitarashi.multibox.data.preferences.AppLanguage
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just

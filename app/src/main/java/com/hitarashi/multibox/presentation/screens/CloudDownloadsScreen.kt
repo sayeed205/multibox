@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.text.format.Formatter
 import android.widget.Toast
@@ -64,11 +64,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownload
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownloadStatus
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.CloudDownloadsViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.offline.OfflineDownload
+import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.viewmodel.CloudDownloadsViewModel
 
 @Composable
 fun CloudDownloadsScreen(

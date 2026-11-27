@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.ContentUris
 import android.content.Context

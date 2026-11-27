@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerManager
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerPreset
-import com.lostf1sh.pixelplayeross.data.preferences.EqualizerPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.di.AppScope
+import com.hitarashi.multibox.data.equalizer.EqualizerManager
+import com.hitarashi.multibox.data.equalizer.EqualizerPreset
+import com.hitarashi.multibox.data.preferences.EqualizerPreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.di.AppScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

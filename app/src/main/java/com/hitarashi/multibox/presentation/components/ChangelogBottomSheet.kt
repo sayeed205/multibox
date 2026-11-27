@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -44,10 +44,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SineWaveLine
-import com.lostf1sh.pixelplayeross.ui.theme.ExpTitleTypography
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.subcomps.SineWaveLine
+import com.hitarashi.multibox.ui.theme.ExpTitleTypography
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 
 data class ChangelogSection(

@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.os.SystemClock
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.DailyMixManager
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ScrobbleManager
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.DailyMixManager
+import com.hitarashi.multibox.data.listenbrainz.ScrobbleManager
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk

@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.model
+package com.hitarashi.multibox.presentation.model
 
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.StatsTimeRange
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.time.ZoneId

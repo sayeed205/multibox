@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 /**
  * Keeps the immutable portion of a playback snapshot until the queue itself changes.

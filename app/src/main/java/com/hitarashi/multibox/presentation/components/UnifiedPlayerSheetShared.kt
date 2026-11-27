@@ -1,6 +1,6 @@
 @file:kotlin.OptIn(androidx.compose.material3.ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,7 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.SkipNext
 import androidx.compose.material.icons.rounded.SkipPrevious
 import androidx.compose.material3.CircularWavyProgressIndicator
-import com.lostf1sh.pixelplayeross.presentation.components.player.MorphingPlayPauseIcon
+import com.hitarashi.multibox.presentation.components.player.MorphingPlayPauseIcon
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Icon
@@ -50,9 +50,9 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.ui.theme.RoundedSans
 
 internal val LocalMaterialTheme = staticCompositionLocalOf<ColorScheme> { error("No ColorScheme provided") }
 

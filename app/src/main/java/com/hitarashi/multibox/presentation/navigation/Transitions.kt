@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.navigation
+package com.hitarashi.multibox.presentation.navigation
 
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.tween

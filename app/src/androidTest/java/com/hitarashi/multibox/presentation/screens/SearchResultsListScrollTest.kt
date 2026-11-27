@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.getValue
@@ -14,13 +14,13 @@ import androidx.compose.ui.test.performScrollToKey
 import androidx.navigation.compose.rememberNavController
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.collections.immutable.ImmutableList

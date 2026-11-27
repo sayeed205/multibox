@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
 import android.content.Context
-import com.lostf1sh.pixelplayeross.data.playlist.nlp.ConceptTable
+import com.hitarashi.multibox.data.playlist.nlp.ConceptTable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import timber.log.Timber
 import javax.inject.Inject

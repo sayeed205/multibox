@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Box
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastFirstOrNull
 import androidx.compose.ui.util.lerp
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.CarouselStyle
 
 /**
  * Album-art pager with the Material 3 parallax carousel effect: pages crossing the edge of the

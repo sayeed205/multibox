@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeSong
+import com.hitarashi.multibox.data.navidrome.model.NavidromeSong
 import org.junit.jupiter.api.Test
 
 class NavidromeSongEntityTest {

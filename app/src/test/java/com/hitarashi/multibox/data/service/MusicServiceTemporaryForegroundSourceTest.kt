@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import com.google.common.truth.Truth.assertThat
 import java.io.File
@@ -98,8 +98,8 @@ class MusicServiceTemporaryForegroundSourceTest {
     private fun sourceFile(relativePath: String): File {
         val workingDirectory = File(System.getProperty("user.dir") ?: ".")
         return sequenceOf(
-            File(workingDirectory, "src/main/java/com/lostf1sh/pixelplayeross/$relativePath"),
-            File(workingDirectory, "app/src/main/java/com/lostf1sh/pixelplayeross/$relativePath"),
+            File(workingDirectory, "src/main/java/com/hitarashi/multibox/$relativePath"),
+            File(workingDirectory, "app/src/main/java/com/hitarashi/multibox/$relativePath"),
         ).firstOrNull(File::isFile)
             ?: error("Could not locate source $relativePath from $workingDirectory")
     }

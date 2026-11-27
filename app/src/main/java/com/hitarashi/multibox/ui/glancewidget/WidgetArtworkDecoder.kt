@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.ArtworkTransportSanitizer
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.ArtworkTransportSanitizer
+import com.hitarashi.multibox.utils.LocalArtworkUri
 
 private val SUPPORTED_WIDGET_LOCAL_ARTWORK_SCHEMES = setOf(
     "content",

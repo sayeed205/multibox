@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -12,9 +12,9 @@ import android.content.pm.PackageManager
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
-import com.lostf1sh.pixelplayeross.MainActivity
-import com.lostf1sh.pixelplayeross.MainActivityIntentContract
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.MainActivity
+import com.hitarashi.multibox.MainActivityIntentContract
+import com.hitarashi.multibox.R
 
 /** Notifications for the updater: "update available", download progress, "finish installing". */
 internal object UpdateNotifications {

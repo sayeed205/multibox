@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import android.app.AlarmManager
 import android.app.PendingIntent

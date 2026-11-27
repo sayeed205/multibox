@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.Context
 import android.net.Uri
@@ -10,13 +10,13 @@ import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.provider.SharedArtworkContentProvider
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.provider.SharedArtworkContentProvider
+import com.hitarashi.multibox.data.model.Song
 import java.io.File
 
 object MediaItemBuilder {
     private const val EXTERNAL_MEDIA_ID_PREFIX = "external:"
-    private const val EXTERNAL_EXTRA_PREFIX = "com.lostf1sh.pixelplayeross.external."
+    private const val EXTERNAL_EXTRA_PREFIX = "com.hitarashi.multibox.external."
     private val DIRECT_FILE_URI_MIME_TYPES = setOf(
         "audio/mp4",
         "audio/m4a",

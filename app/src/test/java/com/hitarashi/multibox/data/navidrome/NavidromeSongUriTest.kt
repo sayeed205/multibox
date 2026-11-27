@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.navidrome
+package com.hitarashi.multibox.data.navidrome
 
-import com.lostf1sh.pixelplayeross.data.stream.CloudStreamSecurity
+import com.hitarashi.multibox.data.stream.CloudStreamSecurity
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue

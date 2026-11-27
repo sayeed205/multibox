@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class, ExperimentalLayoutApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.net.Uri
 import java.util.Locale
@@ -115,18 +115,18 @@ import androidx.compose.ui.window.DialogProperties
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.ImageCropView
-import com.lostf1sh.pixelplayeross.data.model.PlaylistShapeType
-import com.lostf1sh.pixelplayeross.data.model.SmartPlaylistRule
-import com.lostf1sh.pixelplayeross.presentation.components.SongPickerSelectionPane
-import com.lostf1sh.pixelplayeross.presentation.components.ConnectedToggleButtonRow
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.ImageCropView
+import com.hitarashi.multibox.data.model.PlaylistShapeType
+import com.hitarashi.multibox.data.model.SmartPlaylistRule
+import com.hitarashi.multibox.presentation.components.SongPickerSelectionPane
+import com.hitarashi.multibox.presentation.components.ConnectedToggleButtonRow
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
-import com.lostf1sh.pixelplayeross.utils.resolvePlaylistCoverContentColor
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.utils.resolvePlaylistCoverContentColor
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
@@ -148,9 +148,9 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.ui.graphics.TransformOrigin
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.sharedPlayerViewModel
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
 import androidx.media3.common.util.UnstableApi
 import androidx.compose.material3.MediumExtendedFloatingActionButton
 import androidx.compose.material3.Slider
@@ -166,8 +166,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.screens.TabAnimation
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.screens.TabAnimation
 import kotlinx.collections.immutable.persistentListOf
 
 data class Quadruple<A, B, C, D>(val first: A, val second: B, val third: C, val fourth: D)

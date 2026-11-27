@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.graphics.BitmapFactory
-import com.lostf1sh.pixelplayeross.data.diagnostics.PerformanceMetrics
+import com.hitarashi.multibox.data.diagnostics.PerformanceMetrics
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.unmockkStatic

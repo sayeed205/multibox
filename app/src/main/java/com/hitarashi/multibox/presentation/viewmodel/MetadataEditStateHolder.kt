@@ -1,18 +1,18 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.net.Uri
-import com.lostf1sh.pixelplayeross.data.media.CoverArtUpdate
-import com.lostf1sh.pixelplayeross.data.media.CustomMetadataChanges
-import com.lostf1sh.pixelplayeross.data.media.ImageCacheManager
-import com.lostf1sh.pixelplayeross.data.media.InterruptedSaveResumeResult
-import com.lostf1sh.pixelplayeross.data.media.MetadataEditError
-import com.lostf1sh.pixelplayeross.data.media.SongMetadataEditor
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.utils.FileDeletionUtils
-import com.lostf1sh.pixelplayeross.utils.LyricsUtils
+import com.hitarashi.multibox.data.media.CoverArtUpdate
+import com.hitarashi.multibox.data.media.CustomMetadataChanges
+import com.hitarashi.multibox.data.media.ImageCacheManager
+import com.hitarashi.multibox.data.media.InterruptedSaveResumeResult
+import com.hitarashi.multibox.data.media.MetadataEditError
+import com.hitarashi.multibox.data.media.SongMetadataEditor
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.utils.FileDeletionUtils
+import com.hitarashi.multibox.utils.LyricsUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -86,7 +86,7 @@ class MetadataEditStateHolder @Inject constructor(
 
         val finalCoverArtUpdate = if (coverArtUpdate == null) {
             val existingMetadata = try {
-                 com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader.read(java.io.File(song.path))
+                 com.hitarashi.multibox.data.media.AudioMetadataReader.read(java.io.File(song.path))
             } catch (e: Exception) {
                 null
             }

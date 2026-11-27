@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.library.DuplicateFinder
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.library.DuplicateFinder
+import com.hitarashi.multibox.data.repository.MusicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

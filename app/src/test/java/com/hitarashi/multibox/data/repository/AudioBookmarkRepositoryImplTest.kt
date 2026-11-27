@@ -1,14 +1,14 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
-import com.lostf1sh.pixelplayeross.data.backup.module.BackupSongResolver
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkDao
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkEntity
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
-import com.lostf1sh.pixelplayeross.data.database.SongSummary
-import com.lostf1sh.pixelplayeross.data.database.restoredBookmarkSongId
-import com.lostf1sh.pixelplayeross.data.database.serializeArtistRefs
-import com.lostf1sh.pixelplayeross.data.model.ArtistRef
+import com.hitarashi.multibox.data.backup.module.BackupSongResolver
+import com.hitarashi.multibox.data.database.AudioBookmarkDao
+import com.hitarashi.multibox.data.database.AudioBookmarkEntity
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongEntity
+import com.hitarashi.multibox.data.database.SongSummary
+import com.hitarashi.multibox.data.database.restoredBookmarkSongId
+import com.hitarashi.multibox.data.database.serializeArtistRefs
+import com.hitarashi.multibox.data.model.ArtistRef
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -43,13 +43,13 @@ import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import com.lostf1sh.pixelplayeross.MainActivity
-import com.lostf1sh.pixelplayeross.data.model.PlayerInfo
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.MainActivity
+import com.hitarashi.multibox.data.model.PlayerInfo
+import com.hitarashi.multibox.R
 import androidx.core.graphics.scale
 import androidx.glance.unit.ColorProvider
-import com.lostf1sh.pixelplayeross.data.model.QueueItem
-import com.lostf1sh.pixelplayeross.utils.createScalableBackgroundBitmap
+import com.hitarashi.multibox.data.model.QueueItem
+import com.hitarashi.multibox.utils.createScalableBackgroundBitmap
 import java.util.Locale
 import timber.log.Timber
 

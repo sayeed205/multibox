@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -100,11 +100,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SineWaveLine
-import com.lostf1sh.pixelplayeross.ui.theme.ExpTitleTypography
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.subcomps.SineWaveLine
+import com.hitarashi.multibox.ui.theme.ExpTitleTypography
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

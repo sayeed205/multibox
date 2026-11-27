@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.Context
 import androidx.compose.runtime.getValue
@@ -26,8 +26,8 @@ import androidx.compose.ui.test.performTextReplacement
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.PlaybackSpeedUtils
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.PlaybackSpeedUtils
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

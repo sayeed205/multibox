@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.selection
+package com.hitarashi.multibox.presentation.selection
 
 import java.util.TreeSet
 import kotlin.math.sign

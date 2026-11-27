@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.lostf1sh.pixelplayeross.data.preferences.M3uSyncPreferences
+import com.hitarashi.multibox.data.preferences.M3uSyncPreferences
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import java.io.IOException

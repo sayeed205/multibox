@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.net.Uri
@@ -6,14 +6,14 @@ import androidx.compose.runtime.Immutable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.utils.GenreParser
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.utils.GenreParser
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Job

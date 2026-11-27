@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -89,21 +89,21 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SineWaveLine
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.utils.SegmentedItemShapeDefaults
-import com.lostf1sh.pixelplayeross.presentation.utils.getSegmentedItemShape
-import com.lostf1sh.pixelplayeross.presentation.utils.seamlessSelectionScale
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistSelectionStateHolder
-import com.lostf1sh.pixelplayeross.utils.formatSongCount
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.presentation.components.subcomps.SineWaveLine
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.utils.SegmentedItemShapeDefaults
+import com.hitarashi.multibox.presentation.utils.getSegmentedItemShape
+import com.hitarashi.multibox.presentation.utils.seamlessSelectionScale
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistUiState
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistSelectionStateHolder
+import com.hitarashi.multibox.utils.formatSongCount
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
 import kotlinx.coroutines.flow.distinctUntilChanged
 import androidx.compose.foundation.combinedClickable
 import kotlinx.coroutines.flow.map

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import java.util.concurrent.atomic.AtomicBoolean
 

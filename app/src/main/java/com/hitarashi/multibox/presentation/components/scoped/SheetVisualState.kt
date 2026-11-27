@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
@@ -11,8 +11,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 
 private const val PREDICTIVE_BACK_SWIPE_EDGE_LEFT = 0
 private const val PREDICTIVE_BACK_SWIPE_EDGE_RIGHT = 1
@@ -54,13 +54,13 @@ internal fun rememberSheetVisualState(
     val density = LocalDensity.current
     val baseBottomPadding = remember(containerHeight, sheetCollapsedTargetY, density) {
         val targetYDp = with(density) { sheetCollapsedTargetY.toDp() }
-        (containerHeight - com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight - targetYDp)
+        (containerHeight - com.hitarashi.multibox.presentation.components.MiniPlayerHeight - targetYDp)
             .coerceAtLeast(0.dp)
     }
 
     val currentBottomPadding = 0.dp
 
-    val miniHeightPx = remember(density) { with(density) { com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight.toPx() } }
+    val miniHeightPx = remember(density) { with(density) { com.hitarashi.multibox.presentation.components.MiniPlayerHeight.toPx() } }
     val containerHeightPx = remember(containerHeight, density) { with(density) { containerHeight.toPx() } }
     val baseBottomPaddingPx = remember(baseBottomPadding, density) { with(density) { baseBottomPadding.toPx() } }
     val playerContentAreaHeightPxProvider: () -> Float = remember(

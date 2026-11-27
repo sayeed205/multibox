@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,15 +19,15 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionActionRow
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionCountPill
-import com.lostf1sh.pixelplayeross.presentation.selection.DetailSongSelection
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.CloudDownloadsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionActionRow
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionCountPill
+import com.hitarashi.multibox.presentation.selection.DetailSongSelection
+import com.hitarashi.multibox.presentation.viewmodel.CloudDownloadsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 

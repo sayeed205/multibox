@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,9 +31,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.util.lerp
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.SyncedWord
-import com.lostf1sh.pixelplayeross.data.preferences.LyricsWordHighlightStyle
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.SyncedWord
+import com.hitarashi.multibox.data.preferences.LyricsWordHighlightStyle
 
 /**
  * One visual word: the syllables that no whitespace separates, drawn as a single text run so

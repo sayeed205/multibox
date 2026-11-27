@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -26,11 +26,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.PlaylistShapeType
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.utils.resolvePlaylistCoverContentColor
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.PlaylistShapeType
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.utils.resolvePlaylistCoverContentColor
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlinx.collections.immutable.ImmutableList
 

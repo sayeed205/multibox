@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.annotation.OptIn
 import androidx.compose.runtime.Composable
@@ -11,9 +11,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.EnhancedSongListItem
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.subcomps.EnhancedSongListItem
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 

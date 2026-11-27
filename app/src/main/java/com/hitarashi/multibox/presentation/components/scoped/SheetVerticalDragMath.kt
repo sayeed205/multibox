@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.animation.core.Spring
 import androidx.compose.ui.util.lerp
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 import kotlin.math.abs
 
 internal data class SheetVerticalDragFrame(

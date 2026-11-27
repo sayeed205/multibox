@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
@@ -35,8 +35,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.LocalMaterialTheme
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.LocalMaterialTheme
 
 @Composable
 fun ToggleSegmentButton(

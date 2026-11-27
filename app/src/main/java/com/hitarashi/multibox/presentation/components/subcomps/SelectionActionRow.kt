@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
@@ -41,9 +41,9 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 
 private val buttonHeight = 44.dp

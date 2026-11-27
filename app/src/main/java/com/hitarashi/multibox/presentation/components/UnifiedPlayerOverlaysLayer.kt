@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.widget.Toast
 import androidx.annotation.OptIn
@@ -27,13 +27,13 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.zIndex
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.flow.map
 import timber.log.Timber

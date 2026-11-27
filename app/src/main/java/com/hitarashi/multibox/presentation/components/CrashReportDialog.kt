@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -37,9 +37,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.utils.CrashLogData
+import com.hitarashi.multibox.utils.CrashLogData
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 /**
  * Material3 Expressive styled dialog that displays crash information

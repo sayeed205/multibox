@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.content.Context
 import android.content.Intent
@@ -93,18 +93,18 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzProfileStats
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.jellyfin.auth.JellyfinLoginActivity
-import com.lostf1sh.pixelplayeross.presentation.navidrome.auth.NavidromeLoginActivity
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AccountsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ExternalAccountUiModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ExternalServiceAccount
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ListenBrainzConnectState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ListenBrainzStatsUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ListenBrainzUiModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzProfileStats
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.jellyfin.auth.JellyfinLoginActivity
+import com.hitarashi.multibox.presentation.navidrome.auth.NavidromeLoginActivity
+import com.hitarashi.multibox.presentation.viewmodel.AccountsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.ExternalAccountUiModel
+import com.hitarashi.multibox.presentation.viewmodel.ExternalServiceAccount
+import com.hitarashi.multibox.presentation.viewmodel.ListenBrainzConnectState
+import com.hitarashi.multibox.presentation.viewmodel.ListenBrainzStatsUiState
+import com.hitarashi.multibox.presentation.viewmodel.ListenBrainzUiModel
 import java.text.NumberFormat
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch

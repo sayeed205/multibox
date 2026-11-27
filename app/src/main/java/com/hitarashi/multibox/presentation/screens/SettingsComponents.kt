@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
@@ -68,15 +68,15 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.worker.SyncProgress
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LyricsRefreshProgress
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.worker.SyncProgress
+import com.hitarashi.multibox.presentation.viewmodel.LyricsRefreshProgress
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import androidx.compose.ui.res.vectorResource
 import androidx.core.view.HapticFeedbackConstantsCompat
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.performAppCompatHapticFeedback
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.performAppCompatHapticFeedback
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
 
 @Composable
 fun SettingsSection(title: String, icon: @Composable () -> Unit, content: @Composable () -> Unit) {

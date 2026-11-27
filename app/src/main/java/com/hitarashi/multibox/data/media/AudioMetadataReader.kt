@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.content.Context
 import android.net.Uri
 import android.os.ParcelFileDescriptor
 import androidx.annotation.VisibleForTesting
 import com.kyant.taglib.TagLib
-import com.lostf1sh.pixelplayeross.data.diagnostics.PerformanceMetrics
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.data.diagnostics.PerformanceMetrics
+import com.hitarashi.multibox.utils.GenreParser
 import org.jaudiotagger.audio.AudioFileIO
 import org.jaudiotagger.tag.FieldKey
 import org.jaudiotagger.tag.flac.FlacTag

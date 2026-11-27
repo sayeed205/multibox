@@ -2,15 +2,15 @@ Categories:
   - Local Media Player
   - Online Media Player
 License: GPL-3.0-or-later
-AuthorName: lostf1sh
-SourceCode: https://github.com/PixelPlayerHQ/PixelPlayerOSS
-IssueTracker: https://github.com/PixelPlayerHQ/PixelPlayerOSS/issues
-Changelog: https://github.com/PixelPlayerHQ/PixelPlayerOSS/blob/HEAD/CHANGELOG.md
+AuthorName: hitarashi
+SourceCode: https://github.com/sayeed205/multibox
+IssueTracker: https://github.com/sayeed205/multibox/issues
+Changelog: https://github.com/sayeed205/multibox/blob/HEAD/CHANGELOG.md
 
-AutoName: PixelPlayerOSS
+AutoName: Multibox
 
 RepoType: git
-Repo: https://github.com/PixelPlayerHQ/PixelPlayerOSS.git
+Repo: https://github.com/sayeed205/multibox.git
 
 Builds:
   - versionName: 0.1.0

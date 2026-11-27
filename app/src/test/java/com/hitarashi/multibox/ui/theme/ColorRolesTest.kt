@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
@@ -11,8 +11,8 @@ import com.google.android.material.color.utilities.SchemeFruitSalad
 import com.google.android.material.color.utilities.SchemeTonalSpot
 import com.google.android.material.color.utilities.SchemeVibrant
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
 import org.junit.Test
 
 class ColorRolesTest {

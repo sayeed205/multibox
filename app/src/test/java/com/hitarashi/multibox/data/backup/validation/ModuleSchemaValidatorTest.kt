@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.backup.validation
+package com.hitarashi.multibox.data.backup.validation
 
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupValidationResult
-import com.lostf1sh.pixelplayeross.data.backup.model.Severity
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupValidationResult
+import com.hitarashi.multibox.data.backup.model.Severity
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 

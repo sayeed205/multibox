@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.provider
+package com.hitarashi.multibox.data.provider
 
 import android.Manifest
 import android.content.ContentProvider
@@ -16,8 +16,8 @@ import coil.imageLoader
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Precision
-import com.lostf1sh.pixelplayeross.data.image.RemoteArtworkCache
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
+import com.hitarashi.multibox.data.image.RemoteArtworkCache
+import com.hitarashi.multibox.utils.AlbumArtUtils
 import java.io.File
 import java.io.FileNotFoundException
 import java.util.Base64

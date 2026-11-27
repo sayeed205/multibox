@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

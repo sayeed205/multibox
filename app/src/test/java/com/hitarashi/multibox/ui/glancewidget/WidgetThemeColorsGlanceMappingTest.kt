@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import androidx.compose.ui.graphics.Color
 import androidx.glance.color.ColorProvider
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.model.WidgetThemeColors
+import com.hitarashi.multibox.data.model.WidgetThemeColors
 import org.junit.jupiter.api.Test
 
 class WidgetThemeColorsGlanceMappingTest {

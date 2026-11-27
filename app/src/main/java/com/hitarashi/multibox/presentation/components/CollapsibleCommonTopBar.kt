@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -24,9 +24,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 @Composable
 fun CollapsibleCommonTopBar(

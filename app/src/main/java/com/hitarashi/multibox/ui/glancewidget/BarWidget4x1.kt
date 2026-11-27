@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -29,8 +29,8 @@ import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import com.lostf1sh.pixelplayeross.MainActivity
-import com.lostf1sh.pixelplayeross.data.model.PlayerInfo
+import com.hitarashi.multibox.MainActivity
+import com.hitarashi.multibox.data.model.PlayerInfo
 import kotlin.text.ifEmpty
 
 class BarWidget4x1 : GlanceAppWidget() {

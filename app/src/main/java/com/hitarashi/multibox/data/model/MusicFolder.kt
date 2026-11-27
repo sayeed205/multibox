@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.model
+package com.hitarashi.multibox.data.model
 
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf

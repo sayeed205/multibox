@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import java.text.Normalizer
 import java.util.Locale
@@ -72,7 +72,7 @@ object GenreParser {
     }
 
     /**
-     * The stable identity of a genre name, also used as its [com.lostf1sh.pixelplayeross.data.model.Genre.id].
+     * The stable identity of a genre name, also used as its [com.hitarashi.multibox.data.model.Genre.id].
      * Case, spacing and Unicode composition differences collapse to the same key. Locale.ROOT keeps
      * "INDIE" from becoming a dotless "ındie" for Turkish users.
      */

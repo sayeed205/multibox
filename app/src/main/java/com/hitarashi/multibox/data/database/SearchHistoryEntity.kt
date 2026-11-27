@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.lostf1sh.pixelplayeross.data.model.SearchHistoryItem
+import com.hitarashi.multibox.data.model.SearchHistoryItem
 
 @Entity(tableName = "search_history")
 data class SearchHistoryEntity(

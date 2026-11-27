@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,11 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.ui.theme.RoundedSans
 
 private data class LibraryEmptySpec(
     val iconRes: Int,

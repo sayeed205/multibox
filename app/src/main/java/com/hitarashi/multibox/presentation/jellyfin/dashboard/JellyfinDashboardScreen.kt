@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.jellyfin.dashboard
+package com.hitarashi.multibox.presentation.jellyfin.dashboard
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
@@ -38,14 +38,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.JellyfinPlaylistEntity
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinLibrary
-import com.lostf1sh.pixelplayeross.data.jellyfin.selectedJellyfinLibraryIds
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.CloudLibrarySelectorChoice
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.JellyfinPlaylistEntity
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinLibrary
+import com.hitarashi.multibox.data.jellyfin.selectedJellyfinLibraryIds
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.CloudLibrarySelectorChoice
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.res.stringResource

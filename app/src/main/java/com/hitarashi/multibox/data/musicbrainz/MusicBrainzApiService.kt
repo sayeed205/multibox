@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.musicbrainz
+package com.hitarashi.multibox.data.musicbrainz
 
 import android.os.SystemClock
-import com.lostf1sh.pixelplayeross.BuildConfig
+import com.hitarashi.multibox.BuildConfig
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton

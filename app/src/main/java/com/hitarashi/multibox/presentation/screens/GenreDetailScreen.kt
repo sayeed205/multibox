@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSwipeToQueue
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafelyReplacing
+import com.hitarashi.multibox.presentation.components.rememberSwipeToQueue
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafelyReplacing
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 import androidx.compose.animation.*
@@ -55,43 +55,43 @@ import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.presentation.components.AutoScrollingTextOnDemand
-import com.lostf1sh.pixelplayeross.presentation.components.EditMultipleSongsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveTopBarContent
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveScrollBar
-import com.lostf1sh.pixelplayeross.presentation.components.GenreSortBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.MultiSelectionBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.PlayerSheetAwareBackHandler
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImageCompactListTargetSize
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.SongInfoBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.extractFastScrollGlyph
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.EnhancedSongListItem
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionActionRow
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionCountPill
-import com.lostf1sh.pixelplayeross.presentation.screens.QuickFillDialog
-import com.lostf1sh.pixelplayeross.presentation.selection.dragToSelect
-import com.lostf1sh.pixelplayeross.presentation.selection.rememberDragToSelectState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.CloudDownloadsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.GenreDetailListItem
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.GenreDetailViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SortOption
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SectionData
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AlbumData
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.UNKNOWN_GENRE_ID
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.utils.GenreParser
-import com.lostf1sh.pixelplayeross.utils.formatDuration
-import com.lostf1sh.pixelplayeross.utils.formatSongCount
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.presentation.components.AutoScrollingTextOnDemand
+import com.hitarashi.multibox.presentation.components.EditMultipleSongsSheet
+import com.hitarashi.multibox.presentation.components.ExpressiveTopBarContent
+import com.hitarashi.multibox.presentation.components.ExpressiveScrollBar
+import com.hitarashi.multibox.presentation.components.GenreSortBottomSheet
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.MultiSelectionBottomSheet
+import com.hitarashi.multibox.presentation.components.PlayerSheetAwareBackHandler
+import com.hitarashi.multibox.presentation.components.SmartImageCompactListTargetSize
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.SongInfoBottomSheet
+import com.hitarashi.multibox.presentation.components.extractFastScrollGlyph
+import com.hitarashi.multibox.presentation.components.subcomps.EnhancedSongListItem
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionActionRow
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionCountPill
+import com.hitarashi.multibox.presentation.screens.QuickFillDialog
+import com.hitarashi.multibox.presentation.selection.dragToSelect
+import com.hitarashi.multibox.presentation.selection.rememberDragToSelectState
+import com.hitarashi.multibox.presentation.viewmodel.CloudDownloadsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.GenreDetailListItem
+import com.hitarashi.multibox.presentation.viewmodel.GenreDetailViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SortOption
+import com.hitarashi.multibox.presentation.viewmodel.SectionData
+import com.hitarashi.multibox.presentation.viewmodel.AlbumData
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.presentation.viewmodel.UNKNOWN_GENRE_ID
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.utils.GenreParser
+import com.hitarashi.multibox.utils.formatDuration
+import com.hitarashi.multibox.utils.formatSongCount
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.map
@@ -110,7 +110,7 @@ fun GenreDetailScreen(
     decodedGenreId: String = java.net.URLDecoder.decode(genreId, "UTF-8"),
     playerViewModel: PlayerViewModel,
     viewModel: GenreDetailViewModel = hiltViewModel(),
-    playlistViewModel: com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel = hiltViewModel(),
+    playlistViewModel: com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel = hiltViewModel(),
     cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -265,13 +265,13 @@ fun GenreDetailScreen(
     val themeGenre = uiState.genre
     val themeColor = remember(themeGenre, decodedGenreId, darkMode, defaultContainer, defaultOnContainer) {
         if (themeGenre != null) {
-            com.lostf1sh.pixelplayeross.ui.theme.GenreThemeUtils.getGenreThemeColor(
+            com.hitarashi.multibox.ui.theme.GenreThemeUtils.getGenreThemeColor(
                 genre = themeGenre,
                 isDark = darkMode,
                 fallbackGenreId = decodedGenreId
             )
         } else {
-            com.lostf1sh.pixelplayeross.ui.theme.GenreThemeColor(
+            com.hitarashi.multibox.ui.theme.GenreThemeColor(
                 defaultContainer,
                 defaultOnContainer
             )
@@ -330,7 +330,7 @@ fun GenreDetailScreen(
     val baseColorScheme = MaterialTheme.colorScheme
 
     val genreColorScheme = remember(themeGenre, decodedGenreId, darkMode, genrePaletteStyle) {
-        com.lostf1sh.pixelplayeross.ui.theme.GenreThemeUtils.getGenreDetailColorScheme(
+        com.hitarashi.multibox.ui.theme.GenreThemeUtils.getGenreDetailColorScheme(
             genre = themeGenre,
             fallbackGenreId = decodedGenreId,
             isDark = darkMode,
@@ -626,30 +626,30 @@ fun GenreDetailScreen(
                         onDeleteFromDevice = playerViewModel::deleteFromDevice,
                         onNavigateToAlbum = {
                             navController.navigateSafelyReplacing(
-                                route = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.AlbumDetail.createRoute(song.albumId),
-                                patternToPop = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.AlbumDetail.route
+                                route = com.hitarashi.multibox.presentation.navigation.Screen.AlbumDetail.createRoute(song.albumId),
+                                patternToPop = com.hitarashi.multibox.presentation.navigation.Screen.AlbumDetail.route
                             )
                             showSongOptionsSheet = null
                         },
                         onNavigateToArtist = {
                             navController.navigateSafelyReplacing(
-                                route = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.ArtistDetail.createRoute(song.artistId),
-                                patternToPop = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.ArtistDetail.route
+                                route = com.hitarashi.multibox.presentation.navigation.Screen.ArtistDetail.createRoute(song.artistId),
+                                patternToPop = com.hitarashi.multibox.presentation.navigation.Screen.ArtistDetail.route
                             )
                             showSongOptionsSheet = null
                         },
                         onNavigateToArtistById = { artistId ->
                             navController.navigateSafelyReplacing(
-                                route = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.ArtistDetail.createRoute(artistId),
-                                patternToPop = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.ArtistDetail.route
+                                route = com.hitarashi.multibox.presentation.navigation.Screen.ArtistDetail.createRoute(artistId),
+                                patternToPop = com.hitarashi.multibox.presentation.navigation.Screen.ArtistDetail.route
                             )
                             showSongOptionsSheet = null
                         },
                         onNavigateToGenre = {
                             song.genre?.let {
                                 navController.navigateSafelyReplacing(
-                                    route = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.GenreDetail.createRoute(java.net.URLEncoder.encode(it, "UTF-8")),
-                                    patternToPop = com.lostf1sh.pixelplayeross.presentation.navigation.Screen.GenreDetail.route
+                                    route = com.hitarashi.multibox.presentation.navigation.Screen.GenreDetail.createRoute(java.net.URLEncoder.encode(it, "UTF-8")),
+                                    patternToPop = com.hitarashi.multibox.presentation.navigation.Screen.GenreDetail.route
                                 )
                             }
                             showSongOptionsSheet = null
@@ -679,7 +679,7 @@ fun GenreDetailScreen(
 
             // Shared by the single-song options sheet and the multi-selection sheet.
             if (showPlaylistBottomSheet && playlistSheetSongs.isNotEmpty()) {
-                com.lostf1sh.pixelplayeross.presentation.components.PlaylistBottomSheet(
+                com.hitarashi.multibox.presentation.components.PlaylistBottomSheet(
                     playlistUiState = playlistUiState,
                     songs = playlistSheetSongs,
                     onDismiss = {
@@ -1063,7 +1063,7 @@ fun GenreAlbumHeader(
 
 @Composable
 fun GenreSongItemWrapper(
-    item: com.lostf1sh.pixelplayeross.presentation.viewmodel.GenreDetailListItem.SongItem,
+    item: com.hitarashi.multibox.presentation.viewmodel.GenreDetailListItem.SongItem,
     stablePlayerState: StablePlayerState,
     onSongClick: (Song) -> Unit,
     onMoreOptionsClick: (Song) -> Unit,

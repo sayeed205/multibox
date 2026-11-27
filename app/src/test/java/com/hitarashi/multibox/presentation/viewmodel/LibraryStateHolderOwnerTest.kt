@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope

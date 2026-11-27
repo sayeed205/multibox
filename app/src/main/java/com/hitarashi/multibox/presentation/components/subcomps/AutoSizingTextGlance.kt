@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import android.graphics.Bitmap
 import android.graphics.Paint

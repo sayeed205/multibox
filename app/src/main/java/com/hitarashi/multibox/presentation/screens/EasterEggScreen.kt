@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
@@ -14,10 +14,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.presentation.components.brickbreaker.BrickBreakerOverlay
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.components.brickbreaker.BrickBreakerOverlay
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 
 @Composable
 fun EasterEggScreen(

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import android.app.ActivityManager
 import android.content.Context
@@ -35,13 +35,13 @@ import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.extractor.DefaultExtractorsFactory
 import androidx.media3.extractor.mp3.Mp3Extractor
 import androidx.media3.extractor.flac.FlacExtractor
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerAudioSink
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerManager
-import com.lostf1sh.pixelplayeross.data.model.AudioOutputMode
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
-import com.lostf1sh.pixelplayeross.utils.envelope
+import com.hitarashi.multibox.data.equalizer.EqualizerAudioSink
+import com.hitarashi.multibox.data.equalizer.EqualizerManager
+import com.hitarashi.multibox.data.model.AudioOutputMode
+import com.hitarashi.multibox.data.model.TransitionSettings
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.utils.MediaItemBuilder
+import com.hitarashi.multibox.utils.envelope
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -64,7 +64,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.coroutines.resume
 
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeStreamProxy
+import com.hitarashi.multibox.data.navidrome.NavidromeStreamProxy
 
 data class ActiveDecoderInfo(
     val name: String,
@@ -258,7 +258,7 @@ internal fun shouldDisableAudioOffloadOnEarlyBuffering(
 class DualPlayerEngine @Inject constructor(
     @param:ApplicationContext private val context: Context,
     private val navidromeStreamProxy: NavidromeStreamProxy,
-    private val jellyfinStreamProxy: com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinStreamProxy,
+    private val jellyfinStreamProxy: com.hitarashi.multibox.data.jellyfin.JellyfinStreamProxy,
     private val cloudOfflineRepository: CloudOfflineRepository,
     private val equalizerManager: EqualizerManager
 ) {

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,9 +36,9 @@ import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SetupUiState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.presentation.viewmodel.SetupUiState
 import kotlinx.collections.immutable.persistentListOf
 import org.junit.Rule
 import org.junit.Test

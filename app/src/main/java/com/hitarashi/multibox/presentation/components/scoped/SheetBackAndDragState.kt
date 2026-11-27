@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 
 internal data class SheetBackAndDragState(
     val isDragging: Boolean,

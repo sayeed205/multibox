@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.RenderEffect as AndroidRenderEffect
 import android.graphics.Shader as AndroidShader

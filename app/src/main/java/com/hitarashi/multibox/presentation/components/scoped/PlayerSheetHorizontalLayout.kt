@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 // Horizontal layout of the mini and full player layers inside the floating player card.
 //

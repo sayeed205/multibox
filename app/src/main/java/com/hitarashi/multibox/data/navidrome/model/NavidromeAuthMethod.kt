@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.navidrome.model
+package com.hitarashi.multibox.data.navidrome.model
 
 /**
  * How credentials are sent to a Subsonic-compatible server.

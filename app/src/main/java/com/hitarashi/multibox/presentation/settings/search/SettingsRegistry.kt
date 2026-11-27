@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.settings.search
+package com.hitarashi.multibox.presentation.settings.search
 
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
 object SettingsRegistry {
 

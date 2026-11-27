@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.jellyfin.model
+package com.hitarashi.multibox.data.jellyfin.model
 
-import com.lostf1sh.pixelplayeross.data.stream.CloudStreamSecurity
+import com.hitarashi.multibox.data.stream.CloudStreamSecurity
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 

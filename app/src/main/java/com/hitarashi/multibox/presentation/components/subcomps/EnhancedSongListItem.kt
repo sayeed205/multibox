@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.Spring
@@ -60,13 +60,13 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp as lerpDp
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.AutoScrollingText
-import com.lostf1sh.pixelplayeross.presentation.components.ShimmerBox
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.AutoScrollingText
+import com.hitarashi.multibox.presentation.components.ShimmerBox
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.SwipeToQueueBox
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.SwipeToQueueBox
 
 @Immutable
 private data class EnhancedSongAnimationTarget(

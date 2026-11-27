@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

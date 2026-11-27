@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem

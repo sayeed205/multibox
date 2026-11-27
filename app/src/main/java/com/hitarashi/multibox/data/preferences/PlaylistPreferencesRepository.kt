@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
-import com.lostf1sh.pixelplayeross.data.database.LocalPlaylistDao
-import com.lostf1sh.pixelplayeross.data.database.TransitionDao
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.database.toEntity
-import com.lostf1sh.pixelplayeross.data.database.toPlaylist
-import com.lostf1sh.pixelplayeross.data.model.isSmartPlaylist
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.playlist.mergeVisiblePlaylistOrder
+import com.hitarashi.multibox.data.database.LocalPlaylistDao
+import com.hitarashi.multibox.data.database.TransitionDao
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.database.toEntity
+import com.hitarashi.multibox.data.database.toPlaylist
+import com.hitarashi.multibox.data.model.isSmartPlaylist
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.playlist.mergeVisiblePlaylistOrder
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

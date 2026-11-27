@@ -28,6 +28,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PixelPlayerOSS"
+rootProject.name = "Multibox"
 include(":app")
 include(":baselineprofile")

@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
-import com.lostf1sh.pixelplayeross.presentation.library.LibraryTabId
+import com.hitarashi.multibox.presentation.library.LibraryTabId
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue

@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapEntry
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapSchedule
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.di.DispatcherProvider
+import com.hitarashi.multibox.presentation.recap.RecapEntry
+import com.hitarashi.multibox.presentation.recap.RecapSchedule
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.Clock
 import java.time.Duration

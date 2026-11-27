@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.lostf1sh.pixelplayeross.data.model.Playlist
+import com.hitarashi.multibox.data.model.Playlist
 
 @Entity(
     tableName = "playlists",

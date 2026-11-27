@@ -1,14 +1,14 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.withInterfaceFont
+import com.hitarashi.multibox.ui.theme.withInterfaceFont
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafelyReplacing
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafelyReplacing
 
 import android.os.Trace
-import com.lostf1sh.pixelplayeross.utils.traceSection
+import com.hitarashi.multibox.utils.traceSection
 import android.text.format.Formatter
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.AnimatedVisibility
@@ -69,7 +69,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.LinearWavyProgressIndicator
 import androidx.compose.material.icons.rounded.ViewModule
-import com.lostf1sh.pixelplayeross.presentation.components.ToggleSegmentButton
+import com.hitarashi.multibox.presentation.components.ToggleSegmentButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -86,7 +86,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
-import com.lostf1sh.pixelplayeross.ui.theme.ShapeCache
+import com.hitarashi.multibox.ui.theme.ShapeCache
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.DisposableEffect
@@ -133,7 +133,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
@@ -144,66 +144,66 @@ import coil.compose.AsyncImagePainter
 import coil.imageLoader
 import coil.request.ImageRequest
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.ShimmerBox
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
-import com.lostf1sh.pixelplayeross.data.model.FolderSource
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.resolveMainScreenBottomGradientHeight
-import com.lostf1sh.pixelplayeross.presentation.components.resolveNavBarOccupiedHeight
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.ShimmerBox
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.FolderSource
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.resolveMainScreenBottomGradientHeight
+import com.hitarashi.multibox.presentation.components.resolveNavBarOccupiedHeight
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistArtCollage
-import com.lostf1sh.pixelplayeross.presentation.components.ReorderTabsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.PlayerSheetAwareBackHandler
-import com.lostf1sh.pixelplayeross.presentation.components.EditMultipleSongsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.SongInfoBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.LibraryActionRow
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.components.GenreMultiSelectionOptionSheet
-import com.lostf1sh.pixelplayeross.presentation.components.MultiSelectionBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistMultiSelectionBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.DeletePlaylistsConfirmationDialog
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistCreationTypeDialog
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionActionRow
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.SelectionCountPill
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.CloudDownloadsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.sharedPlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SongInfoBottomSheetViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SmartMixTarget
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SmartMixViewModel
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.toLibraryTabIdOrNull
-import com.lostf1sh.pixelplayeross.data.preferences.LibraryNavigationMode
-import com.lostf1sh.pixelplayeross.data.worker.SyncProgress
-import com.lostf1sh.pixelplayeross.presentation.screens.search.components.GenreTypography
-import com.lostf1sh.pixelplayeross.presentation.utils.SegmentedItemShapeDefaults
-import com.lostf1sh.pixelplayeross.presentation.utils.clipCardCornersFallback
-import com.lostf1sh.pixelplayeross.presentation.utils.getSegmentedItemShape
-import com.lostf1sh.pixelplayeross.presentation.utils.seamlessSelectionScale
-import com.lostf1sh.pixelplayeross.presentation.components.SyncProgressBar
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LibraryViewModel
-import com.lostf1sh.pixelplayeross.presentation.selection.appendDistinctSelection
-import com.lostf1sh.pixelplayeross.presentation.selection.dragToSelect
-import com.lostf1sh.pixelplayeross.presentation.selection.rememberDragToSelectState
-import com.lostf1sh.pixelplayeross.presentation.selection.selectionIndex
-import com.lostf1sh.pixelplayeross.presentation.selection.toggleOrderedSelection
-import com.lostf1sh.pixelplayeross.utils.formatSongCount
+import com.hitarashi.multibox.presentation.components.PlaylistArtCollage
+import com.hitarashi.multibox.presentation.components.ReorderTabsSheet
+import com.hitarashi.multibox.presentation.components.PlayerSheetAwareBackHandler
+import com.hitarashi.multibox.presentation.components.EditMultipleSongsSheet
+import com.hitarashi.multibox.presentation.components.SongInfoBottomSheet
+import com.hitarashi.multibox.presentation.components.subcomps.LibraryActionRow
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.components.GenreMultiSelectionOptionSheet
+import com.hitarashi.multibox.presentation.components.MultiSelectionBottomSheet
+import com.hitarashi.multibox.presentation.components.PlaylistMultiSelectionBottomSheet
+import com.hitarashi.multibox.presentation.components.DeletePlaylistsConfirmationDialog
+import com.hitarashi.multibox.presentation.components.PlaylistCreationTypeDialog
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionActionRow
+import com.hitarashi.multibox.presentation.components.subcomps.SelectionCountPill
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.presentation.viewmodel.PlayerUiState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.CloudDownloadsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistUiState
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SongInfoBottomSheetViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SmartMixTarget
+import com.hitarashi.multibox.presentation.viewmodel.SmartMixViewModel
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.toLibraryTabIdOrNull
+import com.hitarashi.multibox.data.preferences.LibraryNavigationMode
+import com.hitarashi.multibox.data.worker.SyncProgress
+import com.hitarashi.multibox.presentation.screens.search.components.GenreTypography
+import com.hitarashi.multibox.presentation.utils.SegmentedItemShapeDefaults
+import com.hitarashi.multibox.presentation.utils.clipCardCornersFallback
+import com.hitarashi.multibox.presentation.utils.getSegmentedItemShape
+import com.hitarashi.multibox.presentation.utils.seamlessSelectionScale
+import com.hitarashi.multibox.presentation.components.SyncProgressBar
+import com.hitarashi.multibox.presentation.viewmodel.LibraryViewModel
+import com.hitarashi.multibox.presentation.selection.appendDistinctSelection
+import com.hitarashi.multibox.presentation.selection.dragToSelect
+import com.hitarashi.multibox.presentation.selection.rememberDragToSelectState
+import com.hitarashi.multibox.presentation.selection.selectionIndex
+import com.hitarashi.multibox.presentation.selection.toggleOrderedSelection
+import com.hitarashi.multibox.utils.formatSongCount
 import androidx.paging.compose.collectAsLazyPagingItems
 import android.content.Intent
 import android.net.Uri
@@ -251,33 +251,33 @@ import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.lostf1sh.pixelplayeross.presentation.components.albumTitleMarquee
-import com.lostf1sh.pixelplayeross.presentation.screens.CreatePlaylistDialog
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistContainer
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.PlayingEqIcon
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.presentation.components.albumTitleMarquee
+import com.hitarashi.multibox.presentation.screens.CreatePlaylistDialog
+import com.hitarashi.multibox.presentation.components.PlaylistBottomSheet
+import com.hitarashi.multibox.presentation.components.PlaylistContainer
+import com.hitarashi.multibox.presentation.components.subcomps.PlayingEqIcon
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import java.util.Locale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLocale
 import android.widget.Toast
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.ui.focus.focusModifier
-import com.lostf1sh.pixelplayeross.data.model.PlaylistShapeType
+import com.hitarashi.multibox.data.model.PlaylistShapeType
 import kotlinx.coroutines.flow.first
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.LoadState
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveScrollBar
-import com.lostf1sh.pixelplayeross.presentation.components.animatedScrollbarInset
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.presentation.components.LibrarySortBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.library.KeepUnscrolledListAtTop
-import com.lostf1sh.pixelplayeross.presentation.library.sortFolderSongs
+import com.hitarashi.multibox.presentation.components.ExpressiveScrollBar
+import com.hitarashi.multibox.presentation.components.animatedScrollbarInset
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.presentation.components.LibrarySortBottomSheet
+import com.hitarashi.multibox.presentation.library.KeepUnscrolledListAtTop
+import com.hitarashi.multibox.presentation.library.sortFolderSongs
 import timber.log.Timber
 import java.io.File
 import kotlin.math.abs
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
 
 val ListExtraBottomGap = 30.dp
 val PlayerSheetCollapsedCornerRadius = 32.dp
@@ -607,7 +607,7 @@ fun LibraryScreen(
     var showDeletePlaylistConfirmation by remember { mutableStateOf(false) }
     var pendingDeletePlaylistIds by remember { mutableStateOf(emptyList<String>()) }
 
-    val onPlaylistLongPress: (com.lostf1sh.pixelplayeross.data.model.Playlist) -> Unit = remember(playlistMultiSelectionState, haptic) {
+    val onPlaylistLongPress: (com.hitarashi.multibox.data.model.Playlist) -> Unit = remember(playlistMultiSelectionState, haptic) {
         { playlist ->
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             playlistMultiSelectionState.toggleSelection(playlist)
@@ -615,7 +615,7 @@ fun LibraryScreen(
         }
     }
 
-    val onPlaylistSelectionToggle: (com.lostf1sh.pixelplayeross.data.model.Playlist) -> Unit = remember(playlistMultiSelectionState) {
+    val onPlaylistSelectionToggle: (com.hitarashi.multibox.data.model.Playlist) -> Unit = remember(playlistMultiSelectionState) {
         { playlist -> playlistMultiSelectionState.toggleSelection(playlist) }
     }
 
@@ -1465,7 +1465,7 @@ fun LibraryScreen(
                                         Text(
                                             text = stringResource(R.string.presentation_batch_d_view_section_layout),
                                             style = MaterialTheme.typography.headlineSmall,
-                                            fontFamily = com.lostf1sh.pixelplayeross.ui.theme.RoundedSans,
+                                            fontFamily = com.hitarashi.multibox.ui.theme.RoundedSans,
                                             fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                                             modifier = Modifier.padding(start = 2.dp, bottom = 8.dp)
                                         )
@@ -1508,11 +1508,11 @@ fun LibraryScreen(
                                         Text(
                                             text = stringResource(R.string.presentation_batch_d_cloud_sources_heading),
                                             style = MaterialTheme.typography.headlineSmall,
-                                            fontFamily = com.lostf1sh.pixelplayeross.ui.theme.RoundedSans,
+                                            fontFamily = com.hitarashi.multibox.ui.theme.RoundedSans,
                                             fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                                             modifier = Modifier.padding(start = 2.dp, bottom = 8.dp)
                                         )
-                                        com.lostf1sh.pixelplayeross.presentation.components.LibrarySheetToggleCard(
+                                        com.hitarashi.multibox.presentation.components.LibrarySheetToggleCard(
                                             label = stringResource(R.string.presentation_batch_d_cloud_only),
                                             checked = playerUiState.hideLocalMedia,
                                             boxBackgroundColor = if (playerUiState.hideLocalMedia)
@@ -2292,7 +2292,7 @@ private fun CompactLibraryPagerIndicator(
 @Composable
 private fun LibraryInlineSyncIndicator(
     visible: Boolean,
-    syncManager: com.lostf1sh.pixelplayeross.data.worker.SyncManager
+    syncManager: com.hitarashi.multibox.data.worker.SyncManager
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -2357,7 +2357,7 @@ private fun LibraryInlineSyncIndicator(
  * and all tab content — remains unaffected during sync.
  */
 @Composable
-private fun LibrarySyncOverlay(syncManager: com.lostf1sh.pixelplayeross.data.worker.SyncManager) {
+private fun LibrarySyncOverlay(syncManager: com.hitarashi.multibox.data.worker.SyncManager) {
     val syncProgress by syncManager.syncProgress
         .collectAsStateWithLifecycle(initialValue = SyncProgress())
 

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.Manifest
 import org.junit.jupiter.api.Assertions.assertEquals

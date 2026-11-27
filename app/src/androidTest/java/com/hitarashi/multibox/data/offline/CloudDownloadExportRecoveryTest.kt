@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import android.content.ContentResolver
 import android.content.Context

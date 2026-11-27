@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.AlbumEntity
-import com.lostf1sh.pixelplayeross.data.database.LocalAlbumGroupingSource
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
+import com.hitarashi.multibox.data.database.AlbumEntity
+import com.hitarashi.multibox.data.database.LocalAlbumGroupingSource
+import com.hitarashi.multibox.data.database.SongEntity
 import org.junit.jupiter.api.Test
 
 class AlbumGroupingUtilsTest {

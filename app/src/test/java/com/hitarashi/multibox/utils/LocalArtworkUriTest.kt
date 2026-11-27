@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.AlbumEntity
-import com.lostf1sh.pixelplayeross.data.database.toAlbum
+import com.hitarashi.multibox.data.database.AlbumEntity
+import com.hitarashi.multibox.data.database.toAlbum
 import org.junit.Test
 
 class LocalArtworkUriTest {
@@ -10,7 +10,7 @@ class LocalArtworkUriTest {
     @Test
     fun resolveSongArtworkUri_convertsLegacyLocalCacheUriToStableUri() {
         val resolved = LocalArtworkUri.resolveSongArtworkUri(
-            storedUri = "content://com.lostf1sh.pixelplayeross.provider/cache/song_art_42.jpg",
+            storedUri = "content://com.hitarashi.multibox.provider/cache/song_art_42.jpg",
             songId = 42L,
             contentUriString = "content://media/external/audio/media/42"
         )
@@ -21,7 +21,7 @@ class LocalArtworkUriTest {
     @Test
     fun resolveSongArtworkUri_convertsSharedArtworkUriToStableUri() {
         val resolved = LocalArtworkUri.resolveSongArtworkUri(
-            storedUri = "content://com.lostf1sh.pixelplayeross.artwork/song/42?t=1234",
+            storedUri = "content://com.hitarashi.multibox.artwork/song/42?t=1234",
             songId = 42L,
             contentUriString = "content://media/external/audio/media/42"
         )
@@ -61,7 +61,7 @@ class LocalArtworkUriTest {
     @Test
     fun parseSongIdFromVolatileArtworkUri_readsLegacyCacheFileName() {
         val songId = LocalArtworkUri.parseSongIdFromVolatileArtworkUri(
-            "content://com.lostf1sh.pixelplayeross.provider/cache/song_art_77_v2.jpg"
+            "content://com.hitarashi.multibox.provider/cache/song_art_77_v2.jpg"
         )
 
         assertThat(songId).isEqualTo(77L)
@@ -83,7 +83,7 @@ class LocalArtworkUriTest {
             title = "Test Album",
             artistName = "Test Artist",
             artistId = 10L,
-            albumArtUriString = "content://com.lostf1sh.pixelplayeross.provider/cache/song_art_42.jpg",
+            albumArtUriString = "content://com.hitarashi.multibox.provider/cache/song_art_42.jpg",
             songCount = 12,
             dateAdded = 1000L,
             year = 2024
@@ -101,7 +101,7 @@ class LocalArtworkUriTest {
             title = "Shared Album",
             artistName = "Artist",
             artistId = 20L,
-            albumArtUriString = "content://com.lostf1sh.pixelplayeross.artwork/song/99?t=1234",
+            albumArtUriString = "content://com.hitarashi.multibox.artwork/song/99?t=1234",
             songCount = 8,
             dateAdded = 2000L,
             year = 2023

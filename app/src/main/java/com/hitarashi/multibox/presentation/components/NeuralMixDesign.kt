@@ -1,6 +1,6 @@
 @file:android.annotation.SuppressLint("RestrictedApi")
 
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.Matrix
 import android.graphics.RectF
@@ -39,7 +39,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.res.painterResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -89,7 +89,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.currentStateAsState
 import com.google.android.material.color.utilities.Hct
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.floor

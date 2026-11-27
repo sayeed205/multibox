@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.core.Animatable
@@ -97,13 +97,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerPreset
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveTopBarContent
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.EqualizerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.sharedPlayerViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.equalizer.EqualizerPreset
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.ExpressiveTopBarContent
+import com.hitarashi.multibox.presentation.viewmodel.EqualizerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 import androidx.compose.animation.animateColorAsState
@@ -120,7 +120,7 @@ import androidx.media3.common.util.UnstableApi
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
 import androidx.compose.material.icons.rounded.BarChart
 import androidx.compose.material.icons.rounded.Block
 import androidx.compose.material.icons.rounded.Close
@@ -129,7 +129,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.toArgb
-import com.lostf1sh.pixelplayeross.presentation.components.WavyArcSlider
+import com.hitarashi.multibox.presentation.components.WavyArcSlider
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.TextButton
 import androidx.compose.material.icons.rounded.Edit
@@ -137,12 +137,12 @@ import androidx.compose.material.icons.rounded.ExpandMore
 import androidx.compose.material.icons.rounded.Save
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Surface
-import com.lostf1sh.pixelplayeross.presentation.components.CustomPresetsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.ReorderPresetsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.SavePresetDialog
-import com.lostf1sh.pixelplayeross.presentation.components.RenamePresetDialog
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository.EqualizerViewMode
+import com.hitarashi.multibox.presentation.components.CustomPresetsSheet
+import com.hitarashi.multibox.presentation.components.ReorderPresetsSheet
+import com.hitarashi.multibox.presentation.components.SavePresetDialog
+import com.hitarashi.multibox.presentation.components.RenamePresetDialog
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository.EqualizerViewMode
 import androidx.compose.material.icons.rounded.ViewQuilt
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.navigationBars
@@ -987,7 +987,7 @@ private fun CustomVerticalSlider(
         }
     }
     
-    val starShape = remember { com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape(sides = 8, curve = 0.1) }
+    val starShape = remember { com.hitarashi.multibox.utils.shapes.RoundedStarShape(sides = 8, curve = 0.1) }
     val finalShape = thumbShape ?: starShape
     
     val thumbPath = remember(thumbSizePx, finalShape) {

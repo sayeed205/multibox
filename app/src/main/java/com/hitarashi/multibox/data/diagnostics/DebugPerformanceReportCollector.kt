@@ -1,14 +1,14 @@
-package com.lostf1sh.pixelplayeross.data.diagnostics
+package com.hitarashi.multibox.data.diagnostics
 
 import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
-import com.lostf1sh.pixelplayeross.BuildConfig
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.preferences.EqualizerPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils
+import com.hitarashi.multibox.BuildConfig
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.preferences.EqualizerPreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.utils.AudioMetaUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -147,7 +147,7 @@ class DebugPerformanceReportCollector @Inject constructor(
     )
 
     private fun collectLibrary(
-        stats: com.lostf1sh.pixelplayeross.data.database.LibraryAudioStatsRow,
+        stats: com.hitarashi.multibox.data.database.LibraryAudioStatsRow,
         mimeCounts: Map<String, Int>,
         metrics: PerformanceMetrics.Snapshot
     ): LibrarySection = LibrarySection(
@@ -166,7 +166,7 @@ class DebugPerformanceReportCollector @Inject constructor(
     )
 
     private fun collectHiRes(
-        stats: com.lostf1sh.pixelplayeross.data.database.LibraryAudioStatsRow,
+        stats: com.hitarashi.multibox.data.database.LibraryAudioStatsRow,
         losslessCount: Int,
         metrics: PerformanceMetrics.Snapshot
     ): HiResSection = HiResSection(

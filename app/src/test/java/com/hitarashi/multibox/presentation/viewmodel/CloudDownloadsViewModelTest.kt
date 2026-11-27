@@ -1,14 +1,14 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.offline.CloudDownloadExports
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownload
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownloadStatus
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.offline.CloudDownloadExports
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.offline.OfflineDownload
+import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.MusicRepository
 import app.cash.turbine.test
 import io.mockk.coEvery
 import io.mockk.coVerify

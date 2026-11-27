@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,13 +22,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.screens.search.components.GenreCategoriesGrid
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LibraryGenresState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.screens.search.components.GenreCategoriesGrid
+import com.hitarashi.multibox.presentation.viewmodel.LibraryGenresState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 
 /**
  * The Library's Genres tab: the same genre tiles as Search, with song counts, in the sort chosen

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 import android.content.Context
 import android.net.Uri
@@ -9,21 +9,21 @@ import android.util.LruCache
 import androidx.core.net.toUri
 import com.google.gson.Gson
 import com.kyant.taglib.TagLib
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.network.lyrics.LrcLibApiService
-import com.lostf1sh.pixelplayeross.data.network.lyrics.LrcLibResponse
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity
-import com.lostf1sh.pixelplayeross.utils.LyricsImportValidationResult
-import com.lostf1sh.pixelplayeross.utils.LogUtils
-import com.lostf1sh.pixelplayeross.utils.LyricsUtils
-import com.lostf1sh.pixelplayeross.utils.MultiLangRomanizer
-import com.lostf1sh.pixelplayeross.utils.NetworkRetryUtils
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.network.lyrics.LrcLibApiService
+import com.hitarashi.multibox.data.network.lyrics.LrcLibResponse
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.LyricsImportSecurity
+import com.hitarashi.multibox.utils.LyricsImportValidationResult
+import com.hitarashi.multibox.utils.LogUtils
+import com.hitarashi.multibox.utils.LyricsUtils
+import com.hitarashi.multibox.utils.MultiLangRomanizer
+import com.hitarashi.multibox.utils.NetworkRetryUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -136,7 +136,7 @@ private data class RemoteLyricsMatch(
 class LyricsRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val lrcLibApiService: LrcLibApiService,
-    private val lyricsDao: com.lostf1sh.pixelplayeross.data.database.LyricsDao,
+    private val lyricsDao: com.hitarashi.multibox.data.database.LyricsDao,
     private val okHttpClient: OkHttpClient,
     private val userPreferencesRepository: UserPreferencesRepository
 ) : LyricsRepository {
@@ -547,7 +547,7 @@ class LyricsRepositoryImpl @Inject constructor(
                         
                         try {
                             lyricsDao.insert(
-                                com.lostf1sh.pixelplayeross.data.database.LyricsEntity(
+                                com.hitarashi.multibox.data.database.LyricsEntity(
                                     songId = song.id.toLong(),
                                     content = rawLyrics,
                                     isSynced = !parsedLyrics.synced.isNullOrEmpty(),
@@ -920,7 +920,7 @@ class LyricsRepositoryImpl @Inject constructor(
         return@withContext null
     }
 
-    private fun readValidatedLocalLyrics(file: File): com.lostf1sh.pixelplayeross.utils.ValidatedLyricsImport? {
+    private fun readValidatedLocalLyrics(file: File): com.hitarashi.multibox.utils.ValidatedLyricsImport? {
         return when (val validation = LyricsImportSecurity.validateLocalLyricsFile(file)) {
             is LyricsImportValidationResult.Valid -> validation.value
             is LyricsImportValidationResult.Invalid -> null
@@ -1182,7 +1182,7 @@ class LyricsRepositoryImpl @Inject constructor(
 
                     try {
                         lyricsDao.insert(
-                             com.lostf1sh.pixelplayeross.data.database.LyricsEntity(
+                             com.hitarashi.multibox.data.database.LyricsEntity(
                                  songId = song.id.toLong(),
                                  content = rawLyricsToSave,
                                  isSynced = !best.lyrics.synced.isNullOrEmpty(),
@@ -1224,7 +1224,7 @@ class LyricsRepositoryImpl @Inject constructor(
 
                 try {
                     lyricsDao.insert(
-                        com.lostf1sh.pixelplayeross.data.database.LyricsEntity(
+                        com.hitarashi.multibox.data.database.LyricsEntity(
                             songId = song.id.toLong(),
                             content = rawLyricsToSave,
                             isSynced = !parsedLyrics.synced.isNullOrEmpty(),
@@ -1400,7 +1400,7 @@ class LyricsRepositoryImpl @Inject constructor(
         }
 
         lyricsDao.insert(
-             com.lostf1sh.pixelplayeross.data.database.LyricsEntity(
+             com.hitarashi.multibox.data.database.LyricsEntity(
                  songId = songId,
                  content = lyricsContent,
                  isSynced = parsedLyrics.synced?.isNotEmpty() == true,
@@ -1514,7 +1514,7 @@ class LyricsRepositoryImpl @Inject constructor(
                                     if (validated != null) {
                                         try {
                                             lyricsDao.insert(
-                                                 com.lostf1sh.pixelplayeross.data.database.LyricsEntity(
+                                                 com.hitarashi.multibox.data.database.LyricsEntity(
                                                      songId = song.id.toLong(),
                                                      content = validated.sanitizedContent,
                                                      isSynced = validated.parsedLyrics.synced?.isNotEmpty() == true,

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.library
+package com.hitarashi.multibox.presentation.library
 
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable

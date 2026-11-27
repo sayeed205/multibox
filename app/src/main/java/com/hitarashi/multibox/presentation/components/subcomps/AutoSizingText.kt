@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.BoxWithConstraintsScope

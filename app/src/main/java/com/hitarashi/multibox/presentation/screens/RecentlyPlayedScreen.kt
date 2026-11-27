@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.withInterfaceFont
+import com.hitarashi.multibox.ui.theme.withInterfaceFont
 
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSwipeToQueue
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.components.rememberSwipeToQueue
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
-import com.lostf1sh.pixelplayeross.utils.traceSection
+import com.hitarashi.multibox.utils.traceSection
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -72,21 +72,21 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.RecentlyPlayedRangeSelector
-import com.lostf1sh.pixelplayeross.presentation.components.SongInfoBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.EnhancedSongListItem
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.model.RecentlyPlayedSongUiModel
-import com.lostf1sh.pixelplayeross.presentation.model.collectRecentlyPlayedSongIds
-import com.lostf1sh.pixelplayeross.presentation.model.mapRecentlyPlayedSongs
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.PlaylistBottomSheet
+import com.hitarashi.multibox.presentation.components.RecentlyPlayedRangeSelector
+import com.hitarashi.multibox.presentation.components.SongInfoBottomSheet
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.subcomps.EnhancedSongListItem
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.model.RecentlyPlayedSongUiModel
+import com.hitarashi.multibox.presentation.model.collectRecentlyPlayedSongIds
+import com.hitarashi.multibox.presentation.model.mapRecentlyPlayedSongs
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map

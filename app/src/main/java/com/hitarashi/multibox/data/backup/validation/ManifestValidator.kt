@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.backup.validation
+package com.hitarashi.multibox.data.backup.validation
 
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupValidationResult
-import com.lostf1sh.pixelplayeross.data.backup.model.Severity
-import com.lostf1sh.pixelplayeross.data.backup.model.ValidationError
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupValidationResult
+import com.hitarashi.multibox.data.backup.model.Severity
+import com.hitarashi.multibox.data.backup.model.ValidationError
 import java.security.MessageDigest
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -58,8 +58,8 @@ class ManifestValidator @Inject constructor() {
     /**
      * Verifies the checksum of a module payload against the manifest.
      *
-     * Strict by design: both [com.lostf1sh.pixelplayeross.data.backup.format.BackupWriter]
-     * and [com.lostf1sh.pixelplayeross.data.backup.format.LegacyPayloadAdapter] always emit
+     * Strict by design: both [com.hitarashi.multibox.data.backup.format.BackupWriter]
+     * and [com.hitarashi.multibox.data.backup.format.LegacyPayloadAdapter] always emit
      * `sha256:` checksums, so a missing module entry, a blank checksum, or an unknown
      * algorithm prefix can only come from a corrupted or tampered archive — treat it as a
      * verification failure rather than silently skipping the check.

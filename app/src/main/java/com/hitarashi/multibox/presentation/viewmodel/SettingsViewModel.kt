@@ -1,46 +1,46 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.backup.BackupManager
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupEncryptedException
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupWrongPassphraseException
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupOperationType
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupTransferProgressUpdate
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupHistoryEntry
-import com.lostf1sh.pixelplayeross.data.backup.model.RestorePlan
-import com.lostf1sh.pixelplayeross.data.backup.model.RestoreResult
-import com.lostf1sh.pixelplayeross.data.backup.model.ValidationError
-import com.lostf1sh.pixelplayeross.data.model.AudioOutputMode
-import com.lostf1sh.pixelplayeross.data.preferences.AppLanguage
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
-import com.lostf1sh.pixelplayeross.data.preferences.LibraryNavigationMode
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
-import com.lostf1sh.pixelplayeross.data.preferences.SwipeToQueueAction
-import com.lostf1sh.pixelplayeross.data.preferences.DEFAULT_LYRICS_DUET_LAYOUT_ENABLED
-import com.lostf1sh.pixelplayeross.data.preferences.DEFAULT_LYRICS_FONT_SIZE_SP
-import com.lostf1sh.pixelplayeross.data.preferences.DEFAULT_SHOW_LYRICS_BACKGROUND_VOCALS
-import com.lostf1sh.pixelplayeross.data.preferences.LyricsWordHighlightStyle
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.FolderArtworkSettingsCoordinator
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtQuality
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.data.preferences.CollagePattern
-import com.lostf1sh.pixelplayeross.data.preferences.FullPlayerLoadingTweaks
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.LyricsRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
-import com.lostf1sh.pixelplayeross.data.worker.SyncProgress
+import com.hitarashi.multibox.data.backup.BackupManager
+import com.hitarashi.multibox.data.backup.format.BackupEncryptedException
+import com.hitarashi.multibox.data.backup.format.BackupWrongPassphraseException
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupOperationType
+import com.hitarashi.multibox.data.backup.model.BackupTransferProgressUpdate
+import com.hitarashi.multibox.data.backup.model.BackupHistoryEntry
+import com.hitarashi.multibox.data.backup.model.RestorePlan
+import com.hitarashi.multibox.data.backup.model.RestoreResult
+import com.hitarashi.multibox.data.backup.model.ValidationError
+import com.hitarashi.multibox.data.model.AudioOutputMode
+import com.hitarashi.multibox.data.preferences.AppLanguage
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.LibraryNavigationMode
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.SwipeToQueueAction
+import com.hitarashi.multibox.data.preferences.DEFAULT_LYRICS_DUET_LAYOUT_ENABLED
+import com.hitarashi.multibox.data.preferences.DEFAULT_LYRICS_FONT_SIZE_SP
+import com.hitarashi.multibox.data.preferences.DEFAULT_SHOW_LYRICS_BACKGROUND_VOCALS
+import com.hitarashi.multibox.data.preferences.LyricsWordHighlightStyle
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.FolderArtworkSettingsCoordinator
+import com.hitarashi.multibox.data.preferences.AlbumArtQuality
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.preferences.CollagePattern
+import com.hitarashi.multibox.data.preferences.FullPlayerLoadingTweaks
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.repository.LyricsRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.worker.SyncManager
+import com.hitarashi.multibox.data.worker.SyncProgress
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.Channel
@@ -51,15 +51,15 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import com.lostf1sh.pixelplayeross.di.AppScope
+import com.hitarashi.multibox.di.AppScope
 import javax.inject.Inject
 
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.data.preferences.LaunchTab
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.service.player.HiFiCapabilityChecker
-import com.lostf1sh.pixelplayeross.utils.AppLocaleManager
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.data.preferences.LaunchTab
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.service.player.HiFiCapabilityChecker
+import com.hitarashi.multibox.utils.AppLocaleManager
 import java.io.File
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -1089,7 +1089,7 @@ class SettingsViewModel @Inject constructor(
     fun setAlbumArtCacheLimitMb(limitMb: Int) {
         viewModelScope.launch {
             userPreferencesRepository.setAlbumArtCacheLimitMb(limitMb)
-            com.lostf1sh.pixelplayeross.utils.AlbumArtCacheManager.configuredCacheLimitMb = limitMb.toLong()
+            com.hitarashi.multibox.utils.AlbumArtCacheManager.configuredCacheLimitMb = limitMb.toLong()
         }
     }
 

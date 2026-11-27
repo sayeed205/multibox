@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -23,7 +23,7 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
 
 @Composable
 internal fun MetadataEditorDialog(

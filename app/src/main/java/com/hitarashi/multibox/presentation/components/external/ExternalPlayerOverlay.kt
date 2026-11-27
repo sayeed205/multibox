@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.external
+package com.hitarashi.multibox.presentation.components.external
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
@@ -56,13 +56,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.media3.common.util.UnstableApi
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.sanitizeNavBarCornerRadius
-import com.lostf1sh.pixelplayeross.presentation.components.OptimizedAlbumArt
-import com.lostf1sh.pixelplayeross.presentation.components.WavySliderExpressive
-import com.lostf1sh.pixelplayeross.presentation.components.player.AnimatedPlaybackControls
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.utils.formatDuration
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.sanitizeNavBarCornerRadius
+import com.hitarashi.multibox.presentation.components.OptimizedAlbumArt
+import com.hitarashi.multibox.presentation.components.WavySliderExpressive
+import com.hitarashi.multibox.presentation.components.player.AnimatedPlaybackControls
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.utils.formatDuration
 import kotlin.math.abs
 import kotlin.math.roundToLong
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape

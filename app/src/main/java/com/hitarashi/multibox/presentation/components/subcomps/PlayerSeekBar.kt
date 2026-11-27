@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,9 +34,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.WavySliderExpressive
-import com.lostf1sh.pixelplayeross.utils.formatDuration
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.WavySliderExpressive
+import com.hitarashi.multibox.utils.formatDuration
 import kotlin.math.roundToLong
 
 @Composable

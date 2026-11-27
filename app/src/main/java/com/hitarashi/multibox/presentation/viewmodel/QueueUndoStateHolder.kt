@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.media3.session.MediaController
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.utils.MediaItemBuilder
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope

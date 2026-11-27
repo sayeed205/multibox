@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
 import android.content.Context
 import androidx.hilt.work.HiltWorker
@@ -10,10 +10,10 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.lostf1sh.pixelplayeross.data.model.isSmartPlaylist
-import com.lostf1sh.pixelplayeross.data.preferences.M3uSyncPreferences
-import com.lostf1sh.pixelplayeross.data.preferences.PlaylistPreferencesRepository
-import com.lostf1sh.pixelplayeross.di.AppScope
+import com.hitarashi.multibox.data.model.isSmartPlaylist
+import com.hitarashi.multibox.data.preferences.M3uSyncPreferences
+import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
+import com.hitarashi.multibox.di.AppScope
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import java.io.IOException

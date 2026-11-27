@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.navidrome
+package com.hitarashi.multibox.data.navidrome
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.NavidromeDao
-import com.lostf1sh.pixelplayeross.data.database.NavidromeSongEntity
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
-import com.lostf1sh.pixelplayeross.data.database.SourceType
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.NavidromeDao
+import com.hitarashi.multibox.data.database.NavidromeSongEntity
+import com.hitarashi.multibox.data.database.SongEntity
+import com.hitarashi.multibox.data.database.SourceType
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.every

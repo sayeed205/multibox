@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
-import com.lostf1sh.pixelplayeross.data.model.BackgroundVocals
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.SyncedWord
+import com.hitarashi.multibox.data.model.BackgroundVocals
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.SyncedWord
 import java.text.Normalizer
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse

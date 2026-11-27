@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver

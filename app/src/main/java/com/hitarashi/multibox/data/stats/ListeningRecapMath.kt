@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.stats
+package com.hitarashi.multibox.data.stats
 
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackSpan
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackSpan
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId

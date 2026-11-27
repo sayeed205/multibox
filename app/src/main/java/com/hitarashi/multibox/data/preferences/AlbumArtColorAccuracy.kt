@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 object AlbumArtColorAccuracy {
     const val MIN = 0

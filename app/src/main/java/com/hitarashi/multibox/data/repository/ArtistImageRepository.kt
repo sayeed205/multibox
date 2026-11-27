@@ -1,17 +1,17 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.util.LruCache
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.network.deezer.DeezerApiService
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.FolderArtistArtUtils
-import com.lostf1sh.pixelplayeross.utils.NetworkRetryUtils
-import com.lostf1sh.pixelplayeross.utils.isRetryableNetworkError
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.network.deezer.DeezerApiService
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.FolderArtistArtUtils
+import com.hitarashi.multibox.utils.NetworkRetryUtils
+import com.hitarashi.multibox.utils.isRetryableNetworkError
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.CancellationException

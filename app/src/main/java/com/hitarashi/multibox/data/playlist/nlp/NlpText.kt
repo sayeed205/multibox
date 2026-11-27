@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 import java.text.Normalizer
 

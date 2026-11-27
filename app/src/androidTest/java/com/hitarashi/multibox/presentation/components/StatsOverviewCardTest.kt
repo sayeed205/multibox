@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.MaterialTheme
@@ -8,11 +8,11 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.HomeStatsOverviewState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.presentation.viewmodel.HomeStatsOverviewState
 import java.time.LocalDate
 import java.time.ZoneId
 import org.junit.Rule

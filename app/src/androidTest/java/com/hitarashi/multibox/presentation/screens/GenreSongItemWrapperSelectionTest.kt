@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.getValue
@@ -13,10 +13,10 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.GenreDetailListItem
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.viewmodel.GenreDetailListItem
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

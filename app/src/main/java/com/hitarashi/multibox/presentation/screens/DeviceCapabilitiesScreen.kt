@@ -1,6 +1,6 @@
 @file:kotlin.OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.content.Intent
 import android.text.format.Formatter
@@ -96,19 +96,19 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioCapabilities
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioOutputCategory
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.DeviceCapabilitiesState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.DeviceCapabilitiesViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ExoPlayerInfo
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.FormatSupportInfo
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LocalMusicStorageSummary
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.MemorySummary
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaybackCompatibilitySummary
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.viewmodel.AudioCapabilities
+import com.hitarashi.multibox.presentation.viewmodel.AudioOutputCategory
+import com.hitarashi.multibox.presentation.viewmodel.DeviceCapabilitiesState
+import com.hitarashi.multibox.presentation.viewmodel.DeviceCapabilitiesViewModel
+import com.hitarashi.multibox.presentation.viewmodel.ExoPlayerInfo
+import com.hitarashi.multibox.presentation.viewmodel.FormatSupportInfo
+import com.hitarashi.multibox.presentation.viewmodel.LocalMusicStorageSummary
+import com.hitarashi.multibox.presentation.viewmodel.MemorySummary
+import com.hitarashi.multibox.presentation.viewmodel.PlaybackCompatibilitySummary
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

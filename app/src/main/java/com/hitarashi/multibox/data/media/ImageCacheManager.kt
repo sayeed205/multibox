@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.content.Context
 import coil.annotation.ExperimentalCoilApi
@@ -36,9 +36,9 @@ class ImageCacheManager @Inject constructor(
         val knownSizeSuffixes = listOf(null, "128x128", "150x150", "168x168", "256x256", "300x300", "512x512", "600x600", "800x800")
 
         uriStrings.mapNotNull { it?.takeIf(String::isNotBlank) }.forEach { baseUri ->
-            if (com.lostf1sh.pixelplayeross.utils.LocalArtworkUri.isLocalArtworkUri(baseUri)) {
-                com.lostf1sh.pixelplayeross.utils.LocalArtworkUri.parseSongId(baseUri)?.let { songId ->
-                    com.lostf1sh.pixelplayeross.utils.AlbumArtUtils.clearCacheForSong(context, songId)
+            if (com.hitarashi.multibox.utils.LocalArtworkUri.isLocalArtworkUri(baseUri)) {
+                com.hitarashi.multibox.utils.LocalArtworkUri.parseSongId(baseUri)?.let { songId ->
+                    com.hitarashi.multibox.utils.AlbumArtUtils.clearCacheForSong(context, songId)
                 }
             }
 

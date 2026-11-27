@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -58,11 +58,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioOutputDevice
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioOutputKind
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioOutputViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.viewmodel.AudioOutputDevice
+import com.hitarashi.multibox.presentation.viewmodel.AudioOutputKind
+import com.hitarashi.multibox.presentation.viewmodel.AudioOutputViewModel
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import timber.log.Timber
 
 /** Lets the user pick which connected output (speaker, wired, USB, Bluetooth) plays the app's audio. */

@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.preferences.PreferenceBackupEntry
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.di.BackupGson
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.preferences.PreferenceBackupEntry
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.di.BackupGson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

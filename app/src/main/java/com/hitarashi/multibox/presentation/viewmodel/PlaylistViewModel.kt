@@ -1,22 +1,22 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.net.Uri
 import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.DailyMixManager
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.SmartPlaylistRule
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.fromPlaylistSource
-import com.lostf1sh.pixelplayeross.data.model.isSmartPlaylist
-import com.lostf1sh.pixelplayeross.data.model.toPlaylistSource
-import com.lostf1sh.pixelplayeross.data.playlist.M3uManager
-import com.lostf1sh.pixelplayeross.data.playlist.SmartPlaylistBuilder
-import com.lostf1sh.pixelplayeross.data.preferences.PlaylistPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.DailyMixManager
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.SmartPlaylistRule
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.fromPlaylistSource
+import com.hitarashi.multibox.data.model.isSmartPlaylist
+import com.hitarashi.multibox.data.model.toPlaylistSource
+import com.hitarashi.multibox.data.playlist.M3uManager
+import com.hitarashi.multibox.data.playlist.SmartPlaylistBuilder
+import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +35,7 @@ import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Build
 import android.provider.MediaStore
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import java.io.FileOutputStream
@@ -734,9 +734,9 @@ class PlaylistViewModel @Inject constructor(
 
     private fun findFolder(
         targetPath: String,
-        folders: List<com.lostf1sh.pixelplayeross.data.model.MusicFolder>
-    ): com.lostf1sh.pixelplayeross.data.model.MusicFolder? {
-        val queue: ArrayDeque<com.lostf1sh.pixelplayeross.data.model.MusicFolder> = ArrayDeque(folders)
+        folders: List<com.hitarashi.multibox.data.model.MusicFolder>
+    ): com.hitarashi.multibox.data.model.MusicFolder? {
+        val queue: ArrayDeque<com.hitarashi.multibox.data.model.MusicFolder> = ArrayDeque(folders)
         while (queue.isNotEmpty()) {
             val folder = queue.removeFirst()
             if (folder.path == targetPath) {
@@ -747,7 +747,7 @@ class PlaylistViewModel @Inject constructor(
         return null
     }
 
-    private fun com.lostf1sh.pixelplayeross.data.model.MusicFolder.collectAllSongs(): List<Song> {
+    private fun com.hitarashi.multibox.data.model.MusicFolder.collectAllSongs(): List<Song> {
         return songs + subFolders.flatMap { it.collectAllSongs() }
     }
 
@@ -756,32 +756,32 @@ class PlaylistViewModel @Inject constructor(
     }
 
     private fun sortPlaylistsList(
-        playlists: List<com.lostf1sh.pixelplayeross.data.model.Playlist>,
+        playlists: List<com.hitarashi.multibox.data.model.Playlist>,
         sortOption: SortOption
-    ): List<com.lostf1sh.pixelplayeross.data.model.Playlist> {
+    ): List<com.hitarashi.multibox.data.model.Playlist> {
         return when (sortOption) {
             SortOption.PlaylistNameAZ -> playlists.sortedWith(
-                compareBy<com.lostf1sh.pixelplayeross.data.model.Playlist> { it.name.lowercase() }
+                compareBy<com.hitarashi.multibox.data.model.Playlist> { it.name.lowercase() }
                     .thenByDescending { it.lastModified }
                     .thenBy { it.id }
             )
             SortOption.PlaylistNameZA -> playlists.sortedWith(
-                compareByDescending<com.lostf1sh.pixelplayeross.data.model.Playlist> { it.name.lowercase() }
+                compareByDescending<com.hitarashi.multibox.data.model.Playlist> { it.name.lowercase() }
                     .thenByDescending { it.lastModified }
                     .thenBy { it.id }
             )
             SortOption.PlaylistDateCreated -> playlists.sortedWith(
-                compareByDescending<com.lostf1sh.pixelplayeross.data.model.Playlist> { it.lastModified }
+                compareByDescending<com.hitarashi.multibox.data.model.Playlist> { it.lastModified }
                     .thenBy { it.name.lowercase() }
                     .thenBy { it.id }
             )
             SortOption.PlaylistDateCreatedAsc -> playlists.sortedWith(
-                compareBy<com.lostf1sh.pixelplayeross.data.model.Playlist> { it.lastModified }
+                compareBy<com.hitarashi.multibox.data.model.Playlist> { it.lastModified }
                     .thenBy { it.name.lowercase() }
                     .thenBy { it.id }
             )
             else -> playlists.sortedWith(
-                compareBy<com.lostf1sh.pixelplayeross.data.model.Playlist> { it.name.lowercase() }
+                compareBy<com.hitarashi.multibox.data.model.Playlist> { it.name.lowercase() }
                     .thenByDescending { it.lastModified }
                     .thenBy { it.id }
             )

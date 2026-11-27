@@ -407,7 +407,7 @@
     <string name="updates_switch_action_close">Close</string>
     <string name="updates_notification_channel">App updates</string>
     <string name="updates_notification_title">Update available</string>
-    <string name="updates_notification_text">PixelPlayerOSS %1$s is ready to install.</string>
-    <string name="updates_notification_confirm_title">Finish updating PixelPlayerOSS</string>
+    <string name="updates_notification_text">Multibox %1$s is ready to install.</string>
+    <string name="updates_notification_confirm_title">Finish updating Multibox</string>
     <string name="updates_notification_confirm_text">Tap to confirm the installation.</string>
 </resources>

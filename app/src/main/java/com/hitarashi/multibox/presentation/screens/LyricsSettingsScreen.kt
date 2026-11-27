@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
@@ -65,18 +65,18 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.preferences.LyricsWordHighlightStyle
-import com.lostf1sh.pixelplayeross.data.preferences.MAX_LYRICS_FONT_SIZE_SP
-import com.lostf1sh.pixelplayeross.data.preferences.MIN_LYRICS_FONT_SIZE_SP
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
-import com.lostf1sh.pixelplayeross.presentation.settings.search.LocalSettingsHighlightTarget
-import com.lostf1sh.pixelplayeross.presentation.settings.search.settingHighlight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.preferences.LyricsWordHighlightStyle
+import com.hitarashi.multibox.data.preferences.MAX_LYRICS_FONT_SIZE_SP
+import com.hitarashi.multibox.data.preferences.MIN_LYRICS_FONT_SIZE_SP
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.presentation.settings.search.LocalSettingsHighlightTarget
+import com.hitarashi.multibox.presentation.settings.search.settingHighlight
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
 import kotlin.math.roundToInt
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

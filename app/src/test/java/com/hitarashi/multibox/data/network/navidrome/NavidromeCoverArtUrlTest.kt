@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.network.navidrome
+package com.hitarashi.multibox.data.network.navidrome
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeCredentials
+import com.hitarashi.multibox.data.navidrome.model.NavidromeCredentials
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import org.junit.jupiter.api.Test

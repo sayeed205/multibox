@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.jellyfin.model
+package com.hitarashi.multibox.data.jellyfin.model
 
 import android.os.Parcelable
 import androidx.compose.runtime.Immutable

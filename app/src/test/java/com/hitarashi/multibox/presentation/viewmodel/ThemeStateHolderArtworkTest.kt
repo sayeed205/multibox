@@ -1,15 +1,15 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.net.Uri
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

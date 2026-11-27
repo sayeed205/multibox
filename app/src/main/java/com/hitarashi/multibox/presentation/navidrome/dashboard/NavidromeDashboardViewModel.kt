@@ -1,15 +1,15 @@
-package com.lostf1sh.pixelplayeross.presentation.navidrome.dashboard
+package com.hitarashi.multibox.presentation.navidrome.dashboard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.lostf1sh.pixelplayeross.data.database.NavidromePlaylistEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeMusicFolder
-import com.lostf1sh.pixelplayeross.data.worker.NavidromeSyncWorker
+import com.hitarashi.multibox.data.database.NavidromePlaylistEntity
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.navidrome.model.NavidromeMusicFolder
+import com.hitarashi.multibox.data.worker.NavidromeSyncWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow

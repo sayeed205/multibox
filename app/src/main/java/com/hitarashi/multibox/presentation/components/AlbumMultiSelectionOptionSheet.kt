@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
@@ -45,11 +45,11 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.compose.ui.res.stringResource
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.AutoSizingTextToFill
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.TightWrapText
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
+import com.hitarashi.multibox.presentation.components.subcomps.TightWrapText
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import androidx.compose.runtime.remember

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import android.content.Context
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -9,9 +9,9 @@ import androidx.work.OneTimeWorkRequest
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.mediaStoreGenerationsChanged
-import com.lostf1sh.pixelplayeross.utils.readExternalMediaStoreGenerations
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.mediaStoreGenerationsChanged
+import com.hitarashi.multibox.utils.readExternalMediaStoreGenerations
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
-import com.lostf1sh.pixelplayeross.data.observer.MediaStoreObserver
+import com.hitarashi.multibox.data.observer.MediaStoreObserver
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.Job

@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.di
+package com.hitarashi.multibox.di
 
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzApiService
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzEndpoint
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzApiService
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzEndpoint
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

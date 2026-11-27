@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,17 +12,17 @@ import coil.imageLoader
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.data.database.AlbumArtThemeDao
-import com.lostf1sh.pixelplayeross.data.database.AlbumArtThemeEntity
-import com.lostf1sh.pixelplayeross.data.database.StoredColorSchemeValues
-import com.lostf1sh.pixelplayeross.data.database.toComposeColor
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.traceAsyncSection
-import com.lostf1sh.pixelplayeross.ui.theme.clearExtractedColorCache
-import com.lostf1sh.pixelplayeross.ui.theme.extractSeedColor
-import com.lostf1sh.pixelplayeross.ui.theme.generateColorSchemeFromSeed
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.database.AlbumArtThemeDao
+import com.hitarashi.multibox.data.database.AlbumArtThemeEntity
+import com.hitarashi.multibox.data.database.StoredColorSchemeValues
+import com.hitarashi.multibox.data.database.toComposeColor
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.traceAsyncSection
+import com.hitarashi.multibox.ui.theme.clearExtractedColorCache
+import com.hitarashi.multibox.ui.theme.extractSeedColor
+import com.hitarashi.multibox.ui.theme.generateColorSchemeFromSeed
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.CancellationException
@@ -145,7 +145,7 @@ class ColorSchemeProcessor @Inject constructor(
                 withContext(Dispatchers.Default) {
                     val seed = extractSeedColor(
                         bitmap = bitmap,
-                        config = com.lostf1sh.pixelplayeross.ui.theme.ColorExtractionConfig(
+                        config = com.hitarashi.multibox.ui.theme.ColorExtractionConfig(
                             accuracyLevel = colorAccuracyLevel
                         )
                     )

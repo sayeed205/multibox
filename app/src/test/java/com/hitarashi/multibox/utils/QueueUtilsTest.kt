@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.launch

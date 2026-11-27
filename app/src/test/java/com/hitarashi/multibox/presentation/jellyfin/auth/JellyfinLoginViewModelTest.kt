@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.jellyfin.auth
+package com.hitarashi.multibox.presentation.jellyfin.auth
 
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinLibrary
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinLibrary
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -8,7 +8,7 @@ import android.media.MediaMetadataRetriever
 import kotlinx.coroutines.withContext
 import androidx.compose.animation.core.Animatable
 import androidx.core.content.ContextCompat
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.LibraryTabId
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -35,52 +35,52 @@ import androidx.media3.session.SessionToken
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.AlbumArtThemeDao
-import com.lostf1sh.pixelplayeross.data.media.CoverArtUpdate
-import com.lostf1sh.pixelplayeross.data.media.CustomMetadataChanges
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.FolderSource
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.toLibraryTabIdOrNull
-import com.lostf1sh.pixelplayeross.data.provider.SharedArtworkContentProvider
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
-import com.lostf1sh.pixelplayeross.data.preferences.LibraryNavigationMode
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.data.preferences.FullPlayerLoadingTweaks
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtQuality
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.data.preferences.restartsAtPosition
-import com.lostf1sh.pixelplayeross.data.preferences.SwipeToQueueAction
-import com.lostf1sh.pixelplayeross.data.repository.LyricsSearchResult
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.service.MusicNotificationProvider
-import com.lostf1sh.pixelplayeross.data.service.MusicService
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
-import com.lostf1sh.pixelplayeross.utils.AppShortcutManager
-import com.lostf1sh.pixelplayeross.utils.ValidatedLyricsImport
-import com.lostf1sh.pixelplayeross.utils.QueueUtils
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.LyricsUtils
-import com.lostf1sh.pixelplayeross.utils.StorageType
-import com.lostf1sh.pixelplayeross.utils.StorageUtils
-import com.lostf1sh.pixelplayeross.utils.traceSection
-import com.lostf1sh.pixelplayeross.utils.ZipShareHelper
-import com.lostf1sh.pixelplayeross.presentation.selection.flattenDistinctGroups
-import com.lostf1sh.pixelplayeross.presentation.navigation.PlayerSheetBackCoordinator
-import com.lostf1sh.pixelplayeross.presentation.selection.effectiveLibraryStorageFilter
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.AlbumArtThemeDao
+import com.hitarashi.multibox.data.media.CoverArtUpdate
+import com.hitarashi.multibox.data.media.CustomMetadataChanges
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.FolderSource
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.toLibraryTabIdOrNull
+import com.hitarashi.multibox.data.provider.SharedArtworkContentProvider
+import com.hitarashi.multibox.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.LibraryNavigationMode
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.data.preferences.FullPlayerLoadingTweaks
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.preferences.AlbumArtQuality
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.data.preferences.restartsAtPosition
+import com.hitarashi.multibox.data.preferences.SwipeToQueueAction
+import com.hitarashi.multibox.data.repository.LyricsSearchResult
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.service.MusicNotificationProvider
+import com.hitarashi.multibox.data.service.MusicService
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.worker.SyncManager
+import com.hitarashi.multibox.di.DispatcherProvider
+import com.hitarashi.multibox.utils.AppShortcutManager
+import com.hitarashi.multibox.utils.ValidatedLyricsImport
+import com.hitarashi.multibox.utils.QueueUtils
+import com.hitarashi.multibox.utils.MediaItemBuilder
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.LyricsUtils
+import com.hitarashi.multibox.utils.StorageType
+import com.hitarashi.multibox.utils.StorageUtils
+import com.hitarashi.multibox.utils.traceSection
+import com.hitarashi.multibox.utils.ZipShareHelper
+import com.hitarashi.multibox.presentation.selection.flattenDistinctGroups
+import com.hitarashi.multibox.presentation.navigation.PlayerSheetBackCoordinator
+import com.hitarashi.multibox.presentation.selection.effectiveLibraryStorageFilter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.collections.immutable.ImmutableList
@@ -127,7 +127,7 @@ import javax.inject.Inject
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import coil.memory.MemoryCache
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnostics
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
 
 private const val ENABLE_FOLDERS_SOURCE_SWITCHING = true
 private const val MAX_ALBUM_BATCH_SELECTION = 6
@@ -300,7 +300,7 @@ class PlayerViewModel @Inject constructor(
     val multiSelectionStateHolder: MultiSelectionStateHolder,
     val playlistSelectionStateHolder: PlaylistSelectionStateHolder,
     private val sessionToken: SessionToken,
-    private val mediaControllerFactory: com.lostf1sh.pixelplayeross.data.media.MediaControllerFactory,
+    private val mediaControllerFactory: com.hitarashi.multibox.data.media.MediaControllerFactory,
     private val dispatchers: DispatcherProvider
 ) : ViewModel() {
 
@@ -349,8 +349,8 @@ class PlayerViewModel @Inject constructor(
 
 
 
-    private val _playlistPickerStorageFilter = MutableStateFlow(com.lostf1sh.pixelplayeross.data.model.StorageFilter.OFFLINE)
-    val playlistPickerStorageFilter: StateFlow<com.lostf1sh.pixelplayeross.data.model.StorageFilter> = _playlistPickerStorageFilter.asStateFlow()
+    private val _playlistPickerStorageFilter = MutableStateFlow(com.hitarashi.multibox.data.model.StorageFilter.OFFLINE)
+    val playlistPickerStorageFilter: StateFlow<com.hitarashi.multibox.data.model.StorageFilter> = _playlistPickerStorageFilter.asStateFlow()
 
     /**
      * Paginated songs for efficient display in LibraryScreen.
@@ -725,7 +725,7 @@ class PlayerViewModel @Inject constructor(
 
     private fun currentEffectiveLibraryStorageFilter(
         state: PlayerUiState = playerUiState.value,
-    ): com.lostf1sh.pixelplayeross.data.model.StorageFilter {
+    ): com.hitarashi.multibox.data.model.StorageFilter {
         return effectiveLibraryStorageFilter(
             selected = state.currentStorageFilter,
             hideLocalMedia = state.hideLocalMedia,
@@ -881,10 +881,10 @@ class PlayerViewModel @Inject constructor(
 
 
     @Inject
-    lateinit var mediaMapper: com.lostf1sh.pixelplayeross.data.media.MediaMapper
+    lateinit var mediaMapper: com.hitarashi.multibox.data.media.MediaMapper
 
     @Inject
-    lateinit var imageCacheManager: com.lostf1sh.pixelplayeross.data.media.ImageCacheManager
+    lateinit var imageCacheManager: com.hitarashi.multibox.data.media.ImageCacheManager
 
     init {
         viewModelScope.launch { offerToRestoreInterruptedSaves() }
@@ -949,7 +949,7 @@ class PlayerViewModel @Inject constructor(
             .launchIn(viewModelScope)
 
         viewModelScope.launch {
-            lyricsStateHolder.songUpdates.collect { update: Pair<com.lostf1sh.pixelplayeross.data.model.Song, com.lostf1sh.pixelplayeross.data.model.Lyrics?> ->
+            lyricsStateHolder.songUpdates.collect { update: Pair<com.hitarashi.multibox.data.model.Song, com.hitarashi.multibox.data.model.Lyrics?> ->
                 val song = update.first
                 val lyrics = update.second
                 if (playbackStateHolder.stablePlayerState.value.currentSong?.id == song.id) {
@@ -1957,11 +1957,11 @@ class PlayerViewModel @Inject constructor(
     fun loadArtistsIfNeeded() = libraryStateHolder.loadArtistsIfNeeded()
     fun loadFoldersFromRepository() = libraryStateHolder.loadFoldersFromRepository()
 
-    fun setStorageFilter(filter: com.lostf1sh.pixelplayeross.data.model.StorageFilter) {
+    fun setStorageFilter(filter: com.hitarashi.multibox.data.model.StorageFilter) {
         libraryStateHolder.setStorageFilter(filter)
     }
 
-    fun setPlaylistPickerStorageFilter(filter: com.lostf1sh.pixelplayeross.data.model.StorageFilter) {
+    fun setPlaylistPickerStorageFilter(filter: com.hitarashi.multibox.data.model.StorageFilter) {
         _playlistPickerStorageFilter.value = filter
     }
 
@@ -1974,9 +1974,9 @@ class PlayerViewModel @Inject constructor(
     fun toggleStorageFilter() {
         val current = _playerUiState.value.currentStorageFilter
         val next = when (current) {
-            com.lostf1sh.pixelplayeross.data.model.StorageFilter.ALL -> com.lostf1sh.pixelplayeross.data.model.StorageFilter.ONLINE
-            com.lostf1sh.pixelplayeross.data.model.StorageFilter.ONLINE -> com.lostf1sh.pixelplayeross.data.model.StorageFilter.OFFLINE
-            com.lostf1sh.pixelplayeross.data.model.StorageFilter.OFFLINE -> com.lostf1sh.pixelplayeross.data.model.StorageFilter.ALL
+            com.hitarashi.multibox.data.model.StorageFilter.ALL -> com.hitarashi.multibox.data.model.StorageFilter.ONLINE
+            com.hitarashi.multibox.data.model.StorageFilter.ONLINE -> com.hitarashi.multibox.data.model.StorageFilter.OFFLINE
+            com.hitarashi.multibox.data.model.StorageFilter.OFFLINE -> com.hitarashi.multibox.data.model.StorageFilter.ALL
         }
         setStorageFilter(next)
     }
@@ -3793,7 +3793,7 @@ class PlayerViewModel @Inject constructor(
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
                 val deleteRequests = withContext(dispatchers.io) {
                     deletableSongs.mapNotNull { song ->
-                        com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                        com.hitarashi.multibox.utils.MediaStorePermissionHelper
                             .resolveDeleteRequestUri(
                                 context = activity,
                                 songId = song.id.toLongOrNull(),
@@ -3804,7 +3804,7 @@ class PlayerViewModel @Inject constructor(
                 }
                 if (deleteRequests.size == deletableSongs.size) {
                     val uris = deleteRequests.map { it.second }.distinctBy { it.toString() }
-                    val deleteRequest = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                    val deleteRequest = com.hitarashi.multibox.utils.MediaStorePermissionHelper
                         .createDeleteRequest(activity, uris)
                     if (deleteRequest != null) {
                         val acceptedUriStrings = deleteRequest.acceptedUris
@@ -3920,14 +3920,14 @@ class PlayerViewModel @Inject constructor(
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
                 val intentSender = withContext(dispatchers.io) {
-                    com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                    com.hitarashi.multibox.utils.MediaStorePermissionHelper
                         .resolveDeleteRequestUri(
                             context = activity,
                             songId = song.id.toLongOrNull(),
                             contentUriString = song.contentUriString,
                             filePath = song.path,
                         )?.let { uri ->
-                            com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                            com.hitarashi.multibox.utils.MediaStorePermissionHelper
                                 .createDeleteRequestIntentSender(activity, listOf(uri))
                         }
                 }
@@ -4484,7 +4484,7 @@ class PlayerViewModel @Inject constructor(
                 }
 
                 if (uris.isNotEmpty()) {
-                    val intentSender = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                    val intentSender = com.hitarashi.multibox.utils.MediaStorePermissionHelper
                         .createWriteRequestIntentSender(context, uris)
 
                     if (intentSender != null) {
@@ -4656,7 +4656,7 @@ class PlayerViewModel @Inject constructor(
 
             val songId = song.id.toLongOrNull()
             if (songId != null && songId > 0 && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-                val intentSender = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                val intentSender = com.hitarashi.multibox.utils.MediaStorePermissionHelper
                     .createWriteRequestForSong(context, songId)
                 if (intentSender != null) {
                     pendingMetadataEdit = PendingMetadataEdit(
@@ -4793,7 +4793,7 @@ class PlayerViewModel @Inject constructor(
                 if (!otherWriteRequestPending()) break
                 answeredWriteRequests.first { it != answered }
             }
-            val intentSender = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+            val intentSender = com.hitarashi.multibox.utils.MediaStorePermissionHelper
                 .createWriteRequestIntentSender(context, uris) ?: return@collectLatest
             uris.mapTo(askedInterruptedSaveRestoreUris) { it.toString() }
             pendingInterruptedSaveRestore = true
@@ -4831,9 +4831,9 @@ class PlayerViewModel @Inject constructor(
         val lrcFile = java.io.File(songFile.parentFile, "${songFile.nameWithoutExtension}.lrc")
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R && lrcFile.exists() && !lrcFile.canWrite()) {
-            val uri = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper.getMediaStoreUri(context, lrcFile.absolutePath)
+            val uri = com.hitarashi.multibox.utils.MediaStorePermissionHelper.getMediaStoreUri(context, lrcFile.absolutePath)
             if (uri != null) {
-                val intentSender = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper.createWriteRequestIntentSender(context, listOf(uri))
+                val intentSender = com.hitarashi.multibox.utils.MediaStorePermissionHelper.createWriteRequestIntentSender(context, listOf(uri))
                 if (intentSender != null) {
                     pendingLyricsSave = PendingLyricsSave(song, lyrics, preferSynced)
                     viewModelScope.launch { _writePermissionRequest.emit(intentSender) }
@@ -5120,11 +5120,11 @@ class PlayerViewModel @Inject constructor(
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
                 val uris = songs.mapNotNull { song ->
                     song.id.toLongOrNull()?.takeIf { it > 0 }?.let { id ->
-                        com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper.getMediaStoreUri(context, id)
+                        com.hitarashi.multibox.utils.MediaStorePermissionHelper.getMediaStoreUri(context, id)
                     }
                 }
                 if (uris.isNotEmpty()) {
-                    val intentSender = com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
+                    val intentSender = com.hitarashi.multibox.utils.MediaStorePermissionHelper
                         .createWriteRequestIntentSender(context, uris)
                     if (intentSender != null) {
                         pendingBatchGenreEdit = songs to newGenre

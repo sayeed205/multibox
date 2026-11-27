@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.network.deezer
+package com.hitarashi.multibox.data.network.deezer
 
 import com.google.gson.annotations.SerializedName
 

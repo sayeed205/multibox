@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -51,6 +51,6 @@ class UpdateInstallReceiver : BroadcastReceiver() {
     }
 
     companion object {
-        const val ACTION_INSTALL_STATUS = "com.lostf1sh.pixelplayeross.action.UPDATE_INSTALL_STATUS"
+        const val ACTION_INSTALL_STATUS = "com.hitarashi.multibox.action.UPDATE_INSTALL_STATUS"
     }
 }

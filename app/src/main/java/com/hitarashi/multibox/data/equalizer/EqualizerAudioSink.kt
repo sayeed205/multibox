@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.equalizer
+package com.hitarashi.multibox.data.equalizer
 
 import androidx.annotation.OptIn
 import androidx.media3.common.C

@@ -18,9 +18,9 @@ val keystoreProperties = Properties().apply {
 }
 
 val releaseSigningStoreFile = rootProject.file(
-    keystoreProperties.getProperty("storeFile") ?: "vz-pixelplay.jks"
+    keystoreProperties.getProperty("storeFile") ?: "multibox.jks"
 )
-val disableReleaseSigning = providers.gradleProperty("pixelplayer.disableReleaseSigning")
+val disableReleaseSigning = providers.gradleProperty("multibox.disableReleaseSigning")
     .getOrElse("false")
     .toBoolean()
 val hasReleaseSigningConfig = !disableReleaseSigning &&
@@ -29,17 +29,17 @@ val hasReleaseSigningConfig = !disableReleaseSigning &&
     keystoreProperties.getProperty("keyAlias") != null &&
     keystoreProperties.getProperty("keyPassword") != null
 
-val enableAbiSplits = providers.gradleProperty("pixelplayer.enableAbiSplits")
+val enableAbiSplits = providers.gradleProperty("multibox.enableAbiSplits")
     .getOrElse("true")
     .toBoolean()
 
-val enableComposeCompilerReports = providers.gradleProperty("pixelplayer.enableComposeCompilerReports")
+val enableComposeCompilerReports = providers.gradleProperty("multibox.enableComposeCompilerReports")
     .getOrElse("false")
     .toBoolean()
 
 @Suppress("DEPRECATION")
 android {
-    namespace = "com.lostf1sh.pixelplayeross"
+    namespace = "com.hitarashi.multibox"
     compileSdk = 37
 
     sourceSets {
@@ -78,7 +78,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.lostf1sh.pixelplayeross"
+        applicationId = "com.hitarashi.multibox"
         minSdk = 30
         targetSdk = 37
         versionCode = (project.findProperty("APP_VERSION_CODE") as? String)?.toInt() ?: 1

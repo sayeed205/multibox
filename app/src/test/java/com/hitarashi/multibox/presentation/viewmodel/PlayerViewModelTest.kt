@@ -1,24 +1,24 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.content.IntentSender
 import android.net.Uri
 import android.os.Bundle
 import app.cash.turbine.test
-import com.lostf1sh.pixelplayeross.data.database.AlbumArtThemeDao
+import com.hitarashi.multibox.data.database.AlbumArtThemeDao
 import com.google.common.util.concurrent.ListenableFuture
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.SearchHistoryItem
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.SearchHistoryItem
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import io.mockk.*
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
@@ -55,15 +55,15 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
-import com.lostf1sh.pixelplayeross.utils.AppShortcutManager
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
-import com.lostf1sh.pixelplayeross.utils.MediaStorePermissionHelper
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.*
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.worker.SyncManager
+import com.hitarashi.multibox.di.DispatcherProvider
+import com.hitarashi.multibox.utils.AppShortcutManager
+import com.hitarashi.multibox.utils.MediaItemBuilder
+import com.hitarashi.multibox.utils.MediaStorePermissionHelper
+import com.hitarashi.multibox.presentation.viewmodel.*
 import app.cash.turbine.Turbine
 
 import androidx.core.content.ContextCompat
@@ -101,7 +101,7 @@ class PlayerViewModelTest {
     private val mockThemeStateHolder: ThemeStateHolder = mockk(relaxed = true)
     private val mockMultiSelectionStateHolder: MultiSelectionStateHolder = mockk(relaxed = true)
     private val mockPlaylistSelectionStateHolder: PlaylistSelectionStateHolder = mockk(relaxed = true)
-    private lateinit var mockMediaControllerFactory: com.lostf1sh.pixelplayeross.data.media.MediaControllerFactory
+    private lateinit var mockMediaControllerFactory: com.hitarashi.multibox.data.media.MediaControllerFactory
 
     private val testDispatcher = StandardTestDispatcher()
 
@@ -144,7 +144,7 @@ class PlayerViewModelTest {
         coEvery { mockUserPreferencesRepository.navBarStyleFlow } returns flowOf("Default")
         coEvery { mockUserPreferencesRepository.libraryNavigationModeFlow } returns flowOf("TabRow")
         coEvery { mockUserPreferencesRepository.carouselStyleFlow } returns flowOf("NoPeek")
-        coEvery { mockUserPreferencesRepository.fullPlayerLoadingTweaksFlow } returns flowOf(com.lostf1sh.pixelplayeross.data.preferences.FullPlayerLoadingTweaks())
+        coEvery { mockUserPreferencesRepository.fullPlayerLoadingTweaksFlow } returns flowOf(com.hitarashi.multibox.data.preferences.FullPlayerLoadingTweaks())
         coEvery { mockUserPreferencesRepository.tapBackgroundClosesPlayerFlow } returns flowOf(true)
         coEvery { mockUserPreferencesRepository.hapticsEnabledFlow } returns flowOf(true)
         coEvery { mockUserPreferencesRepository.foldersSortOptionFlow } returns flowOf("FolderNameAZ")
@@ -498,7 +498,7 @@ class PlayerViewModelTest {
             album = "Album",
             albumId = -1L,
             path = "/storage/emulated/0/Music/external-song.mp3",
-            contentUriString = "file:///data/user/0/com.lostf1sh.pixelplayeross/cache/external_audio/audio_42.mp3",
+            contentUriString = "file:///data/user/0/com.hitarashi.multibox/cache/external_audio/audio_42.mp3",
             albumArtUriString = null,
             duration = 180000L,
             mimeType = "audio/mpeg",
@@ -524,7 +524,7 @@ class PlayerViewModelTest {
             album = "Album",
             albumId = -1L,
             path = "/storage/emulated/0/Music/external-song.mp3",
-            contentUriString = "file:///data/user/0/com.lostf1sh.pixelplayeross/cache/external_audio/audio_42.mp3",
+            contentUriString = "file:///data/user/0/com.hitarashi.multibox/cache/external_audio/audio_42.mp3",
             albumArtUriString = null,
             duration = 180000L,
             mimeType = "audio/mpeg",

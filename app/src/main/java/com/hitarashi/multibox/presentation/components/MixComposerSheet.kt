@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
@@ -73,13 +73,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import androidx.compose.ui.unit.sp
 import androidx.graphics.shapes.RoundedPolygon
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.playlist.nlp.MixMoment
-import com.lostf1sh.pixelplayeross.data.playlist.nlp.MixSuggestion
-import com.lostf1sh.pixelplayeross.data.playlist.nlp.SmartMixRequest
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.PlayingEqIcon
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.MixPreview
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.playlist.nlp.MixMoment
+import com.hitarashi.multibox.data.playlist.nlp.MixSuggestion
+import com.hitarashi.multibox.data.playlist.nlp.SmartMixRequest
+import com.hitarashi.multibox.presentation.components.subcomps.PlayingEqIcon
+import com.hitarashi.multibox.presentation.viewmodel.MixPreview
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlin.math.roundToInt
 
 private enum class MixComposerPage { Request, Refine, Preview }

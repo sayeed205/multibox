@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.jellyfin.auth
+package com.hitarashi.multibox.presentation.jellyfin.auth
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -78,14 +78,14 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinCredentials
-import com.lostf1sh.pixelplayeross.presentation.components.CloudLibraryPickerItem
-import com.lostf1sh.pixelplayeross.presentation.components.CloudLibraryPickerSheet
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerTheme
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinCredentials
+import com.hitarashi.multibox.presentation.components.CloudLibraryPickerItem
+import com.hitarashi.multibox.presentation.components.CloudLibraryPickerSheet
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.PixelPlayerTheme
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlinx.collections.immutable.toImmutableList
@@ -97,7 +97,7 @@ class JellyfinLoginActivity : ComponentActivity() {
     lateinit var themePreferencesRepository: ThemePreferencesRepository
 
     override fun attachBaseContext(newBase: android.content.Context) {
-        super.attachBaseContext(com.lostf1sh.pixelplayeross.utils.AppLocaleManager.wrapContext(newBase))
+        super.attachBaseContext(com.hitarashi.multibox.utils.AppLocaleManager.wrapContext(newBase))
     }
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {

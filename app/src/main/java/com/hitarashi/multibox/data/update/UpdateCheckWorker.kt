@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 import android.content.Context
 import androidx.hilt.work.HiltWorker
@@ -9,8 +9,8 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.di.AppScope
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.di.AppScope
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CancellationException

@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.network.lyrics
+package com.hitarashi.multibox.data.network.lyrics
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.utils.LyricsUtils
+import com.hitarashi.multibox.utils.LyricsUtils
 import org.junit.jupiter.api.Test
 
 class LyricsfileParserTest {

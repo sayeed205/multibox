@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
 import android.Manifest
 import android.content.ComponentName
@@ -9,7 +9,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import com.lostf1sh.pixelplayeross.utils.traceSection
+import com.hitarashi.multibox.utils.traceSection
 import android.provider.Settings
 import android.view.WindowManager
 import android.widget.Toast
@@ -97,7 +97,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.foundation.gestures.detectTapGestures
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -113,46 +113,46 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.MoreExecutors
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.data.preferences.sanitizeNavBarCornerRadius
-import com.lostf1sh.pixelplayeross.data.preferences.SidebarShortcutKeys
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.service.MusicService
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
-import com.lostf1sh.pixelplayeross.data.worker.SyncProgress
-import com.lostf1sh.pixelplayeross.presentation.components.AllFilesAccessDialog
-import com.lostf1sh.pixelplayeross.presentation.components.AppSidebarDrawer
-import com.lostf1sh.pixelplayeross.presentation.components.CrashReportDialog
-import com.lostf1sh.pixelplayeross.presentation.components.DismissUndoBar
-import com.lostf1sh.pixelplayeross.presentation.components.DrawerDestination
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerBottomSpacer
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.PlayerInternalNavigationBar
-import com.lostf1sh.pixelplayeross.presentation.components.PlayerNavigationRail
-import com.lostf1sh.pixelplayeross.presentation.components.SmartMixHost
-import com.lostf1sh.pixelplayeross.presentation.components.UnifiedPlayerSheetV2
-import com.lostf1sh.pixelplayeross.presentation.components.calculatePlayerSheetCollapsedTargetY
-import com.lostf1sh.pixelplayeross.presentation.components.resolveNavBarOccupiedHeight
-import com.lostf1sh.pixelplayeross.presentation.components.resolveNavBarSurfaceHeight
-import com.lostf1sh.pixelplayeross.presentation.components.sanitizeNavigationBarBottomInset
-import com.lostf1sh.pixelplayeross.presentation.navigation.AppNavigation
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.screens.SetupScreen
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.MainViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.splash.PixelPlayerSplash
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerTheme
-import com.lostf1sh.pixelplayeross.ui.theme.resolveAppWideNowPlayingColorSchemePair
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.utils.AppLocaleManager
-import com.lostf1sh.pixelplayeross.utils.CrashHandler
-import com.lostf1sh.pixelplayeross.utils.LogUtils
-import com.lostf1sh.pixelplayeross.utils.PhoneOrientationPolicy
-import com.lostf1sh.pixelplayeross.utils.shouldKeepScreenAwake
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.data.preferences.sanitizeNavBarCornerRadius
+import com.hitarashi.multibox.data.preferences.SidebarShortcutKeys
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.service.MusicService
+import com.hitarashi.multibox.data.worker.SyncManager
+import com.hitarashi.multibox.data.worker.SyncProgress
+import com.hitarashi.multibox.presentation.components.AllFilesAccessDialog
+import com.hitarashi.multibox.presentation.components.AppSidebarDrawer
+import com.hitarashi.multibox.presentation.components.CrashReportDialog
+import com.hitarashi.multibox.presentation.components.DismissUndoBar
+import com.hitarashi.multibox.presentation.components.DrawerDestination
+import com.hitarashi.multibox.presentation.components.MiniPlayerBottomSpacer
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.PlayerInternalNavigationBar
+import com.hitarashi.multibox.presentation.components.PlayerNavigationRail
+import com.hitarashi.multibox.presentation.components.SmartMixHost
+import com.hitarashi.multibox.presentation.components.UnifiedPlayerSheetV2
+import com.hitarashi.multibox.presentation.components.calculatePlayerSheetCollapsedTargetY
+import com.hitarashi.multibox.presentation.components.resolveNavBarOccupiedHeight
+import com.hitarashi.multibox.presentation.components.resolveNavBarSurfaceHeight
+import com.hitarashi.multibox.presentation.components.sanitizeNavigationBarBottomInset
+import com.hitarashi.multibox.presentation.navigation.AppNavigation
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.screens.SetupScreen
+import com.hitarashi.multibox.presentation.viewmodel.MainViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.splash.PixelPlayerSplash
+import com.hitarashi.multibox.ui.theme.PixelPlayerTheme
+import com.hitarashi.multibox.ui.theme.resolveAppWideNowPlayingColorSchemePair
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.utils.AppLocaleManager
+import com.hitarashi.multibox.utils.CrashHandler
+import com.hitarashi.multibox.utils.LogUtils
+import com.hitarashi.multibox.utils.PhoneOrientationPolicy
+import com.hitarashi.multibox.utils.shouldKeepScreenAwake
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -162,10 +162,10 @@ import timber.log.Timber
 import javax.inject.Inject
 
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
-import com.lostf1sh.pixelplayeross.presentation.utils.AppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.NoOpHapticFeedback
-import com.lostf1sh.pixelplayeross.utils.CrashLogData
+import com.hitarashi.multibox.presentation.utils.AppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.NoOpHapticFeedback
+import com.hitarashi.multibox.utils.CrashLogData
 import javax.annotation.concurrent.Immutable
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.combine
@@ -332,7 +332,7 @@ class MainActivity : ComponentActivity() {
             }
             var lastValidNowPlayingSongId by remember { mutableStateOf<String?>(null) }
             var lastValidNowPlayingScheme by remember {
-                mutableStateOf<com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair?>(null)
+                mutableStateOf<com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair?>(null)
             }
             LaunchedEffect(currentSongId, currentSongScheme) {
                 when {
@@ -509,14 +509,14 @@ class MainActivity : ComponentActivity() {
                 clearExternalIntentPayload(intent)
             }
             
-            intent.action == "com.lostf1sh.pixelplayeross.ACTION_PLAY_SONG" -> {
+            intent.action == "com.hitarashi.multibox.ACTION_PLAY_SONG" -> {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                     intent.getParcelableExtra("song", com.lostf1sh.pixelplayeross.data.model.Song::class.java)?.let { song ->
+                     intent.getParcelableExtra("song", com.hitarashi.multibox.data.model.Song::class.java)?.let { song ->
                          playerViewModel.playSong(song)
                      }
                 } else {
                      @Suppress("DEPRECATION")
-                     intent.getParcelableExtra<com.lostf1sh.pixelplayeross.data.model.Song>("song")?.let { song ->
+                     intent.getParcelableExtra<com.hitarashi.multibox.data.model.Song>("song")?.let { song ->
                          playerViewModel.playSong(song)
                      }
                 }

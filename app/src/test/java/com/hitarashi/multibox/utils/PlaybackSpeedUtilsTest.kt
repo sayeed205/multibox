@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import java.util.Locale
 import org.junit.jupiter.api.Assertions.assertEquals

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
@@ -10,7 +10,7 @@ import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.presentation.navigation.PlayerSheetBackCoordinator
+import com.hitarashi.multibox.presentation.navigation.PlayerSheetBackCoordinator
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

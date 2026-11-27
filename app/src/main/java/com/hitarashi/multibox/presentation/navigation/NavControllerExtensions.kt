@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.navigation
+package com.hitarashi.multibox.presentation.navigation
 
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController

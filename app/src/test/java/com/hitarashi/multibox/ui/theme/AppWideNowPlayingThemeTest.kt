@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
 import org.junit.Test
 
 class AppWideNowPlayingThemeTest {

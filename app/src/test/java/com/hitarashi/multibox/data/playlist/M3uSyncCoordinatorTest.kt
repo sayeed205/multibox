@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.preferences.M3uSyncConfig
-import com.lostf1sh.pixelplayeross.data.preferences.M3uSyncPreferences
-import com.lostf1sh.pixelplayeross.data.preferences.PlaylistPreferencesRepository
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.preferences.M3uSyncConfig
+import com.hitarashi.multibox.data.preferences.M3uSyncPreferences
+import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
 import io.mockk.clearMocks
 import io.mockk.every
 import io.mockk.mockk

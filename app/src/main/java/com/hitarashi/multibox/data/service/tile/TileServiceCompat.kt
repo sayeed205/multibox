@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.tile
+package com.hitarashi.multibox.data.service.tile
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent

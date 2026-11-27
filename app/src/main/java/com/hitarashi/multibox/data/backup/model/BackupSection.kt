@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.backup.model
+package com.hitarashi.multibox.data.backup.model
 
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 enum class BackupSection(
     val key: String,

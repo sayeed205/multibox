@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -63,14 +63,14 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.MAX_NAV_BAR_CORNER_RADIUS
-import com.lostf1sh.pixelplayeross.data.preferences.MIN_NAV_BAR_CORNER_RADIUS
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.MAX_NAV_BAR_CORNER_RADIUS
+import com.hitarashi.multibox.data.preferences.MIN_NAV_BAR_CORNER_RADIUS
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.presentation.components.resolveNavBarSurfaceHeight
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.presentation.components.resolveNavBarSurfaceHeight
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
 import androidx.compose.ui.res.stringResource
 
 const val DEFAULT_NAV_BAR_CORNER_RADIUS = 28f

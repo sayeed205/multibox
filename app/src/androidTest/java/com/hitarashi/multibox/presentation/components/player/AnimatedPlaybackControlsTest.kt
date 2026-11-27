@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import android.content.Context
 import androidx.compose.animation.core.tween
@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.width
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.LocalMaterialTheme
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.LocalMaterialTheme
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

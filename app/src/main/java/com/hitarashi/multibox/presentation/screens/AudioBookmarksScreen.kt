@@ -1,8 +1,8 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalFoundationApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.rememberDisplayFont
+import com.hitarashi.multibox.ui.theme.rememberDisplayFont
 
 import android.content.ClipData
 import android.widget.Toast
@@ -145,25 +145,25 @@ import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.pluralStringResource
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkEntity
-import com.lostf1sh.pixelplayeross.data.database.backupSongIdOfRestoredBookmark
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.AudioBookmarkEntity
+import com.hitarashi.multibox.data.database.backupSongIdOfRestoredBookmark
+import com.hitarashi.multibox.data.model.Song
 import androidx.compose.material3.ModalBottomSheet
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.ScreenWrapper
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioBookmarksViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.GenreThemeUtils
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerStatusBarStyle
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.ScreenWrapper
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.viewmodel.AudioBookmarksViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.ui.theme.GenreThemeUtils
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.ui.theme.PixelPlayerStatusBarStyle
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import coil.size.Size
 import kotlinx.coroutines.delay
 import java.util.Locale

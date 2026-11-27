@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.model
+package com.hitarashi.multibox.data.model
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals

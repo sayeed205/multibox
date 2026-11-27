@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateDpAsState
@@ -78,12 +78,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Curve
-import com.lostf1sh.pixelplayeross.data.model.TransitionMode
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.TransitionViewModel
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Curve
+import com.hitarashi.multibox.data.model.TransitionMode
+import com.hitarashi.multibox.data.model.TransitionSettings
+import com.hitarashi.multibox.presentation.viewmodel.TransitionViewModel
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import java.util.concurrent.TimeUnit
 import androidx.compose.ui.res.stringResource

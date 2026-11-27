@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.backup.model
+package com.hitarashi.multibox.data.backup.model
 
 enum class BackupOperationType {
     EXPORT,

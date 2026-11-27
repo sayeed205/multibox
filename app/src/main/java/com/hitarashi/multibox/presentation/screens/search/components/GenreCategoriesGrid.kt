@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.screens.search.components
+package com.hitarashi.multibox.presentation.screens.search.components
 
-import com.lostf1sh.pixelplayeross.ui.theme.withInterfaceFont
+import com.hitarashi.multibox.ui.theme.withInterfaceFont
 
 import androidx.annotation.OptIn
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -53,17 +53,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.getNavigationBarHeight
-import com.lostf1sh.pixelplayeross.presentation.components.resolveNavBarOccupiedHeight
-import com.lostf1sh.pixelplayeross.presentation.utils.GenreIconProvider
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
-import com.lostf1sh.pixelplayeross.utils.formatSongCount
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.getNavigationBarHeight
+import com.hitarashi.multibox.presentation.components.resolveNavBarOccupiedHeight
+import com.hitarashi.multibox.presentation.utils.GenreIconProvider
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.utils.formatSongCount
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlinx.collections.immutable.ImmutableList
 
@@ -209,7 +209,7 @@ private fun GenreCard(
 ) {
     val isDark = LocalPixelPlayerDarkTheme.current
     val themeColor = remember(genre, isDark) {
-        com.lostf1sh.pixelplayeross.ui.theme.GenreThemeUtils.getGenreThemeColor(
+        com.hitarashi.multibox.ui.theme.GenreThemeUtils.getGenreThemeColor(
             genre = genre,
             isDark = isDark,
             fallbackGenreId = genre.id

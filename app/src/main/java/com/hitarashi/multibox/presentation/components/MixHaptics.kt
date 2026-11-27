@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -6,7 +6,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.hapticfeedback.HapticFeedback
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
 
 /**
  * How much an action matters, from a light tick to the confirmation of the thing the sheet exists

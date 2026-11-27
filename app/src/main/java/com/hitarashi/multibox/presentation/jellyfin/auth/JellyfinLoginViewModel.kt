@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.jellyfin.auth
+package com.hitarashi.multibox.presentation.jellyfin.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinLibrary
-import com.lostf1sh.pixelplayeross.data.worker.JellyfinSyncWorker
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinLibrary
+import com.hitarashi.multibox.data.worker.JellyfinSyncWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList

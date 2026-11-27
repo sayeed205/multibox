@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.withInterfaceFont
+import com.hitarashi.multibox.ui.theme.withInterfaceFont
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafelyReplacing
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafelyReplacing
 
 import android.content.Intent
 import androidx.activity.compose.ReportDrawnWhen
@@ -84,38 +84,38 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.currentStateAsState
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.CollagePattern
-import com.lostf1sh.pixelplayeross.presentation.components.AlbumArtCollage
-import com.lostf1sh.pixelplayeross.presentation.components.BetaInfoBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.ChangelogBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.DailyMixSection
-import com.lostf1sh.pixelplayeross.presentation.components.HomeGradientTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.HomeOptionsBottomSheet
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.RecentlyAddedSection
-import com.lostf1sh.pixelplayeross.presentation.components.RecentlyPlayedSection
-import com.lostf1sh.pixelplayeross.presentation.components.RecentlyPlayedSectionMinSongsToShow
-import com.lostf1sh.pixelplayeross.presentation.components.RecentlyPlayedSongOptionsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.StatsOverviewCard
-import com.lostf1sh.pixelplayeross.presentation.components.resolveMainScreenBottomGradientHeight
-import com.lostf1sh.pixelplayeross.presentation.model.collectRecentlyPlayedSongIds
-import com.lostf1sh.pixelplayeross.presentation.model.mapRecentlyPlayedSongs
-import com.lostf1sh.pixelplayeross.presentation.model.withUpdatedSongs
-import com.lostf1sh.pixelplayeross.presentation.model.withoutSong
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.PlayingEqIcon
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.components.StreamingProviderSheet
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapHomeCard
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.RecapEntryViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StatsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StreamingProviderLoginViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.sharedPlayerViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.ExpTitleTypography
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.CollagePattern
+import com.hitarashi.multibox.presentation.components.AlbumArtCollage
+import com.hitarashi.multibox.presentation.components.BetaInfoBottomSheet
+import com.hitarashi.multibox.presentation.components.ChangelogBottomSheet
+import com.hitarashi.multibox.presentation.components.DailyMixSection
+import com.hitarashi.multibox.presentation.components.HomeGradientTopBar
+import com.hitarashi.multibox.presentation.components.HomeOptionsBottomSheet
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.RecentlyAddedSection
+import com.hitarashi.multibox.presentation.components.RecentlyPlayedSection
+import com.hitarashi.multibox.presentation.components.RecentlyPlayedSectionMinSongsToShow
+import com.hitarashi.multibox.presentation.components.RecentlyPlayedSongOptionsSheet
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.StatsOverviewCard
+import com.hitarashi.multibox.presentation.components.resolveMainScreenBottomGradientHeight
+import com.hitarashi.multibox.presentation.model.collectRecentlyPlayedSongIds
+import com.hitarashi.multibox.presentation.model.mapRecentlyPlayedSongs
+import com.hitarashi.multibox.presentation.model.withUpdatedSongs
+import com.hitarashi.multibox.presentation.model.withoutSong
+import com.hitarashi.multibox.presentation.components.subcomps.PlayingEqIcon
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.components.StreamingProviderSheet
+import com.hitarashi.multibox.presentation.recap.RecapHomeCard
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.RecapEntryViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StatsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StreamingProviderLoginViewModel
+import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
+import com.hitarashi.multibox.ui.theme.ExpTitleTypography
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -125,10 +125,10 @@ import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import com.lostf1sh.pixelplayeross.ui.theme.ShapeCache
+import com.hitarashi.multibox.ui.theme.ShapeCache
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
 
 private const val HomeLoadingPlaceholderMinDurationMillis = 1200L
 private const val HomeScrollRestoreGraceMillis = 1_500L

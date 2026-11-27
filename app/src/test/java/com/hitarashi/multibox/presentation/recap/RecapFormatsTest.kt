@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import android.content.res.Resources
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.formatListeningDurationCompact
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.formatListeningDurationCompact
 import io.mockk.every
 import io.mockk.mockk
 import java.io.File
@@ -119,8 +119,8 @@ class RecapFormatsTest {
     private fun recapSources(): List<File> {
         val workingDirectory = File(System.getProperty("user.dir") ?: ".")
         val directory = sequenceOf(
-            File(workingDirectory, "src/main/java/com/lostf1sh/pixelplayeross/presentation/recap"),
-            File(workingDirectory, "app/src/main/java/com/lostf1sh/pixelplayeross/presentation/recap"),
+            File(workingDirectory, "src/main/java/com/hitarashi/multibox/presentation/recap"),
+            File(workingDirectory, "app/src/main/java/com/hitarashi/multibox/presentation/recap"),
         ).firstOrNull(File::isDirectory)
             ?: error("Could not locate the recap sources from $workingDirectory")
         return directory.listFiles { file -> file.extension == "kt" }.orEmpty().sortedBy { it.name }.also {

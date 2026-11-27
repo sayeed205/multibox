@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationSpec
@@ -18,7 +18,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 import kotlinx.coroutines.CoroutineScope
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 

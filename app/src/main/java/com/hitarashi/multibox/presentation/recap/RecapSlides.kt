@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import android.icu.text.ListFormatter
 import android.text.format.DateFormat
@@ -72,9 +72,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.stats.ListeningPersonality
-import com.lostf1sh.pixelplayeross.ui.theme.ShapeCache
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.stats.ListeningPersonality
+import com.hitarashi.multibox.ui.theme.ShapeCache
 import java.text.NumberFormat
 import java.time.DayOfWeek
 import java.time.Month

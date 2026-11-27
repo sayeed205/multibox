@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 import com.google.common.truth.Truth.assertThat
 import org.json.JSONArray
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class AppReleaseSourceTest {
 
-    private val packageName = "com.lostf1sh.pixelplayeross"
+    private val packageName = "com.hitarashi.multibox"
 
     @Test
     fun `fdroid release uses the suggested version rather than the newest listed`() {

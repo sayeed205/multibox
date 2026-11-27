@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import androidx.annotation.OptIn
 import androidx.media3.common.C
@@ -6,13 +6,13 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.common.Timeline
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.media.TrackBpmRepository
-import com.lostf1sh.pixelplayeross.data.model.TransitionMode
-import com.lostf1sh.pixelplayeross.data.model.TransitionResolution
-import com.lostf1sh.pixelplayeross.data.model.TransitionSource
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.TransitionRepository
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.data.media.TrackBpmRepository
+import com.hitarashi.multibox.data.model.TransitionMode
+import com.hitarashi.multibox.data.model.TransitionResolution
+import com.hitarashi.multibox.data.model.TransitionSource
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.TransitionRepository
+import com.hitarashi.multibox.utils.MediaItemBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
@@ -9,11 +9,11 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.platform.LocalContext
 import coil.request.CachePolicy
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.image.withNavidromeCoverSize
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.albumArtMemoryCacheKey
-import com.lostf1sh.pixelplayeross.presentation.components.safeAlbumArtTargetSize
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.data.image.withNavidromeCoverSize
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.albumArtMemoryCacheKey
+import com.hitarashi.multibox.presentation.components.safeAlbumArtTargetSize
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.flow.distinctUntilChanged
 

@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.compose.runtime.Immutable
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.Lyrics
 
 @Immutable
 data class StablePlayerState(

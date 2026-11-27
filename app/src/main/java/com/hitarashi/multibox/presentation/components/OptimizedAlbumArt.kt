@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -33,8 +33,8 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Dimension
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.LocalArtworkUri
 
 internal const val MaxSafeAlbumArtDimensionPx = 2048
 internal val SafeOriginalAlbumArtSize = Size(MaxSafeAlbumArtDimensionPx, MaxSafeAlbumArtDimensionPx)

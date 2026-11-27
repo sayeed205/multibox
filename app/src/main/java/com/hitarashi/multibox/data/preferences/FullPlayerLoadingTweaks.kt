@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 data class FullPlayerLoadingTweaks(
     val delayAll: Boolean = false,

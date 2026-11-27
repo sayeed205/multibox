@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.RecapYearTotal
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapEntry
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.RecapYearTotal
+import com.hitarashi.multibox.di.DispatcherProvider
+import com.hitarashi.multibox.presentation.recap.RecapEntry
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

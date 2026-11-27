@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.os.Bundle
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionCommand
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.service.MusicNotificationProvider
-import com.lostf1sh.pixelplayeross.data.service.SleepTimerSession
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.service.MusicNotificationProvider
+import com.hitarashi.multibox.data.service.SleepTimerSession
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -21,7 +21,7 @@ import javax.inject.Singleton
 /**
  * Mirrors the sleep timers for the UI and forwards the user's choices to MusicService.
  *
- * The service ([com.lostf1sh.pixelplayeross.data.service.SleepTimerController]) owns and
+ * The service ([com.hitarashi.multibox.data.service.SleepTimerController]) owns and
  * enforces every timer, since only it lives for the whole playback session and sees every
  * player swap; this holder only renders [SleepTimerSession] and toasts its events.
  */

@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.database.AudioBookmarkEntity
+import com.hitarashi.multibox.data.model.Song
 import java.util.Locale
 import kotlin.math.abs
 

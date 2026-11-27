@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.equalizer
+package com.hitarashi.multibox.data.equalizer
 
 import android.content.Context
 import android.content.Intent

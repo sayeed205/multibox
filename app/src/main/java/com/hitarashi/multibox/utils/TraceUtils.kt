@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.os.Trace
 import java.util.concurrent.atomic.AtomicInteger

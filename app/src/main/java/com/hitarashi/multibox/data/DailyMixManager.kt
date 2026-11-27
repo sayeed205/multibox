@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data
+package com.hitarashi.multibox.data
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import com.lostf1sh.pixelplayeross.data.database.EngagementDao
-import com.lostf1sh.pixelplayeross.data.database.SongEngagementEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.database.EngagementDao
+import com.hitarashi.multibox.data.database.SongEngagementEntity
+import com.hitarashi.multibox.data.model.Song
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock

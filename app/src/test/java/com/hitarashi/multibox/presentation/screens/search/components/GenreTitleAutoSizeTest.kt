@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens.search.components
+package com.hitarashi.multibox.presentation.screens.search.components
 
 import com.google.common.truth.Truth.assertThat
 import java.text.BreakIterator

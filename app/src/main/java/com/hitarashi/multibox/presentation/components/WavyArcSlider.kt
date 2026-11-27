@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -24,8 +24,8 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.HapticFeedbackConstantsCompat
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.performAppCompatHapticFeedback
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.performAppCompatHapticFeedback
 import kotlin.math.*
 
 /** Haptic resolution of [WavyArcSlider]: one tick per 1% of the value range. */

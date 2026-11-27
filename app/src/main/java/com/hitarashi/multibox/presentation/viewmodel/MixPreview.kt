@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.compose.runtime.Immutable
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import kotlinx.collections.immutable.ImmutableList
 
 /** A generated selection has no playback or persistence effect until an action is chosen. */

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.diagnostics
+package com.hitarashi.multibox.data.diagnostics
 
 import java.util.ArrayDeque
 import java.util.concurrent.ConcurrentHashMap

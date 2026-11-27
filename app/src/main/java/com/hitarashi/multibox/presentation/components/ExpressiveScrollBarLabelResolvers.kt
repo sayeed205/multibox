@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
 
 internal fun songFastScrollLabel(song: Song?, sortOption: SortOption): String? =
     when (sortOption) {

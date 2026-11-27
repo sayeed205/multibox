@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupSection
 
 interface BackupModuleHandler {
     val section: BackupSection

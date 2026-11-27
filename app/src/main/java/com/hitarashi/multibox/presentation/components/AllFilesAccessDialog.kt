@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.compose.ui.text.style.TextOverflow
 
 @Composable

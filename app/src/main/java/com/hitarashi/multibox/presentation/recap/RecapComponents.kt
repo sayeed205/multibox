@@ -1,8 +1,8 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
-import com.lostf1sh.pixelplayeross.ui.theme.rememberDisplayFont
+import com.hitarashi.multibox.ui.theme.rememberDisplayFont
 
 import android.content.ContentResolver
 import android.database.ContentObserver
@@ -85,8 +85,8 @@ import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.toPath
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.SmartImage
 import java.text.NumberFormat
 import kotlin.math.roundToLong
 import kotlinx.collections.immutable.ImmutableList

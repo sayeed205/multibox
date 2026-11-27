@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.library
+package com.hitarashi.multibox.data.library
 
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

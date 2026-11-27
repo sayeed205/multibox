@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.material3.MotionScheme
@@ -96,9 +96,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.formatSongCount
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.formatSongCount
 import kotlin.math.roundToInt
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf

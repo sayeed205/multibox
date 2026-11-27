@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
 import android.content.Intent
 import android.net.Uri
@@ -13,15 +13,15 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import dagger.hilt.android.AndroidEntryPoint
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.components.external.ExternalPlayerOverlay
-import com.lostf1sh.pixelplayeross.ui.theme.PixelPlayerTheme
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.components.external.ExternalPlayerOverlay
+import com.hitarashi.multibox.ui.theme.PixelPlayerTheme
 import android.content.Intent.EXTRA_STREAM
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
 import javax.inject.Inject
 
 @androidx.annotation.OptIn(UnstableApi::class)
@@ -29,7 +29,7 @@ import javax.inject.Inject
 class ExternalPlayerActivity : ComponentActivity() {
 
     override fun attachBaseContext(newBase: android.content.Context) {
-        super.attachBaseContext(com.lostf1sh.pixelplayeross.utils.AppLocaleManager.wrapContext(newBase))
+        super.attachBaseContext(com.hitarashi.multibox.utils.AppLocaleManager.wrapContext(newBase))
     }
 
     private val playerViewModel: PlayerViewModel by viewModels()

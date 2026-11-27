@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.Song
 import com.google.common.truth.Truth.assertThat
 import java.io.IOException
 import java.io.StringReader

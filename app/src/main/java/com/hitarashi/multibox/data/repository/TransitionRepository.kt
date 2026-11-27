@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
-import com.lostf1sh.pixelplayeross.data.model.TransitionResolution
-import com.lostf1sh.pixelplayeross.data.model.TransitionRule
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
+import com.hitarashi.multibox.data.model.TransitionResolution
+import com.hitarashi.multibox.data.model.TransitionRule
+import com.hitarashi.multibox.data.model.TransitionSettings
 import kotlinx.coroutines.flow.Flow
 
 /**

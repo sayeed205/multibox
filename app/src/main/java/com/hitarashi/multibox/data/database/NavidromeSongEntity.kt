@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeSongUri
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeSong
-import com.lostf1sh.pixelplayeross.data.stream.CloudMusicUtils
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.navidrome.NavidromeSongUri
+import com.hitarashi.multibox.data.navidrome.model.NavidromeSong
+import com.hitarashi.multibox.data.stream.CloudMusicUtils
 
 /**
  * Represents a song cached from a Navidrome/Subsonic server.

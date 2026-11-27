@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.navigation
+package com.hitarashi.multibox.presentation.navigation
 
 import DelimiterConfigScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.WordDelimiterConfigScreen
+import com.hitarashi.multibox.presentation.screens.WordDelimiterConfigScreen
 import android.annotation.SuppressLint
 import androidx.annotation.OptIn
 import androidx.compose.animation.EnterTransition
@@ -22,7 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.compose.ui.unit.IntOffset
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
@@ -31,50 +31,50 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.lostf1sh.pixelplayeross.data.preferences.LaunchTab
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.presentation.screens.AlbumDetailScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.AudioBookmarkFolderScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.AudioBookmarksScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.CloudDownloadsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.UpdatesScreen
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.screens.AccountsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.ArtistDetailScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.ArtistSettingsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.DailyMixScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.EditTransitionScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.EasterEggScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.ExperimentalSettingsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.LyricsSettingsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.GenreDetailScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.HomeScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.LibraryScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.MashupScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.NavBarCornerRadiusScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.PaletteStyleSettingsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.PlaylistDetailScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.RecentlyPlayedScreen
+import com.hitarashi.multibox.data.preferences.LaunchTab
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.presentation.screens.AlbumDetailScreen
+import com.hitarashi.multibox.presentation.screens.AudioBookmarkFolderScreen
+import com.hitarashi.multibox.presentation.screens.AudioBookmarksScreen
+import com.hitarashi.multibox.presentation.screens.CloudDownloadsScreen
+import com.hitarashi.multibox.presentation.screens.UpdatesScreen
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.screens.AccountsScreen
+import com.hitarashi.multibox.presentation.screens.ArtistDetailScreen
+import com.hitarashi.multibox.presentation.screens.ArtistSettingsScreen
+import com.hitarashi.multibox.presentation.screens.DailyMixScreen
+import com.hitarashi.multibox.presentation.screens.EditTransitionScreen
+import com.hitarashi.multibox.presentation.screens.EasterEggScreen
+import com.hitarashi.multibox.presentation.screens.ExperimentalSettingsScreen
+import com.hitarashi.multibox.presentation.screens.LyricsSettingsScreen
+import com.hitarashi.multibox.presentation.screens.GenreDetailScreen
+import com.hitarashi.multibox.presentation.screens.HomeScreen
+import com.hitarashi.multibox.presentation.screens.LibraryScreen
+import com.hitarashi.multibox.presentation.screens.MashupScreen
+import com.hitarashi.multibox.presentation.screens.NavBarCornerRadiusScreen
+import com.hitarashi.multibox.presentation.screens.PaletteStyleSettingsScreen
+import com.hitarashi.multibox.presentation.screens.PlaylistDetailScreen
+import com.hitarashi.multibox.presentation.screens.RecentlyPlayedScreen
 
-import com.lostf1sh.pixelplayeross.presentation.screens.AboutScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.LicensesScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.SearchScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.StatsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.DuplicateSongsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.SettingsScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.SettingsCategoryScreen
-import com.lostf1sh.pixelplayeross.presentation.screens.EqualizerScreen
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.RecapViewModel
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapScreen
+import com.hitarashi.multibox.presentation.screens.AboutScreen
+import com.hitarashi.multibox.presentation.screens.LicensesScreen
+import com.hitarashi.multibox.presentation.screens.SearchScreen
+import com.hitarashi.multibox.presentation.screens.StatsScreen
+import com.hitarashi.multibox.presentation.screens.DuplicateSongsScreen
+import com.hitarashi.multibox.presentation.screens.SettingsScreen
+import com.hitarashi.multibox.presentation.screens.SettingsCategoryScreen
+import com.hitarashi.multibox.presentation.screens.EqualizerScreen
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistViewModel
+import com.hitarashi.multibox.presentation.viewmodel.RecapViewModel
+import com.hitarashi.multibox.presentation.recap.RecapScreen
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.presentation.screens.ExcludedDirectoriesScreen
-import com.lostf1sh.pixelplayeross.presentation.components.ScreenWrapper
-import com.lostf1sh.pixelplayeross.presentation.settings.search.ProvideSettingsHighlight
+import com.hitarashi.multibox.presentation.screens.ExcludedDirectoriesScreen
+import com.hitarashi.multibox.presentation.components.ScreenWrapper
+import com.hitarashi.multibox.presentation.settings.search.ProvideSettingsHighlight
 
 @OptIn(UnstableApi::class)
 @SuppressLint("UnrememberedGetBackStackEntry")
@@ -652,7 +652,7 @@ fun AppNavigation(
                 popExitTransition = { popExitTransition() },
             ) {
                 ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.lostf1sh.pixelplayeross.presentation.screens.DeviceCapabilitiesScreen(
+                    com.hitarashi.multibox.presentation.screens.DeviceCapabilitiesScreen(
                         navController = navController,
                         playerViewModel = playerViewModel
                     )
@@ -666,7 +666,7 @@ fun AppNavigation(
                 popExitTransition = { popExitTransition() },
             ) {
                 ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.lostf1sh.pixelplayeross.presentation.navidrome.dashboard.NavidromeDashboardScreen(
+                    com.hitarashi.multibox.presentation.navidrome.dashboard.NavidromeDashboardScreen(
                         onBack = { navController.popBackStack() }
                     )
                 }
@@ -679,7 +679,7 @@ fun AppNavigation(
                 popExitTransition = { popExitTransition() },
             ) {
                 ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.lostf1sh.pixelplayeross.presentation.jellyfin.dashboard.JellyfinDashboardScreen(
+                    com.hitarashi.multibox.presentation.jellyfin.dashboard.JellyfinDashboardScreen(
                         onBack = { navController.popBackStack() }
                     )
                 }

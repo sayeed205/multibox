@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.Manifest
 import android.content.ContentUris
@@ -19,16 +19,16 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.kyant.taglib.Picture
 import com.kyant.taglib.TagLib
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.ArtistEntity
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongArtistCrossRef
-import com.lostf1sh.pixelplayeross.data.database.serializeArtistRefs
-import com.lostf1sh.pixelplayeross.data.model.ArtistRef
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.worker.collectArtistNames
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.ArtistEntity
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongArtistCrossRef
+import com.hitarashi.multibox.data.database.serializeArtistRefs
+import com.hitarashi.multibox.data.model.ArtistRef
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.worker.collectArtistNames
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

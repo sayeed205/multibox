@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongSummary
-import com.lostf1sh.pixelplayeross.data.database.toSong
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongSummary
+import com.hitarashi.multibox.data.database.toSong
+import com.hitarashi.multibox.data.model.Song
 import javax.inject.Inject
 import javax.inject.Singleton
 

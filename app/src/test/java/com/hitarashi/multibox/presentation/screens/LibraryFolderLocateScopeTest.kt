@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.lazy.LazyListItemInfo
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.MusicFolder
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertNull

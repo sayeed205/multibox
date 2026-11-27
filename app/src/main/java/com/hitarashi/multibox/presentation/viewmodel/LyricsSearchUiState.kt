@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.repository.LyricsSearchResult
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.repository.LyricsSearchResult
 import kotlinx.collections.immutable.ImmutableList
 
 sealed interface LyricsSearchUiState {

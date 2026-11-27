@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.annotation.OptIn
 import androidx.compose.foundation.background
@@ -55,7 +55,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
+import com.hitarashi.multibox.data.model.StorageFilter
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -83,15 +83,15 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemContentType
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.screens.TabAnimation
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.sharedPlayerViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.ui.theme.ShapeCache
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.screens.TabAnimation
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.sharedPlayerViewModel
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.ui.theme.ShapeCache
 import kotlinx.coroutines.flow.map
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlinx.collections.immutable.ImmutableList

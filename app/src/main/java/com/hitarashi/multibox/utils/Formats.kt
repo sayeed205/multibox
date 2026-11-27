@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.res.Resources
 import androidx.annotation.PluralsRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalResources
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 

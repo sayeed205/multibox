@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.network.jellyfin
+package com.hitarashi.multibox.data.network.jellyfin
 
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinCredentials
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinCredentials
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl.Companion.toHttpUrl

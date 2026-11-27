@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
@@ -9,13 +9,13 @@ import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.workDataOf
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.OfflineTrackDao
-import com.lostf1sh.pixelplayeross.data.database.OfflineTrackEntity
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.data.offline.CloudDownloadExports
-import com.lostf1sh.pixelplayeross.data.offline.CloudExportResult
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownloadStatus
+import com.hitarashi.multibox.data.database.OfflineTrackDao
+import com.hitarashi.multibox.data.database.OfflineTrackEntity
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.offline.CloudDownloadExports
+import com.hitarashi.multibox.data.offline.CloudExportResult
+import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

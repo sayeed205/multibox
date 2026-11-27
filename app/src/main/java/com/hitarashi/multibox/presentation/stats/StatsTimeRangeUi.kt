@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.stats
+package com.hitarashi.multibox.presentation.stats
 
 import androidx.annotation.StringRes
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.stats.StatsTimeRange
 
 @StringRes
 fun StatsTimeRange.displayNameRes(): Int = when (this) {

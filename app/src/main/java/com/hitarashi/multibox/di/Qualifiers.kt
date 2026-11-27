@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.di
+package com.hitarashi.multibox.di
 
 import javax.inject.Qualifier
 

@@ -1,23 +1,23 @@
-package com.lostf1sh.pixelplayeross.data.backup
+package com.hitarashi.multibox.data.backup
 
 import android.content.Context
 import android.net.Uri
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupReader
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupFormatDetector
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupWriter
-import com.lostf1sh.pixelplayeross.data.backup.history.BackupHistoryRepository
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupModuleInfo
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupValidationResult
-import com.lostf1sh.pixelplayeross.data.backup.model.DeviceInfo
-import com.lostf1sh.pixelplayeross.data.backup.model.ModuleRestoreDetail
-import com.lostf1sh.pixelplayeross.data.backup.model.RestorePlan
-import com.lostf1sh.pixelplayeross.data.backup.model.ValidationError
-import com.lostf1sh.pixelplayeross.data.backup.module.BackupModuleHandler
-import com.lostf1sh.pixelplayeross.data.backup.restore.RestoreExecutor
-import com.lostf1sh.pixelplayeross.data.backup.restore.RestorePlanner
-import com.lostf1sh.pixelplayeross.data.backup.validation.ValidationPipeline
+import com.hitarashi.multibox.data.backup.format.BackupReader
+import com.hitarashi.multibox.data.backup.format.BackupFormatDetector
+import com.hitarashi.multibox.data.backup.format.BackupWriter
+import com.hitarashi.multibox.data.backup.history.BackupHistoryRepository
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupModuleInfo
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupValidationResult
+import com.hitarashi.multibox.data.backup.model.DeviceInfo
+import com.hitarashi.multibox.data.backup.model.ModuleRestoreDetail
+import com.hitarashi.multibox.data.backup.model.RestorePlan
+import com.hitarashi.multibox.data.backup.model.ValidationError
+import com.hitarashi.multibox.data.backup.module.BackupModuleHandler
+import com.hitarashi.multibox.data.backup.restore.RestoreExecutor
+import com.hitarashi.multibox.data.backup.restore.RestorePlanner
+import com.hitarashi.multibox.data.backup.validation.ValidationPipeline
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -66,7 +66,7 @@ class BackupManagerTest {
                 ValidationError(
                     code = "FILE_EXTENSION",
                     message = "File extension is not .pxpl.",
-                    severity = com.lostf1sh.pixelplayeross.data.backup.model.Severity.WARNING
+                    severity = com.hitarashi.multibox.data.backup.model.Severity.WARNING
                 )
             )
         )
@@ -87,7 +87,7 @@ class BackupManagerTest {
                     code = "MISSING_SONG_ID",
                     message = "EngagementStats[0]: missing songId",
                     module = BackupSection.ENGAGEMENT_STATS.key,
-                    severity = com.lostf1sh.pixelplayeross.data.backup.model.Severity.WARNING
+                    severity = com.hitarashi.multibox.data.backup.model.Severity.WARNING
                 )
             )
         )

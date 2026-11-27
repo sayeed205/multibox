@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalResources
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.formatListeningDurationCompact
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.formatListeningDurationCompact
 import java.util.concurrent.TimeUnit
 
 // The recap's single say on how listening time reads. Slides and the share card go through

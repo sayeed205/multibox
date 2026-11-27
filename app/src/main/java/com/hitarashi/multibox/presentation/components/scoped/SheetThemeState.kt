@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -16,10 +16,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.util.lerp
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
-import com.lostf1sh.pixelplayeross.ui.theme.withAmoledSurfaces
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.ui.theme.withAmoledSurfaces
 
 /**
  * Theme state for the player sheet.

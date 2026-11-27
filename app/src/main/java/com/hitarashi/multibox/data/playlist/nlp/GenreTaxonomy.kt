@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 /**
  * Coarse genre similarity groups. Concrete genre requirements use finer aliases; belonging to

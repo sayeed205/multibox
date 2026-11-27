@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.settings.search
+package com.hitarashi.multibox.presentation.settings.search
 
 import androidx.annotation.StringRes
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.viewmodel.SettingsUiState
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
 
 enum class SettingType {
     SWITCH,

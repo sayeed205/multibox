@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import java.io.File
 import org.junit.jupiter.api.Assertions.assertEquals

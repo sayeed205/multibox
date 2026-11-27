@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.os.Environment
 import android.provider.MediaStore
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.DirectoryRuleResolver
-import com.lostf1sh.pixelplayeross.utils.StorageInfo
-import com.lostf1sh.pixelplayeross.utils.StorageUtils
-import com.lostf1sh.pixelplayeross.utils.buildLocalAudioSelection
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.DirectoryRuleResolver
+import com.hitarashi.multibox.utils.StorageInfo
+import com.hitarashi.multibox.utils.StorageUtils
+import com.hitarashi.multibox.utils.buildLocalAudioSelection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

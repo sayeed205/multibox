@@ -1,17 +1,17 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.lostf1sh.pixelplayeross.data.model.ArtistRef
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeSongUri
-import com.lostf1sh.pixelplayeross.utils.GenreParser
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataText
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataTextOrEmpty
+import com.hitarashi.multibox.data.model.ArtistRef
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.navidrome.NavidromeSongUri
+import com.hitarashi.multibox.utils.GenreParser
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.normalizeMetadataText
+import com.hitarashi.multibox.utils.normalizeMetadataTextOrEmpty
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit

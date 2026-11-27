@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.LocalMaterialTheme
-import com.lostf1sh.pixelplayeross.presentation.components.ToggleSegmentButton
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.LocalMaterialTheme
+import com.hitarashi.multibox.presentation.components.ToggleSegmentButton
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 
 @Composable

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.media.AudioDeviceCallback
@@ -7,8 +7,8 @@ import android.media.AudioManager
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

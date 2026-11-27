@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicLong

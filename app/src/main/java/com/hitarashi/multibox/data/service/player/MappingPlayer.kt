@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import android.content.Context
 import android.net.Uri
@@ -9,8 +9,8 @@ import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
 import androidx.media3.common.Timeline
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.provider.SharedArtworkContentProvider
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.data.provider.SharedArtworkContentProvider
+import com.hitarashi.multibox.utils.MediaItemBuilder
 
 /**
  * Rewrites app-internal artwork URIs on outgoing media items to shareable content URIs, so

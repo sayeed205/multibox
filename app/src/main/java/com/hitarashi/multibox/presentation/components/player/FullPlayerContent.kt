@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.net.Uri
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Lyrics
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
@@ -120,35 +120,35 @@ import androidx.compose.material.icons.rounded.Bookmark
 import androidx.compose.material.icons.rounded.Cloud
 import androidx.compose.material.icons.rounded.Speaker
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.AudioBookmarksViewModel
+import com.hitarashi.multibox.presentation.viewmodel.AudioBookmarksViewModel
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.ui.res.stringResource
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtQuality
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
-import com.lostf1sh.pixelplayeross.data.preferences.FullPlayerLoadingTweaks
-import com.lostf1sh.pixelplayeross.presentation.components.AlbumCarouselSection
-import com.lostf1sh.pixelplayeross.presentation.components.AutoScrollingTextOnDemand
-import com.lostf1sh.pixelplayeross.presentation.components.LocalMaterialTheme
-import com.lostf1sh.pixelplayeross.presentation.components.LyricsSheet
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.rememberSmoothProgress
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.FetchLyricsDialog
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LyricsSearchUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils.mimeTypeToFormat
-import com.lostf1sh.pixelplayeross.utils.LyricsImportFailureReason
-import com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity
-import com.lostf1sh.pixelplayeross.utils.LyricsImportValidationResult
-import com.lostf1sh.pixelplayeross.utils.ValidatedLyricsImport
-import com.lostf1sh.pixelplayeross.utils.formatDuration
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.AlbumArtQuality
+import com.hitarashi.multibox.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.FullPlayerLoadingTweaks
+import com.hitarashi.multibox.presentation.components.AlbumCarouselSection
+import com.hitarashi.multibox.presentation.components.AutoScrollingTextOnDemand
+import com.hitarashi.multibox.presentation.components.LocalMaterialTheme
+import com.hitarashi.multibox.presentation.components.LyricsSheet
+import com.hitarashi.multibox.presentation.components.scoped.rememberSmoothProgress
+import com.hitarashi.multibox.presentation.components.subcomps.FetchLyricsDialog
+import com.hitarashi.multibox.presentation.viewmodel.LyricsSearchUiState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.AudioMetaUtils.mimeTypeToFormat
+import com.hitarashi.multibox.utils.LyricsImportFailureReason
+import com.hitarashi.multibox.utils.LyricsImportSecurity
+import com.hitarashi.multibox.utils.LyricsImportValidationResult
+import com.hitarashi.multibox.utils.ValidatedLyricsImport
+import com.hitarashi.multibox.utils.formatDuration
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -157,12 +157,12 @@ import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import timber.log.Timber
 import java.util.Locale
 import kotlin.math.roundToLong
-import com.lostf1sh.pixelplayeross.presentation.components.WavySliderExpressive
-import com.lostf1sh.pixelplayeross.presentation.components.ToggleSegmentButton
+import com.hitarashi.multibox.presentation.components.WavySliderExpressive
+import com.hitarashi.multibox.presentation.components.ToggleSegmentButton
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.withContext
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
 
 private const val SKIP_COMMAND_GUARD_MS = 96L
 
@@ -394,7 +394,7 @@ fun FullPlayerContent(
                     playerViewModel.resetLyricsSearchState()
                 },
                 onImport = {
-                    filePickerLauncher.launch(com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity.pickerMimeTypes())
+                    filePickerLauncher.launch(com.hitarashi.multibox.utils.LyricsImportSecurity.pickerMimeTypes())
                 }
             )
         }
@@ -949,7 +949,7 @@ fun FullPlayerContent(
                                         onExpand = { showLyricsSheet = true },
                                         onClose = { foldableRightPane = null },
                                         onSearchLyrics = { showFetchLyricsDialog = true },
-                                        onImportLyrics = { filePickerLauncher.launch(com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity.pickerMimeTypes()) },
+                                        onImportLyrics = { filePickerLauncher.launch(com.hitarashi.multibox.utils.LyricsImportSecurity.pickerMimeTypes()) },
                                         onResetLyrics = { playerViewModel.resetLyricsForCurrentSong() },
                                         onSaveLyricsToFile = playerViewModel::saveLyricsToFile,
                                         isShuffleEnabled = isShuffleEnabled,
@@ -1008,7 +1008,7 @@ fun FullPlayerContent(
             onSearchLyrics = { forcePick -> playerViewModel.fetchLyricsForCurrentSong(forcePick) },
             onPickResult = { playerViewModel.acceptLyricsSearchResultForCurrentSong(it) },
             onManualSearch = { title, artist -> playerViewModel.searchLyricsManually(title, artist) },
-            onImportLyrics = { filePickerLauncher.launch(com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity.pickerMimeTypes()) },
+            onImportLyrics = { filePickerLauncher.launch(com.hitarashi.multibox.utils.LyricsImportSecurity.pickerMimeTypes()) },
             onDismissLyricsSearch = { playerViewModel.resetLyricsSearchState() },
             lyricsSyncOffset = lyricsSyncOffset,
             onLyricsSyncOffsetChange = { currentSong?.id?.let { songId -> playerViewModel.setLyricsSyncOffset(songId, it) } },

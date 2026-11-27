@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.stats
+package com.hitarashi.multibox.data.stats
 
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
 import java.time.DayOfWeek
 import java.time.LocalDate
 

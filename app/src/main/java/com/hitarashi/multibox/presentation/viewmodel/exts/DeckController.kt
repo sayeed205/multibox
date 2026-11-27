@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel.exts
+package com.hitarashi.multibox.presentation.viewmodel.exts
 
 import android.content.Context
 import android.net.Uri
@@ -13,8 +13,8 @@ import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.audio.AudioSink
 import androidx.media3.exoplayer.audio.DefaultAudioSink
-import com.lostf1sh.pixelplayeross.data.service.player.HiResSampleRateCapAudioProcessor
-import com.lostf1sh.pixelplayeross.data.service.player.SurroundDownmixProcessor
+import com.hitarashi.multibox.data.service.player.HiResSampleRateCapAudioProcessor
+import com.hitarashi.multibox.data.service.player.SurroundDownmixProcessor
 
 @OptIn(UnstableApi::class)
 class DeckController(

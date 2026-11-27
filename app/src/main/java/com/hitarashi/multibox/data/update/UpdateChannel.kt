@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.update
+package com.hitarashi.multibox.data.update
 
 /**
  * Where builds of a channel are published. Stable builds are built and signed by F-Droid;

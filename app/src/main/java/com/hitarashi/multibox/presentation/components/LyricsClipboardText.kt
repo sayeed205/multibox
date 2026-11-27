@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.SyncedWord
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.SyncedWord
 
 /**
  * Text the lyrics screen copies to the clipboard: the original lyrics as they are shown, without

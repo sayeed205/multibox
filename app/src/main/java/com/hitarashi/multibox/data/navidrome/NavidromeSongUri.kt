@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.navidrome
+package com.hitarashi.multibox.data.navidrome
 
 import java.net.URLDecoder
 import java.net.URLEncoder

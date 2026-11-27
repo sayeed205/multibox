@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4

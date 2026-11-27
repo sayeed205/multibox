@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 /** What swiping a song row to the right does in playlist, album, artist, genre and mix lists. */
 enum class SwipeToQueueAction(val storageKey: String) {

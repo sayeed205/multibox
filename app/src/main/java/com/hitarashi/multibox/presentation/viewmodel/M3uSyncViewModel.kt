@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.playlist.M3uSyncRepository
-import com.lostf1sh.pixelplayeross.data.playlist.M3uSyncState
+import com.hitarashi.multibox.data.playlist.M3uSyncRepository
+import com.hitarashi.multibox.data.playlist.M3uSyncState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableSharedFlow

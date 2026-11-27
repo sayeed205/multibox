@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.res.Resources
-import com.lostf1sh.pixelplayeross.LocaleStringResources
-import com.lostf1sh.pixelplayeross.LocaleStringResources.assertTranslatedEverywhere
-import com.lostf1sh.pixelplayeross.LocaleStringResources.localeFolders
-import com.lostf1sh.pixelplayeross.LocaleStringResources.nameOf
-import com.lostf1sh.pixelplayeross.LocaleStringResources.stringsIn
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.LocaleStringResources
+import com.hitarashi.multibox.LocaleStringResources.assertTranslatedEverywhere
+import com.hitarashi.multibox.LocaleStringResources.localeFolders
+import com.hitarashi.multibox.LocaleStringResources.nameOf
+import com.hitarashi.multibox.LocaleStringResources.stringsIn
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 import io.mockk.every
 import io.mockk.mockk
 import java.io.File
@@ -207,9 +207,9 @@ class PlayerSheetSemanticsTest {
         val FORMAT_ARG = Regex("""%\d+\$[a-z]""")
         val RESOURCE_ID_SAFE = Regex("[a-z_]+")
 
-        const val COMPONENTS_DIR = "com/lostf1sh/pixelplayeross/presentation/components"
+        const val COMPONENTS_DIR = "com/hitarashi/multibox/presentation/components"
         const val BENCHMARK_SOURCE =
-            "src/main/java/com/lostf1sh/pixelplayeross/baselineprofile/PlayerSheetAnimationBenchmarks.kt"
+            "src/main/java/com/hitarashi/multibox/baselineprofile/PlayerSheetAnimationBenchmarks.kt"
 
         /** A label or TalkBack text given as an English literal: `contentDesc = "Shuffle"`, `isX -> "Loading…"`. */
         val HARDCODED_LABEL = Regex(

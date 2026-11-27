@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.media
+package com.hitarashi.multibox.data.media
 
 import android.content.Context
 import android.graphics.BitmapFactory

@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 import timber.log.Timber

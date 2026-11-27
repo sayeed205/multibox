@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.model
+package com.hitarashi.multibox.presentation.model
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
@@ -10,7 +10,7 @@ import androidx.compose.material.icons.rounded.LibraryMusic
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.Palette
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 enum class SettingsCategory(
     val id: String,

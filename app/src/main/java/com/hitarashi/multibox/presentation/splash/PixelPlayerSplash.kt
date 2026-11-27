@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.splash
+package com.hitarashi.multibox.presentation.splash
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.CubicBezierEasing
@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.graphics.shapes.Morph
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.toPath
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import kotlin.math.hypot
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay

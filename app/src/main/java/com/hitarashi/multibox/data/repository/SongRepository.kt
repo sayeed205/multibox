@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 import androidx.paging.PagingData
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 
@@ -11,17 +11,17 @@ interface SongRepository {
     fun getSongsByArtist(artistId: Long): Flow<List<Song>>
     suspend fun searchSongs(query: String): List<Song>
     fun getSongById(songId: Long): Flow<Song?>
-    fun getPaginatedSongs(sortOption: com.lostf1sh.pixelplayeross.data.model.SortOption, storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter): Flow<PagingData<Song>>
+    fun getPaginatedSongs(sortOption: com.hitarashi.multibox.data.model.SortOption, storageFilter: com.hitarashi.multibox.data.model.StorageFilter): Flow<PagingData<Song>>
     @OptIn(ExperimentalCoroutinesApi::class)
     fun getPaginatedSongs(): Flow<PagingData<Song>>
     fun getPaginatedFavoriteSongs(
-        sortOption: com.lostf1sh.pixelplayeross.data.model.SortOption,
-        storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
+        sortOption: com.hitarashi.multibox.data.model.SortOption,
+        storageFilter: com.hitarashi.multibox.data.model.StorageFilter
     ): Flow<PagingData<Song>>
     suspend fun getFavoriteSongsOnce(
-        storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
+        storageFilter: com.hitarashi.multibox.data.model.StorageFilter
     ): List<Song>
     fun getFavoriteSongCountFlow(
-        storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
+        storageFilter: com.hitarashi.multibox.data.model.StorageFilter
     ): Flow<Int>
 }

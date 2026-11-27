@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.musicbrainz
+package com.hitarashi.multibox.data.musicbrainz
 
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.model.Song
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.Dispatchers

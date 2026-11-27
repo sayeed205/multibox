@@ -1,20 +1,20 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.media.CoverArtUpdate
-import com.lostf1sh.pixelplayeross.data.media.SongMetadataEditor
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.LyricsSearchResult
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.repository.NoLyricsFoundException
-import com.lostf1sh.pixelplayeross.utils.LyricsImportSecurity
-import com.lostf1sh.pixelplayeross.utils.LyricsImportValidationResult
-import com.lostf1sh.pixelplayeross.utils.LyricsUtils
-import com.lostf1sh.pixelplayeross.utils.ValidatedLyricsImport
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.media.CoverArtUpdate
+import com.hitarashi.multibox.data.media.SongMetadataEditor
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.LyricsSearchResult
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.repository.NoLyricsFoundException
+import com.hitarashi.multibox.utils.LyricsImportSecurity
+import com.hitarashi.multibox.utils.LyricsImportValidationResult
+import com.hitarashi.multibox.utils.LyricsUtils
+import com.hitarashi.multibox.utils.ValidatedLyricsImport
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -84,7 +84,7 @@ class LyricsStateHolder @Inject constructor(
     fun initialize(
         coroutineScope: CoroutineScope,
         callback: LyricsLoadCallback,
-        stablePlayerState: StateFlow<com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState>
+        stablePlayerState: StateFlow<com.hitarashi.multibox.presentation.viewmodel.StablePlayerState>
     ) {
         owners.push(coroutineScope to callback)
         scope = coroutineScope

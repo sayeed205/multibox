@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.scoped
+package com.hitarashi.multibox.presentation.components.scoped
 
 import android.view.View
 import androidx.compose.animation.core.Animatable
@@ -14,8 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.Density
 import androidx.core.view.HapticFeedbackConstantsCompat
-import com.lostf1sh.pixelplayeross.presentation.utils.AppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.performAppCompatHapticFeedback
+import com.hitarashi.multibox.presentation.utils.AppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.performAppCompatHapticFeedback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

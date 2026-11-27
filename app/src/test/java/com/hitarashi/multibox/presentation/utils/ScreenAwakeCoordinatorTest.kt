@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.utils
+package com.hitarashi.multibox.presentation.utils
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.BeforeEach

@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import org.junit.jupiter.api.Test
 
 class CloudOfflineRepositoryTest {

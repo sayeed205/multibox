@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
-import com.lostf1sh.pixelplayeross.data.model.Curve
+import com.hitarashi.multibox.data.model.Curve
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sqrt

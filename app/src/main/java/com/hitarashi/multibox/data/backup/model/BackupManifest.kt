@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.backup.model
+package com.hitarashi.multibox.data.backup.model
 
 data class BackupManifest(
     val schemaVersion: Int = CURRENT_SCHEMA_VERSION,

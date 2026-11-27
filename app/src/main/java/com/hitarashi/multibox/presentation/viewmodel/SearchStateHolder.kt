@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.SearchHistoryItem
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.SearchHistoryItem
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.repository.MusicRepository
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.annotation.OptIn
 import androidx.compose.animation.core.Animatable
@@ -31,17 +31,17 @@ import androidx.compose.ui.util.lerp
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.FullPlayerLoadingTweaks
-import com.lostf1sh.pixelplayeross.presentation.components.player.FullPlayerContent
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.FullPlayerVisualState
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.miniPlayerLayerOffsetXPx
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.miniPlayerLayerWidthPx
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.rememberFullPlayerRuntimePolicy
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.sheetHorizontalPaddingPx
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.FullPlayerLoadingTweaks
+import com.hitarashi.multibox.presentation.components.player.FullPlayerContent
+import com.hitarashi.multibox.presentation.components.scoped.FullPlayerVisualState
+import com.hitarashi.multibox.presentation.components.scoped.miniPlayerLayerOffsetXPx
+import com.hitarashi.multibox.presentation.components.scoped.miniPlayerLayerWidthPx
+import com.hitarashi.multibox.presentation.components.scoped.rememberFullPlayerRuntimePolicy
+import com.hitarashi.multibox.presentation.components.scoped.sheetHorizontalPaddingPx
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 
 @OptIn(UnstableApi::class)
 @Composable

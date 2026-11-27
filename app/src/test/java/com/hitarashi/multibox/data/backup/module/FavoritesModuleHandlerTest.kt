@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
 import com.google.gson.GsonBuilder
-import com.lostf1sh.pixelplayeross.data.database.FavoritesDao
-import com.lostf1sh.pixelplayeross.data.database.FavoritesEntity
+import com.hitarashi.multibox.data.database.FavoritesDao
+import com.hitarashi.multibox.data.database.FavoritesEntity
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import okhttp3.Dispatcher
 import okhttp3.HttpUrl

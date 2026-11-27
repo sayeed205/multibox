@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,7 +37,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Lyrics
 import java.util.Locale
 
 private val BookmarkTitleWhitespaceRegex = Regex("\\s+")

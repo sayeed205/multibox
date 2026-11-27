@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import androidx.work.WorkInfo
 import java.util.UUID

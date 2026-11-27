@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import coil.ImageLoader
@@ -6,8 +6,8 @@ import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.fetch.SourceResult
 import coil.request.Options
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import okio.Path.Companion.toPath
 import javax.inject.Inject
 

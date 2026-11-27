@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import androidx.compose.runtime.Immutable
-import com.lostf1sh.pixelplayeross.data.stats.RecapYearTotal
+import com.hitarashi.multibox.data.stats.RecapYearTotal
 import java.time.LocalDate
 import java.time.Month
 import java.util.concurrent.TimeUnit

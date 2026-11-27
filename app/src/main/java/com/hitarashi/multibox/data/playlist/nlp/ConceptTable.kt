@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 /**
  * What a single query word implies about the taxonomy the scorer already speaks: which

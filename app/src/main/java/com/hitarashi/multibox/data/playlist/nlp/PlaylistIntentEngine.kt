@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
-import com.lostf1sh.pixelplayeross.data.DailyMixManager.SongEngagementStats
+import com.hitarashi.multibox.data.DailyMixManager.SongEngagementStats
 import kotlin.random.Random
 
 /**

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -12,18 +12,18 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnostics
-import com.lostf1sh.pixelplayeross.data.model.PlaybackQueueSnapshot
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.FolderSource
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.AudioOutputMode
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerPreset
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.data.update.UpdateChannel
-import com.lostf1sh.pixelplayeross.utils.PlaybackSpeedUtils
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
+import com.hitarashi.multibox.data.model.PlaybackQueueSnapshot
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.FolderSource
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.AudioOutputMode
+import com.hitarashi.multibox.data.model.TransitionSettings
+import com.hitarashi.multibox.data.equalizer.EqualizerPreset
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.data.update.UpdateChannel
+import com.hitarashi.multibox.utils.PlaybackSpeedUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.text.get
@@ -1531,7 +1531,7 @@ constructor(
         /**
          * Synchronous read of the folder-cover-art opt-in.
          *
-         * [com.lostf1sh.pixelplayeross.utils.AlbumArtUtils] resolves artwork from a Coil fetcher
+         * [com.hitarashi.multibox.utils.AlbumArtUtils] resolves artwork from a Coil fetcher
          * and a ContentProvider, both off the main thread, and it cannot proceed without knowing
          * this value: resolving under a wrong assumption persists a cache entry or a "no art"
          * marker that later reads then trust. The mirror is normally pushed in long before any
@@ -2011,7 +2011,7 @@ constructor(
      * Whether a cover image sitting next to the audio file (cover.jpg, folder.jpg, …) should be
      * used as album art in preference to embedded artwork. Off by default: folder images are only
      * trusted when the user explicitly opts in, because generic directories can hold unrelated
-     * pictures. See [com.lostf1sh.pixelplayeross.utils.AlbumArtUtils.findExternalAlbumArtFile].
+     * pictures. See [com.hitarashi.multibox.utils.AlbumArtUtils.findExternalAlbumArtFile].
      */
     val useFolderAlbumArtFlow: Flow<Boolean> =
         dataStore.data.map { preferences ->

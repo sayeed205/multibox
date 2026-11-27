@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.settings.search
+package com.hitarashi.multibox.presentation.settings.search
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing

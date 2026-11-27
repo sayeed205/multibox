@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 import android.content.Context
 import androidx.annotation.StringRes
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 enum class AppLanguage(val tag: String, @StringRes val labelRes: Int) {
     SYSTEM("", R.string.setcat_language_system),

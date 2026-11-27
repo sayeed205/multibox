@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.model.Curve
-import com.lostf1sh.pixelplayeross.data.model.TransitionMode
-import com.lostf1sh.pixelplayeross.data.model.TransitionRule
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
-import com.lostf1sh.pixelplayeross.data.repository.TransitionRepository
+import com.hitarashi.multibox.data.model.Curve
+import com.hitarashi.multibox.data.model.TransitionMode
+import com.hitarashi.multibox.data.model.TransitionRule
+import com.hitarashi.multibox.data.model.TransitionSettings
+import com.hitarashi.multibox.data.repository.TransitionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

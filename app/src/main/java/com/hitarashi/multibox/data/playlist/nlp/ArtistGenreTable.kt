@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 /**
  * What genre an artist is known for, for songs whose own tag says nothing.

@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import androidx.compose.runtime.Immutable
-import com.lostf1sh.pixelplayeross.data.stats.ListeningPersonality
-import com.lostf1sh.pixelplayeross.data.stats.ListeningRecap
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.SongPlaybackSummary
-import com.lostf1sh.pixelplayeross.data.stats.peakIndex
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.data.stats.ListeningPersonality
+import com.hitarashi.multibox.data.stats.ListeningRecap
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.SongPlaybackSummary
+import com.hitarashi.multibox.data.stats.peakIndex
+import com.hitarashi.multibox.utils.GenreParser
 import java.time.DayOfWeek
 import java.time.LocalDate
 import kotlinx.collections.immutable.ImmutableList

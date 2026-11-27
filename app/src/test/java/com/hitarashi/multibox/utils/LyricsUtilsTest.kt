@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -451,12 +451,12 @@ class LyricsUtilsTest {
     fun syncedToLrcString_preservesPairedTranslations() {
         val lrc = LyricsUtils.syncedToLrcString(
             listOf(
-                com.lostf1sh.pixelplayeross.data.model.SyncedLine(
+                com.hitarashi.multibox.data.model.SyncedLine(
                     time = 10_000,
                     line = "Hello world",
                     translation = "你好世界"
                 ),
-                com.lostf1sh.pixelplayeross.data.model.SyncedLine(
+                com.hitarashi.multibox.data.model.SyncedLine(
                     time = 20_000,
                     line = "Goodbye"
                 )
@@ -473,7 +473,7 @@ class LyricsUtilsTest {
     fun syncedToLrcString_expandsMultilineTranslationWithTimestampPerLine() {
         val lrc = LyricsUtils.syncedToLrcString(
             listOf(
-                com.lostf1sh.pixelplayeross.data.model.SyncedLine(
+                com.hitarashi.multibox.data.model.SyncedLine(
                     time = 10_000,
                     line = "Hello world",
                     translation = "你好世界\nby: translator"

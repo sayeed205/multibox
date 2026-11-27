@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.listenbrainz
+package com.hitarashi.multibox.data.listenbrainz
 
 import android.os.SystemClock
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzDao
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzPendingListenEntity
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzSource
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
-import com.lostf1sh.pixelplayeross.data.preferences.ListenBrainzPreferencesRepository
-import com.lostf1sh.pixelplayeross.di.AppScope
+import com.hitarashi.multibox.data.database.ListenBrainzDao
+import com.hitarashi.multibox.data.database.ListenBrainzPendingListenEntity
+import com.hitarashi.multibox.data.database.ListenBrainzSource
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongEntity
+import com.hitarashi.multibox.data.preferences.ListenBrainzPreferencesRepository
+import com.hitarashi.multibox.di.AppScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 /**
  * Bridges finalized listening sessions to the ListenBrainz submission queue.
  *
- * Fed by [com.lostf1sh.pixelplayeross.presentation.viewmodel.ListeningStatsTracker]: the listen
+ * Fed by [com.hitarashi.multibox.presentation.viewmodel.ListeningStatsTracker]: the listen
  * threshold is evaluated synchronously (cheap math, safe inside the tracker's synchronized
  * finalize), everything else — song resolution, toggle check, queue insert — runs on [scope].
  *

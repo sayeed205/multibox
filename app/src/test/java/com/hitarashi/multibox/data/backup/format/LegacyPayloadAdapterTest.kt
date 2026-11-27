@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.backup.format
+package com.hitarashi.multibox.data.backup.format
 
 import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Assertions.assertEquals

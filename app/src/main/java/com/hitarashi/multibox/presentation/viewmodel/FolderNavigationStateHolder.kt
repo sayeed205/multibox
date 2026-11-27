@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.os.Environment
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.Song
 import dagger.hilt.android.scopes.ViewModelScoped
 import java.io.File
 import java.util.ArrayDeque

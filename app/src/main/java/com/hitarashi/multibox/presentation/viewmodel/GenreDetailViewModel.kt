@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.utils.GenreParser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
+import com.hitarashi.multibox.di.DispatcherProvider
 import javax.inject.Inject
 
 enum class SortOption { ARTIST, ALBUM, TITLE }

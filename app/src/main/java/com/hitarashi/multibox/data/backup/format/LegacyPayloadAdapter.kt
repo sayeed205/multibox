@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.backup.format
+package com.hitarashi.multibox.data.backup.format
 
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupModuleInfo
-import com.lostf1sh.pixelplayeross.data.backup.model.DeviceInfo
-import com.lostf1sh.pixelplayeross.data.backup.module.PlaylistsModuleHandler
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupModuleInfo
+import com.hitarashi.multibox.data.backup.model.DeviceInfo
+import com.hitarashi.multibox.data.backup.module.PlaylistsModuleHandler
 import java.security.MessageDigest
 import javax.inject.Inject
 import javax.inject.Singleton

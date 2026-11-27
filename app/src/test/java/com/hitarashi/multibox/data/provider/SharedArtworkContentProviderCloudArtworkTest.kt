@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.provider
+package com.hitarashi.multibox.data.provider
 
 import android.net.Uri
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.image.NavidromeCoilFetcher
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.image.NavidromeCoilFetcher
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest

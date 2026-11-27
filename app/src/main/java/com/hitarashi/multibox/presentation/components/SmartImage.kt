@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.Bitmap
 import androidx.annotation.DrawableRes
@@ -36,8 +36,8 @@ import coil.request.ImageRequest
 import coil.size.Size
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.utils.LocalArtworkUri
 
 val SmartImageCompactListTargetSize = Size(96, 96)
 val SmartImageListTargetSize = Size(128, 128)

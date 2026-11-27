@@ -1,15 +1,15 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 import android.content.Context
 import android.os.Environment
-import com.lostf1sh.pixelplayeross.data.database.FolderSongRow
-import com.lostf1sh.pixelplayeross.data.model.FolderSource
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.utils.DirectoryRuleResolver
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.StorageType
-import com.lostf1sh.pixelplayeross.utils.StorageUtils
+import com.hitarashi.multibox.data.database.FolderSongRow
+import com.hitarashi.multibox.data.model.FolderSource
+import com.hitarashi.multibox.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.utils.DirectoryRuleResolver
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.StorageType
+import com.hitarashi.multibox.utils.StorageUtils
 import kotlinx.collections.immutable.toImmutableList
 import javax.inject.Inject
 import javax.inject.Singleton

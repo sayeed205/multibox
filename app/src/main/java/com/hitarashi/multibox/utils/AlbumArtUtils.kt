@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.Manifest
 import android.content.ContentUris
@@ -12,9 +12,9 @@ import android.provider.MediaStore
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
-import com.lostf1sh.pixelplayeross.data.diagnostics.PerformanceMetrics
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.diagnostics.PerformanceMetrics
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

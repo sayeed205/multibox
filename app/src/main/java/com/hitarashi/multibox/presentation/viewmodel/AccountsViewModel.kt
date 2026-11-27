@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.listenbrainz.InvalidServerUrlException
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzProfileStats
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.data.preferences.ListenBrainzPreferencesRepository
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.listenbrainz.InvalidServerUrlException
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzProfileStats
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzRepository
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.preferences.ListenBrainzPreferencesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi

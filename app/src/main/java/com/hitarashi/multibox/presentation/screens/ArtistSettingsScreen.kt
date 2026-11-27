@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
@@ -92,12 +92,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveTopBarContent
-import com.lostf1sh.pixelplayeross.presentation.settings.search.LocalSettingsHighlightTarget
-import com.lostf1sh.pixelplayeross.presentation.settings.search.settingHighlight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ArtistSettingsViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.ExpressiveTopBarContent
+import com.hitarashi.multibox.presentation.settings.search.LocalSettingsHighlightTarget
+import com.hitarashi.multibox.presentation.settings.search.settingHighlight
+import com.hitarashi.multibox.presentation.viewmodel.ArtistSettingsViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt

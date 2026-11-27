@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.network.lyrics
+package com.hitarashi.multibox.data.network.lyrics
 
 import com.google.gson.annotations.SerializedName
 

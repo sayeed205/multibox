@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.provider
+package com.hitarashi.multibox.data.provider
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
@@ -110,30 +110,30 @@ class SharedArtworkContentProviderTest {
     @Test
     fun buildSongUri_usesDedicatedArtworkAuthority() {
         val uri = SharedArtworkContentProvider.buildSongUriString(
-            packageName = "com.lostf1sh.pixelplayeross",
+            packageName = "com.hitarashi.multibox",
             songId = 42L
         )
 
-        assertThat(uri).isEqualTo("content://com.lostf1sh.pixelplayeross.artwork/song/42")
+        assertThat(uri).isEqualTo("content://com.hitarashi.multibox.artwork/song/42")
     }
 
     @Test
     fun buildSongUri_preservesCacheBustToken() {
         val uri = SharedArtworkContentProvider.buildSongUriString(
-            packageName = "com.lostf1sh.pixelplayeross",
+            packageName = "com.hitarashi.multibox",
             songId = 42L,
             cacheBustToken = "1234"
         )
 
         assertThat(uri)
-            .isEqualTo("content://com.lostf1sh.pixelplayeross.artwork/song/42?t=1234")
+            .isEqualTo("content://com.hitarashi.multibox.artwork/song/42?t=1234")
     }
 
     @Test
     fun parseSongId_rejectsOtherAuthorities() {
         val songId = SharedArtworkContentProvider.parseSongId(
             uriString = "content://example.com.artwork/song/42",
-            packageName = "com.lostf1sh.pixelplayeross"
+            packageName = "com.hitarashi.multibox"
         )
 
         assertThat(songId).isNull()
@@ -142,8 +142,8 @@ class SharedArtworkContentProviderTest {
     @Test
     fun parseSongId_readsSharedArtworkSongUri() {
         val songId = SharedArtworkContentProvider.parseSongId(
-            uriString = "content://com.lostf1sh.pixelplayeross.artwork/song/42",
-            packageName = "com.lostf1sh.pixelplayeross"
+            uriString = "content://com.hitarashi.multibox.artwork/song/42",
+            packageName = "com.hitarashi.multibox"
         )
 
         assertThat(songId).isEqualTo(42L)
@@ -153,7 +153,7 @@ class SharedArtworkContentProviderTest {
     fun cloudArtworkUri_roundTripsNavidromeArtwork() {
         val rawArtworkUri = "navidrome_cover://album-42"
         val sharedUri = SharedArtworkContentProvider.buildCloudUriString(
-            packageName = "com.lostf1sh.pixelplayeross",
+            packageName = "com.hitarashi.multibox",
             rawArtworkUri = rawArtworkUri,
         )
 
@@ -161,7 +161,7 @@ class SharedArtworkContentProviderTest {
         assertThat(
             SharedArtworkContentProvider.parseCloudArtworkUri(
                 uriString = sharedUri!!,
-                packageName = "com.lostf1sh.pixelplayeross",
+                packageName = "com.hitarashi.multibox",
             )
         ).isEqualTo(rawArtworkUri)
     }
@@ -170,7 +170,7 @@ class SharedArtworkContentProviderTest {
     fun cloudArtworkUri_roundTripsJellyfinArtwork() {
         val rawArtworkUri = "jellyfin_cover://item-84"
         val sharedUri = SharedArtworkContentProvider.buildCloudUriString(
-            packageName = "com.lostf1sh.pixelplayeross",
+            packageName = "com.hitarashi.multibox",
             rawArtworkUri = rawArtworkUri,
         )
 
@@ -178,7 +178,7 @@ class SharedArtworkContentProviderTest {
         assertThat(
             SharedArtworkContentProvider.parseCloudArtworkUri(
                 uriString = sharedUri!!,
-                packageName = "com.lostf1sh.pixelplayeross",
+                packageName = "com.hitarashi.multibox",
             )
         ).isEqualTo(rawArtworkUri)
     }
@@ -186,7 +186,7 @@ class SharedArtworkContentProviderTest {
     @Test
     fun cloudArtworkUri_rejectsUnsupportedRemoteArtwork() {
         val sharedUri = SharedArtworkContentProvider.buildCloudUriString(
-            packageName = "com.lostf1sh.pixelplayeross",
+            packageName = "com.hitarashi.multibox",
             rawArtworkUri = "https://example.com/cover.jpg",
         )
 
@@ -194,6 +194,6 @@ class SharedArtworkContentProviderTest {
     }
 
     private companion object {
-        const val PACKAGE = "com.lostf1sh.pixelplayeross"
+        const val PACKAGE = "com.hitarashi.multibox"
     }
 }

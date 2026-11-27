@@ -1,18 +1,18 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudDownloadExports
-import com.lostf1sh.pixelplayeross.data.offline.CloudExportResult
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownload
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownloadStatus
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudDownloadExports
+import com.hitarashi.multibox.data.offline.CloudExportResult
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.offline.OfflineDownload
+import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
+import com.hitarashi.multibox.data.repository.MusicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.File
 import javax.inject.Inject

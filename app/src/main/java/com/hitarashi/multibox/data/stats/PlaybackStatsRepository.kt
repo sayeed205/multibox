@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.stats
+package com.hitarashi.multibox.data.stats
 
 import android.content.Context
 import android.util.AtomicFile
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.reflect.TypeToken
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.utils.GenreParser
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import java.io.FileNotFoundException

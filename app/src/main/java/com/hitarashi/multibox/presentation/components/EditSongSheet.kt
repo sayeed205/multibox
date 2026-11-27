@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
@@ -55,11 +55,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.net.URLEncoder
 import timber.log.Timber
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -75,11 +75,11 @@ import androidx.compose.ui.text.font.FontWeight
 import kotlin.math.roundToInt
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.media.CoverArtUpdate
-import com.lostf1sh.pixelplayeross.data.media.CustomMetadataChanges
-import com.lostf1sh.pixelplayeross.data.media.CustomMetadataField
-import com.lostf1sh.pixelplayeross.data.media.buildCustomMetadataChanges
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.media.CoverArtUpdate
+import com.hitarashi.multibox.data.media.CustomMetadataChanges
+import com.hitarashi.multibox.data.media.CustomMetadataField
+import com.hitarashi.multibox.data.media.buildCustomMetadataChanges
 import dev.shreyaspatil.capturable.controller.rememberCaptureController
 import java.io.ByteArrayOutputStream
 import java.util.Locale

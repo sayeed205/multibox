@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.stats
+package com.hitarashi.multibox.data.stats
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackSpan
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackSpan
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime

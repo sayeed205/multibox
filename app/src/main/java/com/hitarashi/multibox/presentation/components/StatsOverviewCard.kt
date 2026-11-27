@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.background
@@ -38,13 +38,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.presentation.stats.displayNameRes
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.HomeStatsOverviewState
-import com.lostf1sh.pixelplayeross.utils.formatListeningDurationCompact
-import com.lostf1sh.pixelplayeross.utils.formatListeningDurationLong
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.presentation.stats.displayNameRes
+import com.hitarashi.multibox.presentation.viewmodel.HomeStatsOverviewState
+import com.hitarashi.multibox.utils.formatListeningDurationCompact
+import com.hitarashi.multibox.utils.formatListeningDurationLong
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList

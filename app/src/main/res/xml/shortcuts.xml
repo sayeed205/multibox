@@ -7,9 +7,9 @@
         android:shortcutShortLabel="@string/shortcut_shuffle_short"
         android:shortcutLongLabel="@string/shortcut_shuffle_long">
         <intent
-            android:action="com.lostf1sh.pixelplayeross.ACTION_SHUFFLE_ALL"
-            android:targetPackage="com.lostf1sh.pixelplayeross"
-            android:targetClass="com.lostf1sh.pixelplayeross.MainActivity" />
+            android:action="com.hitarashi.multibox.ACTION_SHUFFLE_ALL"
+            android:targetPackage="com.hitarashi.multibox"
+            android:targetClass="com.hitarashi.multibox.MainActivity" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>

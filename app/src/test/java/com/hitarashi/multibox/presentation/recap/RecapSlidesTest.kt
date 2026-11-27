@@ -1,16 +1,16 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.stats.ListeningPersonality
-import com.lostf1sh.pixelplayeross.data.stats.ListeningRecap
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.AlbumPlaybackSummary
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.ArtistPlaybackSummary
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.GenrePlaybackSummary
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.SongPlaybackSummary
-import com.lostf1sh.pixelplayeross.data.stats.RecapSong
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
+import com.hitarashi.multibox.data.stats.ListeningPersonality
+import com.hitarashi.multibox.data.stats.ListeningRecap
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.AlbumPlaybackSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.ArtistPlaybackSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.GenrePlaybackSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.SongPlaybackSummary
+import com.hitarashi.multibox.data.stats.RecapSong
+import com.hitarashi.multibox.data.stats.StatsTimeRange
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.util.concurrent.TimeUnit

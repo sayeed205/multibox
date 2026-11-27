@@ -1,16 +1,16 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.ContentUris
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
 import android.provider.OpenableColumns
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.media.guessImageMimeType
-import com.lostf1sh.pixelplayeross.data.media.imageExtensionFromMimeType
-import com.lostf1sh.pixelplayeross.data.media.isValidImageData
-import com.lostf1sh.pixelplayeross.data.media.resolveAudioFileExtension
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.media.guessImageMimeType
+import com.hitarashi.multibox.data.media.imageExtensionFromMimeType
+import com.hitarashi.multibox.data.media.isValidImageData
+import com.hitarashi.multibox.data.media.resolveAudioFileExtension
+import com.hitarashi.multibox.data.model.Song
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

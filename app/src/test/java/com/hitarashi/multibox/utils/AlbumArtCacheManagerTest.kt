@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test

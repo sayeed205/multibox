@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils.shapes
+package com.hitarashi.multibox.utils.shapes
 
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -38,7 +38,7 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
+import com.hitarashi.multibox.data.stats.StatsTimeRange
 import androidx.compose.foundation.lazy.items
 
 private val RecentlyPlayedRangeChipHeight = 44.dp

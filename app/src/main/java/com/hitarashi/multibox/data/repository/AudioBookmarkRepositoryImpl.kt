@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
-import com.lostf1sh.pixelplayeross.data.backup.module.BackupSongMetadata
-import com.lostf1sh.pixelplayeross.data.backup.module.BackupSongResolver
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkDao
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkEntity
-import com.lostf1sh.pixelplayeross.data.database.backupSongIdOfRestoredBookmark
-import com.lostf1sh.pixelplayeross.data.database.restoredBookmarkSongId
+import com.hitarashi.multibox.data.backup.module.BackupSongMetadata
+import com.hitarashi.multibox.data.backup.module.BackupSongResolver
+import com.hitarashi.multibox.data.database.AudioBookmarkDao
+import com.hitarashi.multibox.data.database.AudioBookmarkEntity
+import com.hitarashi.multibox.data.database.backupSongIdOfRestoredBookmark
+import com.hitarashi.multibox.data.database.restoredBookmarkSongId
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

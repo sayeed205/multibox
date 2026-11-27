@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -57,14 +57,14 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.update.AppRelease
-import com.lostf1sh.pixelplayeross.data.update.UpdateChannel
-import com.lostf1sh.pixelplayeross.data.update.UpdateError
-import com.lostf1sh.pixelplayeross.data.update.UpdateStatus
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.UpdatesUiState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.UpdatesViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.update.AppRelease
+import com.hitarashi.multibox.data.update.UpdateChannel
+import com.hitarashi.multibox.data.update.UpdateError
+import com.hitarashi.multibox.data.update.UpdateStatus
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.viewmodel.UpdatesUiState
+import com.hitarashi.multibox.presentation.viewmodel.UpdatesViewModel
 import timber.log.Timber
 
 @Composable

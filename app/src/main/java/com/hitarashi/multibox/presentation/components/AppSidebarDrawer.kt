@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.os.Build
 import androidx.activity.compose.BackHandler
@@ -63,8 +63,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.SidebarShortcutKeys
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.SidebarShortcutKeys
 import kotlin.coroutines.cancellation.CancellationException
 import kotlinx.coroutines.launch
 

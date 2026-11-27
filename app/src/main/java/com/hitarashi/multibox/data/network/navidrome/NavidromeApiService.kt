@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.network.navidrome
+package com.hitarashi.multibox.data.network.navidrome
 
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeAuthMethod
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeCredentials
+import com.hitarashi.multibox.data.navidrome.model.NavidromeAuthMethod
+import com.hitarashi.multibox.data.navidrome.model.NavidromeCredentials
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl.Companion.toHttpUrl

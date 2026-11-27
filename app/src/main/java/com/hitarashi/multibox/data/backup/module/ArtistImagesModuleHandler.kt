@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
 import android.content.Context
 import android.util.Base64
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.lostf1sh.pixelplayeross.data.backup.model.ArtistImageBackupEntry
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.di.BackupGson
+import com.hitarashi.multibox.data.backup.model.ArtistImageBackupEntry
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.di.BackupGson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import coil.map.Mapper
 import coil.request.Options
-import com.lostf1sh.pixelplayeross.data.provider.SharedArtworkContentProvider
+import com.hitarashi.multibox.data.provider.SharedArtworkContentProvider
 
 /*
  * The media session rewrites cloud artwork to `content://<pkg>.artwork/cloud/...` for every

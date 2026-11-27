@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.graphics.Matrix
 import android.graphics.RectF
@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.toPath
-import com.lostf1sh.pixelplayeross.data.preferences.CollagePattern
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.data.preferences.CollagePattern
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
 
 @Stable
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 internal class AxisObservationTracker {
     private var trackedTotalItemsCount = -1

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -99,13 +99,13 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
 import kotlinx.coroutines.launch
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlin.math.roundToInt
@@ -151,7 +151,7 @@ private val AboutMaintainers = listOf(
 )
 
 private const val SourceRepoUrl = "https://github.com/lostf1sh/PixelPlayerOSS"
-private const val FDroidUrl = "https://f-droid.org/packages/com.lostf1sh.pixelplayeross/"
+private const val FDroidUrl = "https://f-droid.org/packages/com.hitarashi.multibox/"
 private const val SponsorUrl = "https://github.com/sponsors/lostf1sh"
 
 private data class ProjectLink(

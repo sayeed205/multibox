@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.jellyfin.model
+package com.hitarashi.multibox.data.jellyfin.model
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.bluetooth.BluetoothManager
 import android.content.Context
@@ -6,14 +6,14 @@ import android.media.AudioDeviceCallback
 import android.media.AudioManager
 import android.net.ConnectivityManager
 import android.net.NetworkRequest
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.service.SleepTimerSession
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.service.SleepTimerSession
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

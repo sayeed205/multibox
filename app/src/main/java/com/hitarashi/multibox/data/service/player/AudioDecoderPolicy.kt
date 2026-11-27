@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import androidx.media3.common.C
 import androidx.media3.common.MimeTypes
 import androidx.media3.common.Tracks
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.model.AudioOutputMode
+import com.hitarashi.multibox.data.model.AudioOutputMode
 import java.util.Locale
 
 @androidx.annotation.OptIn(UnstableApi::class)

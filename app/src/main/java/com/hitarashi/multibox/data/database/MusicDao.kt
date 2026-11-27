@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
@@ -8,7 +8,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
 import androidx.sqlite.db.SimpleSQLiteQuery
-import com.lostf1sh.pixelplayeross.utils.AudioMeta
+import com.hitarashi.multibox.utils.AudioMeta
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 

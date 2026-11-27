@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.backup.format
+package com.hitarashi.multibox.data.backup.format
 
 import android.content.Context
 import android.net.Uri
 import com.google.gson.Gson
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupModuleInfo
-import com.lostf1sh.pixelplayeross.di.BackupGson
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupModuleInfo
+import com.hitarashi.multibox.di.BackupGson
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

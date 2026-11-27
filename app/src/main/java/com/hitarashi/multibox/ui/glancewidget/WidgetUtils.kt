@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import android.graphics.Bitmap
 import android.util.LruCache
@@ -9,8 +9,8 @@ import androidx.glance.color.ColorProvider
 import androidx.glance.color.ColorProviders
 import androidx.glance.color.colorProviders
 import androidx.glance.unit.ColorProvider
-import com.lostf1sh.pixelplayeross.data.model.PlayerInfo
-import com.lostf1sh.pixelplayeross.data.model.WidgetThemeColors
+import com.hitarashi.multibox.data.model.PlayerInfo
+import com.hitarashi.multibox.data.model.WidgetThemeColors
 
 object AlbumArtBitmapCache {
     private const val CACHE_SIZE_BYTES = 4 * 1024 * 1024

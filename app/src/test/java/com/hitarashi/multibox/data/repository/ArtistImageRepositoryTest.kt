@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 import android.content.Context
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.network.deezer.DeezerApiService
-import com.lostf1sh.pixelplayeross.data.network.deezer.DeezerArtist
-import com.lostf1sh.pixelplayeross.data.network.deezer.DeezerSearchResponse
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.FolderArtistArtUtils
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.network.deezer.DeezerApiService
+import com.hitarashi.multibox.data.network.deezer.DeezerArtist
+import com.hitarashi.multibox.data.network.deezer.DeezerSearchResponse
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.FolderArtistArtUtils
 import io.mockk.coEvery
 import io.mockk.coJustRun
 import io.mockk.coVerify

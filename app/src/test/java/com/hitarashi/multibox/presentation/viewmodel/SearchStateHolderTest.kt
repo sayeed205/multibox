@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.MusicRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackEvent
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackEvent
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.utils.GenreParser
 import io.mockk.every
 import io.mockk.mockk
 import java.time.LocalDateTime

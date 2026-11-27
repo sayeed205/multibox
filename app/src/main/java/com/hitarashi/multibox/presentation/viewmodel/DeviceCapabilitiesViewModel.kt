@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.app.ActivityManager
 import android.content.Context
@@ -15,16 +15,16 @@ import androidx.annotation.OptIn
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.database.DeviceCapabilitySongRow
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SourceType
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnostics
-import com.lostf1sh.pixelplayeross.data.diagnostics.DebugPerformanceReportCollector
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.service.player.ActiveDecoderInfo
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.data.service.player.HiFiCapabilityChecker
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils
+import com.hitarashi.multibox.data.database.DeviceCapabilitySongRow
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SourceType
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
+import com.hitarashi.multibox.data.diagnostics.DebugPerformanceReportCollector
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.service.player.ActiveDecoderInfo
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.service.player.HiFiCapabilityChecker
+import com.hitarashi.multibox.utils.AudioMetaUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File

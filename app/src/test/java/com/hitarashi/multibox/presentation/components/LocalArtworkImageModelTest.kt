@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.Context
 import coil.memory.MemoryCache
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

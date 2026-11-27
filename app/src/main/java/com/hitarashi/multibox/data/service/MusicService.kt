@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import android.app.BackgroundServiceStartNotAllowedException
 import android.app.ForegroundServiceStartNotAllowedException
@@ -40,31 +40,31 @@ import androidx.media3.session.SessionResult
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.SettableFuture
-import com.lostf1sh.pixelplayeross.PixelPlayerApplication
-import com.lostf1sh.pixelplayeross.MainActivity
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnostics
-import com.lostf1sh.pixelplayeross.data.model.PlayerInfo
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeSongUri
-import com.lostf1sh.pixelplayeross.data.model.PlaybackQueueItemSnapshot
-import com.lostf1sh.pixelplayeross.data.model.PlaybackQueueSnapshot
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.service.player.AudioDecoderPolicy
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.data.service.player.FadingPlayer
-import com.lostf1sh.pixelplayeross.data.service.player.MappingPlayer
-import com.lostf1sh.pixelplayeross.data.service.player.PreviousButtonPlayer
-import com.lostf1sh.pixelplayeross.data.service.player.TransitionController
-import com.lostf1sh.pixelplayeross.data.service.player.selectCanonicalCloudPlaybackUri
-import com.lostf1sh.pixelplayeross.ui.glancewidget.ControlWidget4x2
-import com.lostf1sh.pixelplayeross.ui.glancewidget.PixelPlayerGlanceWidget
-import com.lostf1sh.pixelplayeross.ui.glancewidget.PlayerActions
-import com.lostf1sh.pixelplayeross.ui.glancewidget.PlayerInfoStateDefinition
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
+import com.hitarashi.multibox.PixelPlayerApplication
+import com.hitarashi.multibox.MainActivity
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
+import com.hitarashi.multibox.data.model.PlayerInfo
+import com.hitarashi.multibox.data.navidrome.NavidromeSongUri
+import com.hitarashi.multibox.data.model.PlaybackQueueItemSnapshot
+import com.hitarashi.multibox.data.model.PlaybackQueueSnapshot
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.service.player.AudioDecoderPolicy
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.service.player.FadingPlayer
+import com.hitarashi.multibox.data.service.player.MappingPlayer
+import com.hitarashi.multibox.data.service.player.PreviousButtonPlayer
+import com.hitarashi.multibox.data.service.player.TransitionController
+import com.hitarashi.multibox.data.service.player.selectCanonicalCloudPlaybackUri
+import com.hitarashi.multibox.ui.glancewidget.ControlWidget4x2
+import com.hitarashi.multibox.ui.glancewidget.PixelPlayerGlanceWidget
+import com.hitarashi.multibox.ui.glancewidget.PlayerActions
+import com.hitarashi.multibox.ui.glancewidget.PlayerInfoStateDefinition
+import com.hitarashi.multibox.utils.AlbumArtUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -76,24 +76,24 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
-import com.lostf1sh.pixelplayeross.data.equalizer.EqualizerManager
-import com.lostf1sh.pixelplayeross.data.equalizer.ExternalAudioEffectSession
-import com.lostf1sh.pixelplayeross.data.model.WidgetThemeColors
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemeProcessor
+import com.hitarashi.multibox.data.equalizer.EqualizerManager
+import com.hitarashi.multibox.data.equalizer.ExternalAudioEffectSession
+import com.hitarashi.multibox.data.model.WidgetThemeColors
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemeProcessor
 import androidx.compose.ui.graphics.toArgb
-import com.lostf1sh.pixelplayeross.ui.glancewidget.BarWidget4x1
-import com.lostf1sh.pixelplayeross.ui.glancewidget.GridWidget2x2
+import com.hitarashi.multibox.ui.glancewidget.BarWidget4x1
+import com.hitarashi.multibox.ui.glancewidget.GridWidget2x2
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
-import com.lostf1sh.pixelplayeross.utils.ArtworkTransportSanitizer
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.di.AppScope
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ListeningStatsTracker
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.utils.ArtworkTransportSanitizer
+import com.hitarashi.multibox.utils.MediaItemBuilder
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.di.AppScope
+import com.hitarashi.multibox.presentation.viewmodel.ListeningStatsTracker
 import kotlin.math.abs
 import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
@@ -198,7 +198,7 @@ class MusicService : MediaSessionService() {
     @Inject
     lateinit var colorSchemeProcessor: ColorSchemeProcessor
     @Inject
-    lateinit var replayGainManager: com.lostf1sh.pixelplayeross.data.media.ReplayGainManager
+    lateinit var replayGainManager: com.hitarashi.multibox.data.media.ReplayGainManager
     @Inject
     lateinit var navidromeRepository: NavidromeRepository
     @Inject
@@ -259,9 +259,9 @@ class MusicService : MediaSessionService() {
     companion object {
         private const val TAG = "MusicService_PixelPlayer"
         const val NOTIFICATION_ID = 101
-        const val ACTION_SLEEP_TIMER_EXPIRED = "com.lostf1sh.pixelplayeross.ACTION_SLEEP_TIMER_EXPIRED"
+        const val ACTION_SLEEP_TIMER_EXPIRED = "com.hitarashi.multibox.ACTION_SLEEP_TIMER_EXPIRED"
         const val EXTRA_FORCE_FOREGROUND_ON_START =
-            "com.lostf1sh.pixelplayeross.extra.FORCE_FOREGROUND_ON_START"
+            "com.hitarashi.multibox.extra.FORCE_FOREGROUND_ON_START"
         private const val PLAYBACK_SNAPSHOT_DEBOUNCE_MS = 1500L
         private const val FORCED_WIDGET_STATE_DEBOUNCE_MS = 250L
         private const val MEDIA_SESSION_BUTTON_DEBOUNCE_MS = 250L
@@ -269,7 +269,7 @@ class MusicService : MediaSessionService() {
         private const val PAUSED_RESTORE_PREPARE_QUEUE_LIMIT = 50
         private val pendingTemporaryForegroundStarts = AtomicInteger(0)
 
-        private const val APP_PACKAGE_PREFIX = "com.lostf1sh.pixelplayeross"
+        private const val APP_PACKAGE_PREFIX = "com.hitarashi.multibox"
         private const val DEFAULT_STREAM_BUFFER_SIZE = 8 * 1024
         private const val WIDGET_ART_FAILURE_RETRY_MS = 30_000L
         private const val WIDGET_QUEUE_PREVIEW_LIMIT = 4
@@ -979,7 +979,7 @@ class MusicService : MediaSessionService() {
 
     override fun onDestroy() {
         PlaybackActivityTracker.setPlaybackActive(false)
-        com.lostf1sh.pixelplayeross.data.provider.SharedArtworkContentProvider.clearPublishedSessionArtwork()
+        com.hitarashi.multibox.data.provider.SharedArtworkContentProvider.clearPublishedSessionArtwork()
         listeningStatsTracker.finalizeCurrentSession(forceSynchronousPersistence = true)
         reportNavidromePlayback("stopped")
         stopNavidromePlaybackReporting()
@@ -1281,7 +1281,7 @@ class MusicService : MediaSessionService() {
 
     /**
      * Tells the user when no renderer (platform or FFmpeg) can decode the current item's audio.
-     * The engine's [com.lostf1sh.pixelplayeross.data.service.player.UnsupportedAudioListener]
+     * The engine's [com.hitarashi.multibox.data.service.player.UnsupportedAudioListener]
      * pauses the player so ExoPlayer does not advance a silent clock.
      */
     private fun warnIfNoDecodableAudioTrack(tracks: Tracks) {
@@ -1643,7 +1643,7 @@ class MusicService : MediaSessionService() {
     private fun getOpenAppPendingIntent(): PendingIntent {
         val intent = Intent(this, MainActivity::class.java).apply {
             setPackage(packageName)
-            action = "com.lostf1sh.pixelplayeross.action.OPEN_PLAYER"
+            action = "com.hitarashi.multibox.action.OPEN_PLAYER"
             addCategory(Intent.CATEGORY_DEFAULT)
             flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
             putExtra("ACTION_SHOW_PLAYER", true)
@@ -1810,7 +1810,7 @@ class MusicService : MediaSessionService() {
             )
         }
         val isFavorite = isSongFavorite(mediaId)
-        val queueItems = mutableListOf<com.lostf1sh.pixelplayeross.data.model.QueueItem>()
+        val queueItems = mutableListOf<com.hitarashi.multibox.data.model.QueueItem>()
         // Follow the player's actual navigation order so shuffle and repeat-all previews match.
         if (!snapshotTimeline.isEmpty) {
             val window = Timeline.Window()
@@ -2062,7 +2062,7 @@ class MusicService : MediaSessionService() {
     public suspend fun loadArtworkBytesForWidget(uri: Uri): ByteArray? {
         val uriString = uri.toString()
         val scheme = uri.scheme?.lowercase()
-        val isLocalArtworkUri = com.lostf1sh.pixelplayeross.utils.LocalArtworkUri.isLocalArtworkUri(uriString)
+        val isLocalArtworkUri = com.hitarashi.multibox.utils.LocalArtworkUri.isLocalArtworkUri(uriString)
         return when {
             isLocalArtworkUri || scheme == "content" || scheme == "file" || scheme == "android.resource" -> {
                 runCatching {

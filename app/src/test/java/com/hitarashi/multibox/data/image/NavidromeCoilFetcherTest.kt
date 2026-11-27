@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import coil.decode.DataSource
@@ -6,7 +6,7 @@ import coil.fetch.SourceResult
 import coil.size.Dimension
 import coil.size.Size
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.database
+package com.hitarashi.multibox.data.database
 
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
+import com.hitarashi.multibox.data.model.TransitionSettings
 
 @Entity(
     tableName = "transition_rules",

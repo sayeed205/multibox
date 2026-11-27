@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
-import com.lostf1sh.pixelplayeross.LocaleStringResources.assertTranslatedEverywhere
-import com.lostf1sh.pixelplayeross.LocaleStringResources.nameOf
-import com.lostf1sh.pixelplayeross.LocaleStringResources.stringsIn
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
+import com.hitarashi.multibox.LocaleStringResources.assertTranslatedEverywhere
+import com.hitarashi.multibox.LocaleStringResources.nameOf
+import com.hitarashi.multibox.LocaleStringResources.stringsIn
+import com.hitarashi.multibox.presentation.navigation.Screen
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Assertions.assertTrue

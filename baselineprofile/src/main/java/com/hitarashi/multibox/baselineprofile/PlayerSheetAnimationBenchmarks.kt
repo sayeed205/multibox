@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.baselineprofile
+package com.hitarashi.multibox.baselineprofile
 
 import android.content.Intent
 import android.view.KeyEvent

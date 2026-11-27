@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.ContentUris
 import android.content.ContentValues
@@ -13,18 +13,18 @@ import androidx.annotation.StringRes
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.toArtist
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.musicbrainz.MusicBrainzMatch
-import com.lostf1sh.pixelplayeross.data.musicbrainz.MusicBrainzRepository
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownload
-import com.lostf1sh.pixelplayeross.utils.AudioMeta
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.toArtist
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.musicbrainz.MusicBrainzMatch
+import com.hitarashi.multibox.data.musicbrainz.MusicBrainzRepository
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.offline.OfflineDownload
+import com.hitarashi.multibox.utils.AudioMeta
+import com.hitarashi.multibox.utils.AudioMetaUtils
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.File

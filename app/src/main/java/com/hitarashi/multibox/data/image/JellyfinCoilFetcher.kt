@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import androidx.annotation.VisibleForTesting
@@ -7,7 +7,7 @@ import coil.fetch.FetchResult
 import coil.fetch.Fetcher
 import coil.request.Options
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
 import kotlinx.coroutines.CancellationException
 import okhttp3.OkHttpClient
 import okhttp3.Request

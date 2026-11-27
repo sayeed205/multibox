@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.app.Activity
 import androidx.compose.animation.animateColorAsState
@@ -67,9 +67,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 
 /**
@@ -90,9 +90,9 @@ import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
  */
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.AutoSizingTextToFill
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.TightWrapText
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
+import com.hitarashi.multibox.presentation.components.subcomps.TightWrapText
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 

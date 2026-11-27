@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import android.os.SystemClock
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
-import com.lostf1sh.pixelplayeross.data.service.SleepTimerSession.CountedPlay
-import com.lostf1sh.pixelplayeross.data.service.SleepTimerSession.Event
-import com.lostf1sh.pixelplayeross.data.service.SleepTimerSession.Timer
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.service.SleepTimerSession.CountedPlay
+import com.hitarashi.multibox.data.service.SleepTimerSession.Event
+import com.hitarashi.multibox.data.service.SleepTimerSession.Timer
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

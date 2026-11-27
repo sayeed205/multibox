@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.settings.search
+package com.hitarashi.multibox.presentation.settings.search
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
@@ -6,8 +6,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.navigation.Screen
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

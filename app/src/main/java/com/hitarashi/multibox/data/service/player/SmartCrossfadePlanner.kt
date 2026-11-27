@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
-import com.lostf1sh.pixelplayeross.data.model.Curve
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
+import com.hitarashi.multibox.data.model.Curve
+import com.hitarashi.multibox.data.model.TransitionSettings
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.ln

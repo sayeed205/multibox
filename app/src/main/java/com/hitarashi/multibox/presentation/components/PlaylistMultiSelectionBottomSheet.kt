@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.app.Activity
 import androidx.compose.animation.animateContentSize
@@ -57,14 +57,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import coil.compose.AsyncImage
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.AutoSizingTextToFill
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.TightWrapText
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.resolvePlaylistCoverContentColor
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
+import com.hitarashi.multibox.presentation.components.subcomps.TightWrapText
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.resolvePlaylistCoverContentColor
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import androidx.compose.runtime.remember

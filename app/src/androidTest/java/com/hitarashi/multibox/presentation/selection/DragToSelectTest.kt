@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.selection
+package com.hitarashi.multibox.presentation.selection
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -37,9 +37,9 @@ import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.EnhancedSongListItem
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.MultiSelectionStateHolder
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.subcomps.EnhancedSongListItem
+import com.hitarashi.multibox.presentation.viewmodel.MultiSelectionStateHolder
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

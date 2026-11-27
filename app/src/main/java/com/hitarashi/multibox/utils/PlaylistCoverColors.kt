@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color

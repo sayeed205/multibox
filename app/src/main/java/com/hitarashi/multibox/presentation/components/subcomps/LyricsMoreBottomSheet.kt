@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -54,10 +54,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.presentation.components.ToggleSegmentButton
-import com.lostf1sh.pixelplayeross.presentation.components.player.BottomToggleRow
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.presentation.components.ToggleSegmentButton
+import com.hitarashi.multibox.presentation.components.player.BottomToggleRow
 import androidx.compose.ui.text.style.TextOverflow
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)

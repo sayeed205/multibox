@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
+import com.hitarashi.multibox.data.model.Lyrics
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.InputStream

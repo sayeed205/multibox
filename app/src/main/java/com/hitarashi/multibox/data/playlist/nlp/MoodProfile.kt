@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 /**
  * How a matched [MoodProfile] influences song scoring. Genre-based profiles reward songs

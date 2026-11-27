@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.selection
+package com.hitarashi.multibox.presentation.selection
 
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
+import com.hitarashi.multibox.data.model.StorageFilter
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test

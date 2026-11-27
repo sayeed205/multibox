@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.network.navidrome
+package com.hitarashi.multibox.data.network.navidrome
 
 import com.google.common.truth.Truth.assertThat
 import org.json.JSONArray

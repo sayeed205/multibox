@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.update.AppUpdateManager
-import com.lostf1sh.pixelplayeross.data.update.UpdateChannel
-import com.lostf1sh.pixelplayeross.data.update.UpdateStatus
+import com.hitarashi.multibox.data.update.AppUpdateManager
+import com.hitarashi.multibox.data.update.UpdateChannel
+import com.hitarashi.multibox.data.update.UpdateStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
 import androidx.annotation.StringRes
 import java.io.File

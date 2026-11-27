@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test

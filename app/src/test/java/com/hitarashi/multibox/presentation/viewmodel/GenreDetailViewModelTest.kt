@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.di.DispatcherProvider
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

@@ -4,7 +4,7 @@
     kotlinx.coroutines.FlowPreview::class
 )
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -50,32 +50,32 @@ import androidx.paging.compose.LazyPagingItems
 import coil.imageLoader
 import coil.request.ImageRequest
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveScrollBar
-import com.lostf1sh.pixelplayeross.presentation.components.animatedScrollbarInset
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.PlaylistContainer
-import com.lostf1sh.pixelplayeross.presentation.components.albumFastScrollLabel
-import com.lostf1sh.pixelplayeross.presentation.components.artistFastScrollLabel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemePair
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlaylistUiState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.components.ExpressiveScrollBar
+import com.hitarashi.multibox.presentation.components.animatedScrollbarInset
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.PlaylistContainer
+import com.hitarashi.multibox.presentation.components.albumFastScrollLabel
+import com.hitarashi.multibox.presentation.components.artistFastScrollLabel
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemePair
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlaylistUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import androidx.compose.ui.text.style.TextOverflow
-import com.lostf1sh.pixelplayeross.presentation.utils.SegmentedItemShapeDefaults
-import com.lostf1sh.pixelplayeross.presentation.utils.getSegmentedGridItemShape
-import com.lostf1sh.pixelplayeross.presentation.utils.getSegmentedItemShape
+import com.hitarashi.multibox.presentation.utils.SegmentedItemShapeDefaults
+import com.hitarashi.multibox.presentation.utils.getSegmentedGridItemShape
+import com.hitarashi.multibox.presentation.utils.getSegmentedItemShape
 import kotlinx.collections.immutable.ImmutableList
 
 private val EmptyColorSchemePairFlow: StateFlow<ColorSchemePair?> = MutableStateFlow(null)
@@ -652,7 +652,7 @@ fun LibraryArtistsTab(
 @Composable
 fun LibraryPlaylistsTab(
     playlistUiState: PlaylistUiState,
-    filteredPlaylists: ImmutableList<com.lostf1sh.pixelplayeross.data.model.Playlist> = playlistUiState.playlists,
+    filteredPlaylists: ImmutableList<com.hitarashi.multibox.data.model.Playlist> = playlistUiState.playlists,
     navController: NavController,
     playerViewModel: PlayerViewModel,
     bottomBarHeight: Dp,
@@ -660,8 +660,8 @@ fun LibraryPlaylistsTab(
     onRefresh: () -> Unit,
     isSelectionMode: Boolean = false,
     selectedPlaylistIds: Set<String> = emptySet(),
-    onPlaylistLongPress: (com.lostf1sh.pixelplayeross.data.model.Playlist) -> Unit = {},
-    onPlaylistSelectionToggle: (com.lostf1sh.pixelplayeross.data.model.Playlist) -> Unit = {},
+    onPlaylistLongPress: (com.hitarashi.multibox.data.model.Playlist) -> Unit = {},
+    onPlaylistSelectionToggle: (com.hitarashi.multibox.data.model.Playlist) -> Unit = {},
     onPlaylistOptionsClick: () -> Unit = {},
     isGridView: Boolean = false
 ) {

@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -52,27 +52,27 @@ import androidx.media3.common.util.UnstableApi
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemContentType
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveScrollBar
-import com.lostf1sh.pixelplayeross.presentation.components.animatedScrollbarInset
-import com.lostf1sh.pixelplayeross.ui.theme.LocalShowScrollbar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.selection.dragToSelect
-import com.lostf1sh.pixelplayeross.presentation.selection.rememberDragToSelectState
-import com.lostf1sh.pixelplayeross.presentation.components.songFastScrollLabel
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.EnhancedSongListItem
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StablePlayerState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.presentation.components.ExpressiveScrollBar
+import com.hitarashi.multibox.presentation.components.animatedScrollbarInset
+import com.hitarashi.multibox.ui.theme.LocalShowScrollbar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.selection.dragToSelect
+import com.hitarashi.multibox.presentation.selection.rememberDragToSelectState
+import com.hitarashi.multibox.presentation.components.songFastScrollLabel
+import com.hitarashi.multibox.presentation.components.subcomps.EnhancedSongListItem
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StablePlayerState
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import androidx.compose.ui.text.style.TextOverflow
-import com.lostf1sh.pixelplayeross.presentation.utils.SegmentedItemShapeDefaults
-import com.lostf1sh.pixelplayeross.presentation.utils.getSegmentedItemShape
+import com.hitarashi.multibox.presentation.utils.SegmentedItemShapeDefaults
+import com.hitarashi.multibox.presentation.utils.getSegmentedItemShape
 
 @androidx.annotation.OptIn(UnstableApi::class)
 @Composable

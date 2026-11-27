@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
-import com.lostf1sh.pixelplayeross.data.database.AlbumEntity
-import com.lostf1sh.pixelplayeross.data.database.LocalAlbumGroupingSource
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataText
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataTextOrEmpty
-import com.lostf1sh.pixelplayeross.utils.splitArtistsByDelimiters
+import com.hitarashi.multibox.data.database.AlbumEntity
+import com.hitarashi.multibox.data.database.LocalAlbumGroupingSource
+import com.hitarashi.multibox.data.database.SongEntity
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.normalizeMetadataText
+import com.hitarashi.multibox.utils.normalizeMetadataTextOrEmpty
+import com.hitarashi.multibox.utils.splitArtistsByDelimiters
 
 internal data class AlbumGroupingKey(
     val normalizedTitle: String,

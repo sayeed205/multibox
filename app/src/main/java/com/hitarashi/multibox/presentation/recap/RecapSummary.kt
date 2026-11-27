@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
@@ -46,7 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.text.NumberFormat
 
 /** Closing slide: a shareable card of the year's highlights, plus what to do next. */

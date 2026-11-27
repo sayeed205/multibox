@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.network.navidrome
+package com.hitarashi.multibox.data.network.navidrome
 
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeAlbum
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeArtist
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeMusicFolder
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromePlaylist
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeSong
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.data.navidrome.model.NavidromeAlbum
+import com.hitarashi.multibox.data.navidrome.model.NavidromeArtist
+import com.hitarashi.multibox.data.navidrome.model.NavidromeMusicFolder
+import com.hitarashi.multibox.data.navidrome.model.NavidromePlaylist
+import com.hitarashi.multibox.data.navidrome.model.NavidromeSong
+import com.hitarashi.multibox.utils.GenreParser
 import org.json.JSONObject
 import timber.log.Timber
 

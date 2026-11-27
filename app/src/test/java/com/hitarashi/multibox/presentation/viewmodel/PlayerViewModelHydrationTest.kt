@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import org.junit.Test
 
 class PlayerViewModelHydrationTest {

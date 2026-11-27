@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.navidrome
+package com.hitarashi.multibox.data.navidrome
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.NavidromePlaylistEntity
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeMusicFolder
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeSong
+import com.hitarashi.multibox.data.database.NavidromePlaylistEntity
+import com.hitarashi.multibox.data.navidrome.model.NavidromeMusicFolder
+import com.hitarashi.multibox.data.navidrome.model.NavidromeSong
 import org.junit.jupiter.api.Test
 
 class NavidromeRepositoryTest {

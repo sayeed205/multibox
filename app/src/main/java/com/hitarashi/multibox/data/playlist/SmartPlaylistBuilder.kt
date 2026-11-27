@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
-import com.lostf1sh.pixelplayeross.data.DailyMixManager
-import com.lostf1sh.pixelplayeross.data.model.SmartPlaylistRule
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.DailyMixManager
+import com.hitarashi.multibox.data.model.SmartPlaylistRule
+import com.hitarashi.multibox.data.model.Song
 import java.util.concurrent.TimeUnit
 
 /**

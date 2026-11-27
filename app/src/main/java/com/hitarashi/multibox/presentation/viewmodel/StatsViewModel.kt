@@ -1,16 +1,16 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.di.DispatcherProvider
-import com.lostf1sh.pixelplayeross.presentation.stats.resolveStatsArtistImages
-import com.lostf1sh.pixelplayeross.utils.GenreParser
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.di.DispatcherProvider
+import com.hitarashi.multibox.presentation.stats.resolveStatsArtistImages
+import com.hitarashi.multibox.utils.GenreParser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlin.coroutines.cancellation.CancellationException

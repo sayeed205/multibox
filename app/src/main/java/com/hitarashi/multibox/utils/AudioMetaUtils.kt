@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.media.MediaExtractor
 import android.media.MediaFormat
 import android.media.MediaMetadataRetriever
 import android.os.Build
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
+import com.hitarashi.multibox.data.database.MusicDao
 import java.io.File
 import java.util.Locale
 import timber.log.Timber

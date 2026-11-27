@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
 import android.util.Log
 import timber.log.Timber

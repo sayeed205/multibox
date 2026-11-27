@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.test.runTest

@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateToTopLevelSafely
+import com.hitarashi.multibox.presentation.navigation.navigateToTopLevelSafely
 
 import android.os.SystemClock
 import androidx.compose.foundation.layout.Arrangement
@@ -27,10 +27,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.lostf1sh.pixelplayeross.BottomNavItem
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.CustomNavigationBarItem
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
+import com.hitarashi.multibox.BottomNavItem
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.presentation.components.scoped.CustomNavigationBarItem
+import com.hitarashi.multibox.presentation.navigation.Screen
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

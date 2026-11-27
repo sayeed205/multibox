@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.res.Resources
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
 import io.mockk.every
 import io.mockk.mockk
 import java.util.Locale

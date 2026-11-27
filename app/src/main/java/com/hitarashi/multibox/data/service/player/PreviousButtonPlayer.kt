@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import androidx.annotation.OptIn
 import androidx.media3.common.ForwardingPlayer
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
 
 /**
  * Applies the "Previous button" preference to the session-facing player. The notification,

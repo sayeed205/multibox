@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.backup.validation
+package com.hitarashi.multibox.data.backup.validation
 
 import android.net.Uri
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupValidationResult
-import com.lostf1sh.pixelplayeross.data.backup.model.Severity
-import com.lostf1sh.pixelplayeross.data.backup.model.ValidationError
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupValidationResult
+import com.hitarashi.multibox.data.backup.model.Severity
+import com.hitarashi.multibox.data.backup.model.ValidationError
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -19,14 +19,14 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.image.withNavidromeCoverSize
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
-import com.lostf1sh.pixelplayeross.presentation.components.scoped.PrefetchAlbumNeighbors
+import com.hitarashi.multibox.data.image.withNavidromeCoverSize
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.CarouselStyle
+import com.hitarashi.multibox.presentation.components.scoped.PrefetchAlbumNeighbors
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.flow.first
 
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtQuality
+import com.hitarashi.multibox.data.preferences.AlbumArtQuality
 import kotlin.math.abs
 
 private const val SETTLED_PAGE_OFFSET_EPSILON = 0.001f

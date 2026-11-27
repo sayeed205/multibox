@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.recap
+package com.hitarashi.multibox.presentation.recap
 
 import android.app.Activity
 import android.content.ClipData
@@ -8,7 +8,7 @@ import android.graphics.Bitmap
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.GraphicsLayer
 import androidx.core.content.FileProvider
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.io.File
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

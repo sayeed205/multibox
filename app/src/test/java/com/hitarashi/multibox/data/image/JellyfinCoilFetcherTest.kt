@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import coil.fetch.SourceResult
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk

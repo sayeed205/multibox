@@ -1,10 +1,10 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.lostf1sh.pixelplayeross.data.playlist.M3uSyncCheckpoint
+import com.hitarashi.multibox.data.playlist.M3uSyncCheckpoint
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow

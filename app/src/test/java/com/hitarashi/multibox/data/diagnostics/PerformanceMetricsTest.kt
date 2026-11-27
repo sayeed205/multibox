@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.diagnostics
+package com.hitarashi.multibox.data.diagnostics
 
 import com.google.common.truth.Truth.assertThat
 import java.util.concurrent.CountDownLatch

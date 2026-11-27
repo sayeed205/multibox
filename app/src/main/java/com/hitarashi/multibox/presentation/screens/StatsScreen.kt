@@ -1,9 +1,9 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.ui.theme.rememberDisplayFont
-import com.lostf1sh.pixelplayeross.ui.theme.withInterfaceFont
+import com.hitarashi.multibox.ui.theme.rememberDisplayFont
+import com.hitarashi.multibox.ui.theme.withInterfaceFont
 
 import android.text.format.DateFormat as AndroidDateFormat
 import androidx.annotation.StringRes
@@ -148,23 +148,23 @@ import androidx.compose.ui.zIndex
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
-import com.lostf1sh.pixelplayeross.data.stats.StatsTimeRange
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImageCompactListTargetSize
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.recap.RecapStatsCard
-import com.lostf1sh.pixelplayeross.presentation.stats.displayNameRes
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.RecapEntryViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.StatsViewModel
-import com.lostf1sh.pixelplayeross.utils.formatListeningDurationCompact
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
+import com.hitarashi.multibox.data.stats.StatsTimeRange
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.components.SmartImageCompactListTargetSize
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.recap.RecapStatsCard
+import com.hitarashi.multibox.presentation.stats.displayNameRes
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.RecapEntryViewModel
+import com.hitarashi.multibox.presentation.viewmodel.StatsViewModel
+import com.hitarashi.multibox.utils.formatListeningDurationCompact
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
 import java.net.URLEncoder
 import java.text.NumberFormat
 import java.util.Locale

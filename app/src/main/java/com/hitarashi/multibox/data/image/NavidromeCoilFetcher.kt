@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.image
+package com.hitarashi.multibox.data.image
 
 import android.net.Uri
 import coil.ImageLoader
@@ -7,7 +7,7 @@ import coil.fetch.Fetcher
 import coil.request.Options
 import coil.size.Dimension
 import coil.size.Size
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
 import kotlinx.coroutines.CancellationException
 import okhttp3.OkHttpClient
 import okhttp3.Request

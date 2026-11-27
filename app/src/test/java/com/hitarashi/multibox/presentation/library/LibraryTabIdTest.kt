@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.library
+package com.hitarashi.multibox.presentation.library
 
-import com.lostf1sh.pixelplayeross.data.model.SortOption
+import com.hitarashi.multibox.data.model.SortOption
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -47,7 +47,7 @@ class LibraryTabIdTest {
         assertEquals(SortOption.GENRES, LibraryTabId.Genres.sortOptions)
         assertEquals(
             LibraryTabId.Genres.stableKey,
-            com.lostf1sh.pixelplayeross.data.model.LibraryTabId.GENRES.storageKey
+            com.hitarashi.multibox.data.model.LibraryTabId.GENRES.storageKey
         )
     }
 

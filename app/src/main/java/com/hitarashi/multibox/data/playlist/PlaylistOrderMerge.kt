@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
 /**
  * Applies a reorder of the songs a playlist currently shows to its full stored order.

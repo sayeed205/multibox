@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.app.LocaleManager
 import android.content.ComponentCallbacks
@@ -9,7 +9,7 @@ import android.os.Build
 import android.os.LocaleList
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.lostf1sh.pixelplayeross.data.preferences.AppLanguage
+import com.hitarashi.multibox.data.preferences.AppLanguage
 import java.lang.ref.WeakReference
 import java.util.Locale
 

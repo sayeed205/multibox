@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.model
+package com.hitarashi.multibox.data.model
 
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 @Immutable
 enum class LibraryTabId(

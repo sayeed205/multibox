@@ -1,16 +1,16 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.os.PowerManager
 import android.os.SystemClock
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.data.model.PlaybackQueueItemSnapshot
-import com.lostf1sh.pixelplayeross.data.model.PlaybackQueueSnapshot
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.data.model.PlaybackQueueItemSnapshot
+import com.hitarashi.multibox.data.model.PlaybackQueueSnapshot
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.utils.MediaItemBuilder
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import io.mockk.every

@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.res.Resources
 import androidx.annotation.StringRes
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerSheetState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.viewmodel.PlayerSheetState
 
 /**
  * Test tags of the player sheet card, exposed to UiAutomator as its resource id. They stay the same

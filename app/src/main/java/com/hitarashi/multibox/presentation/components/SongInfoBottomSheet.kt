@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
@@ -77,26 +77,26 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.offline.CloudOfflineRepository
-import com.lostf1sh.pixelplayeross.data.offline.OfflineDownloadStatus
-import com.lostf1sh.pixelplayeross.presentation.components.subcomps.AutoSizingTextToFill
-import com.lostf1sh.pixelplayeross.utils.formatDuration
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.offline.CloudOfflineRepository
+import com.hitarashi.multibox.data.offline.OfflineDownloadStatus
+import com.hitarashi.multibox.presentation.components.subcomps.AutoSizingTextToFill
+import com.hitarashi.multibox.utils.formatDuration
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.core.net.toUri
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.data.media.CoverArtUpdate
-import com.lostf1sh.pixelplayeross.data.media.CustomMetadataChanges
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SongInfoBottomSheetViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SongInfoBottomSheetViewModel.ToneTarget
+import com.hitarashi.multibox.data.media.CoverArtUpdate
+import com.hitarashi.multibox.data.media.CustomMetadataChanges
+import com.hitarashi.multibox.presentation.viewmodel.SongInfoBottomSheetViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SongInfoBottomSheetViewModel.ToneTarget
 import kotlinx.coroutines.launch
 
 import androidx.compose.ui.graphics.TransformOrigin
-import com.lostf1sh.pixelplayeross.presentation.screens.TabAnimation
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils
+import com.hitarashi.multibox.presentation.screens.TabAnimation
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.AudioMetaUtils
 import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -995,7 +995,7 @@ fun SongInfoBottomSheet(
 
     val artistPickerSheetState = rememberModalSheetState(skipPartiallyExpanded = true)
     if (showArtistPicker && resolvedArtists.isNotEmpty()) {
-        com.lostf1sh.pixelplayeross.presentation.components.player.PlayerArtistPickerBottomSheet(
+        com.hitarashi.multibox.presentation.components.player.PlayerArtistPickerBottomSheet(
             song = song,
             artists = resolvedArtists,
             sheetState = artistPickerSheetState,

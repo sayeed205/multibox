@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import android.content.ContentResolver
 import android.content.ContentUris
@@ -14,33 +14,33 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
-import com.lostf1sh.pixelplayeross.data.database.AlbumEntity
-import com.lostf1sh.pixelplayeross.data.database.ArtistEntity
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongArtistCrossRef
-import com.lostf1sh.pixelplayeross.data.database.SongEntity
-import com.lostf1sh.pixelplayeross.data.database.SourceType
-import com.lostf1sh.pixelplayeross.data.database.serializeArtistRefs
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnostics
-import com.lostf1sh.pixelplayeross.data.diagnostics.PerformanceMetrics
-import com.lostf1sh.pixelplayeross.data.model.ArtistRef
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
-import com.lostf1sh.pixelplayeross.data.media.normalizeArtistMetadataValues
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.preferences.LocalAlbumGroupingSettings
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.LyricsRepository
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.service.PlaybackActivityTracker
-import com.lostf1sh.pixelplayeross.utils.AlbumArtCacheManager
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.AudioMetaUtils.getAudioMetadata
-import com.lostf1sh.pixelplayeross.utils.DirectoryRuleResolver
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
-import com.lostf1sh.pixelplayeross.utils.buildLocalAudioSelection
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataTextOrEmpty
-import com.lostf1sh.pixelplayeross.utils.splitArtistsByDelimiters
-import com.lostf1sh.pixelplayeross.utils.traceAsyncSection
+import com.hitarashi.multibox.data.database.AlbumEntity
+import com.hitarashi.multibox.data.database.ArtistEntity
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongArtistCrossRef
+import com.hitarashi.multibox.data.database.SongEntity
+import com.hitarashi.multibox.data.database.SourceType
+import com.hitarashi.multibox.data.database.serializeArtistRefs
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnostics
+import com.hitarashi.multibox.data.diagnostics.PerformanceMetrics
+import com.hitarashi.multibox.data.model.ArtistRef
+import com.hitarashi.multibox.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.media.normalizeArtistMetadataValues
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.preferences.LocalAlbumGroupingSettings
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.LyricsRepository
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.service.PlaybackActivityTracker
+import com.hitarashi.multibox.utils.AlbumArtCacheManager
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.AudioMetaUtils.getAudioMetadata
+import com.hitarashi.multibox.utils.DirectoryRuleResolver
+import com.hitarashi.multibox.utils.LocalArtworkUri
+import com.hitarashi.multibox.utils.buildLocalAudioSelection
+import com.hitarashi.multibox.utils.normalizeMetadataTextOrEmpty
+import com.hitarashi.multibox.utils.splitArtistsByDelimiters
+import com.hitarashi.multibox.utils.traceAsyncSection
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import java.io.File
@@ -1335,9 +1335,9 @@ constructor(
     }
 
     companion object {
-        const val WORK_NAME = "com.lostf1sh.pixelplayeross.data.worker.SyncWorker"
+        const val WORK_NAME = "com.hitarashi.multibox.data.worker.SyncWorker"
         const val PERIODIC_MAINTENANCE_WORK_NAME =
-            "com.lostf1sh.pixelplayeross.data.worker.SyncWorker.PeriodicMaintenance"
+            "com.hitarashi.multibox.data.worker.SyncWorker.PeriodicMaintenance"
         private const val TAG = "SyncWorker"
         private val localScanCommitMutex = Mutex()
         const val INPUT_FORCE_METADATA = "input_force_metadata"
@@ -1350,7 +1350,7 @@ constructor(
         // Tags requests that wait while music plays, so SyncManager can tell a sync sitting
         // in its playback-deferral backoff apart from other pending work.
         const val TAG_PLAYBACK_DEFERRABLE =
-            "com.lostf1sh.pixelplayeross.data.worker.SyncWorker.PlaybackDeferrable"
+            "com.hitarashi.multibox.data.worker.SyncWorker.PlaybackDeferrable"
         // INCREMENTAL syncs back off this many times while playback is active
         // before running anyway. With WorkManager's exponential backoff
         // (30s -> 60s -> 2m -> 4m -> 8m -> ...), 5 retries cover ~16 minutes.

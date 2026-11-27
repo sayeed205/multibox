@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.data.service
+package com.hitarashi.multibox.data.service
 
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
-import com.lostf1sh.pixelplayeross.data.model.QueueItem
+import com.hitarashi.multibox.data.model.QueueItem
 
 internal fun widgetQueuePreviewIndices(
     firstIndex: Int,

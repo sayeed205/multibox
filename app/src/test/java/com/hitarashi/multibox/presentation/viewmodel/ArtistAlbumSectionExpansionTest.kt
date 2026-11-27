@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test

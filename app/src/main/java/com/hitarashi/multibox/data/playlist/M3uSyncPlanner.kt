@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist
+package com.hitarashi.multibox.data.playlist
 
 import kotlinx.serialization.Serializable
 

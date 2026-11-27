@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import androidx.compose.runtime.Immutable
-import com.lostf1sh.pixelplayeross.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
+import com.hitarashi.multibox.data.stats.PlaybackStatsRepository.PlaybackStatsSummary
 
 /**
  * What the Home listening stats card shows. The card is always on Home, so "no history yet"

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import android.content.Context
 import android.content.res.Configuration
@@ -12,8 +12,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.ui.theme.LocalPixelPlayerDarkTheme
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.ui.theme.LocalPixelPlayerDarkTheme
 
 /**
  * Inflates an XML vector that depends on Android theme attrs using the app's

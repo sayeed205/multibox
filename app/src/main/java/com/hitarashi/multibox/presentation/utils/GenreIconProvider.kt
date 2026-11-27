@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.utils
+package com.hitarashi.multibox.presentation.utils
 
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 object GenreIconProvider {
 

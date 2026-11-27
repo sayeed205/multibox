@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
-import com.lostf1sh.pixelplayeross.utils.extractArtistsFromTitle
-import com.lostf1sh.pixelplayeross.utils.splitArtistsByDelimiters
+import com.hitarashi.multibox.utils.extractArtistsFromTitle
+import com.hitarashi.multibox.utils.splitArtistsByDelimiters
 
 internal fun collectArtistNames(
     rawArtistName: String,

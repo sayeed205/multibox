@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross
+package com.hitarashi.multibox
 
 import android.app.Application
 import android.app.NotificationChannel
@@ -13,19 +13,19 @@ import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import coil.ImageLoader
 import coil.ImageLoaderFactory
-import com.lostf1sh.pixelplayeross.data.diagnostics.AdvancedPerformanceDiagnosticsController
-import com.lostf1sh.pixelplayeross.data.media.SongMetadataEditor
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.playlist.M3uSyncCoordinator
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LibraryStateHolder
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ThemeStateHolder
-import com.lostf1sh.pixelplayeross.utils.AlbumArtCacheManager
-import com.lostf1sh.pixelplayeross.utils.FolderArtworkSettingsCoordinator
-import com.lostf1sh.pixelplayeross.utils.AppLocaleManager
-import com.lostf1sh.pixelplayeross.utils.CrashHandler
-import com.lostf1sh.pixelplayeross.utils.MediaMetadataRetrieverPool
-import com.lostf1sh.pixelplayeross.utils.PhoneOrientationPolicy
+import com.hitarashi.multibox.data.diagnostics.AdvancedPerformanceDiagnosticsController
+import com.hitarashi.multibox.data.media.SongMetadataEditor
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.playlist.M3uSyncCoordinator
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.presentation.viewmodel.LibraryStateHolder
+import com.hitarashi.multibox.presentation.viewmodel.ThemeStateHolder
+import com.hitarashi.multibox.utils.AlbumArtCacheManager
+import com.hitarashi.multibox.utils.FolderArtworkSettingsCoordinator
+import com.hitarashi.multibox.utils.AppLocaleManager
+import com.hitarashi.multibox.utils.CrashHandler
+import com.hitarashi.multibox.utils.MediaMetadataRetrieverPool
+import com.hitarashi.multibox.utils.PhoneOrientationPolicy
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,13 +45,13 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
     lateinit var imageLoader: dagger.Lazy<ImageLoader>
 
     @Inject
-    lateinit var navidromeCoilFetcherFactory: dagger.Lazy<com.lostf1sh.pixelplayeross.data.image.NavidromeCoilFetcher.Factory>
+    lateinit var navidromeCoilFetcherFactory: dagger.Lazy<com.hitarashi.multibox.data.image.NavidromeCoilFetcher.Factory>
 
     @Inject
-    lateinit var jellyfinCoilFetcherFactory: dagger.Lazy<com.lostf1sh.pixelplayeross.data.image.JellyfinCoilFetcher.Factory>
+    lateinit var jellyfinCoilFetcherFactory: dagger.Lazy<com.hitarashi.multibox.data.image.JellyfinCoilFetcher.Factory>
 
     @Inject
-    lateinit var localArtworkCoilFetcherFactory: dagger.Lazy<com.lostf1sh.pixelplayeross.data.image.LocalArtworkCoilFetcher.Factory>
+    lateinit var localArtworkCoilFetcherFactory: dagger.Lazy<com.hitarashi.multibox.data.image.LocalArtworkCoilFetcher.Factory>
 
     @Inject
     lateinit var themeStateHolder: dagger.Lazy<ThemeStateHolder>
@@ -69,7 +69,7 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
     lateinit var folderArtworkSettingsCoordinator: dagger.Lazy<FolderArtworkSettingsCoordinator>
 
     @Inject
-    lateinit var syncManager: dagger.Lazy<com.lostf1sh.pixelplayeross.data.worker.SyncManager>
+    lateinit var syncManager: dagger.Lazy<com.hitarashi.multibox.data.worker.SyncManager>
 
     @Inject
     lateinit var advancedPerformanceDiagnosticsController: dagger.Lazy<AdvancedPerformanceDiagnosticsController>
@@ -78,7 +78,7 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
     lateinit var m3uSyncCoordinator: dagger.Lazy<M3uSyncCoordinator>
 
     @Inject
-    lateinit var updateCheckScheduler: dagger.Lazy<com.lostf1sh.pixelplayeross.data.update.UpdateCheckScheduler>
+    lateinit var updateCheckScheduler: dagger.Lazy<com.hitarashi.multibox.data.update.UpdateCheckScheduler>
 
     @Inject
     lateinit var songMetadataEditor: dagger.Lazy<SongMetadataEditor>
@@ -171,8 +171,8 @@ class PixelPlayerApplication : Application(), ImageLoaderFactory, Configuration.
     override fun newImageLoader(): ImageLoader {
         return imageLoader.get().newBuilder()
             .components {
-                add(com.lostf1sh.pixelplayeross.data.image.SharedCloudArtworkStringMapper(packageName))
-                add(com.lostf1sh.pixelplayeross.data.image.SharedCloudArtworkUriMapper(packageName))
+                add(com.hitarashi.multibox.data.image.SharedCloudArtworkStringMapper(packageName))
+                add(com.hitarashi.multibox.data.image.SharedCloudArtworkUriMapper(packageName))
                 add(localArtworkCoilFetcherFactory.get())
                 add(navidromeCoilFetcherFactory.get())
                 add(jellyfinCoilFetcherFactory.get())

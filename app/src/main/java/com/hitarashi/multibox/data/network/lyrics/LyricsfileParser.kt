@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.network.lyrics
+package com.hitarashi.multibox.data.network.lyrics
 
 import java.util.Locale
 import org.yaml.snakeyaml.LoaderOptions

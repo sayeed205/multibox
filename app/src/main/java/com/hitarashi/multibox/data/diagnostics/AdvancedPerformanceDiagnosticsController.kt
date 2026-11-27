@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.diagnostics
+package com.hitarashi.multibox.data.diagnostics
 
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope

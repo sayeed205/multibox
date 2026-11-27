@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.settings.search
+package com.hitarashi.multibox.presentation.settings.search
 
 import android.content.Context
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.text.Normalizer
 import java.util.Locale
 import kotlin.math.max

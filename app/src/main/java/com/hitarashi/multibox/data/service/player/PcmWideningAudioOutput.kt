@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.service.player
+package com.hitarashi.multibox.data.service.player
 
 import android.media.AudioDeviceInfo
 import androidx.annotation.OptIn

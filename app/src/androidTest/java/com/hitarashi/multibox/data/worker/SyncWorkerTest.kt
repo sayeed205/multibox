@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import android.Manifest
 import android.content.Context
@@ -17,14 +17,14 @@ import androidx.work.WorkerParameters
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.workDataOf
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.database.AlbumEntity
-import com.lostf1sh.pixelplayeross.data.database.ArtistEntity
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.PixelPlayerDatabase
-import com.lostf1sh.pixelplayeross.data.database.SourceType
-import com.lostf1sh.pixelplayeross.data.preferences.LocalAlbumGroupingSettings
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.service.PlaybackActivityTracker
+import com.hitarashi.multibox.data.database.AlbumEntity
+import com.hitarashi.multibox.data.database.ArtistEntity
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.SourceType
+import com.hitarashi.multibox.data.preferences.LocalAlbumGroupingSettings
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.service.PlaybackActivityTracker
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk

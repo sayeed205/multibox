@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.glancewidget
+package com.hitarashi.multibox.ui.glancewidget
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -28,8 +28,8 @@ import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
-import com.lostf1sh.pixelplayeross.MainActivity
-import com.lostf1sh.pixelplayeross.data.model.PlayerInfo
+import com.hitarashi.multibox.MainActivity
+import com.hitarashi.multibox.data.model.PlayerInfo
 
 class GridWidget2x2 : GlanceAppWidget() {
 

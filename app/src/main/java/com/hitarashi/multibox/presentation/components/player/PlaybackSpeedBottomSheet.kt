@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,10 +20,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.PlaybackSpeedControls
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.PlaybackSpeedControls
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import kotlinx.coroutines.launch
 
 /**

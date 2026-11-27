@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.layout.Box
@@ -14,8 +14,8 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.preferences.SidebarShortcutKeys
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.preferences.SidebarShortcutKeys
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

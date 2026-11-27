@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
 
 
@@ -7,8 +7,8 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
 
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -18,40 +18,40 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 import androidx.core.net.toUri
-import com.lostf1sh.pixelplayeross.data.database.FavoritesDao
-import com.lostf1sh.pixelplayeross.data.database.GenreSongCountRow
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.PixelPlayerDatabase
-import com.lostf1sh.pixelplayeross.data.database.SearchHistoryDao
-import com.lostf1sh.pixelplayeross.data.database.SearchHistoryEntity
-import com.lostf1sh.pixelplayeross.data.database.toAlbum
-import com.lostf1sh.pixelplayeross.data.database.toArtist
-import com.lostf1sh.pixelplayeross.data.database.toSearchHistoryItem
-import com.lostf1sh.pixelplayeross.data.database.toSong
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.LyricsSourcePreference
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
-import com.lostf1sh.pixelplayeross.data.model.Playlist
-import com.lostf1sh.pixelplayeross.data.model.SearchFilterType
-import com.lostf1sh.pixelplayeross.data.model.SearchHistoryItem
-import com.lostf1sh.pixelplayeross.data.model.SearchResultItem
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.model.FolderSource
-import com.lostf1sh.pixelplayeross.data.model.StorageFilter
-import com.lostf1sh.pixelplayeross.data.preferences.PlaylistPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.ui.theme.GenreThemeUtils
-import com.lostf1sh.pixelplayeross.utils.DirectoryFilterUtils
-import com.lostf1sh.pixelplayeross.utils.GenreParser
-import com.lostf1sh.pixelplayeross.utils.LogUtils
-import com.lostf1sh.pixelplayeross.utils.StorageType
-import com.lostf1sh.pixelplayeross.utils.StorageUtils
-import com.lostf1sh.pixelplayeross.utils.lyricsContainPhrase
-import com.lostf1sh.pixelplayeross.utils.normalizeLyricSearchQuery
-import com.lostf1sh.pixelplayeross.utils.toHexString
+import com.hitarashi.multibox.data.database.FavoritesDao
+import com.hitarashi.multibox.data.database.GenreSongCountRow
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.PixelPlayerDatabase
+import com.hitarashi.multibox.data.database.SearchHistoryDao
+import com.hitarashi.multibox.data.database.SearchHistoryEntity
+import com.hitarashi.multibox.data.database.toAlbum
+import com.hitarashi.multibox.data.database.toArtist
+import com.hitarashi.multibox.data.database.toSearchHistoryItem
+import com.hitarashi.multibox.data.database.toSong
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.LyricsSourcePreference
+import com.hitarashi.multibox.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.Playlist
+import com.hitarashi.multibox.data.model.SearchFilterType
+import com.hitarashi.multibox.data.model.SearchHistoryItem
+import com.hitarashi.multibox.data.model.SearchResultItem
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.model.FolderSource
+import com.hitarashi.multibox.data.model.StorageFilter
+import com.hitarashi.multibox.data.preferences.PlaylistPreferencesRepository
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.ui.theme.GenreThemeUtils
+import com.hitarashi.multibox.utils.DirectoryFilterUtils
+import com.hitarashi.multibox.utils.GenreParser
+import com.hitarashi.multibox.utils.LogUtils
+import com.hitarashi.multibox.utils.StorageType
+import com.hitarashi.multibox.utils.StorageUtils
+import com.hitarashi.multibox.utils.lyricsContainPhrase
+import com.hitarashi.multibox.utils.normalizeLyricSearchQuery
+import com.hitarashi.multibox.utils.toHexString
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
@@ -83,7 +83,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.CoroutineScope
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
 import timber.log.Timber
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -204,7 +204,7 @@ class MusicRepositoryImpl @Inject constructor(
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    override fun getPaginatedSongs(sortOption: SortOption, storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter): Flow<PagingData<Song>> {
+    override fun getPaginatedSongs(sortOption: SortOption, storageFilter: com.hitarashi.multibox.data.model.StorageFilter): Flow<PagingData<Song>> {
         return songRepository.getPaginatedSongs(sortOption, storageFilter)
     }
 
@@ -883,7 +883,7 @@ class MusicRepositoryImpl @Inject constructor(
         val writeLocalFavorite: suspend () -> Unit = {
             if (isFavorite) {
                 favoritesDao.setFavorite(
-                    com.lostf1sh.pixelplayeross.data.database.FavoritesEntity(
+                    com.hitarashi.multibox.data.database.FavoritesEntity(
                         songId = id,
                         isFavorite = true
                     )
@@ -1115,7 +1115,7 @@ class MusicRepositoryImpl @Inject constructor(
 
     override suspend fun getSongIdsSorted(
         sortOption: SortOption,
-        storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
+        storageFilter: com.hitarashi.multibox.data.model.StorageFilter
     ): List<Long> = withContext(Dispatchers.IO) {
         val filter = cachedDirFilter.value
         musicDao.getSongIdsSorted(
@@ -1131,7 +1131,7 @@ class MusicRepositoryImpl @Inject constructor(
 
     override suspend fun getFavoriteSongIdsSorted(
         sortOption: SortOption,
-        storageFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
+        storageFilter: com.hitarashi.multibox.data.model.StorageFilter
     ): List<Long> = withContext(Dispatchers.IO) {
         val filter = cachedDirFilter.value
         musicDao.getFavoriteSongIdsSorted(

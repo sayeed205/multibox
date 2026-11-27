@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.navidrome.dashboard
+package com.hitarashi.multibox.presentation.navidrome.dashboard
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
@@ -39,15 +39,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.NavidromePlaylistEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeMusicFolder
-import com.lostf1sh.pixelplayeross.data.navidrome.selectedNavidromeMusicFolderIds
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.utils.formatTimeAgo
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.NavidromePlaylistEntity
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.navidrome.model.NavidromeMusicFolder
+import com.hitarashi.multibox.data.navidrome.selectedNavidromeMusicFolderIds
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.utils.formatTimeAgo
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.res.stringResource

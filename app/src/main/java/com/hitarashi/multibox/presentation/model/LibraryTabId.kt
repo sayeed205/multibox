@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.library
+package com.hitarashi.multibox.presentation.library
 
 import androidx.annotation.StringRes
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.SortOption
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.SortOption
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 

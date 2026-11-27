@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.snapping
+package com.hitarashi.multibox.presentation.components.snapping
 
 import androidx.compose.animation.core.AnimationScope
 import androidx.compose.animation.core.AnimationSpec

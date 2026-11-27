@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -49,14 +49,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.HapticFeedbackConstantsCompat
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.performAppCompatHapticFeedback
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.performAppCompatHapticFeedback
+import com.hitarashi.multibox.ui.theme.RoundedSans
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import kotlin.math.roundToInt
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.compose.ui.text.style.TextOverflow
 
 val predefinedTimes = listOf(0, 5, 10, 15, 20, 30, 45, 60)

@@ -1,16 +1,16 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.net.Uri
 import android.content.ComponentCallbacks2
 import androidx.compose.ui.graphics.Color
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtColorAccuracy
-import com.lostf1sh.pixelplayeross.data.preferences.AlbumArtPaletteStyle
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreferencesRepository
-import com.lostf1sh.pixelplayeross.ui.theme.DarkColorScheme
-import com.lostf1sh.pixelplayeross.ui.theme.clearExtractedColorCache
-import com.lostf1sh.pixelplayeross.utils.traceAsyncSection
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.LocalArtworkUri
+import com.hitarashi.multibox.data.preferences.AlbumArtColorAccuracy
+import com.hitarashi.multibox.data.preferences.AlbumArtPaletteStyle
+import com.hitarashi.multibox.data.preferences.ThemePreferencesRepository
+import com.hitarashi.multibox.ui.theme.DarkColorScheme
+import com.hitarashi.multibox.ui.theme.clearExtractedColorCache
+import com.hitarashi.multibox.utils.traceAsyncSection
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.LocalArtworkUri
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -76,7 +76,7 @@ class ThemeStateHolder @Inject constructor(
                 _currentAlbumArtColorSchemePair
             ) { playerPref, useNowPlayingColorsAppWide, albumScheme ->
                 if (
-                    playerPref == com.lostf1sh.pixelplayeross.data.preferences.ThemePreference.ALBUM_ART ||
+                    playerPref == com.hitarashi.multibox.data.preferences.ThemePreference.ALBUM_ART ||
                     useNowPlayingColorsAppWide
                 ) {
                     albumScheme

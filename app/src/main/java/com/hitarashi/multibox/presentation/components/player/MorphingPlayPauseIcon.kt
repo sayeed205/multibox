@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.player
+package com.hitarashi.multibox.presentation.components.player
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Canvas
@@ -21,7 +21,7 @@ import androidx.graphics.shapes.CornerRounding
 import androidx.graphics.shapes.Morph
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.toPath
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 private val ICON_CORNER = CornerRounding(radius = 0.07f)
 private val SEAM_CORNER = CornerRounding.Unrounded

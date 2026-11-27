@@ -1,13 +1,13 @@
-package com.lostf1sh.pixelplayeross.presentation.jellyfin.dashboard
+package com.hitarashi.multibox.presentation.jellyfin.dashboard
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.database.JellyfinPlaylistEntity
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.jellyfin.JellyfinRepository
-import com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinLibrary
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.database.JellyfinPlaylistEntity
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.jellyfin.JellyfinRepository
+import com.hitarashi.multibox.data.jellyfin.model.JellyfinLibrary
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow

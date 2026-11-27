@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.equalizer
+package com.hitarashi.multibox.data.equalizer
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test

@@ -1,14 +1,14 @@
-package com.lostf1sh.pixelplayeross.data.backup.validation
+package com.hitarashi.multibox.data.backup.validation
 
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupReader
-import com.lostf1sh.pixelplayeross.data.backup.format.BackupFormatDetector
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupManifest
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupValidationResult
-import com.lostf1sh.pixelplayeross.data.backup.model.Severity
-import com.lostf1sh.pixelplayeross.data.backup.model.ValidationError
+import com.hitarashi.multibox.data.backup.format.BackupReader
+import com.hitarashi.multibox.data.backup.format.BackupFormatDetector
+import com.hitarashi.multibox.data.backup.model.BackupManifest
+import com.hitarashi.multibox.data.backup.model.BackupValidationResult
+import com.hitarashi.multibox.data.backup.model.Severity
+import com.hitarashi.multibox.data.backup.model.ValidationError
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.InputStream
 import java.util.zip.ZipInputStream

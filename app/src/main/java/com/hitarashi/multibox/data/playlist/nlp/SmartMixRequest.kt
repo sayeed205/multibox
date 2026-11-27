@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.playlist.nlp
+package com.hitarashi.multibox.data.playlist.nlp
 
 /** Only user-selected controls become constraints. An untouched energy slider is automatic. */
 object SmartMixRequest {

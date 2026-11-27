@@ -1,8 +1,8 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.CarouselStyle
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue

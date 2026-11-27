@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.stream
+package com.hitarashi.multibox.data.stream
 
 import android.net.Uri
 import io.ktor.http.ContentType

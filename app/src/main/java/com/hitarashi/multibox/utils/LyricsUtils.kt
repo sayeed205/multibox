@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.os.Build
 import androidx.compose.animation.core.LinearEasing
@@ -43,10 +43,10 @@ import net.sourceforge.pinyin4j.PinyinHelper
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType
-import com.lostf1sh.pixelplayeross.data.model.BackgroundVocals
-import com.lostf1sh.pixelplayeross.data.model.Lyrics
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.SyncedWord
+import com.hitarashi.multibox.data.model.BackgroundVocals
+import com.hitarashi.multibox.data.model.Lyrics
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.SyncedWord
 import kotlinx.coroutines.flow.Flow
 import timber.log.Timber
 

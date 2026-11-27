@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.screens.search.components
+package com.hitarashi.multibox.presentation.screens.search.components
 
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import androidx.annotation.DrawableRes
 import java.text.Normalizer
 import java.util.Locale

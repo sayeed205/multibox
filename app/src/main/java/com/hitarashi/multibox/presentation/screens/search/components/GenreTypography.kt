@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens.search.components
+package com.hitarashi.multibox.presentation.screens.search.components
 
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -10,7 +10,7 @@ import androidx.compose.ui.text.style.Hyphens
 import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.text.BreakIterator
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt

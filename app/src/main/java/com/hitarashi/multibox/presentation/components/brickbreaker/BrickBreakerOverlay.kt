@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.brickbreaker
+package com.hitarashi.multibox.presentation.components.brickbreaker
 
 import android.content.Context
 import androidx.compose.foundation.Canvas
@@ -71,10 +71,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.utils.LocalAppHapticsConfig
-import com.lostf1sh.pixelplayeross.presentation.utils.performAppHapticFeedback
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.utils.LocalAppHapticsConfig
+import com.hitarashi.multibox.presentation.utils.performAppHapticFeedback
 import kotlinx.coroutines.isActive
 import kotlin.math.abs
 import kotlin.math.ceil

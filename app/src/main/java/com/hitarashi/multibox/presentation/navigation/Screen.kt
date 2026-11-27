@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.navigation
+package com.hitarashi.multibox.presentation.navigation
 
 import android.net.Uri
 import androidx.compose.runtime.Immutable

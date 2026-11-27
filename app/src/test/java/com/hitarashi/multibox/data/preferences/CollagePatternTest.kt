@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 import java.io.File
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals

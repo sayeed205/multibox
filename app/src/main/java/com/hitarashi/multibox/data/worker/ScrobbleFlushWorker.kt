@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.worker
+package com.hitarashi.multibox.data.worker
 
 import android.content.Context
 import androidx.hilt.work.HiltWorker
@@ -9,10 +9,10 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzDao
-import com.lostf1sh.pixelplayeross.data.database.ListenBrainzPendingListenEntity
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzRepository
-import com.lostf1sh.pixelplayeross.data.listenbrainz.ListenBrainzSubmitResult
+import com.hitarashi.multibox.data.database.ListenBrainzDao
+import com.hitarashi.multibox.data.database.ListenBrainzPendingListenEntity
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzRepository
+import com.hitarashi.multibox.data.listenbrainz.ListenBrainzSubmitResult
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import timber.log.Timber

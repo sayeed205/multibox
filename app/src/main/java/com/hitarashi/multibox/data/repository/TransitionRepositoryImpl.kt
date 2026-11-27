@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
-import com.lostf1sh.pixelplayeross.data.database.TransitionDao
-import com.lostf1sh.pixelplayeross.data.database.TransitionRuleEntity
-import com.lostf1sh.pixelplayeross.data.model.TransitionResolution
-import com.lostf1sh.pixelplayeross.data.model.TransitionRule
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
-import com.lostf1sh.pixelplayeross.data.model.TransitionSource
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.database.TransitionDao
+import com.hitarashi.multibox.data.database.TransitionRuleEntity
+import com.hitarashi.multibox.data.model.TransitionResolution
+import com.hitarashi.multibox.data.model.TransitionRule
+import com.hitarashi.multibox.data.model.TransitionSettings
+import com.hitarashi.multibox.data.model.TransitionSource
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest

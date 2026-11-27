@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.ui.theme
+package com.hitarashi.multibox.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextGeometricTransform
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 
 @OptIn(ExperimentalTextApi::class)

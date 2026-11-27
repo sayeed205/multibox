@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.preferences
+package com.hitarashi.multibox.data.preferences
 
 /**
  * Shortcuts the user can show or hide in the app sidebar. Settings is always shown.

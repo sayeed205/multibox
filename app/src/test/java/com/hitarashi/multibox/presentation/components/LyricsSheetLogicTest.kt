@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.ui.unit.dp
-import com.lostf1sh.pixelplayeross.data.model.BackgroundVocals
-import com.lostf1sh.pixelplayeross.data.model.SyncedLine
-import com.lostf1sh.pixelplayeross.data.model.SyncedWord
+import com.hitarashi.multibox.data.model.BackgroundVocals
+import com.hitarashi.multibox.data.model.SyncedLine
+import com.hitarashi.multibox.data.model.SyncedWord
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue

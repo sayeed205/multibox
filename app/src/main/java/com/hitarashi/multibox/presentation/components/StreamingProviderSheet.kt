@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import android.content.Intent
 import androidx.compose.foundation.background
@@ -24,10 +24,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.jellyfin.auth.JellyfinLoginActivity
-import com.lostf1sh.pixelplayeross.presentation.navidrome.auth.NavidromeLoginActivity
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.jellyfin.auth.JellyfinLoginActivity
+import com.hitarashi.multibox.presentation.navidrome.auth.NavidromeLoginActivity
+import com.hitarashi.multibox.ui.theme.RoundedSans
 
 /**
  * Bottom sheet that lets the user choose between streaming providers.

@@ -1,14 +1,14 @@
-package com.lostf1sh.pixelplayeross.data.paging
+package com.hitarashi.multibox.data.paging
 
 import android.content.ContentUris
 import android.content.Context
 import android.provider.MediaStore
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.utils.AlbumArtUtils
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataText
-import com.lostf1sh.pixelplayeross.utils.normalizeMetadataTextOrEmpty
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.utils.AlbumArtUtils
+import com.hitarashi.multibox.utils.normalizeMetadataText
+import com.hitarashi.multibox.utils.normalizeMetadataTextOrEmpty
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber

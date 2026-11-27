@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 /**
  * Resolves directory allow/deny rules using the nearest ancestor match strategy.

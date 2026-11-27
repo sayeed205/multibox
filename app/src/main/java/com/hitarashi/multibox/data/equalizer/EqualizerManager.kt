@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.equalizer
+package com.hitarashi.multibox.data.equalizer
 
-import com.lostf1sh.pixelplayeross.data.preferences.EqualizerPreferencesRepository
+import com.hitarashi.multibox.data.preferences.EqualizerPreferencesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.presentation.navidrome.auth
+package com.hitarashi.multibox.presentation.navidrome.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import com.lostf1sh.pixelplayeross.data.navidrome.NavidromeRepository
-import com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeMusicFolder
-import com.lostf1sh.pixelplayeross.data.worker.NavidromeSyncWorker
+import com.hitarashi.multibox.data.navidrome.NavidromeRepository
+import com.hitarashi.multibox.data.navidrome.model.NavidromeMusicFolder
+import com.hitarashi.multibox.data.worker.NavidromeSyncWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList

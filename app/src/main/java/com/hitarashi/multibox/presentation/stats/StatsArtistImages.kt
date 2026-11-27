@@ -1,7 +1,7 @@
-package com.lostf1sh.pixelplayeross.presentation.stats
+package com.hitarashi.multibox.presentation.stats
 
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope

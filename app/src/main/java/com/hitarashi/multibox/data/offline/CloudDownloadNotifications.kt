@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.offline
+package com.hitarashi.multibox.data.offline
 
 import android.Manifest
 import android.app.NotificationChannel
@@ -9,7 +9,7 @@ import android.os.Build
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import com.lostf1sh.pixelplayeross.R
+import com.hitarashi.multibox.R
 
 internal object CloudDownloadNotifications {
     private const val CHANNEL_ID = "cloud_download_results"

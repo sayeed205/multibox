@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.Context
 import android.os.PowerManager
@@ -7,10 +7,10 @@ import androidx.media3.session.MediaController
 import androidx.media3.common.Player
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
-import com.lostf1sh.pixelplayeross.data.service.player.DualPlayerEngine
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.preferences.shouldRestartCurrentTrack
+import com.hitarashi.multibox.data.service.player.DualPlayerEngine
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.preferences.shouldRestartCurrentTrack
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,10 +28,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.data.model.Song
 import timber.log.Timber
-import com.lostf1sh.pixelplayeross.utils.QueueUtils
-import com.lostf1sh.pixelplayeross.utils.MediaItemBuilder
+import com.hitarashi.multibox.utils.QueueUtils
+import com.hitarashi.multibox.utils.MediaItemBuilder
 import kotlin.math.abs
 
 @Singleton

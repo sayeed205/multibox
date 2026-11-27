@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.navigation
+package com.hitarashi.multibox.presentation.navigation
 
 internal fun isMainRootRoute(route: String?): Boolean = when (route) {
     Screen.Home.route,

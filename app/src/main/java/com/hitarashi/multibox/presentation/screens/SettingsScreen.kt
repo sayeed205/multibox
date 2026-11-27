@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Animatable
@@ -88,22 +88,22 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveTopBarContent
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.settings.search.SettingsFuzzySearchEngine
-import com.lostf1sh.pixelplayeross.presentation.settings.search.SettingsRegistry
-import com.lostf1sh.pixelplayeross.presentation.settings.search.SettingsSearchResultsContent
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.ExpressiveTopBarContent
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.settings.search.SettingsFuzzySearchEngine
+import com.hitarashi.multibox.presentation.settings.search.SettingsRegistry
+import com.hitarashi.multibox.presentation.settings.search.SettingsSearchResultsContent
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
 import androidx.navigation.NavController
-import com.lostf1sh.pixelplayeross.data.preferences.LaunchTab
+import com.hitarashi.multibox.data.preferences.LaunchTab
 
 @androidx.annotation.OptIn(UnstableApi::class)
 @OptIn(ExperimentalMaterial3Api::class)
@@ -424,7 +424,7 @@ fun SettingsScreen(
 
         var isTransitioning by remember { mutableStateOf(true) }
         LaunchedEffect(Unit) {
-            kotlinx.coroutines.delay(com.lostf1sh.pixelplayeross.presentation.navigation.TRANSITION_DURATION.toLong())
+            kotlinx.coroutines.delay(com.hitarashi.multibox.presentation.navigation.TRANSITION_DURATION.toLong())
             isTransitioning = false
         }
 

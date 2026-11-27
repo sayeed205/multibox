@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.data.musicbrainz
+package com.hitarashi.multibox.data.musicbrainz
 
 import com.google.common.truth.Truth.assertThat
 import org.json.JSONObject

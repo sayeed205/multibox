@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -51,15 +51,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.SmartImage
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.DeckState
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.MashupViewModel
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.SmartImage
+import com.hitarashi.multibox.presentation.viewmodel.DeckState
+import com.hitarashi.multibox.presentation.viewmodel.MashupViewModel
 import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
-import com.lostf1sh.pixelplayeross.presentation.components.rememberSyncedSliderState
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.presentation.components.rememberSyncedSliderState
 
 @androidx.annotation.OptIn(UnstableApi::class)
 @OptIn(ExperimentalMaterial3Api::class)

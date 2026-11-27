@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.MainCoroutineExtension
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
+import com.hitarashi.multibox.MainCoroutineExtension
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.worker.SyncManager
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every

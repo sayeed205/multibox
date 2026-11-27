@@ -1,9 +1,9 @@
-package com.lostf1sh.pixelplayeross.data.stats
+package com.hitarashi.multibox.data.stats
 
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.ArtistRef
-import com.lostf1sh.pixelplayeross.data.model.Song
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.ArtistRef
+import com.hitarashi.multibox.data.model.Song
 import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalDate

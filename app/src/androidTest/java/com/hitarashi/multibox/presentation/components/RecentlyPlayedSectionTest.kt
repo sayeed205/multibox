@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components
+package com.hitarashi.multibox.presentation.components
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.semantics.SemanticsActions
@@ -13,10 +13,10 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.model.RecentlyPlayedSongUiModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ThemeStateHolder
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.model.RecentlyPlayedSongUiModel
+import com.hitarashi.multibox.presentation.viewmodel.ThemeStateHolder
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.collections.immutable.toImmutableList

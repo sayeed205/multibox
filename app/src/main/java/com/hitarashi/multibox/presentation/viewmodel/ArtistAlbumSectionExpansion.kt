@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 /** Identifies an album section across reloads; also the base of its LazyColumn item keys. */
 internal fun ArtistAlbumSection.collapseKey(): String = "artist_album_${albumId}_${title}"

@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.viewmodel
+package com.hitarashi.multibox.presentation.viewmodel
 
 import android.content.ComponentCallbacks2
 import android.os.Trace
@@ -7,15 +7,15 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
-import com.lostf1sh.pixelplayeross.data.model.Album
-import com.lostf1sh.pixelplayeross.data.model.Artist
-import com.lostf1sh.pixelplayeross.data.model.Genre
-import com.lostf1sh.pixelplayeross.data.model.LibraryTabId
-import com.lostf1sh.pixelplayeross.data.model.MusicFolder
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.model.SortOption
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.MusicRepository
+import com.hitarashi.multibox.data.model.Album
+import com.hitarashi.multibox.data.model.Artist
+import com.hitarashi.multibox.data.model.Genre
+import com.hitarashi.multibox.data.model.LibraryTabId
+import com.hitarashi.multibox.data.model.MusicFolder
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.model.SortOption
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.MusicRepository
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -35,7 +35,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 private const val ENABLE_FOLDERS_STORAGE_FILTER = false
-/** [com.lostf1sh.pixelplayeross.data.model.Genre.id] of the bucket for songs without a genre tag. */
+/** [com.hitarashi.multibox.data.model.Genre.id] of the bucket for songs without a genre tag. */
 internal const val UNKNOWN_GENRE_ID = "unknown"
 
 /**
@@ -101,7 +101,7 @@ class LibraryStateHolder @Inject constructor(
     private val _currentSongSortOption = MutableStateFlow<SortOption>(SortOption.SongDefaultOrder)
     val currentSongSortOption = _currentSongSortOption.asStateFlow()
 
-    private val _currentStorageFilter = MutableStateFlow(com.lostf1sh.pixelplayeross.data.model.StorageFilter.ALL)
+    private val _currentStorageFilter = MutableStateFlow(com.hitarashi.multibox.data.model.StorageFilter.ALL)
     val currentStorageFilter = _currentStorageFilter.asStateFlow()
 
     /**
@@ -109,21 +109,21 @@ class LibraryStateHolder @Inject constructor(
      * When hideLocalMedia is true, forces ONLINE filter (excludes source_type = 0).
      */
     @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
-    private val effectiveStorageFilter: kotlinx.coroutines.flow.Flow<com.lostf1sh.pixelplayeross.data.model.StorageFilter> =
+    private val effectiveStorageFilter: kotlinx.coroutines.flow.Flow<com.hitarashi.multibox.data.model.StorageFilter> =
         kotlinx.coroutines.flow.combine(
             _currentStorageFilter,
             userPreferencesRepository.hideLocalMediaFlow
         ) { filter, hideLocal ->
-            if (hideLocal) com.lostf1sh.pixelplayeross.data.model.StorageFilter.ONLINE else filter
+            if (hideLocal) com.hitarashi.multibox.data.model.StorageFilter.ONLINE else filter
         }
 
     private fun effectiveFoldersStorageFilter(
-        selectedFilter: com.lostf1sh.pixelplayeross.data.model.StorageFilter
-    ): com.lostf1sh.pixelplayeross.data.model.StorageFilter {
+        selectedFilter: com.hitarashi.multibox.data.model.StorageFilter
+    ): com.hitarashi.multibox.data.model.StorageFilter {
         return if (ENABLE_FOLDERS_STORAGE_FILTER) {
             selectedFilter
         } else {
-            com.lostf1sh.pixelplayeross.data.model.StorageFilter.OFFLINE
+            com.hitarashi.multibox.data.model.StorageFilter.OFFLINE
         }
     }
 
@@ -580,7 +580,7 @@ class LibraryStateHolder @Inject constructor(
         }
     }
 
-    fun setStorageFilter(filter: com.lostf1sh.pixelplayeross.data.model.StorageFilter) {
+    fun setStorageFilter(filter: com.hitarashi.multibox.data.model.StorageFilter) {
         _currentStorageFilter.value = filter
         scope?.launch {
             userPreferencesRepository.saveLastStorageFilter(filter)

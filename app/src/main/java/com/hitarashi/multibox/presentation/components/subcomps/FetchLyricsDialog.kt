@@ -1,4 +1,4 @@
-package com.lostf1sh.pixelplayeross.presentation.components.subcomps
+package com.hitarashi.multibox.presentation.components.subcomps
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -52,12 +52,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.data.repository.LyricsSearchResult
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LyricsSearchUiState
-import com.lostf1sh.pixelplayeross.utils.ProviderText
-import com.lostf1sh.pixelplayeross.utils.shapes.RoundedStarShape
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.data.repository.LyricsSearchResult
+import com.hitarashi.multibox.presentation.viewmodel.LyricsSearchUiState
+import com.hitarashi.multibox.utils.ProviderText
+import com.hitarashi.multibox.utils.shapes.RoundedStarShape
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable

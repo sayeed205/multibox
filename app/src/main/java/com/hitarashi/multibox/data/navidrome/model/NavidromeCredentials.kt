@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.navidrome.model
+package com.hitarashi.multibox.data.navidrome.model
 
-import com.lostf1sh.pixelplayeross.data.stream.CloudStreamSecurity
+import com.hitarashi.multibox.data.stream.CloudStreamSecurity
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 
@@ -12,7 +12,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * 2. Password in URL (p=enc:xxx) - used only when the server rejects tokens
  *
  * Which one is in play is tracked by the API client, not here; see
- * [com.lostf1sh.pixelplayeross.data.navidrome.model.NavidromeAuthMethod].
+ * [com.hitarashi.multibox.data.navidrome.model.NavidromeAuthMethod].
  *
  * @property serverUrl The base URL of the Navidrome server (e.g., "https://music.example.com")
  * @property username The username for authentication
@@ -52,7 +52,7 @@ data class NavidromeCredentials(
      * Returns the parsed and normalized server URL, or null if it is invalid.
      *
      * A URL typed without a scheme gets `http://` when its host is a local network or VPN
-     * address and `https://` otherwise, matching [com.lostf1sh.pixelplayeross.data.jellyfin.model.JellyfinCredentials].
+     * address and `https://` otherwise, matching [com.hitarashi.multibox.data.jellyfin.model.JellyfinCredentials].
      */
     val normalizedHttpUrlOrNull: HttpUrl?
         get() {

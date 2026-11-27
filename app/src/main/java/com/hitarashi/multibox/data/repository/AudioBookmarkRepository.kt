@@ -1,6 +1,6 @@
-package com.lostf1sh.pixelplayeross.data.repository
+package com.hitarashi.multibox.data.repository
 
-import com.lostf1sh.pixelplayeross.data.database.AudioBookmarkEntity
+import com.hitarashi.multibox.data.database.AudioBookmarkEntity
 import kotlinx.coroutines.flow.Flow
 
 interface AudioBookmarkRepository {

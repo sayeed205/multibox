@@ -1,9 +1,9 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.lostf1sh.pixelplayeross.presentation.screens
+package com.hitarashi.multibox.presentation.screens
 
-import com.lostf1sh.pixelplayeross.presentation.navigation.navigateSafely
-import com.lostf1sh.pixelplayeross.presentation.components.BackupModuleSelectionDialog
+import com.hitarashi.multibox.presentation.navigation.navigateSafely
+import com.hitarashi.multibox.presentation.components.BackupModuleSelectionDialog
 import java.text.SimpleDateFormat
 import java.util.Date
 import androidx.compose.animation.core.animateFloatAsState
@@ -160,43 +160,43 @@ import kotlin.math.roundToInt
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import com.lostf1sh.pixelplayeross.R
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupHistoryEntry
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupOperationType
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupSection
-import com.lostf1sh.pixelplayeross.data.backup.model.BackupTransferProgressUpdate
-import com.lostf1sh.pixelplayeross.data.backup.model.ModuleRestoreDetail
-import com.lostf1sh.pixelplayeross.data.backup.model.RestorePlan
-import com.lostf1sh.pixelplayeross.data.model.AudioOutputMode
-import com.lostf1sh.pixelplayeross.data.preferences.AppLanguage
-import com.lostf1sh.pixelplayeross.data.preferences.AppThemeMode
-import com.lostf1sh.pixelplayeross.data.preferences.CollagePattern
-import com.lostf1sh.pixelplayeross.data.preferences.CarouselStyle
-import com.lostf1sh.pixelplayeross.data.preferences.LaunchTab
-import com.lostf1sh.pixelplayeross.data.preferences.LibraryNavigationMode
-import com.lostf1sh.pixelplayeross.data.preferences.NavBarStyle
-import com.lostf1sh.pixelplayeross.data.preferences.PreviousButtonBehavior
-import com.lostf1sh.pixelplayeross.data.preferences.SwipeToQueueAction
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreference
-import com.lostf1sh.pixelplayeross.data.preferences.ThemePreset
-import com.lostf1sh.pixelplayeross.data.preferences.InterfaceAppearance
-import com.lostf1sh.pixelplayeross.utils.isIgnoringBatteryOptimizations
-import com.lostf1sh.pixelplayeross.utils.openBatteryOptimizationSettings
-import com.lostf1sh.pixelplayeross.data.model.Song
-import com.lostf1sh.pixelplayeross.presentation.components.CollapsibleCommonTopBar
-import com.lostf1sh.pixelplayeross.presentation.components.ExpressiveTopBarContent
-import com.lostf1sh.pixelplayeross.presentation.components.MiniPlayerHeight
-import com.lostf1sh.pixelplayeross.presentation.components.PlaybackSpeedControls
-import com.lostf1sh.pixelplayeross.presentation.model.SettingsCategory
-import com.lostf1sh.pixelplayeross.presentation.navigation.Screen
-import com.lostf1sh.pixelplayeross.presentation.settings.search.settingHighlight
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.LyricsRefreshProgress
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.M3uSyncViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.PlayerViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SettingsViewModel
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.SmartMixViewModel
-import com.lostf1sh.pixelplayeross.ui.theme.RoundedSans
-import com.lostf1sh.pixelplayeross.presentation.components.rememberModalSheetState
+import com.hitarashi.multibox.R
+import com.hitarashi.multibox.data.backup.model.BackupHistoryEntry
+import com.hitarashi.multibox.data.backup.model.BackupOperationType
+import com.hitarashi.multibox.data.backup.model.BackupSection
+import com.hitarashi.multibox.data.backup.model.BackupTransferProgressUpdate
+import com.hitarashi.multibox.data.backup.model.ModuleRestoreDetail
+import com.hitarashi.multibox.data.backup.model.RestorePlan
+import com.hitarashi.multibox.data.model.AudioOutputMode
+import com.hitarashi.multibox.data.preferences.AppLanguage
+import com.hitarashi.multibox.data.preferences.AppThemeMode
+import com.hitarashi.multibox.data.preferences.CollagePattern
+import com.hitarashi.multibox.data.preferences.CarouselStyle
+import com.hitarashi.multibox.data.preferences.LaunchTab
+import com.hitarashi.multibox.data.preferences.LibraryNavigationMode
+import com.hitarashi.multibox.data.preferences.NavBarStyle
+import com.hitarashi.multibox.data.preferences.PreviousButtonBehavior
+import com.hitarashi.multibox.data.preferences.SwipeToQueueAction
+import com.hitarashi.multibox.data.preferences.ThemePreference
+import com.hitarashi.multibox.data.preferences.ThemePreset
+import com.hitarashi.multibox.data.preferences.InterfaceAppearance
+import com.hitarashi.multibox.utils.isIgnoringBatteryOptimizations
+import com.hitarashi.multibox.utils.openBatteryOptimizationSettings
+import com.hitarashi.multibox.data.model.Song
+import com.hitarashi.multibox.presentation.components.CollapsibleCommonTopBar
+import com.hitarashi.multibox.presentation.components.ExpressiveTopBarContent
+import com.hitarashi.multibox.presentation.components.MiniPlayerHeight
+import com.hitarashi.multibox.presentation.components.PlaybackSpeedControls
+import com.hitarashi.multibox.presentation.model.SettingsCategory
+import com.hitarashi.multibox.presentation.navigation.Screen
+import com.hitarashi.multibox.presentation.settings.search.settingHighlight
+import com.hitarashi.multibox.presentation.viewmodel.LyricsRefreshProgress
+import com.hitarashi.multibox.presentation.viewmodel.M3uSyncViewModel
+import com.hitarashi.multibox.presentation.viewmodel.PlayerViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SettingsViewModel
+import com.hitarashi.multibox.presentation.viewmodel.SmartMixViewModel
+import com.hitarashi.multibox.ui.theme.RoundedSans
+import com.hitarashi.multibox.presentation.components.rememberModalSheetState
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 
@@ -214,7 +214,7 @@ fun SettingsCategoryScreen(
     playerViewModel: PlayerViewModel,
     settingsViewModel: SettingsViewModel = hiltViewModel(),
     m3uSyncViewModel: M3uSyncViewModel = hiltViewModel(),
-    statsViewModel: com.lostf1sh.pixelplayeross.presentation.viewmodel.StatsViewModel = hiltViewModel(),
+    statsViewModel: com.hitarashi.multibox.presentation.viewmodel.StatsViewModel = hiltViewModel(),
     smartMixViewModel: SmartMixViewModel = hiltViewModel(),
     onBackClick: () -> Unit
 ) {
@@ -271,7 +271,7 @@ fun SettingsCategoryScreen(
         Toast.makeText(context, folderArtRefreshingMessage, Toast.LENGTH_SHORT).show()
     }
     val folderArtPermissions = remember {
-        com.lostf1sh.pixelplayeross.utils.folderArtworkPermissions(Build.VERSION.SDK_INT)
+        com.hitarashi.multibox.utils.folderArtworkPermissions(Build.VERSION.SDK_INT)
     }
     val imagesPermissionState = rememberMultiplePermissionsState(folderArtPermissions) { grants ->
         if (grants[folderArtPermissions.first()] == true) {
@@ -1432,7 +1432,7 @@ fun SettingsCategoryScreen(
 
         var isTransitioning by remember { mutableStateOf(true) }
         LaunchedEffect(Unit) {
-            kotlinx.coroutines.delay(com.lostf1sh.pixelplayeross.presentation.navigation.TRANSITION_DURATION.toLong())
+            kotlinx.coroutines.delay(com.hitarashi.multibox.presentation.navigation.TRANSITION_DURATION.toLong())
             isTransitioning = false
         }
         

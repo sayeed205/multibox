@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.data.backup.module
+package com.hitarashi.multibox.data.backup.module
 
 import com.google.gson.GsonBuilder
-import com.lostf1sh.pixelplayeross.data.database.MusicDao
-import com.lostf1sh.pixelplayeross.data.database.SongSummary
-import com.lostf1sh.pixelplayeross.data.database.TransitionDao
-import com.lostf1sh.pixelplayeross.data.database.TransitionRuleEntity
-import com.lostf1sh.pixelplayeross.data.model.TransitionSettings
+import com.hitarashi.multibox.data.database.MusicDao
+import com.hitarashi.multibox.data.database.SongSummary
+import com.hitarashi.multibox.data.database.TransitionDao
+import com.hitarashi.multibox.data.database.TransitionRuleEntity
+import com.hitarashi.multibox.data.model.TransitionSettings
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify

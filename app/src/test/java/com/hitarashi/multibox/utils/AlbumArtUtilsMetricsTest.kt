@@ -1,11 +1,11 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.media.MediaMetadataRetriever
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.diagnostics.PerformanceMetrics
-import com.lostf1sh.pixelplayeross.data.media.AudioMetadataReader
+import com.hitarashi.multibox.data.diagnostics.PerformanceMetrics
+import com.hitarashi.multibox.data.media.AudioMetadataReader
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject

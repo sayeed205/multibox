@@ -1,12 +1,12 @@
-package com.lostf1sh.pixelplayeross.utils
+package com.hitarashi.multibox.utils
 
 import android.content.Context
 import com.google.common.truth.Truth.assertThat
-import com.lostf1sh.pixelplayeross.data.media.ImageCacheManager
-import com.lostf1sh.pixelplayeross.data.preferences.UserPreferencesRepository
-import com.lostf1sh.pixelplayeross.data.repository.ArtistImageRepository
-import com.lostf1sh.pixelplayeross.data.worker.SyncManager
-import com.lostf1sh.pixelplayeross.presentation.viewmodel.ColorSchemeProcessor
+import com.hitarashi.multibox.data.media.ImageCacheManager
+import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
+import com.hitarashi.multibox.data.repository.ArtistImageRepository
+import com.hitarashi.multibox.data.worker.SyncManager
+import com.hitarashi.multibox.presentation.viewmodel.ColorSchemeProcessor
 import dagger.Lazy
 import io.mockk.Runs
 import io.mockk.coEvery
