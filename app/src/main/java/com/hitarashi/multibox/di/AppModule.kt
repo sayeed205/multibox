@@ -16,6 +16,7 @@ import com.hitarashi.multibox.MultiboxApplication
 import com.hitarashi.multibox.data.database.AlbumArtThemeDao
 import com.hitarashi.multibox.data.database.FavoritesDao
 import com.hitarashi.multibox.data.database.LyricsDao
+import com.hitarashi.multibox.data.database.MultiboxDatabase
 import com.hitarashi.multibox.data.database.MusicDao
 import com.hitarashi.multibox.data.database.SearchHistoryDao
 import com.hitarashi.multibox.data.preferences.UserPreferencesRepository
